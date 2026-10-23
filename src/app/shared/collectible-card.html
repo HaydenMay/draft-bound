@@ -1,0 +1,13 @@
+<article class="collectible" [class]="'collectible frame-' + card().frame" [class.is-foil]="card().foil" [style.--card-primary]="card().colors[0]" [style.--card-secondary]="card().colors[1]" data-export-card [attr.data-card-edition]="card().edition" [attr.aria-label]="card().name + ', ' + card().edition + ' edition, ' + card().ovr + ' overall'">
+  <div class="card-head"><span class="card-brand">D<span>B</span><i>✦</i></span><span class="edition">{{ card().edition === 'career' ? 'CAREER COLLECTION' : 'DRAFT COLLECTION' }}<b>{{ card().year }}</b></span><div class="card-ovr"><strong>{{ card().ovr }}</strong><span>OVR</span></div></div>
+  <div class="art-window">
+    @if (failedImage() !== card().art) { <img [src]="card().art" [alt]="card().sceneName + ', illustrated football card artwork'" (error)="imageFailed()" draggable="false"> }
+    @else { <div class="art-fallback"><span>DB</span><small>{{ card().sceneName }}</small></div> }
+    <div class="art-vignette"></div><span class="position-tab">{{ card().position }}</span>
+    @if (card().stamp) { <div class="earned-stamp"><span>★</span>{{ card().stamp }}<span>★</span></div> }
+    <div class="card-name"><span>{{ card().title }}</span><h3>{{ card().name }}</h3></div>
+  </div>
+  <div class="card-info"><p>{{ card().school }}</p><strong>{{ card().draftLabel }}</strong><span>{{ card().team || card().subtitle }}</span></div>
+  <div class="card-stats">@for (stat of card().statLines; track stat.label) { <div><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></div> }</div>
+  <div class="card-foot"><span>DRAFT BOUND</span><span>{{ card().sceneName }}</span><span>✦</span></div>
+</article>
