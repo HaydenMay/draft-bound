@@ -8,8 +8,9 @@ import { SOURCE_PLAYERS } from './data/source-players';
 import { WR_DEFINITION } from './domain/positions';
 import { BinderEntry, CardCustomization, CardEdition, CardViewModel, GameCommandPayload, RunPhase, SaveEnvelope, SourcePlayerDefinition, TrainingPlan } from './domain/models';
 import { CollectibleCard } from './shared/collectible-card';
+import { DraftIcon } from './shared/icon';
 
-@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard], templateUrl: './app.html', styleUrl: './app.css' })
+@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon], templateUrl: './app.html', styleUrl: './app.css' })
 export class App {
   private previousFocus: HTMLElement | null = null;
   readonly game = inject(GameStore);

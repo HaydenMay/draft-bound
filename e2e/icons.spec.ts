@@ -1,0 +1,36 @@
+import {test,expect} from '@playwright/test';
+import {emptySave} from '../src/app/persistence/save';
+import {completeRun,createCollege} from '../src/app/domain/test-fixtures';
+
+test('original vector icons keep controls named, favorites saved, and mobile layouts intact',async({page})=>{
+ await page.goto('/');
+ const create=page.getByRole('button',{name:'Create your prospect',exact:true});
+ await expect(create.locator('app-icon svg')).toBeVisible();
+ await expect(page.getByRole('button',{name:'Save and game settings'}).locator('app-icon')).toHaveAttribute('aria-hidden','true');
+ const save=emptySave();save.run=createCollege(314);save.entries=[completeRun(82).entry!];
+ await page.evaluate(data=>new Promise<void>((resolve,reject)=>{const request=indexedDB.open('draft-bound',1);request.onsuccess=()=>{const db=request.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(data,'current');tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};}),save);
+ await page.goto('/#play');await page.reload();
+ await expect(page.locator('.training-glyph app-icon svg')).toHaveCount(3);
+ await expect(page.locator('.training-option.selected .selection-dot app-icon')).toBeVisible();
+ await page.getByRole('button',{name:/Play next block/}).click();
+ await expect(page.locator('.growth-badge strong')).toHaveText(/\d.*to.*\d/);
+ await page.getByRole('button',{name:/My binder 1/}).click();
+ const favorite=page.getByRole('button',{name:/Add Jordan Hayes to favorites/});
+ await favorite.click();
+ await expect(page.getByRole('button',{name:/Remove Jordan Hayes from favorites/})).toHaveAttribute('aria-pressed','true');
+ await page.reload();
+ await expect(page.getByRole('button',{name:/Remove Jordan Hayes from favorites/})).toHaveAttribute('aria-pressed','true');
+ await page.getByRole('button',{name:/View Jordan Hayes/}).click();
+ await page.getByRole('button',{name:/Customize card/}).click();
+ await expect(page.locator('.preview-card .card-brand app-icon svg')).toBeVisible();
+ await page.getByRole('button',{name:'Save and game settings'}).click();
+ await page.getByLabel('Appearance',{exact:true}).selectOption('dark');
+ await page.getByRole('button',{name:'Close dialog'}).click();
+ await page.setViewportSize({width:390,height:844});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ expect(await page.locator('body').innerText()).not.toMatch(/[↗↙→←↻☷✓✦★☆»▷⌕🔒]/u);
+ const icons=await page.locator('app-icon').evaluateAll(elements=>elements.map(el=>({hidden:el.getAttribute('aria-hidden'),width:el.getBoundingClientRect().width,paths:el.querySelectorAll('svg path').length})));
+ expect(icons.length).toBeGreaterThan(8);
+ expect(icons.every(icon=>icon.hidden==='true'&&icon.width>0&&icon.paths>0)).toBe(true);
+ await page.screenshot({path:'docs/validation/screenshots/icons-card-mobile.png',fullPage:true});
+});

@@ -11,7 +11,10 @@
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
     "balance": "tsx tools/balance-report.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "icons": "tsx tools/generate-icons.ts",
+    "prebuild": "npm run icons",
+    "prebuild:pages": "npm run icons"
   },
   "dependencies": {
     "@angular/common": "21.2.25",
