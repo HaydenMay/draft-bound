@@ -1,3 +1,5 @@
+import {detectIntervention} from './coaching';
+export {detectIntervention} from './coaching';
 import {BinderEntry,DraftOutcome,DraftSnapshot,GameCommand,Intervention,RunState,TrainingPlan,Transition,TraitAssignment,WrAttributeId} from './models';
 import {WR_DEFINITION,RULES_VERSION} from './positions';
 import {CEILINGS,calculateOvr,develop,values} from './development';
@@ -9,30 +11,35 @@ import {sumStats,WR_RULES} from './simulation';
 import {addUnlock,gameUnlocks,seasonUnlocks,unlock} from './eligibility';
 const ids=WR_DEFINITION.attributes.map(a=>a.id);
 const source=(id:string)=>{const p=SOURCE_PLAYERS.find(p=>p.id===id);if(!p)throw Error('Unknown player source');return p;};
-function offers(rng:Random):string[]{return Array.from({length:3},()=>rng.pick(SOURCE_PLAYERS).id);}
-export function createRun(name:string,jerseyNumber:number,seed:number,createdAt=new Date().toISOString()):RunState {
- const rng=new Random(seed),remaining=[...ids];
- const giftOffers=Array.from({length:3},()=>{const attributeId=remaining.splice(rng.int(0,remaining.length-1),1)[0];return {attributeId,sourcePlayerId:rng.pick(SOURCE_PLAYERS.filter(p=>p.grades[attributeId as WrAttributeId]==='S')).id,grade:'S' as const};});
+function offers(rng:Random):string[]{
+ const pool=[...SOURCE_PLAYERS];
+ if(pool.length<3)throw Error('The source catalog needs three unique players.');
+ return Array.from({length:3},()=>pool.splice(rng.int(0,pool.length-1),1)[0].id);
+}
+export const manualPotentialLimit=(run:Pick<RunState,'creationMode'>):3|8=>run.creationMode==='full'?8:3;
+function naturalGifts(rng:Random):RunState['creation']['giftOffers']{
+ const remaining=[...ids];
+ const selected=Array.from({length:3},()=>remaining.splice(rng.int(0,remaining.length-1),1)[0]);
+ const combinations:RunState['creation']['giftOffers'][]=[];
+ const visit=(chosen:RunState['creation']['giftOffers'])=>{
+  if(chosen.length===3){combinations.push(chosen);return;}
+  const attributeId=selected[chosen.length];
+  for(const player of SOURCE_PLAYERS.filter(p=>p.grades[attributeId as WrAttributeId]==='S'&&!chosen.some(g=>g.sourcePlayerId===p.id)))visit([...chosen,{attributeId,sourcePlayerId:player.id,grade:'S'}]);
+ };
+ visit([]);
+ if(!combinations.length)throw Error('The source catalog cannot provide distinct S-tier gifts.');
+ return rng.pick(combinations);
+}
+export function createRun(name:string,jerseyNumber:number,seed:number,createdAt=new Date().toISOString(),creationMode:NonNullable<RunState['creationMode']>='quick'):RunState {
+ if(!['quick','full'].includes(creationMode))throw Error('Unknown creation mode.');
+ const rng=new Random(seed),giftOffers=naturalGifts(rng);
  const sizeOfferId=rng.pick(SOURCE_PLAYERS).id,nflSeed=rng.int(0,0xffffffff),id=`db-${seed.toString(36)}-${Date.parse(createdAt).toString(36)}`;
- return {id,positionId:'wr',rulesVersion:RULES_VERSION,createdAt,seed,rng:rng.state,nflSeed,name:name.trim().slice(0,32)||'Jordan Hayes',jerseyNumber:Math.max(0,Math.min(99,Math.round(jerseyNumber)||0)),phase:'gift',rerolls:3,creation:{traits:{},giftOffers,sizeOfferId,playerOffers:[],manualCount:0,physical:null},prospect:null,collegeId:'',year:1,gameNumber:0,history:[],years:[],transfers:[],interventions:[],usedInterventions:[],pendingIntervention:null,lastBlock:null,yearStartOvr:0,awards:[],unlocks:[],draft:null,processedCommands:[]};
+ return {id,creationMode,balanceVersion:'v1.2',positionId:'wr',rulesVersion:RULES_VERSION,createdAt,seed,rng:rng.state,nflSeed,name:name.trim().slice(0,32)||'Jordan Hayes',jerseyNumber:Math.max(0,Math.min(99,Math.round(jerseyNumber)||0)),phase:'gift',rerolls:3,creation:{traits:{},giftOffers,sizeOfferId,playerOffers:[],manualCount:0,physical:null},prospect:null,collegeId:'',year:1,gameNumber:0,history:[],years:[],transfers:[],interventions:[],usedInterventions:[],pendingIntervention:null,lastBlock:null,yearStartOvr:0,awards:[],unlocks:[],draft:null,processedCommands:[]};
 }
 function requirePhase(run:RunState,...phases:RunState['phase'][]):void{if(!phases.includes(run.phase))throw Error('That choice is unavailable at this stage.');}
 function assign(run:RunState,attributeId:string,sourceId:string,origin:TraitAssignment['origin']):void{
  const p=source(sourceId),grade=origin==='gift'?'S':p.grades[attributeId as WrAttributeId];
  run.creation.traits[attributeId]={attributeId,sourcePlayerId:sourceId,grade,ceiling:CEILINGS[grade],origin};
-}
-export function detectIntervention(run:RunState):Intervention|null{
- if(!run.lastBlock||run.gameNumber>=12)return null;const games=run.lastBlock.games,s=sumStats(games);
- const triggers:[Intervention['type'],string,string,boolean][]=[
-  ['wr.jugs','hands','Jugs machine',s.drops>=5||games.some(g=>g.stats.drops>=3)],
-  ['wr.press','release','Beat the press',s.pressReps>=8&&s.pressLosses/s.pressReps>=.6],
-  ['wr.contested','bodyControl','Through contact',s.contestedTargets>=5&&(s.contestedTargets-s.contestedCatches)/s.contestedTargets>=.7],
- ];
- for(const [type,attributeId,label,trigger]of triggers){
-  if(!trigger||run.usedInterventions.includes(type)||!run.prospect||run.prospect.current[attributeId]>=run.prospect.traits[attributeId].ceiling)continue;
-  const cause=type==='wr.jugs'?`${s.drops} drops in this block.`:type==='wr.press'?`${s.pressLosses} press losses in ${s.pressReps} reps.`:`${s.contestedTargets-s.contestedCatches} unfinished contested targets out of ${s.contestedTargets}.`;
-  return {id:`${run.id}-${run.year}-${type}`,type,attributeId,label,cause,year:run.year,sourceBlock:run.gameNumber/4};
- }return null;
 }
 function finishSeason(run:RunState):void{
  if(run.years.some(y=>y.year===run.year))return;
@@ -55,7 +62,7 @@ export function buildDraft(run:RunState,rng:Random):BinderEntry{
  const ovr=calculateOvr(a),collegeGrade=sumStats(run.history).grade,evaluation=.7*ovr.raw+.2*collegeGrade+.1*(gauntlet.reduce((s,g)=>s+g.score,0)/5),outcome=draftOutcome(evaluation,rng);
  addUnlock(run.unlocks,unlock('prospect_journey',{id:run.id,kind:'draftOutcome',stage:'draft',sourceId:run.id,facts:{finalOvr:ovr.display},description:'Completed the college-to-draft journey.'}));
  if(outcome.status==='drafted')addUnlock(run.unlocks,unlock('draft_night',{id:`${run.id}-pick`,kind:'draftOutcome',stage:'draft',sourceId:run.id,facts:{pick:outcome.overallPick,round:outcome.round,team:outcome.team.displayName},description:`Round ${outcome.round}, pick ${outcome.overallPick}: ${outcome.team.displayName}.`}));
- const draft:DraftSnapshot=structuredClone({positionId:'wr',rulesVersion:RULES_VERSION,balanceVersion:'1.2.0',contentVersion:'1.0.0',prospect:p,schoolId:run.collegeId,history:run.history,years:run.years,transfers:run.transfers,interventions:run.interventions,awards:run.awards,unlocks:run.unlocks,gauntlet,collegeGrade,evaluation,finalOvr:ovr.display,outcome});
+ const draft:DraftSnapshot=structuredClone({creationMode:run.creationMode??'quick',positionId:'wr',rulesVersion:RULES_VERSION,balanceVersion:run.balanceVersion==='v1.2'?'1.2.1':'1.2.0',contentVersion:'1.0.0',prospect:p,schoolId:run.collegeId,history:run.history,years:run.years,transfers:run.transfers,interventions:run.interventions,awards:run.awards,unlocks:run.unlocks,gauntlet,collegeGrade,evaluation,finalOvr:ovr.display,outcome});
  run.draft=draft;const school=COLLEGES.find(s=>s.id===run.collegeId)!;
  return {id:run.id,positionId:'wr',createdAt:run.createdAt,completedAt:new Date().toISOString(),favorite:false,draft,career:null,nflSeed:run.nflSeed,draftCard:{sceneId:outcome.status==='drafted'?'draft_night':'prospect_journey',frame:'classic',foil:false,showStamp:true},careerCard:null,display:{positionLabel:WR_DEFINITION.displayName,attributes:WR_DEFINITION.attributes.map(attr=>({id:attr.id,label:attr.label,value:a[attr.id],ceiling:p.traits[attr.id].ceiling})),schoolName:school.name,schoolColors:school.colors}};
 }
@@ -70,7 +77,7 @@ export function transition(original:RunState,command:GameCommand):Transition {
   case 'choose-trait':{
    requirePhase(run,'potential');if(!run.creation.playerOffers.includes(command.sourcePlayerId)||!ids.includes(command.attributeId)||run.creation.traits[command.attributeId])throw Error('Choose an available attribute from this offer.');
    assign(run,command.attributeId,command.sourcePlayerId,'manual');run.creation.manualCount++;
-   if(run.creation.manualCount<3){run.creation.playerOffers=offers(rng);break;}
+   if(run.creation.manualCount<manualPotentialLimit(run)){run.creation.playerOffers=offers(rng);break;}
    while(Object.keys(run.creation.traits).length<ids.length){const p=rng.pick(SOURCE_PLAYERS),attributeId=rng.pick(ids.filter(id=>!run.creation.traits[id]));assign(run,attributeId,p.id,'autofill');}
    const current=values(id=>run.creation.traits[id].origin==='gift'?94:Math.min(run.creation.traits[id].ceiling,rng.int(50,65)));
    run.prospect={id:run.id,name:run.name,jerseyNumber:run.jerseyNumber,positionId:'wr',createdAt:run.createdAt,physical:run.creation.physical!,current,initial:{...current},traits:structuredClone(run.creation.traits),initialOvr:calculateOvr(current).display};run.phase='reveal';break;
@@ -92,7 +99,7 @@ export function transition(original:RunState,command:GameCommand):Transition {
     const plan:TrainingPlan=n===0&&fulfilled?{mode:'intensive',attributeId:fulfilled.attributeId}:command.plan;
     const game=WR_RULES.simulateGame({prospect:p,college:school,year:run.year,gameNumber:++run.gameNumber,seed:rng.int(0,0xffffffff)});
     const s=game.stats,reps={speed:s.routes,acceleration:s.routes,hands:s.targets,routeRunning:s.routes,release:s.pressReps,vertical:s.contestedTargets,bodyControl:s.contestedTargets,yardsAfterCatch:s.receptions,awareness:s.routes};
-    const growth=develop(p.current,values(id=>p.traits[id].ceiling),plan,run.year,school,s.routes,reps);
+    const growth=develop(p.current,values(id=>p.traits[id].ceiling),plan,run.year,school,s.routes,reps,run.balanceVersion??'legacy');
     p.current=growth.current;const record={...game,gains:growth.gains,generalGains:growth.general,practiceGains:growth.practice};games.push(record);run.history.push(record);for(const item of gameUnlocks(record))addUnlock(run.unlocks,item);
    }
    run.lastBlock={year:run.year,block:run.gameNumber/4,games,gains:values(id=>p.current[id]-start[id]),startOvr,endOvr:calculateOvr(p.current).raw,intervention:null,fulfilled,training:command.plan};

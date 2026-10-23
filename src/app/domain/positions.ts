@@ -1,6 +1,6 @@
 import { PositionDefinition } from './models';
 export const RULES_VERSION='wr-1.2';
-export const WR_DEFINITION:PositionDefinition={id:'wr',displayName:'Wide receiver',rulesVersion:RULES_VERSION,sourceCatalogId:'wr-original-75-v1',attributes:[
+export const WR_DEFINITION:PositionDefinition={id:'wr',displayName:'Wide receiver',rulesVersion:RULES_VERSION,sourceCatalogId:'wr-original-illustrations-v1.2-90',attributes:[
  {id:'speed',label:'Speed',short:'SPD',description:'Separation downfield and breakaway pace.',weight:.14},
  {id:'acceleration',label:'Acceleration',short:'ACC',description:'Burst off the line and out of breaks.',weight:.08},
  {id:'hands',label:'Hands',short:'HND',description:'Finishing catches and avoiding drops.',weight:.16},

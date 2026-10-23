@@ -15,6 +15,7 @@ export const ICON_PATHS = {
   favorite: [{d:'M12 2l3.2 6.3 7 1-5.1 5 .9 7L12 18l-6 3.3.9-7-5.1-5 7-1Z'}],
   mark: [{d:'M12 1.5l2.8 6.8L22 6.8 17.3 12l4.7 5.2-7.2-1.5-2.8 6.8-2.8-6.8L2 17.2 6.7 12 2 6.8l7.2 1.5ZM11 8v8h2V8Z',solid:true}],
   play: [{d:'M5 3h3l12 9L8 21H5ZM9 8v8'}],
+  pause: [{d:'M5 3h4v18H5ZM15 3h4v18h-4Z'}],
   fast: [{d:'M2 5l9 7-9 7ZM12 5l9 7-9 7ZM22 5v14'}],
   search: [{d:'M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14ZM15 15l6 6M6 10h3'}],
   add: [{d:'M12 3v18M3 12h18M3 8v4h4'}],

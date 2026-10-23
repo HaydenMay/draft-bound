@@ -1,3 +1,4 @@
+import {COACHING_TYPES} from '../domain/coaching';
 import {SaveEnvelope} from '../domain/models';
 import {RULES_VERSION,WR_DEFINITION} from '../domain/positions';
 import {SOURCE_PLAYERS} from '../data/source-players';
@@ -10,7 +11,7 @@ const text=(s:any)=>typeof s==='string'&&s.length<=5000;
 const array=(a:any,max=10000)=>Array.isArray(a)&&a.length<=max;
 const frames=['classic','silver','gold','training','transfer','legend'];
 const phases=['gift','size','potential','reveal','college-choice','training','block-review','season-review','transfer','gauntlet','draft-night','complete'];
-const validIntervention=(i:any):boolean=>isObject(i)&&text(i.id)&&['wr.jugs','wr.press','wr.contested'].includes(i.type)&&WR_DEFINITION.attributes.some(a=>a.id===i.attributeId)&&text(i.label)&&text(i.cause)&&finite(i.year,1,3)&&finite(i.sourceBlock,1,2);
+const validIntervention=(i:any):boolean=>isObject(i)&&text(i.id)&&COACHING_TYPES.includes(i.type)&&WR_DEFINITION.attributes.some(a=>a.id===i.attributeId)&&text(i.label)&&text(i.cause)&&finite(i.year,1,3)&&finite(i.sourceBlock,1,2);
 const validYear=(y:any):boolean=>isObject(y)&&finite(y.year,1,3)&&text(y.schoolId)&&finite(y.startOvr,0,99)&&finite(y.endOvr,y.startOvr,99)&&validStats(y.stats);
 const validTransfer=(t:any):boolean=>isObject(t)&&finite(t.afterYear,1,2)&&text(t.from)&&text(t.to)&&finite(t.previousOvr,0,99)&&finite(t.previousGrade,0,100);
 const validAward=(a:any):boolean=>isObject(a)&&text(a.id)&&text(a.label)&&['all_american','all_pro'].includes(a.type)&&finite(a.season,1,15)&&isObject(a.evidence);
@@ -30,8 +31,10 @@ function validEntry(e:any):boolean{
  const c=e.career;return isObject(c)&&['simulated_not_inducted','simulated_inducted'].includes(c.status)&&array(c.seasons,15)&&c.seasons.length>=3&&c.seasons.every((s:any)=>isObject(s)&&finite(s.year,1,15)&&finite(s.age,18,50)&&isObject(s.team)&&text(s.team.displayName)&&isObject(s.stats)&&['targets','receptions','yards','touchdowns'].every(k=>finite(s.stats[k]))&&s.stats.receptions<=s.stats.targets)&&isObject(c.totals)&&['targets','receptions','yards','touchdowns'].every(k=>finite(c.totals[k]))&&array(c.awards,15)&&c.awards.every(validAward)&&isObject(c.induction)&&typeof c.induction.inducted==='boolean'&&text(c.induction.criteria)&&validUnlocks(c.unlocks)&&validCard(e.careerCard);
 }
 function validRun(r:any):boolean{
- if(!isObject(r)||r.positionId!=='wr'||r.rulesVersion!==RULES_VERSION||!text(r.id)||!text(r.name)||!phases.includes(r.phase)||!finite(r.seed,0,0xffffffff)||!finite(r.rng,0,0xffffffff)||!finite(r.nflSeed,0,0xffffffff)||!finite(r.rerolls,0,3)||!finite(r.year,1,3)||!finite(r.gameNumber,0,12)||!validHistory(r.history)||!array(r.years,3)||!array(r.transfers,2)||!array(r.interventions,9)||!array(r.usedInterventions,3)||!array(r.processedCommands,200)||!validUnlocks(r.unlocks)||!array(r.awards,3)||!isObject(r.creation))return false;
- const c=r.creation;if(!isObject(c.traits)||!array(c.giftOffers,3)||c.giftOffers.length!==3||!array(c.playerOffers,3)||!finite(c.manualCount,0,3)||!SOURCE_PLAYERS.some(p=>p.id===c.sizeOfferId))return false;
+ if(!isObject(r)||r.positionId!=='wr'||r.rulesVersion!==RULES_VERSION||!text(r.id)||!text(r.name)||!phases.includes(r.phase)||!finite(r.seed,0,0xffffffff)||!finite(r.rng,0,0xffffffff)||!finite(r.nflSeed,0,0xffffffff)||!finite(r.rerolls,0,3)||!finite(r.year,1,3)||!finite(r.gameNumber,0,12)||!validHistory(r.history)||!array(r.years,3)||!array(r.transfers,2)||!array(r.interventions,9)||!array(r.usedInterventions,COACHING_TYPES.length)||!array(r.processedCommands,200)||!validUnlocks(r.unlocks)||!array(r.awards,3)||!isObject(r.creation))return false;
+ if(r.creationMode!==undefined&&!['quick','full'].includes(r.creationMode)||r.balanceVersion!==undefined&&!['legacy','v1.2'].includes(r.balanceVersion))return false;
+ const manualLimit=r.creationMode==='full'?8:3;
+ const c=r.creation;if(!isObject(c.traits)||!array(c.giftOffers,3)||c.giftOffers.length!==3||!array(c.playerOffers,3)||!finite(c.manualCount,0,manualLimit)||!SOURCE_PLAYERS.some(p=>p.id===c.sizeOfferId))return false;
  const ids=WR_DEFINITION.attributes.map(a=>a.id);if(!Object.entries(c.traits).every(([id,t]:[string,any])=>ids.includes(id)&&isObject(t)&&text(t.sourcePlayerId)&&finite(t.ceiling,60,99)))return false;
  if(!c.giftOffers.every((g:any)=>isObject(g)&&ids.includes(g.attributeId)&&SOURCE_PLAYERS.some(p=>p.id===g.sourcePlayerId))||!c.playerOffers.every((id:any)=>SOURCE_PLAYERS.some(p=>p.id===id)))return false;
  if(!['gift','size','potential'].includes(r.phase)&&!validProspect(r.prospect))return false;
@@ -46,8 +49,8 @@ function validRun(r:any):boolean{
  const traits=Object.values(c.traits) as any[],gifts=traits.filter(t=>t.origin==='gift').length,manual=traits.filter(t=>t.origin==='manual').length;
  if(r.phase==='gift'&&(traits.length!==0||c.manualCount!==0))return false;
  if(r.phase==='size'&&(traits.length!==1||gifts!==1||c.physical!==null))return false;
- if(r.phase==='potential'&&(gifts!==1||manual!==c.manualCount||traits.length!==1+c.manualCount||c.manualCount>=3||c.playerOffers.length!==3||!isObject(c.physical)))return false;
- if(!['gift','size','potential'].includes(r.phase)&&(traits.length!==9||gifts!==1||manual!==3||c.manualCount!==3))return false;
+ if(r.phase==='potential'&&(gifts!==1||manual!==c.manualCount||traits.length!==1+c.manualCount||c.manualCount>=manualLimit||c.playerOffers.length!==3||!isObject(c.physical)))return false;
+ if(!['gift','size','potential'].includes(r.phase)&&(traits.length!==9||gifts!==1||manual!==manualLimit||c.manualCount!==manualLimit))return false;
  if(['draft-night','complete'].includes(r.phase)&&!validDraft(r.draft))return false;
  if(['training','block-review','season-review','transfer','gauntlet','draft-night','complete'].includes(r.phase)&&!COLLEGES.some(c=>c.id===r.collegeId))return false;
  return r.draft===null||validDraft(r.draft);

@@ -28,3 +28,12 @@ it('atomically rejects simultaneous stale writers before they can overwrite a sa
 it('rejects malformed display rows and missing starting OVR before rendering a binder',()=>{const save=emptySave();save.entries=[completeRun().entry!];save.entries[0].display.attributes=[null as any];expect(previewSave(JSON.stringify(save)).ok).toBe(false);save.entries=[completeRun().entry!];delete (save.entries[0].draft.prospect as any).initialOvr;expect(previewSave(JSON.stringify(save)).ok).toBe(false);});
 it('accepts legacy saves without a theme and rejects invalid new theme values',()=>{const save=emptySave();delete (save.settings as any).theme;expect(previewSave(JSON.stringify(save)).ok).toBe(true);(save.settings as any).theme='sepia';expect(previewSave(JSON.stringify(save)).ok).toBe(false);});
 
+it('round trips the expanded coaching catalog without rejecting legacy JUGS saves',()=>{
+ const save=emptySave();save.run=createCollege();
+ for(const type of ['wr.jugs','wr.press','wr.contested','wr.routes','wr.burst','wr.tracking','wr.yac','wr.film','wr.speed'] as const){
+  save.run.pendingIntervention={id:'coach-'+type,type,label:'Coaching',attributeId:'hands',cause:'Measured performance',year:1,sourceBlock:1};
+  expect(previewSave(JSON.stringify(save)).ok).toBe(true);
+ }
+ save.run.usedInterventions=['wr.jugs','wr.press','wr.contested','wr.routes'];
+ expect(previewSave(JSON.stringify(save)).ok).toBe(true);
+});

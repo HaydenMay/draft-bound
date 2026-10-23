@@ -15,7 +15,7 @@ export const VALID_GRADES: readonly Grade[] = ['S', 'A+', 'A', 'A-', 'B+', 'B', 
  * Each receiver has one entry. Normal offers sample these entries uniformly;
  * natural gifts use a separate per-attribute pool of entries graded S.
  */
-export const SOURCE_CATALOG_VERSION = 'wr-original-illustrations-v1';
+export const SOURCE_CATALOG_VERSION = 'wr-original-illustrations-v1.2-90';
 export const SOURCE_CATALOG_NOTE = 'Real receiver names inspire fictional prospects. Physical profiles and original letter grades are gameplay illustrations, not verified scouting data.';
 
 type GradeLine = readonly [Grade, Grade, Grade, Grade, Grade, Grade, Grade, Grade, Grade];
@@ -68,7 +68,7 @@ export const SOURCE_PLAYERS: SourcePlayerDefinition[] = [
   player('chad-johnson', 'Chad Johnson', '2000s–2010s', 185, 87, 'Expressive release technician', ['A-', 'A', 'A-', 'A+', 'S', 'A-', 'A', 'B+', 'A-']),
   player('steve-smith-sr', 'Steve Smith Sr.', '2000s–2010s', 175, 88, 'Compact explosive competitor', ['A', 'A+', 'A-', 'A', 'A', 'A', 'A', 'S', 'A']),
   player('reggie-wayne', 'Reggie Wayne', '2000s–2010s', 183, 92, 'Dependable timing receiver', ['B', 'B+', 'A+', 'A+', 'A', 'B', 'A', 'B+', 'S']),
-  player('andre-johnson', 'Andre Johnson', '2000s–2010s', 191, 104, 'Powerful complete outside target', ['A', 'A-', 'A', 'A', 'A', 'A', 'A', 'A+', 'A']),
+  player('andre-johnson', 'Andre Johnson', '2000s–2010s', 191, 104, 'Powerful complete outside target', ['A', 'A-', 'A+', 'A', 'A+', 'A', 'A+', 'A+', 'A']),
   player('wes-welker', 'Wes Welker', '2000s–2010s', 175, 84, 'Agile underneath separator', ['C+', 'A', 'A-', 'A+', 'A', 'D+', 'B+', 'A', 'A+']),
   player('brandon-marshall', 'Brandon Marshall', '2000s–2010s', 193, 105, 'Large physical possession target', ['B', 'B+', 'A', 'A-', 'A', 'A-', 'A+', 'A', 'A-']),
   player('marques-colston', 'Marques Colston', '2000s–2010s', 193, 102, 'Tall seam possession target', ['C', 'C+', 'A', 'A-', 'B+', 'B+', 'A', 'C+', 'A']),
@@ -106,4 +106,21 @@ export const SOURCE_PLAYERS: SourcePlayerDefinition[] = [
   player('jaylen-waddle', 'Jaylen Waddle', '2020s', 178, 83, 'Sudden compact field stretcher', ['A+', 'A+', 'B+', 'A-', 'A-', 'B+', 'A-', 'A+', 'B+']),
   player('puka-nacua', 'Puka Nacua', '2020s', 188, 96, 'Physical instinctive route runner', ['B-', 'B+', 'A', 'A', 'A-', 'B+', 'A', 'A+', 'A']),
   player('brandon-aiyuk', 'Brandon Aiyuk', '2020s', 183, 91, 'Long-armed sudden separator', ['A-', 'A', 'A-', 'A+', 'A', 'A-', 'A', 'A-', 'A-']),
+  // Broader specialist and possession profiles. These remain original game
+  // interpretations, with the same uniform offer odds as every other entry.
+  player('willie-gault', 'Willie Gault', '1980s–1990s', 185, 82, 'Straight-line track-speed specialist', ['A+', 'A', 'C', 'C+', 'C', 'B+', 'C+', 'B', 'C']),
+  player('rob-moore', 'Rob Moore', '1990s–2000s', 191, 98, 'Large outside possession target', ['B+', 'B', 'B+', 'B', 'B+', 'A-', 'A-', 'B', 'B+']),
+  player('ricky-proehl', 'Ricky Proehl', '1990s–2000s', 183, 86, 'Veteran timing and possession target', ['B-', 'B', 'B+', 'A-', 'B', 'C+', 'B', 'B-', 'A']),
+  player('troy-brown', 'Troy Brown', '1990s–2000s', 178, 89, 'Versatile underneath technician', ['C+', 'B+', 'A-', 'A', 'B+', 'C', 'B', 'B', 'A+']),
+  player('wayne-chrebet', 'Wayne Chrebet', '1990s–2000s', 178, 85, 'Compact possession and timing specialist', ['C', 'B', 'A-', 'A', 'B', 'C', 'B+', 'B', 'A']),
+  player('santana-moss', 'Santana Moss', '2000s–2010s', 178, 86, 'Quick compact deep-space playmaker', ['A', 'A+', 'B+', 'A-', 'B', 'B-', 'B+', 'A', 'A-']),
+  player('eric-moulds', 'Eric Moulds', '1990s–2000s', 188, 96, 'Physical outside catch-and-run target', ['A-', 'A-', 'A-', 'B+', 'B+', 'A', 'A', 'A', 'B+']),
+  player('plaxico-burress', 'Plaxico Burress', '2000s–2010s', 196, 105, 'Tall catch-point boundary specialist', ['B', 'B-', 'A-', 'B+', 'B+', 'A+', 'A+', 'C+', 'B+']),
+  player('santonio-holmes', 'Santonio Holmes', '2000s–2010s', 180, 86, 'Quick boundary separator', ['A', 'A', 'B+', 'A-', 'B+', 'B', 'A', 'B+', 'B+']),
+  player('pierre-garcon', 'Pierre Garcon', '2000s–2010s', 183, 96, 'Strong direct-route possession target', ['B+', 'B+', 'B+', 'B+', 'B+', 'B', 'B+', 'A-', 'B+']),
+  player('golden-tate', 'Golden Tate', '2010s–2020s', 178, 90, 'Elusive compact runner after the catch', ['B+', 'A', 'B+', 'A-', 'B+', 'C+', 'A', 'A+', 'A-']),
+  player('jarvis-landry', 'Jarvis Landry', '2010s–2020s', 180, 92, 'Strong instinctive underneath target', ['C+', 'B', 'A', 'A', 'B+', 'C', 'A', 'A', 'A+']),
+  player('cole-beasley', 'Cole Beasley', '2010s–2020s', 173, 79, 'Small precise underneath separator', ['D+', 'B', 'A-', 'A', 'B', 'C-', 'B', 'C+', 'A']),
+  player('john-brown', 'John Brown', '2010s–2020s', 180, 81, 'Light quick field stretcher', ['A', 'A', 'B', 'B+', 'B', 'C+', 'B', 'B+', 'B+']),
+  player('tyler-boyd', 'Tyler Boyd', '2010s–2020s', 188, 92, 'Balanced slot possession target', ['B-', 'B+', 'A-', 'A', 'B', 'B', 'B+', 'B', 'A-']),
 ];

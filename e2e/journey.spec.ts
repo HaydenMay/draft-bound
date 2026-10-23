@@ -1,3 +1,4 @@
+import {finishBroadcast} from './broadcast-helper';
 import {test,expect,Page} from '@playwright/test';
 import {mkdirSync,readFileSync} from 'node:fs';
 import {SaveEnvelope} from '../src/app/domain/models';
@@ -15,7 +16,7 @@ async function create(page:Page,name='Jordan Hayes'){
 test('complete college, draft card, saved refresh, later NFL career and PNG export',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await create(page);
  for(let year=1;year<=2;year++){
-  for(let block=0;block<3;block++){await page.getByRole('button',{name:/Play next block/}).click();await phase(page,'block-review');await expect(page.locator('.game-list details')).toHaveCount(4);await page.locator('.stage-actions .button.primary').click();await phase(page,block===2?'season-review':'training');}
+  for(let block=0;block<3;block++){await page.getByRole('button',{name:/Play next block/}).click();await phase(page,'block-review');await finishBroadcast(page);await expect(page.locator('.game-list details')).toHaveCount(4);await page.locator('.stage-actions .button.primary').click();await phase(page,block===2?'season-review':'training');}
   if(year===1){await page.getByRole('button',{name:/Plan my next season/}).click();await phase(page,'transfer');await page.getByRole('button',{name:/Choose CINDER RIDGE/}).click();await phase(page,'training');}
  }
  await page.getByRole('button',{name:/Declare for the draft/}).click();await phase(page,'gauntlet');await page.getByRole('button',{name:/Take the scouting gauntlet/}).click();await phase(page,'draft-night');await skip(page);

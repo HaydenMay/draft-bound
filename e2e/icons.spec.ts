@@ -1,3 +1,4 @@
+import {finishBroadcast} from './broadcast-helper';
 import {test,expect} from '@playwright/test';
 import {emptySave} from '../src/app/persistence/save';
 import {completeRun,createCollege} from '../src/app/domain/test-fixtures';
@@ -13,6 +14,7 @@ test('original vector icons keep controls named, favorites saved, and mobile lay
  await expect(page.locator('.training-glyph app-icon svg')).toHaveCount(3);
  await expect(page.locator('.training-option.selected .selection-dot app-icon')).toBeVisible();
  await page.getByRole('button',{name:/Play next block/}).click();
+ await finishBroadcast(page);
  await expect(page.locator('.growth-badge strong')).toHaveText(/\d.*to.*\d/);
  await page.getByRole('button',{name:/My binder 1/}).click();
  const favorite=page.getByRole('button',{name:/Add Jordan Hayes to favorites/});

@@ -14,7 +14,9 @@
     "typecheck": "tsc --noEmit",
     "icons": "tsx tools/generate-icons.ts",
     "prebuild": "npm run icons",
-    "prebuild:pages": "npm run icons"
+    "prebuild:pages": "npm run icons",
+    "audit:coaching": "tsx tools/coaching-report.ts",
+    "audit:art": "tsx tools/art-audit.ts"
   },
   "dependencies": {
     "@angular/common": "21.2.25",

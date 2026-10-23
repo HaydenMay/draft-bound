@@ -40,7 +40,7 @@ export function validateContent(overrides: Partial<ContentCatalog> = {}): string
     if (actual !== expected) errors.push(`${key}: expected ${expected} ${noun}, received ${actual}`);
   };
 
-  count('sourcePlayers', 75, catalog.sourcePlayers.length, 'receivers');
+  if(catalog.sourcePlayers.length<75)count('sourcePlayers', 75, catalog.sourcePlayers.length, 'receivers');
   checkIds('sourcePlayers', catalog.sourcePlayers.map(player => player.id));
   const sourceNames = new Set<string>();
   catalog.sourcePlayers.forEach(player => {

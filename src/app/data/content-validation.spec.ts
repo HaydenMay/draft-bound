@@ -3,6 +3,7 @@ import type { ContentCatalog } from './content-validation';
 import { assertValidContent, validateContent } from './content-validation';
 import type { WrAttributeId } from '../domain/models';
 import { DRAFT_BOARD } from './teams';
+import { SOURCE_PLAYERS } from './source-players';
 
 const attributes: WrAttributeId[] = ['speed', 'acceleration', 'hands', 'routeRunning', 'release', 'vertical', 'bodyControl', 'yardsAfterCatch', 'awareness'];
 
@@ -34,6 +35,12 @@ function validCatalog(): ContentCatalog {
 }
 
 describe('content integrity', () => {
+  it('broadens receiver styles beyond the original elite-heavy pool and represents Andre signature ceilings',()=>{
+    expect(SOURCE_PLAYERS.length).toBeGreaterThan(75);
+    expect(SOURCE_PLAYERS.some(p=>p.id==='wayne-chrebet')).toBe(true);
+    expect(SOURCE_PLAYERS.find(p=>p.id==='andre-johnson')!.grades.hands).toBe('A+');
+    expect(SOURCE_PLAYERS.find(p=>p.id==='andre-johnson')!.grades.bodyControl).toBe('A+');
+  });
   it('accepts the shipped source, school, team, board and art catalogs together', () => {
     expect(validateContent()).toEqual([]);
     expect(() => assertValidContent()).not.toThrow();

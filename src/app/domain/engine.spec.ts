@@ -3,6 +3,7 @@ import {createRun, transition, detectIntervention} from './engine';
 import {simulateProfessional} from './professional';
 import {GameCommandPayload,RunState} from './models';
 import {WR_DEFINITION} from './positions';
+import {emptyStats} from './simulation';
 import {COLLEGES} from '../data/colleges';
 import {createCollege,completeRun,step} from './test-fixtures';
 describe('complete playable run',()=>{
@@ -20,9 +21,9 @@ describe('complete playable run',()=>{
    const before=JSON.stringify(entry!.draft);const career=simulateProfessional(entry!);expect(career.seasons.length).toBeGreaterThanOrEqual(3);expect(career.seasons.length).toBeLessThanOrEqual(15);expect(JSON.stringify(entry!.draft)).toBe(before);expect(simulateProfessional(entry!)).toEqual(career);
   }
  });
- it('reserves at most one priority intervention and stops at the last block',()=>{
-  const run=createCollege();run.gameNumber=4;run.lastBlock={games:[{stats:{drops:5,pressReps:10,pressLosses:10,contestedTargets:10,contestedCatches:0}}] as any} as any;
-  expect(detectIntervention(run)?.type).toBe('wr.jugs');run.usedInterventions=['wr.jugs'];expect(detectIntervention(run)?.type).toBe('wr.press');run.gameNumber=12;expect(detectIntervention(run)).toBeNull();
+ it('reserves one measured intervention and stops at the last block',()=>{
+  const run=createCollege();Object.values(run.prospect!.traits).forEach(t=>t.ceiling=99);Object.assign(run.prospect!.current,{hands:70,release:70,bodyControl:70});run.gameNumber=4;run.lastBlock={games:[{stats:{...emptyStats(),routes:120,targets:40,receptions:30,yards:500,grade:85,drops:5,pressReps:30,pressLosses:18,contestedTargets:12,contestedCatches:2},events:[]}] as any} as any;
+  const first=detectIntervention(run);expect(first).not.toBeNull();run.usedInterventions=[first!.type];expect(detectIntervention(run)?.type).not.toBe(first!.type);run.gameNumber=12;expect(detectIntervention(run)).toBeNull();
  });
  it('fulfills a matching intensive plan once; focused substitutes only the first game',()=>{
   for(const mode of ['focused','intensive'] as const){let run=createCollege();run.pendingIntervention={id:'coach',type:'wr.jugs',label:'Jugs',attributeId:'hands',cause:'5 drops',year:1,sourceBlock:1};

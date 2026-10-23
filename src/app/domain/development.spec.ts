@@ -21,6 +21,11 @@ describe('development rules', () => {
     const result=develop(Object.fromEntries(WR_DEFINITION.attributes.map(a=>[a.id,98])),Object.fromEntries(WR_DEFINITION.attributes.map(a=>[a.id,99])),{mode:'focused',attributeId:'hands'},1,{coaching:1.25,specialties:['hands']},30,{});
     for(const a of WR_DEFINITION.attributes)expect(result.general[a.id]+result.practice[a.id]).toBeCloseTo(result.gains[a.id]);
   });
+  it('makes the final stretch toward an A ceiling a real investment in the new profile',()=>{
+    expect(integrateGrowth(90,4,93,'v1.2')).toBeLessThan(integrateGrowth(90,4,93,'legacy'));
+    expect(integrateGrowth(90,4,93,'legacy')).toBe(92);
+    expect(integrateGrowth(98,100,99,'v1.2')).toBe(99);
+  });
   it('retains the carefully constructed displayed-99 reachability witness',()=>{
     let current=Object.fromEntries(WR_DEFINITION.attributes.map(a=>[a.id,a.id==='routeRunning'?94:65]));
     const ceiling=Object.fromEntries(WR_DEFINITION.attributes.map(a=>[a.id,99]));

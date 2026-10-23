@@ -1,3 +1,4 @@
+import {finishBroadcast} from './broadcast-helper';
 import {test,expect} from '@playwright/test';
 import {mkdirSync,readFileSync} from 'node:fs';
 import {emptySave} from '../src/app/persistence/save';
@@ -70,7 +71,7 @@ test('dark gameplay and binder use the same saved theme without changing card ed
  await page.evaluate(data=>new Promise<void>((resolve,reject)=>{const request=indexedDB.open('draft-bound',1);request.onsuccess=()=>{const db=request.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(data,'current');tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};}),save);
  await page.goto('/#play');await page.reload();await expect(page.locator('html')).toHaveAttribute('data-theme','dark');await expect(page.getByRole('button',{name:/Play next block/})).toBeEnabled();
  mkdirSync('docs/validation/screenshots',{recursive:true});await page.screenshot({path:'docs/validation/screenshots/training-dark.png',fullPage:true});
- await page.getByRole('button',{name:/Play next block/}).click();await expect(page.locator('.game-list details')).toHaveCount(4);await expect(page.locator('.stage-actions .button.primary')).toBeEnabled();
+ await page.getByRole('button',{name:/Play next block/}).click();await finishBroadcast(page);await expect(page.locator('.game-list details')).toHaveCount(4);await expect(page.locator('.stage-actions .button.primary')).toBeEnabled();
  await page.getByRole('button',{name:/My binder 1/}).click();await page.getByRole('button',{name:/View Jordan Hayes/}).click();await page.getByRole('button',{name:/Customize card/}).click();await expect(page.locator('.preview-card img')).toHaveJSProperty('complete',true);await page.screenshot({path:'docs/validation/screenshots/card-dark.png',fullPage:true});
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');expect(await page.locator('.preview-card .collectible').evaluate(el=>getComputedStyle(el).backgroundColor)).toBe('rgb(230, 224, 203)');
  const contrast=await page.locator('.frame-choice.selected').evaluate(el=>{const rgb=(s:string)=>s.match(/[\d.]+/g)!.slice(0,3).map(Number);const lum=(s:string)=>rgb(s).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}).reduce((n,v,i)=>n+v*[.2126,.7152,.0722][i],0);const style=getComputedStyle(el),a=lum(style.color),b=lum(style.backgroundColor);return (Math.max(a,b)+.05)/(Math.min(a,b)+.05);});expect(contrast).toBeGreaterThan(4.5);

@@ -1,0 +1,25 @@
+{
+  "prospects": 1000,
+  "policies": "500 balanced / 500 weakest-intensive; evenly rotated schools; three seasons",
+  "counts": {
+    "wr.jugs": 1120,
+    "wr.press": 713,
+    "wr.contested": 22,
+    "wr.routes": 20,
+    "wr.burst": 67,
+    "wr.tracking": 20,
+    "wr.yac": 283,
+    "wr.film": 2,
+    "wr.speed": 256
+  },
+  "stars": {
+    "1": 0,
+    "2": 0,
+    "3": 61,
+    "4": 839,
+    "5": 100
+  },
+  "eliteHandsJugs": 0,
+  "cappedCoaching": 0,
+  "repeatInYear": 0
+}

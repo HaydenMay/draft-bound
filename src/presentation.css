@@ -1,0 +1,74 @@
+/* Presentation clocks never determine gameplay outcomes. All colors come from colors.css. */
+app-trait-reveal,app-recruit-rating,app-game-broadcast{display:block;min-width:0}
+.play-layout.full-reveal{grid-template-columns:minmax(0,1fr)}
+.automatic-traits{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.automatic-trait{min-width:0;position:relative;display:grid;grid-template-columns:25px minmax(0,1fr) auto;gap:8px 14px;align-items:center;padding:19px;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+.automatic-trait:last-child{grid-column:1/-1}
+.automatic-number{grid-row:span 2;font:600 24px 'Barlow Condensed',sans-serif;color:var(--muted)}
+.automatic-trait h2{font-size:12px;font-weight:700;margin:0}
+.automatic-source{grid-column:2;font:600 24px/1.1 'Barlow Condensed',sans-serif;overflow-wrap:anywhere;animation:trait-name-in .4s ease both}
+.automatic-grade{grid-column:3;grid-row:1/span 2;font:700 31px/1 'Barlow Condensed',sans-serif;color:var(--forest);text-align:center;padding-right:20px}
+.automatic-grade small{display:block;font:700 9px/1.4 'DM Sans',sans-serif;letter-spacing:.6px;margin-top:5px;white-space:nowrap}
+.automatic-check{position:absolute;right:10px;top:12px;font-size:13px;color:var(--forest)}
+.automatic-trait.is-revealed{background:var(--surface-selected);border-color:var(--selection-border);animation:trait-land .4s ease both}
+.roll-bars{grid-column:2/4;display:flex;gap:4px;align-items:center;height:30px}
+.roll-bars i{height:5px;width:26px;background:var(--line);transform-origin:left;animation:roll-bar .8s ease-in-out infinite alternate}
+.roll-bars i:nth-child(2){animation-delay:.15s}.roll-bars i:nth-child(3){animation-delay:.3s}
+.prospect-complete{animation:trait-name-in .5s ease both}
+.recruit-rating{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:23px 0;padding:20px 24px;background:var(--honor-surface);border:1px solid var(--honor-border);color:var(--honor-text);border-radius:4px;animation:recruit-land .55s ease both}
+.recruit-stars{display:flex;gap:5px;font-size:23px}.recruit-stars .unfilled{opacity:.3}
+.recruit-rating h2{font:600 28px/1 'Barlow Condensed',sans-serif;margin:0}
+.replay-broadcast{margin:0 0 22px}
+.broadcast{border:1px solid var(--line);border-radius:6px;background:var(--deep-surface);color:var(--on-deep);overflow:hidden;box-shadow:0 12px 30px var(--shadow-notice);animation:broadcast-arrive .35s ease both}
+.broadcast-header{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:17px 20px;border-bottom:1px solid currentColor;font-size:10px;font-weight:800;letter-spacing:1px}
+.broadcast-brand{display:flex;align-items:center;gap:8px}.broadcast-brand app-icon{color:var(--orange);font-size:18px}
+.broadcast-progress{display:flex;justify-content:center;gap:10px;padding:22px 16px 0}
+.broadcast-progress span{border:1px solid var(--line);border-radius:50%;width:28px;height:28px;display:grid;place-items:center;font:600 18px 'Barlow Condensed',sans-serif;opacity:.5}
+.broadcast-progress .current{background:var(--orange);color:var(--on-accent);border-color:var(--orange);opacity:1}.broadcast-progress .complete{background:var(--surface-selected);color:var(--ink);opacity:1}
+.broadcast-matchup{display:flex;justify-content:center;align-items:center;gap:13px;text-align:center;padding:25px 20px 10px}
+.broadcast-matchup h2{font:600 clamp(21px,2.3vw,32px)/1 'Barlow Condensed',sans-serif;margin:0;max-width:42%;overflow-wrap:anywhere}
+.broadcast-matchup>span{font-size:10px}
+.broadcast-moment{min-height:270px;padding:6px 25px 25px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px;text-align:center}
+.broadcast-field{width:min(100%,430px);border-block:1px solid var(--line);overflow:hidden}
+.broadcast-field svg{display:block;width:100%;height:110px;fill:var(--orange);stroke:var(--orange)}
+.broadcast-yard-lines{stroke:var(--line);fill:none;stroke-width:1}
+.broadcast-gain{stroke-width:4;fill:none;stroke-dasharray:300;stroke-dashoffset:300;animation:yard-gain 1s ease forwards}
+.broadcast-highlight{font:600 clamp(22px,2.3vw,30px)/1.15 'Barlow Condensed',sans-serif;margin:0;max-width:550px;animation:trait-name-in .35s ease both}
+.broadcast-longest{font-size:9px;font-weight:700;letter-spacing:1px;display:flex;align-items:center;gap:10px}.broadcast-longest strong{font:600 22px 'Barlow Condensed',sans-serif;letter-spacing:0}
+.broadcast-final{display:flex;flex-direction:column;gap:12px;align-items:center;animation:score-land .35s ease both}
+.broadcast-result{font-size:10px;font-weight:800;letter-spacing:2px;padding:6px 12px;border:1px solid currentColor;color:var(--on-deep)}
+.broadcast-result.loss{opacity:.7}
+.broadcast-final>strong{font:700 clamp(55px,7vw,85px)/1 'Barlow Condensed',sans-serif}
+.broadcast-final i{font-style:normal;font-weight:500;opacity:.4;margin-inline:8px}
+.broadcast-stats{display:flex;gap:28px;justify-content:center;font-size:9px;font-weight:700;letter-spacing:1px}
+.broadcast-stats strong{font:600 30px/1 'Barlow Condensed',sans-serif;letter-spacing:0;margin-right:4px}
+.broadcast-controls{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:14px 20px;background:var(--surface);color:var(--ink);border-top:1px solid var(--line)}
+.broadcast-controls .text-button{font-size:11px;min-height:32px;gap:8px}
+.broadcast-controls app-icon{font-size:15px}
+.broadcast.paused *{animation-play-state:paused}
+.stage-heading h1,.gift-card,.source-option,.binder-tile{animation:screen-arrive .35s ease both}
+.source-option.selected .source-monogram{animation:selection-pop .25s ease both}
+.scene-option.selected img{animation:selection-pop .3s ease both}
+@keyframes roll-bar{from{transform:scaleX(.3);opacity:.3}to{transform:scaleX(1);opacity:.9}}
+@keyframes trait-land{from{transform:translateY(7px) scale(.98);opacity:.5}to{transform:none;opacity:1}}
+@keyframes trait-name-in{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+@keyframes recruit-land{0%{transform:scale(.96);opacity:0}70%{transform:scale(1.015);opacity:1}100%{transform:none}}
+@keyframes broadcast-arrive{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+@keyframes yard-gain{to{stroke-dashoffset:0}}
+@keyframes score-land{from{transform:scale(.88);opacity:0}to{transform:none;opacity:1}}
+@keyframes screen-arrive{from{transform:translateY(9px);opacity:0}to{transform:none;opacity:1}}
+@keyframes selection-pop{50%{transform:scale(1.06)}100%{transform:none}}
+@media(max-width:700px){
+ .automatic-traits{grid-template-columns:1fr}.automatic-trait{padding:16px;gap:8px 11px}.automatic-trait:last-child{grid-column:auto}
+ .automatic-source{font-size:25px}.automatic-grade{font-size:28px;padding-right:13px}
+ .recruit-rating{padding:18px;gap:14px}.recruit-stars{font-size:22px}.recruit-rating h2{font-size:26px}
+ .broadcast-header{padding:15px 13px;font-size:9px;letter-spacing:.5px}.broadcast-brand{gap:5px}
+ .broadcast-matchup{padding-inline:12px;gap:10px}.broadcast-matchup h2{font-size:27px}
+ .broadcast-moment{min-height:260px;padding:10px 15px 20px;gap:17px}.broadcast-highlight{font-size:25px}
+ .broadcast-controls{padding:10px 13px;gap:10px;flex-wrap:wrap}.broadcast-controls .text-button{font-size:10px;gap:6px}
+ .broadcast-stats{gap:18px}.broadcast-stats strong{font-size:28px}
+}
+@media(prefers-reduced-motion:reduce){
+ .automatic-trait,.automatic-source,.roll-bars i,.prospect-complete,.recruit-rating,.broadcast,.broadcast-gain,.broadcast-highlight,.broadcast-final,.stage-heading h1,.gift-card,.source-option,.binder-tile,.source-option.selected .source-monogram,.scene-option.selected img{animation:none}
+ .broadcast-gain{stroke-dashoffset:0}
+}

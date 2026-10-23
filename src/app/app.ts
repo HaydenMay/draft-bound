@@ -1,5 +1,8 @@
+import {TraitReveal} from './shared/trait-reveal';
+import {RecruitBadge} from './shared/recruit-rating';
+import {GameBroadcast} from './shared/game-broadcast';
 import { CommonModule } from '@angular/common';
-import { Component, computed, effect, HostListener, inject, signal } from '@angular/core';
+import { Component, computed, effect, HostListener, inject, signal, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { GameStore } from './application/game-store';
 import { ART_SCENES } from './data/art-scenes';
@@ -10,7 +13,7 @@ import { BinderEntry, CardCustomization, CardEdition, CardViewModel, GameCommand
 import { CollectibleCard } from './shared/collectible-card';
 import { DraftIcon } from './shared/icon';
 
-@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon], templateUrl: './app.html', styleUrl: './app.css' })
+@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon, TraitReveal, RecruitBadge, GameBroadcast], templateUrl: './app.html', styleUrl: './app.css' })
 export class App {
   private previousFocus: HTMLElement | null = null;
   readonly game = inject(GameStore);
@@ -19,6 +22,12 @@ export class App {
   readonly sources = SOURCE_PLAYERS;
   readonly scenes = ART_SCENES;
   readonly modal = signal<'new' | 'discard' | 'import' | 'settings' | 'help' | null>(null);
+  readonly autoRevealComplete=signal(false);
+  readonly broadcastOpen=signal(true);
+  readonly broadcastReplay=signal(false);
+  readonly traitReveal=viewChild(TraitReveal);
+  readonly automaticTraits=computed(()=>Object.values(this.game.run()?.creation.traits??{}).filter(t=>t.origin==='autofill').map(t=>({attributeId:t.attributeId,attribute:this.attributeName(t.attributeId),source:this.sourceName(t.sourcePlayerId),grade:t.grade,ceiling:t.ceiling})));
+  private revealRun='';
   readonly prospectName = signal('');
   readonly jerseyNumber = signal(11);
   readonly formError = signal('');
@@ -124,6 +133,7 @@ export class App {
   };
 
   constructor() {
+    effect(()=>{const run=this.game.run(),key=run?.phase==='reveal'?run.id:'';if(key!==this.revealRun){this.revealRun=key;this.autoRevealComplete.set(false);}});
     effect(() => {
       const open = this.modal();
       if (open) {
@@ -181,7 +191,11 @@ export class App {
     await this.game.newRun(name, this.jerseyNumber());
     if (!this.game.error()) { this.modal.set(null); this.selectedSource.set(''); this.trainingMode.set('balanced'); this.scrollTop(); }
   }
-  command(payload: GameCommandPayload): void { void this.game.dispatch(payload).then(() => { this.selectedSource.set(''); this.scrollTop(); }); }
+  completeTraits():void {const moveFocus=!!document.activeElement?.closest('app-trait-reveal');this.autoRevealComplete.set(true);if(moveFocus)requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>('[data-continue-college]')?.focus({preventScroll:true}));}
+  completeBroadcast():void {const moveFocus=!!document.activeElement?.closest('app-game-broadcast');this.broadcastOpen.set(false);if(moveFocus)requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>('[data-block-continue]')?.focus({preventScroll:true}));}
+  skipPresentation():void {this.game.skipReveal();this.traitReveal()?.showAll();}
+  replayBroadcast():void {this.broadcastReplay.set(true);this.broadcastOpen.set(true);}
+  command(payload: GameCommandPayload): void { if(payload.type==='train'){this.broadcastReplay.set(false);this.broadcastOpen.set(true);}  void this.game.dispatch(payload).then(() => { this.selectedSource.set(''); this.scrollTop(); }); }
   train(): void {
     const mode = this.trainingMode();
     const plan: TrainingPlan = mode === 'balanced' ? { mode } : { mode, attributeId: this.trainingTarget() };
