@@ -1,0 +1,144 @@
+/* Central color palette. Use semantic variables in layout and component styles.
+ * College/team identities remain in their data catalogs; printed colors do not invert. */
+:root {
+  color-scheme: light;
+  --paper: #f6f4ed;
+  --ink: #172b23;
+  --muted: #586654;
+  --line: #ccd3c1;
+  --surface: #eeeee4;
+  --surface-raised: #fafaf4;
+  --surface-selected: #e1e9d4;
+  --selection-border: #78945d;
+  --selection-marker: #597942;
+  --orange: #c74a22;
+  --orange-hover: #b6401b;
+  --on-accent: #fffaf1;
+  --forest: #1c382a;
+  --olive: #73835a;
+  --deep-surface: #243e2e;
+  --on-deep: #eef3e3;
+  --honor-surface: #f0dfb1;
+  --honor-text: #68521f;
+  --honor-border: #b59a55;
+  --error-surface: #f6dcd1;
+  --error-text: #833a27;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #121916;
+  --ink: #f0eee5;
+  --muted: #b3bdae;
+  --line: #415044;
+  --surface: #1c2721;
+  --surface-raised: #253229;
+  --surface-selected: #293f2d;
+  --selection-border: #99b87a;
+  --selection-marker: #b2ce96;
+  --orange: #ff8a61;
+  --orange-hover: #ffa07d;
+  --on-accent: #21170f;
+  --forest: #d0ddc5;
+  --olive: #b4c593;
+  --deep-surface: #1c3326;
+  --honor-surface: #3b3320;
+  --honor-text: #ecd58f;
+  --honor-border: #a89054;
+  --error-surface: #3b2521;
+  --error-text: #ffad93;
+}
+
+:root {
+  /* Shared marks, overlays, shadows, and finish previews. */
+  --white: #ffffff;
+  --icon-asset-ink: #788474;
+  --field-line: #c6d0b76b;
+  --shadow-hero: #1a2c2420;
+  --empty-card-paper: #e2e7d6;
+  --empty-card-edge: #c1ceaf;
+  --shadow-selection: #2b451b10;
+  --swatch-classic-border: #b5ba9c;
+  --swatch-classic-paper: #e9eddc;
+  --swatch-highlight: #f4f5e9;
+  --swatch-silver-border: #aab8b1;
+  --swatch-silver-start: #c6d3cb;
+  --swatch-silver-mid: #a0b3a9;
+  --swatch-silver-end: #e1e9e1;
+  --swatch-gold-border: #c9ab57;
+  --swatch-gold-start: #e0cb88;
+  --swatch-gold-mid: #af9545;
+  --swatch-gold-end: #eee1ac;
+  --swatch-training-border: #72935a;
+  --swatch-training-paper: #cad9bb;
+  --swatch-transfer-border: #ac8a68;
+  --swatch-transfer-paper: #d9c7b5;
+  --swatch-legend-border: #ad8b3c;
+  --swatch-legend-start: #e6d88c;
+  --swatch-legend-mid: #a59443;
+  --swatch-legend-end: #ece6c0;
+  --shadow-toggle: #30451b20;
+  --shadow-notice: #233d2c30;
+  --modal-overlay: #14261eb3;
+  --shadow-modal: #0a1d1955;
+  --physical-rule: #a7b38a44;
+  --draft-art-shade: #14311ee6;
+
+  /* Printed collectible palettes, independent of the interface theme. */
+  --print-border: #36443c;
+  --print-paper: #e6e0cb;
+  --print-ink: #17211e;
+  --print-shadow: #17211e24;
+  --print-accent: #d65630;
+  --print-art-border: #182a21;
+  --print-art-ground: #344f3e;
+  --print-vignette-clear: #101f1200;
+  --print-vignette-shade: #10251bd9;
+  --print-tab-paper: #f5f1de;
+  --print-tab-ink: #24372a;
+  --print-on-art: #fffaf0;
+  --print-stamp-border: #f3d18c;
+  --print-stamp-ground: #183a2de6;
+  --print-stamp-ink: #f6daa2;
+  --print-muted: #465347;
+  --print-rule: #a8ad96;
+  --print-silver-start: #e6e9e6;
+  --print-silver-mid: #9aa8a3;
+  --print-silver-end: #f4f4eb;
+  --print-gold-start: #f3e3aa;
+  --print-gold-mid: #bd9346;
+  --print-gold-end: #f5e4ae;
+  --print-training-paper: #c8d2b7;
+  --print-training-border: #4f6446;
+  --print-transfer-paper: #d7cbc0;
+  --print-transfer-border: #8a634a;
+  --print-legend-start: #d4b873;
+  --print-legend-mid: #f3e9c0;
+  --print-legend-end: #ad7e32;
+  --print-legend-border: #a67b35;
+  --print-foil-blue: #97d6ed55;
+  --print-foil-pink: #f8b9fa77;
+  --print-foil-gold: #fff8ab99;
+  --print-foil-green: #c2f2d666;
+  --print-fallback-ground: #234332;
+  --print-fallback-line: #2c4c3b;
+  --print-fallback-ink: #d9dbbe;
+
+  /* Fixed-resolution PNG palettes, preserving existing exported artwork. */
+  --export-frame-classic: #f4f0e4;
+  --export-frame-silver: #d4dce1;
+  --export-frame-gold: #e8c678;
+  --export-frame-training: #b5c4a1;
+  --export-frame-transfer: #92bdc2;
+  --export-frame-legend: #b0a5ce;
+  --export-ink: #182620;
+  --export-vignette: #071914;
+  --export-foil-clear: #ffffff00;
+  --export-foil-green: #adf6e644;
+  --export-foil-white: #ffffff66;
+  --export-foil-pink: #e7b4fa33;
+  --export-on-art: #fff8e9;
+  --export-stamp-paper: #e7c16a;
+  --export-stamp-ink: #1c302a;
+  --export-rule: #18262055;
+}

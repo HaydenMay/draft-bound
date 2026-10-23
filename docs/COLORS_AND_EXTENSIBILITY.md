@@ -2,7 +2,16 @@
 
 ## Interface theme
 
-`src/theme.css` is the source of truth for interface colors. Semantic variables represent paper/background, text, muted text, surfaces, selection, borders, actions, honors and errors. Light and dark palettes use the same layout. App screen styles consume those variables.
+`src/colors.css` is the source of truth for application colors. It is imported once at the top of `src/styles.css`. The project uses native CSS custom properties, so no Sass dependency or extra compilation step is needed.
+
+- `:root` defines the light interface palette; `:root[data-theme='dark']` overrides its semantic variables.
+- Shared tokens cover shadows, overlays, field markings, and finish previews (`--swatch-*`).
+- Printed collectible palettes (`--print-*`) and PNG export palettes (`--export-*`) stay independent of the interface theme.
+- `--icon-asset-ink` supplies the generated standalone SVG assets; regenerate them with `npm run icons` after editing that token. Production builds do this automatically.
+
+Layouts and components consume `var(--token)` rather than literal colors. `src/theme.css` contains only appearance-control layout. Browser APIs that need resolved color strings, such as canvas export and the browser theme-color metadata, use `readColor` in `src/app/shared/colors.ts`. Change the corresponding palette token rather than adding color literals to TypeScript. The static pre-application theme-color fallback in `src/index.html` and original artwork assets retain their own metadata/art colors.
+
+For example, edit `--orange` / `--orange-hover` in each theme to change primary actions, or `--print-paper` to change the printed collectible background. Light and dark palettes use the same layout.
 
 Appearance is **System / Light / Dark**, under Saves & settings. System is the default and responds to device preference changes. The setting is included in saved backups. A small local-storage cache applies it before Angular starts to avoid a bright initial page. Older schema-1 saves without the optional theme field remain compatible and use System.
 

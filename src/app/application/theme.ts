@@ -1,3 +1,4 @@
+import {readColor} from '../shared/colors';
 import {ThemePreference} from '../domain/models';
 
 export function readThemePreference(value:unknown):ThemePreference {
@@ -15,6 +16,6 @@ export function cachedThemePreference():ThemePreference {
 export function applyTheme(preference:ThemePreference,systemDark:boolean):void {
  const theme=resolveTheme(preference,systemDark);
  document.documentElement.dataset['theme']=theme;
- document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#121916':'#f6f4ed');
+ document.querySelector('meta[name="theme-color"]')?.setAttribute('content',readColor('--paper'));
  try{localStorage.setItem('draft-bound-theme',preference);}catch{/* IndexedDB remains the authoritative settings store. */}
 }

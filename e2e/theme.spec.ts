@@ -1,7 +1,28 @@
 import {test,expect} from '@playwright/test';
-import {mkdirSync} from 'node:fs';
+import {mkdirSync,readFileSync} from 'node:fs';
 import {emptySave} from '../src/app/persistence/save';
 import {createCollege,completeRun} from '../src/app/domain/test-fixtures';
+
+test('shared stylesheet colors drive the interface, browser chrome, and exported card palette',async({page})=>{
+ const save=emptySave();save.entries=[completeRun(82).entry!];
+ await page.goto('/');await expect(page.getByRole('button',{name:/Create your prospect/})).toBeVisible();
+ await page.evaluate(data=>new Promise<void>((resolve,reject)=>{const request=indexedDB.open('draft-bound',1);request.onsuccess=()=>{const db=request.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(data,'current');tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};}),save);
+ await page.reload();
+ await page.addStyleTag({content:':root{--paper:rgb(38, 44, 50) !important;--export-frame-classic:#012345 !important}'});
+ await page.getByRole('button',{name:'Save and game settings'}).click();
+ await page.getByLabel('Appearance',{exact:true}).selectOption('light');
+ await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content','rgb(38, 44, 50)');
+ expect(await page.locator('html').evaluate(el=>getComputedStyle(el).backgroundColor)).toBe('rgb(38, 44, 50)');
+ await page.getByRole('button',{name:'Close dialog'}).click();
+ await page.getByRole('button',{name:/My binder 1/}).click();
+ await page.getByRole('button',{name:/View Jordan Hayes/}).click();
+ await page.getByRole('button',{name:/Customize card/}).click();
+ const downloading=page.waitForEvent('download');
+ await page.getByRole('button',{name:/Download card PNG/}).click();
+ const download=await downloading;await download.saveAs('test-results/custom-palette.png');
+ const pixel=await page.evaluate(async base64=>{const image=new Image();image.src='data:image/png;base64,'+base64;await image.decode();const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;const ctx=canvas.getContext('2d')!;ctx.drawImage(image,0,0);return [...ctx.getImageData(0,0,1,1).data];},readFileSync('test-results/custom-palette.png').toString('base64'));
+ expect(pixel).toEqual([1,35,69,255]);
+});
 
 test('appearance follows the system, persists an override, and preserves collectible colors',async({page})=>{
  await page.emulateMedia({colorScheme:'dark'});
