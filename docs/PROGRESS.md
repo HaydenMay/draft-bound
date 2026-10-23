@@ -21,7 +21,7 @@ The user approved implementation, public GitHub repository creation, and GitHub 
 - [x] 7 Optional professional career
 - [x] 8 Evidence-backed cards, cosmetics and binder
 - [x] 9 Persistence/import/export/refresh
-- [ ] 10 Seeded balance, browser checks, independent review and deployment
+- [x] 10 Seeded balance, browser checks, independent review and deployment
 
 ## Verification record
 
@@ -45,3 +45,12 @@ The independent reviewer reported the following Important findings before its se
 - Final: final unit suite 39/39, browser suite 6/6, TypeScript and production build passing.
 
 No unresolved Critical/Important review findings remain from the findings received. The reviewer session ended before producing a consolidated final report; the documented regression results are the completion evidence. No minor findings or deferred-minor list were supplied.
+
+## Publication
+
+Public repository: https://github.com/HaydenMay/draft-bound
+
+GitHub Pages: https://haydenmay.github.io/draft-bound/
+
+GitHub Actions independently passed clean installation, type checking,39 unit tests,6 browser scenarios, production build and Pages deployment. The final PNG inspection found an unbalanced canvas clipping region; a failing image-pixel assertion reproduced the blank statistics area. Restoring the context after artwork rendering fixes metadata export; all checks pass again. The live page and original assets were verified in a browser.
+

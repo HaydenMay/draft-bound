@@ -1,5 +1,5 @@
 import {test,expect,Page} from '@playwright/test';
-import {mkdirSync} from 'node:fs';
+import {mkdirSync,readFileSync} from 'node:fs';
 import {SaveEnvelope} from '../src/app/domain/models';
 import {completeRun} from '../src/app/domain/test-fixtures';
 import {emptySave} from '../src/app/persistence/save';
@@ -23,6 +23,8 @@ test('complete college, draft card, saved refresh, later NFL career and PNG expo
  await page.getByRole('button',{name:/Create draft card/i}).click();await expect(page.locator('.card-builder')).toBeVisible();
  await expect(page.locator('.preview-card img')).toHaveJSProperty('complete',true);mkdirSync('docs/validation/screenshots',{recursive:true});await page.screenshot({path:'docs/validation/screenshots/card-desktop.png',fullPage:true});
  const download=page.waitForEvent('download');await page.getByRole('button',{name:/Download card PNG/}).click();const card=await download;expect(card.suggestedFilename()).toMatch(/draft\.png$/);await card.saveAs('test-results/draft-card.png');
+ const exported=readFileSync('test-results/draft-card.png').toString('base64');
+ const metadataPixels=await page.evaluate(async(base64)=>{const image=new Image();image.src='data:image/png;base64,'+base64;await image.decode();const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;const context=canvas.getContext('2d')!;context.drawImage(image,0,0);const pixels=context.getImageData(50,950,800,280).data;let dark=0;for(let i=0;i<pixels.length;i+=4)if(pixels[i]+pixels[i+1]+pixels[i+2]<350)dark++;return dark;},exported);expect(metadataPixels).toBeGreaterThan(2000);
  await page.getByRole('button',{name:/Save to my binder/}).click();await expect(page.locator('.binder-grid')).toBeVisible();await page.reload();await expect(page.locator('.binder-grid')).toBeVisible();
  await page.getByRole('button',{name:/View Jordan Hayes/}).click();await page.getByRole('button',{name:/Simulate pro career/}).click();await expect(page.locator('.career-metrics')).toBeVisible();
  const after=await saved(page);expect(after.entries[0].draft).toEqual(draft);expect(after.entries[0].career!.seasons.length).toBeGreaterThanOrEqual(3);expect(after.entries[0].careerCard).not.toBeNull();
