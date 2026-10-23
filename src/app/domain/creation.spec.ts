@@ -1,10 +1,19 @@
 import {describe,it,expect} from 'vitest';
 import {createRun} from './engine';
-import {step} from './test-fixtures';
+import {step,completeRun,createCollege} from './test-fixtures';
+import {SOURCE_CATALOG_VERSION} from '../data/source-players';
 import {WR_DEFINITION} from './positions';
 import {emptySave,previewSave} from '../persistence/save';
 
 describe('v1.2 creation modes and offers',()=>{
+ it('records the catalog version on new completed drafts',()=>{
+  expect(completeRun(82).entry!.draft.contentVersion).toBe(SOURCE_CATALOG_VERSION);
+ });
+ it('keeps a legacy active run on its original progression after loading without a profile',()=>{
+  const missing=createCollege(82),legacy=structuredClone(missing);delete missing.balanceVersion;legacy.balanceVersion='legacy';
+  const a=step(missing,{type:'train',plan:{mode:'balanced'}}),b=step(legacy,{type:'train',plan:{mode:'balanced'}});
+  expect(a.prospect).toEqual(b.prospect);expect(a.history).toEqual(b.history);expect(a.rng).toBe(b.rng);
+ });
  it('never repeats a player within a gift or potential offer, but permits later repeats',()=>{
   let laterRepeat=false;
   for(let seed=0;seed<400;seed++){

@@ -1,5 +1,7 @@
 # Wide Receiver Prospect Development — Game Design
 
+> v1.2 implementation amendment: see V1_2_RELEASE.md and superpowers/specs/2026-10-23-v1.2-planning.md for current creation modes, unique offers, catalog, progression and presentation. Original numeric examples below describe the retained legacy profile unless stated otherwise.
+
 **Document:** GAME_DESIGN.md  
 **Version:** 1.2 — focused development and player-experience refinement  
 **Prepared:** October 22, 2026  

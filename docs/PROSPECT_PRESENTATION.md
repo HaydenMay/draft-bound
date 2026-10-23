@@ -8,17 +8,19 @@ This revision implements the user's October 23, 2026 feedback. Schools, their mo
 
 | Recruit score | Stars |
 |---|---:|
-| Below 74 | 1 |
-| 74 to below 78 | 2 |
-| 78 to below 82 | 3 |
-| 82 to below 86 | 4 |
-| 86+ | 5 |
+| Below 77 | 1 |
+| 77 to below 81 | 2 |
+| 81 to below 84 | 3 |
+| 84 to below 87 | 4 |
+| 87+ | 5 |
 
-The blend was user-confirmed; its exact percentages and fixed bands are implementation defaults, not official recruiting grades. The badge appears after the five automatic potentials and before initial school commitment.
+The blend was user-confirmed; its exact percentages and fixed bands are implementation defaults, not official recruiting grades. Quick shows the badge after its five automatic potentials; Full shows it after all eight manual assignments and before initial school commitment.
 
 ## Automatic potentials
 
-The third manual choice still commits all five uniformly sampled automatic sources, assignments and initial values together. `TraitReveal` then exposes the actual saved assignments individually: attribute, source player, potential grade and ceiling. No replacement rolls or fake player odds are involved.
+In Quick mode, the third manual choice commits all five uniformly sampled automatic sources, assignments and initial values together. `TraitReveal` then exposes the actual saved assignments individually: attribute, source player, potential grade and ceiling. No replacement rolls or fake player odds are involved.
+
+Full assigns all eight remaining potentials manually from three-player offers, retains the same three shared rerolls and skips automatic reveals.
 
 Next reveals one card; Show all reveals the remainder. Normal reveal cadence is 900 ms per card. Fast reveals and reduced motion show all five immediately. The blueprint is withheld during this presentation so it cannot spoil unrevealed names. A refresh replays the same saved assignments. No new mandatory gameplay phase or save-schema migration is needed.
 

@@ -1,0 +1,31 @@
+/* Finite presentation motion. Saved outcomes and gameplay clocks remain independent. */
+.gift-grid,.source-grid{perspective:1000px}
+.is-revealing>.gift-card,.is-revealing>.source-option{animation:offer-deal .8s cubic-bezier(.16,.75,.25,1) both;animation-delay:var(--delay,0ms);transform-origin:50% 85%}
+.is-revealing>.gift-card>*,.is-revealing>.source-option>*{animation:offer-ink .75s both;animation-delay:var(--delay,0ms)}
+.physical-card{animation:build-arrive .6s ease both}
+.physical-no{animation:build-number .75s cubic-bezier(.2,.8,.2,1) both}
+.physical-metrics>div{animation:trait-name-in .45s .12s ease both}
+.trait-picker{animation:trait-name-in .3s ease both}
+.training-option{transition:transform .2s,border-color .2s,background .2s}
+.training-option:hover:not(:disabled){transform:translateY(-3px)}
+.training-option.selected .training-glyph{animation:selection-pop .35s ease both}
+.attribute-meter>i{transition:width .65s cubic-bezier(.2,.7,.2,1)}
+.gain-strip>span{animation:gain-land .5s ease both}
+.gain-strip>span:nth-child(3n+2){animation-delay:.08s}.gain-strip>span:nth-child(3n){animation-delay:.16s}
+.gain-strip strong{display:inline-block;animation:gain-number .6s .1s ease both}
+.season-summary,.draft-night-panel{animation:milestone-arrive .65s ease both}
+.season-summary .metric-grid>div{animation:trait-name-in .55s .18s ease both}
+.award-pill,.card-stamp{animation:stamp-land .65s cubic-bezier(.2,.8,.2,1) both}
+.draft-pick>strong{animation:build-number .75s .12s ease both}
+@keyframes offer-deal{0%{opacity:0;transform:translateY(30px) rotateX(30deg) rotateZ(-3deg) scale(.94)}65%{opacity:1;transform:translateY(-4px) rotateX(0) rotateZ(.5deg) scale(1.01)}100%{opacity:1;transform:none}}
+@keyframes offer-ink{0%,24%{opacity:0}65%,100%{opacity:1}}
+@keyframes build-arrive{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes build-number{0%{opacity:0;transform:translateY(15px) scale(.8)}65%{opacity:1;transform:scale(1.03)}100%{opacity:1;transform:none}}
+@keyframes gain-land{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes gain-number{0%{opacity:0;transform:translateY(8px)}65%{opacity:1;transform:translateY(-2px)}100%{opacity:1;transform:none}}
+@keyframes milestone-arrive{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes stamp-land{0%{opacity:0;scale:1.35}65%{opacity:1;scale:.96}100%{opacity:1;scale:1}}
+@media(prefers-reduced-motion:reduce){
+ .is-revealing>.gift-card,.is-revealing>.source-option,.is-revealing>.gift-card>*,.is-revealing>.source-option>*,.physical-card,.physical-no,.physical-metrics>div,.trait-picker,.training-option.selected .training-glyph,.gain-strip>span,.gain-strip strong,.season-summary,.season-summary .metric-grid>div,.draft-night-panel,.award-pill,.card-stamp,.draft-pick>strong{animation:none}
+ .attribute-meter>i,.training-option{transition:none}.training-option:hover:not(:disabled){transform:none}
+}

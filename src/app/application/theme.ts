@@ -1,5 +1,18 @@
 import {readColor} from '../shared/colors';
-import {ThemePreference} from '../domain/models';
+import {PaletteId,ThemePreference} from '../domain/models';
+import {PALETTES} from '../data/palettes';
+
+export function readPalette(value:unknown):PaletteId {
+ return PALETTES.find(p=>p.id===value)?.id??'forest';
+}
+export function cachedPalette():PaletteId {
+ try{return readPalette(localStorage.getItem('draft-bound-palette'));}catch{return 'forest';}
+}
+export function applyPalette(value:PaletteId):void {
+ const palette=readPalette(value);document.documentElement.dataset['palette']=palette;
+ document.querySelector('meta[name="theme-color"]')?.setAttribute('content',readColor('--paper'));
+ try{localStorage.setItem('draft-bound-palette',palette);}catch{/* Authoritative settings remain in IndexedDB. */}
+}
 
 export function readThemePreference(value:unknown):ThemePreference {
  return value==='light'||value==='dark'?value:'system';

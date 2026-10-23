@@ -1,3 +1,4 @@
+import {loadBrandImage} from './brand-image';
 import {readColor} from '../shared/colors';
 import {drawIcon} from '../shared/icon-paths';
 import {CardViewModel} from '../domain/models';
@@ -9,7 +10,7 @@ export async function renderCard(card:CardViewModel):Promise<Blob>{
  const image=new Image();image.src=new URL(card.art,document.baseURI).href;await image.decode();
  const colors:Record<string,string>={classic:color('--export-frame-classic'),silver:color('--export-frame-silver'),gold:color('--export-frame-gold'),training:color('--export-frame-training'),transfer:color('--export-frame-transfer'),legend:color('--export-frame-legend')};
  ctx.fillStyle=colors[card.frame]??colors['classic'];ctx.fillRect(0,0,900,1350);ctx.strokeStyle=card.colors[0];ctx.lineWidth=18;ctx.strokeRect(19,19,862,1312);
- ctx.fillStyle=color('--export-ink');ctx.font='700 58px "Barlow Condensed",sans-serif';ctx.fillText('DB',48,88);drawIcon(ctx,'mark',112,40,24,color('--export-ink'));ctx.font='600 24px "DM Sans",sans-serif';ctx.fillText(card.edition==='career'?'CAREER COLLECTION':'DRAFT COLLECTION',150,75);ctx.font='700 68px "Barlow Condensed",sans-serif';ctx.textAlign='right';ctx.fillText(String(card.ovr),845,85);ctx.textAlign='left';
+ ctx.fillStyle=color('--export-ink');const brand=await loadBrandImage(color('--export-ink'),card.colors[0]);ctx.drawImage(brand,48,34,88,54);ctx.font='600 24px "DM Sans",sans-serif';ctx.fillText(card.edition==='career'?'CAREER COLLECTION':'DRAFT COLLECTION',150,75);ctx.font='700 68px "Barlow Condensed",sans-serif';ctx.textAlign='right';ctx.fillText(String(card.ovr),845,85);ctx.textAlign='left';
  const x=45,y=116,w=810,h=820,ratio=Math.max(w/image.width,h/image.height),dw=image.width*ratio,dh=image.height*ratio;
  ctx.save();ctx.beginPath();ctx.rect(x,y,w,h);ctx.clip();ctx.drawImage(image,x+(w-dw)/2,y+(h-dh)*.2,dw,dh);
  const gradient=ctx.createLinearGradient(0,680,0,936);gradient.addColorStop(0,'transparent');gradient.addColorStop(1,color('--export-vignette'));ctx.fillStyle=gradient;ctx.fillRect(x,680,w,256);

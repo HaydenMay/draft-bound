@@ -1,5 +1,5 @@
 <article class="collectible" [class]="'collectible frame-' + card().frame" [class.is-foil]="card().foil" [style.--card-primary]="card().colors[0]" [style.--card-secondary]="card().colors[1]" data-export-card [attr.data-card-edition]="card().edition" [attr.aria-label]="card().name + ', ' + card().edition + ' edition, ' + card().ovr + ' overall'">
-  <div class="card-head"><span class="card-brand">D<span>B</span><i><app-icon name="mark" /></i></span><span class="edition">{{ card().edition === 'career' ? 'CAREER COLLECTION' : 'DRAFT COLLECTION' }}<b>{{ card().year }}</b></span><div class="card-ovr"><strong>{{ card().ovr }}</strong><span>OVR</span></div></div>
+  <div class="card-head"><span class="card-brand"><app-brand/></span><span class="edition">{{ card().edition === 'career' ? 'CAREER COLLECTION' : 'DRAFT COLLECTION' }}<b>{{ card().year }}</b></span><div class="card-ovr"><strong>{{ card().ovr }}</strong><span>OVR</span></div></div>
   <div class="art-window">
     @if (failedImage() !== card().art) { <img [src]="card().art" [alt]="card().sceneName + ', illustrated football card artwork'" (error)="imageFailed()" draggable="false"> }
     @else { <div class="art-fallback"><span>DB</span><small>{{ card().sceneName }}</small></div> }

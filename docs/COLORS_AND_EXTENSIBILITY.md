@@ -5,6 +5,7 @@
 `src/colors.css` is the source of truth for application colors. It is imported once at the top of `src/styles.css`. The project uses native CSS custom properties, so no Sass dependency or extra compilation step is needed.
 
 - `:root` defines the light interface palette; `:root[data-theme='dark']` overrides its semantic variables.
+- Optional `data-palette` selects forest, copper, navy, charcoal or teal. Each has light/dark tokens in the same file; `data-theme` remains independent. IDs and display names live in `src/app/data/palettes.ts`, without color literals.
 - Shared tokens cover shadows, overlays, field markings, and finish previews (`--swatch-*`).
 - Printed collectible palettes (`--print-*`) and PNG export palettes (`--export-*`) stay independent of the interface theme.
 - `--icon-asset-ink` supplies the generated standalone SVG assets; regenerate them with `npm run icons` after editing that token. Production builds do this automatically.
@@ -14,6 +15,8 @@ Layouts and components consume `var(--token)` rather than literal colors. `src/t
 For example, edit `--orange` / `--orange-hover` in each theme to change primary actions, or `--print-paper` to change the printed collectible background. Light and dark palettes use the same layout.
 
 Appearance is **System / Light / Dark**, under Saves & settings. System is the default and responds to device preference changes. The setting is included in saved backups. A small local-storage cache applies it before Angular starts to avoid a bright initial page. Older schema-1 saves without the optional theme field remain compatible and use System.
+
+Color theme is a separate saved radio choice: Original forest (default), Midnight copper, Navy & gold, Charcoal & orange and Deep teal & cream. Missing legacy palette fields use forest; unknown imported IDs are rejected. The pre-paint cache uses the same ID allowlist. Inline two-tone icons use `currentColor` plus `--icon-accent`, with a single contextual color on primary buttons. Brand arrows use `--brand-accent`; printed brands use the saved college primary color. Standalone favicon colors are self-contained and follow device light/dark, independently of the selected app palette.
 
 ## Team colors and collectible artwork
 

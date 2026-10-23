@@ -1,5 +1,7 @@
 # Wide Receiver Prospect Development — Implementation Plan
 
+> v1.2 implementation amendment: see V1_2_RELEASE.md and superpowers/specs/2026-10-23-v1.2-planning.md for current creation modes, unique offers, catalog, progression and presentation. Original numeric examples below describe the retained legacy profile unless stated otherwise.
+
 > **Release authorization:** Implementation, a public GitHub repository and GitHub Pages publication were explicitly authorized on October 23, 2026. The earlier document-only and local-only boundaries below are superseded by that request. See PROGRESS.md and ROADMAP.md for the delivered release.
 
 **Version:** 1.2 — portable engineering handoff. Use the coding environment's available tools and applicable local instructions. No named skill, agent platform, or delegation framework is required; optional workflows may be used when available and authorized.

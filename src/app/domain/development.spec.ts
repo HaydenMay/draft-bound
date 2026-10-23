@@ -26,11 +26,11 @@ describe('development rules', () => {
     expect(integrateGrowth(90,4,93,'legacy')).toBe(92);
     expect(integrateGrowth(98,100,99,'v1.2')).toBe(99);
   });
-  it('retains the carefully constructed displayed-99 reachability witness',()=>{
+  it.each(['legacy','v1.2'] as const)('retains the carefully constructed displayed-99 witness in %s',profile=>{
     let current=Object.fromEntries(WR_DEFINITION.attributes.map(a=>[a.id,a.id==='routeRunning'?94:65]));
     const ceiling=Object.fromEntries(WR_DEFINITION.attributes.map(a=>[a.id,99]));
     const plans=[['focused','bodyControl'],['focused','acceleration'],['focused','yardsAfterCatch'],['focused','release'],['focused','vertical'],['focused','awareness'],['intensive','hands'],['intensive','speed'],['focused','release']] as const;
-    plans.forEach(([mode,attributeId],block)=>{for(let g=0;g<4;g++)current=develop(current,ceiling,{mode,attributeId},Math.floor(block/3)+1,{coaching:1.05,specialties:WR_DEFINITION.attributes.map(a=>a.id)},36,{}).current;});
+    plans.forEach(([mode,attributeId],block)=>{for(let g=0;g<4;g++)current=develop(current,ceiling,{mode,attributeId},Math.floor(block/3)+1,{coaching:1.05,specialties:WR_DEFINITION.attributes.map(a=>a.id)},36,{},profile).current;});
     expect(calculateOvr(current).raw).toBeCloseTo(98.763418,5);expect(calculateOvr(current).display).toBe(99);
   });
 });

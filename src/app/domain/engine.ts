@@ -4,7 +4,7 @@ import {BinderEntry,DraftOutcome,DraftSnapshot,GameCommand,Intervention,RunState
 import {WR_DEFINITION,RULES_VERSION} from './positions';
 import {CEILINGS,calculateOvr,develop,values} from './development';
 import {Random} from './rng';
-import {SOURCE_PLAYERS} from '../data/source-players';
+import {SOURCE_PLAYERS,SOURCE_CATALOG_VERSION} from '../data/source-players';
 import {COLLEGES} from '../data/colleges';
 import {DRAFT_BOARD,DRAFT_TEAMS} from '../data/teams';
 import {sumStats,WR_RULES} from './simulation';
@@ -62,7 +62,7 @@ export function buildDraft(run:RunState,rng:Random):BinderEntry{
  const ovr=calculateOvr(a),collegeGrade=sumStats(run.history).grade,evaluation=.7*ovr.raw+.2*collegeGrade+.1*(gauntlet.reduce((s,g)=>s+g.score,0)/5),outcome=draftOutcome(evaluation,rng);
  addUnlock(run.unlocks,unlock('prospect_journey',{id:run.id,kind:'draftOutcome',stage:'draft',sourceId:run.id,facts:{finalOvr:ovr.display},description:'Completed the college-to-draft journey.'}));
  if(outcome.status==='drafted')addUnlock(run.unlocks,unlock('draft_night',{id:`${run.id}-pick`,kind:'draftOutcome',stage:'draft',sourceId:run.id,facts:{pick:outcome.overallPick,round:outcome.round,team:outcome.team.displayName},description:`Round ${outcome.round}, pick ${outcome.overallPick}: ${outcome.team.displayName}.`}));
- const draft:DraftSnapshot=structuredClone({creationMode:run.creationMode??'quick',positionId:'wr',rulesVersion:RULES_VERSION,balanceVersion:run.balanceVersion==='v1.2'?'1.2.1':'1.2.0',contentVersion:'1.0.0',prospect:p,schoolId:run.collegeId,history:run.history,years:run.years,transfers:run.transfers,interventions:run.interventions,awards:run.awards,unlocks:run.unlocks,gauntlet,collegeGrade,evaluation,finalOvr:ovr.display,outcome});
+ const draft:DraftSnapshot=structuredClone({creationMode:run.creationMode??'quick',positionId:'wr',rulesVersion:RULES_VERSION,balanceVersion:run.balanceVersion==='v1.2'?'1.2.1':'1.2.0',contentVersion:run.balanceVersion==='v1.2'?SOURCE_CATALOG_VERSION:'1.0.0',prospect:p,schoolId:run.collegeId,history:run.history,years:run.years,transfers:run.transfers,interventions:run.interventions,awards:run.awards,unlocks:run.unlocks,gauntlet,collegeGrade,evaluation,finalOvr:ovr.display,outcome});
  run.draft=draft;const school=COLLEGES.find(s=>s.id===run.collegeId)!;
  return {id:run.id,positionId:'wr',createdAt:run.createdAt,completedAt:new Date().toISOString(),favorite:false,draft,career:null,nflSeed:run.nflSeed,draftCard:{sceneId:outcome.status==='drafted'?'draft_night':'prospect_journey',frame:'classic',foil:false,showStamp:true},careerCard:null,display:{positionLabel:WR_DEFINITION.displayName,attributes:WR_DEFINITION.attributes.map(attr=>({id:attr.id,label:attr.label,value:a[attr.id],ceiling:p.traits[attr.id].ceiling})),schoolName:school.name,schoolColors:school.colors}};
 }

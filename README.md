@@ -10,7 +10,7 @@ Combine real-player trait inspirations, develop a prospect through four-game col
 
 Progress saves in this browser on this device. Use **Saves & settings → Export game save** for backups or to move devices. Import previews a replacement and downloads your previous save first. No account, payments, or runtime AI services.
 
-Choose **Saves & settings → Appearance** for System, Light or Dark. Interface themes preserve the printed card palette and exported artwork. See `docs/COLORS_AND_EXTENSIBILITY.md` for team palettes and current position-expansion boundaries.
+Choose **Saves & settings → Color theme** for five palettes, independently of **Appearance → System / Light / Dark**. Printed cards and exports keep their own palettes. New prospects can use Quick creation (three manual potential choices) or Full creation (all eight remaining choices). See `docs/V1_2_RELEASE.md` for changes and validation, and `docs/COLORS_AND_EXTENSIBILITY.md` for team palettes and position-expansion boundaries.
 
 ## Development
 
@@ -28,6 +28,7 @@ npx playwright install chromium
 npm run test:e2e
 npm run build:pages
 npm run balance
+npm run balance:paired
 ```
 
 The production build is static. GitHub Actions verifies tests and publishes `dist/draft-bound/browser` to GitHub Pages. Hash navigation supports refreshes at entry and card screens without server rewrites. The repository name and `build:pages` base path must stay aligned.

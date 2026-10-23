@@ -1,3 +1,8 @@
+import {prospectName as generatedName} from './domain/prospect-name';
+import {manualPotentialLimit} from './domain/engine';
+import {CreationMode} from './domain/models';
+import {Brand} from './shared/brand';
+import {ThemePicker} from './shared/theme-picker';
 import {TraitReveal} from './shared/trait-reveal';
 import {RecruitBadge} from './shared/recruit-rating';
 import {GameBroadcast} from './shared/game-broadcast';
@@ -13,7 +18,7 @@ import { BinderEntry, CardCustomization, CardEdition, CardViewModel, GameCommand
 import { CollectibleCard } from './shared/collectible-card';
 import { DraftIcon } from './shared/icon';
 
-@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon, TraitReveal, RecruitBadge, GameBroadcast], templateUrl: './app.html', styleUrl: './app.css' })
+@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon, TraitReveal, RecruitBadge, GameBroadcast, ThemePicker, Brand], templateUrl: './app.html', styleUrl: './app.css' })
 export class App {
   private previousFocus: HTMLElement | null = null;
   readonly game = inject(GameStore);
@@ -28,7 +33,9 @@ export class App {
   readonly traitReveal=viewChild(TraitReveal);
   readonly automaticTraits=computed(()=>Object.values(this.game.run()?.creation.traits??{}).filter(t=>t.origin==='autofill').map(t=>({attributeId:t.attributeId,attribute:this.attributeName(t.attributeId),source:this.sourceName(t.sourcePlayerId),grade:t.grade,ceiling:t.ceiling})));
   private revealRun='';
-  readonly prospectName = signal('');
+  readonly prospectName = signal(generatedName(crypto.getRandomValues(new Uint32Array(1))[0]));
+  readonly creationMode = signal<CreationMode>('quick');
+  readonly manualLimit = manualPotentialLimit;
   readonly jerseyNumber = signal(11);
   readonly formError = signal('');
   readonly selectedSource = signal('');
@@ -133,7 +140,7 @@ export class App {
   };
 
   constructor() {
-    effect(()=>{const run=this.game.run(),key=run?.phase==='reveal'?run.id:'';if(key!==this.revealRun){this.revealRun=key;this.autoRevealComplete.set(false);}});
+    effect(()=>{const run=this.game.run(),key=run?.phase==='reveal'?run.id:'';if(key!==this.revealRun){this.revealRun=key;this.autoRevealComplete.set(!!key&&this.automaticTraits().length===0);}});
     effect(() => {
       const open = this.modal();
       if (open) {
@@ -182,13 +189,14 @@ export class App {
   activeCard(entry: BinderEntry): CardViewModel { return this.game.cardView(entry, entry.career && entry.careerCard ? 'career' : 'draft'); }
   navigate(view: 'home'|'play'|'binder'|'entry'|'career'|'card', id?: string, edition?: CardEdition): void { this.game.navigate(view, id, edition); this.scrollTop(); }
   scrollTop(): void { window.scrollTo({ top: 0, behavior: 'instant' }); }
-  openNew(): void { this.formError.set(''); this.modal.set(this.game.run() && this.game.run()?.phase !== 'complete' ? 'discard' : 'new'); }
-  async discardRun(): Promise<void> { await this.game.resetActive(); if (!this.game.error()) this.modal.set('new'); }
+  randomizeName():void {this.prospectName.set(generatedName(crypto.getRandomValues(new Uint32Array(1))[0],this.prospectName()));}
+  openNew(): void { if(this.game.run()?.phase==='complete')this.randomizeName();this.formError.set(''); this.modal.set(this.game.run() && this.game.run()?.phase !== 'complete' ? 'discard' : 'new'); }
+  async discardRun(): Promise<void> { await this.game.resetActive(); if (!this.game.error()) {this.randomizeName();this.modal.set('new');} }
   async startRun(): Promise<void> {
     const name = this.prospectName().trim();
     if (name.length < 2 || name.length > 28) { this.formError.set('Give your prospect a name between 2 and 28 characters.'); return; }
     if (!Number.isInteger(this.jerseyNumber()) || this.jerseyNumber() < 0 || this.jerseyNumber() > 99) { this.formError.set('Choose a jersey number from 0 to 99.'); return; }
-    await this.game.newRun(name, this.jerseyNumber());
+    await this.game.newRun(name, this.jerseyNumber(), this.creationMode());
     if (!this.game.error()) { this.modal.set(null); this.selectedSource.set(''); this.trainingMode.set('balanced'); this.scrollTop(); }
   }
   completeTraits():void {const moveFocus=!!document.activeElement?.closest('app-trait-reveal');this.autoRevealComplete.set(true);if(moveFocus)requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>('[data-continue-college]')?.focus({preventScroll:true}));}

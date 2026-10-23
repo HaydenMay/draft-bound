@@ -1,6 +1,13 @@
 /* Central color palette. Use semantic variables in layout and component styles.
  * College/team identities remain in their data catalogs; printed colors do not invert. */
 :root {
+ --palette-forest-paper:#121916;--palette-forest-surface:#1c2721;--palette-forest-accent:#ff8a61;--palette-forest-ink:#f0eee5;
+ --palette-copper-paper:#15191c;--palette-copper-surface:#252d30;--palette-copper-accent:#d99b70;--palette-copper-ink:#f2eee5;
+ --palette-navy-paper:#111e2c;--palette-navy-surface:#203348;--palette-navy-accent:#d4af62;--palette-navy-ink:#f0eee3;
+ --palette-charcoal-paper:#181a19;--palette-charcoal-surface:#292c2a;--palette-charcoal-accent:#e38446;--palette-charcoal-ink:#f3f0e8;
+ --palette-teal-paper:#102725;--palette-teal-surface:#1c3c38;--palette-teal-accent:#d2bd81;--palette-teal-ink:#f0f0df;
+}
+:root {
   color-scheme: light;
   --paper: #f6f4ed;
   --ink: #172b23;
@@ -142,3 +149,14 @@
   --export-stamp-ink: #1c302a;
   --export-rule: #18262055;
 }
+
+/* Selectable UI palettes. Printed/export and college/team identities stay separate. */
+:root[data-palette="copper"]{--paper:#f7f1e8;--ink:#252d30;--muted:#5f645e;--line:#d0c5b7;--surface:#eee5d8;--surface-raised:#fffaf2;--surface-selected:#e6d6c5;--orange:#a95025;--on-accent:#fffaf1}
+:root[data-palette="navy"]{--paper:#f0f3f7;--ink:#172638;--muted:#526477;--line:#c8d2df;--surface:#e3eaf2;--surface-raised:#fafcff;--surface-selected:#dce6f2;--orange:#876020;--on-accent:#fffaf1}
+:root[data-palette="charcoal"]{--paper:#f5f3f0;--ink:#252525;--muted:#62605b;--line:#d2ccc5;--surface:#e9e5df;--surface-raised:#fffdfa;--surface-selected:#e5d9ca;--orange:#ac4a15;--on-accent:#fffaf1}
+:root[data-palette="teal"]{--paper:#eff5f1;--ink:#153632;--muted:#4d6e66;--line:#b9cec6;--surface:#dceae4;--surface-raised:#fafffc;--surface-selected:#cbdfd5;--orange:#806421;--on-accent:#fffaf1}
+:root[data-palette="copper"][data-theme="dark"]{--paper:#15191c;--ink:#f2eee5;--muted:#bdc1be;--line:#465156;--surface:#252d30;--surface-raised:#303b3e;--surface-selected:#354448;--orange:#d99b70;--on-accent:#21180f}
+:root[data-palette="navy"][data-theme="dark"]{--paper:#111e2c;--ink:#f0eee3;--muted:#b4c0ce;--line:#43576d;--surface:#203348;--surface-raised:#2b4057;--surface-selected:#314b65;--orange:#d4af62;--on-accent:#191a1d}
+:root[data-palette="charcoal"][data-theme="dark"]{--paper:#181a19;--ink:#f3f0e8;--muted:#bbbcb6;--line:#515650;--surface:#292c2a;--surface-raised:#343934;--surface-selected:#3c423b;--orange:#e38446;--on-accent:#24190f}
+:root[data-palette="teal"][data-theme="dark"]{--paper:#102725;--ink:#f0f0df;--muted:#b4c9bd;--line:#3f625a;--surface:#1c3c38;--surface-raised:#244b45;--surface-selected:#28554d;--orange:#d2bd81;--on-accent:#142622}
+:root[data-palette]:not([data-palette="forest"]){--forest:var(--ink);--olive:var(--muted);--deep-surface:var(--surface);--on-deep:var(--ink);--selection-border:var(--orange);--selection-marker:var(--orange);--orange-hover:color-mix(in srgb,var(--orange) 88%,var(--ink))}

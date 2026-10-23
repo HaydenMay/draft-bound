@@ -13,7 +13,7 @@ describe('recruiting assessment',()=>{
   expect(p).toEqual(before);p.current=values(id=>p.traits[id].ceiling);
   expect(recruitRating(p)).toEqual(rating);
  });
- it.each([[73,1],[74,2],[78,3],[82,4],[86,5],[99,5]] as const)('uses fixed bands for score %i', (score,stars)=>{
+ it.each([[76,1],[77,2],[81,3],[84,4],[87,5],[99,5]] as const)('uses fixed bands for score %i', (score,stars)=>{
   const p=createCollege().prospect!;p.initial=values(()=>score);Object.values(p.traits).forEach(t=>t.ceiling=score);
   expect(recruitRating(p).stars).toBe(stars);
  });

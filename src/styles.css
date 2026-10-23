@@ -1,7 +1,11 @@
 @import './colors.css';
 @import './theme.css';
+@import './palette-picker.css';
+@import './setup.css';
+@import './brand.css';
 @import './game-screens.css';
 @import './presentation.css';
+@import './motion.css';
 @import '@fontsource/barlow-condensed/500.css';
 @import '@fontsource/barlow-condensed/600.css';
 @import '@fontsource/barlow-condensed/700.css';

@@ -23,6 +23,13 @@ test('shared stylesheet colors drive the interface, browser chrome, and exported
  const download=await downloading;await download.saveAs('test-results/custom-palette.png');
  const pixel=await page.evaluate(async base64=>{const image=new Image();image.src='data:image/png;base64,'+base64;await image.decode();const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;const ctx=canvas.getContext('2d')!;ctx.drawImage(image,0,0);return [...ctx.getImageData(0,0,1,1).data];},readFileSync('test-results/custom-palette.png').toString('base64'));
  expect(pixel).toEqual([1,35,69,255]);
+ const logoPixels=await page.evaluate(async({base64,accent})=>{
+  const image=new Image();image.src='data:image/png;base64,'+base64;await image.decode();const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;const ctx=canvas.getContext('2d')!;ctx.drawImage(image,0,0);
+  const data=ctx.getImageData(48,34,88,54).data,colors={ink:[24,38,32],accent:accent.match(/[a-f\d]{2}/gi)!.map(v=>parseInt(v,16)),paper:[1,35,69]},counts={ink:0,accent:0,paper:0};
+  for(let i=0;i<data.length;i+=4)for(const key of ['ink','accent','paper'] as const)if(colors[key].every((v,k)=>Math.abs(v-data[i+k])<3))counts[key]++;
+  return counts;
+ },{base64:readFileSync('test-results/custom-palette.png').toString('base64'),accent:save.entries[0].display.schoolColors[0]});
+ expect(logoPixels.ink).toBeGreaterThan(500);expect(logoPixels.accent).toBeGreaterThan(100);expect(logoPixels.paper).toBeGreaterThan(500);
 });
 
 test('appearance follows the system, persists an override, and preserves collectible colors',async({page})=>{

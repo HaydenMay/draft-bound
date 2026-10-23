@@ -4,18 +4,18 @@
 
 | Coaching opportunity | Count |
 |---|---:|
-| wr.jugs | 1120 |
-| wr.press | 713 |
-| wr.contested | 22 |
-| wr.routes | 20 |
-| wr.burst | 67 |
-| wr.tracking | 20 |
-| wr.yac | 283 |
-| wr.film | 2 |
-| wr.speed | 256 |
+| wr.jugs | 1350 |
+| wr.press | 743 |
+| wr.contested | 40 |
+| wr.routes | 32 |
+| wr.burst | 71 |
+| wr.tracking | 31 |
+| wr.yac | 390 |
+| wr.film | 0 |
+| wr.speed | 312 |
 
 - Corrective JUGS at hands 90+: 0
 - Capped-skill interventions: 0
 - Same type repeated within one year: 0
 
-Recruit stars (75% weighted potential + 25% initial ability; score bands 74 / 78 / 82 / 86): 1-star: 0, 2-star: 0, 3-star: 61, 4-star: 839, 5-star: 100. Stars do not affect gameplay.
+Recruit stars (75% weighted potential + 25% initial ability; score bands 77 / 81 / 84 / 87): 1-star: 0, 2-star: 35, 3-star: 498, 4-star: 459, 5-star: 8. Stars do not affect gameplay.

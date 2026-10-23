@@ -10,6 +10,7 @@
   <script>
     (() => {
       let preference = 'system';
+      try { const palette=localStorage.getItem('draft-bound-palette'); document.documentElement.dataset.palette=['forest','copper','navy','charcoal','teal'].includes(palette)?palette:'forest'; } catch {}
       try { preference = localStorage.getItem('draft-bound-theme') || 'system'; } catch {}
       document.documentElement.dataset.theme = preference === 'dark' || (preference !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
     })();

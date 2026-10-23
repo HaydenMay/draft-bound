@@ -24,7 +24,7 @@ test('original vector icons keep controls named, favorites saved, and mobile lay
  await expect(page.getByRole('button',{name:/Remove Jordan Hayes from favorites/})).toHaveAttribute('aria-pressed','true');
  await page.getByRole('button',{name:/View Jordan Hayes/}).click();
  await page.getByRole('button',{name:/Customize card/}).click();
- await expect(page.locator('.preview-card .card-brand app-icon svg')).toBeVisible();
+ await expect(page.locator('.preview-card .card-brand app-brand svg')).toBeVisible();
  await page.getByRole('button',{name:'Save and game settings'}).click();
  await page.getByLabel('Appearance',{exact:true}).selectOption('dark');
  await page.getByRole('button',{name:'Close dialog'}).click();

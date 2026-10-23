@@ -1,9 +1,10 @@
+import {PALETTES} from '../data/palettes';
 import {COACHING_TYPES} from '../domain/coaching';
 import {SaveEnvelope} from '../domain/models';
 import {RULES_VERSION,WR_DEFINITION} from '../domain/positions';
 import {SOURCE_PLAYERS} from '../data/source-players';
 import {COLLEGES} from '../data/colleges';
-export function emptySave():SaveEnvelope{return {schemaVersion:1,rulesVersion:RULES_VERSION,run:null,entries:[],profile:{achievements:[],frames:['classic']},settings:{fastForward:false,theme:'system'}};}
+export function emptySave():SaveEnvelope{return {schemaVersion:1,rulesVersion:RULES_VERSION,run:null,entries:[],profile:{achievements:[],frames:['classic']},settings:{fastForward:false,theme:'system',palette:'forest'}};}
 export const MAX_SAVE_BYTES=256*1024*1024;
 const isObject=(x:any)=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const finite=(n:any,min=0,max=1e9)=>typeof n==='number'&&Number.isFinite(n)&&n>=min&&n<=max;
@@ -62,7 +63,7 @@ export function previewSave(input:string):{ok:boolean;errors:string[];data?:Save
   if(!isObject(data)||data.schemaVersion!==1)throw Error('This is not a supported Draft Bound save version.');
   if(!text(data.rulesVersion)||!array(data.entries,1000)||!data.entries.every(validEntry)||new Set(data.entries.map((e:any)=>e.id)).size!==data.entries.length)throw Error('The binder contains incomplete or invalid records.');
   if(data.run!==null&&!validRun(data.run))throw Error('The active prospect is incomplete or uses incompatible rules.');
-  if(!isObject(data.profile)||!array(data.profile.achievements,100)||!data.profile.achievements.every(text)||!array(data.profile.frames,6)||!data.profile.frames.every((f:any)=>frames.includes(f))||!isObject(data.settings)||typeof data.settings.fastForward!=='boolean'||(data.settings.theme!==undefined&&!['system','light','dark'].includes(data.settings.theme)))throw Error('Save settings or collection unlocks are invalid.');
+  if(!isObject(data.profile)||!array(data.profile.achievements,100)||!data.profile.achievements.every(text)||!array(data.profile.frames,6)||!data.profile.frames.every((f:any)=>frames.includes(f))||!isObject(data.settings)||typeof data.settings.fastForward!=='boolean'||(data.settings.theme!==undefined&&!['system','light','dark'].includes(data.settings.theme))||(data.settings.palette!==undefined&&!PALETTES.some(p=>p.id===data.settings.palette)))throw Error('Save settings or collection unlocks are invalid.');
   return {ok:true,errors:[],data};
  }catch(error){return {ok:false,errors:[error instanceof Error?error.message:'Could not read that save.']};}
 }
