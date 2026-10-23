@@ -41,7 +41,8 @@ export interface CardCustomization { sceneId:string;frame:'classic'|'silver'|'go
 export interface HistoricalDisplay { positionLabel:string;attributes:{id:string;label:string;value:number;ceiling:number}[];schoolName:string;schoolColors:[string,string]; }
 export interface BinderEntry { id:string;positionId:string;createdAt:string;completedAt:string;favorite:boolean;draft:DraftSnapshot;career:ProfessionalCareer|null;nflSeed:number;draftCard:CardCustomization;careerCard:CardCustomization|null;display:HistoricalDisplay; }
 export interface CosmeticProfile { achievements:string[];frames:CardCustomization['frame'][]; }
-export interface SaveEnvelope { schemaVersion:1;rulesVersion:string;run:RunState|null;entries:BinderEntry[];profile:CosmeticProfile;settings:{fastForward:boolean}; }
+export type ThemePreference='system'|'light'|'dark';
+export interface SaveEnvelope { schemaVersion:1;rulesVersion:string;run:RunState|null;entries:BinderEntry[];profile:CosmeticProfile;settings:{fastForward:boolean;theme?:ThemePreference}; }
 export interface ArtScene { id:string;name:string;description:string;art:string;accent:string; }
 export interface CardViewModel { name:string;position:string;ovr:number;title:string;subtitle:string;school:string;team:string;draftLabel:string;edition:CardEdition;art:string;sceneName:string;frame:CardCustomization['frame'];foil:boolean;stamp:string;statLines:{label:string;value:string}[];colors:[string,string];year:string; }
 export type GameCommandPayload = {type:'choose-gift';index:number}|{type:'reroll'}|{type:'accept-size'}|{type:'choose-trait';sourcePlayerId:string;attributeId:string}|{type:'continue'}|{type:'choose-college';collegeId:string}|{type:'train';plan:TrainingPlan}|{type:'declare'}|{type:'return'}|{type:'transfer';collegeId:string}|{type:'scout'};

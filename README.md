@@ -10,6 +10,8 @@ Combine real-player trait inspirations, develop a prospect through four-game col
 
 Progress saves in this browser on this device. Use **Saves & settings → Export game save** for backups or to move devices. Import previews a replacement and downloads your previous save first. No account, payments, or runtime AI services.
 
+Choose **Saves & settings → Appearance** for System, Light or Dark. Interface themes preserve the printed card palette and exported artwork. See `docs/COLORS_AND_EXTENSIBILITY.md` for team palettes and current position-expansion boundaries.
+
 ## Development
 
 Requires Node 24.13.1+ within the Angular 21 supported Node range.

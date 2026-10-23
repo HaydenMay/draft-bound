@@ -26,4 +26,5 @@ it('atomically rejects simultaneous stale writers before they can overwrite a sa
  const result=await Promise.allSettled([a.write(first),b.write(second)]);expect(result.filter(r=>r.status==='fulfilled')).toHaveLength(1);expect(result.filter(r=>r.status==='rejected')).toHaveLength(1);expect((await new GameRepository(name).read())?.run?.name).toBe('First Prospect');
 });
 it('rejects malformed display rows and missing starting OVR before rendering a binder',()=>{const save=emptySave();save.entries=[completeRun().entry!];save.entries[0].display.attributes=[null as any];expect(previewSave(JSON.stringify(save)).ok).toBe(false);save.entries=[completeRun().entry!];delete (save.entries[0].draft.prospect as any).initialOvr;expect(previewSave(JSON.stringify(save)).ok).toBe(false);});
+it('accepts legacy saves without a theme and rejects invalid new theme values',()=>{const save=emptySave();delete (save.settings as any).theme;expect(previewSave(JSON.stringify(save)).ok).toBe(true);(save.settings as any).theme='sepia';expect(previewSave(JSON.stringify(save)).ok).toBe(false);});
 

@@ -54,3 +54,13 @@ GitHub Pages: https://haydenmay.github.io/draft-bound/
 
 GitHub Actions independently passed clean installation, type checking,39 unit tests,6 browser scenarios, production build and Pages deployment. The final PNG inspection found an unbalanced canvas clipping region; a failing image-pixel assertion reproduced the blank statistics area. Restoring the context after artwork rendering fixes metadata export; all checks pass again. The live page and original assets were verified in a browser.
 
+
+## Theme and requested 1,000-prospect follow-up
+
+- Added System/Light/Dark appearance with saved preference and initial-paint cache. Older saves without theme remain valid; invalid theme values are rejected.
+- Consolidated interface colors into semantic variables in src/theme.css. Printed collectible palettes, team identities, illustrations and PNG output remain independent.
+- 42 unit tests and 8 browser scenarios pass. Theme coverage checks system changes, override refresh, old-save compatibility, main text contrast, selected-frame contrast, mobile layout, dark gameplay/binder and preserved card paper. Screenshot review caught a selected-frame label contrast issue; the failing assertion passed after tokenizing the control background.
+- Fresh independent focused review found no Important or Critical issues.
+- Exactly 1,000 scripted prospects: mean starting 61.489, final 89.651, growth 28.162; median 90; P10/P90 86/93; range 79–95; 698 first-round and 0 undrafted. No coefficients or source odds changed. Existing 10,000-run report preserved.
+- docs/COLORS_AND_EXTENSIBILITY.md documents actual current limits: a new position still requires extraction of WR-specific orchestration and display assumptions.
+

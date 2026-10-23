@@ -7,6 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Roll real-player potential, develop your wide receiver through college, get drafted, and collect the story. Play Draft Bound free in your browser.">
   <meta name="theme-color" content="#17211e">
+  <script>
+    (() => {
+      let preference = 'system';
+      try { preference = localStorage.getItem('draft-bound-theme') || 'system'; } catch {}
+      document.documentElement.dataset.theme = preference === 'dark' || (preference !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+    })();
+  </script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body><app-root></app-root></body>

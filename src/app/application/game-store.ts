@@ -1,5 +1,5 @@
 import {Injectable,computed,signal} from '@angular/core';
-import {BinderEntry,CardCustomization,CardEdition,GameCommandPayload,SaveEnvelope} from '../domain/models';
+import {BinderEntry,CardCustomization,CardEdition,GameCommandPayload,SaveEnvelope,ThemePreference} from '../domain/models';
 import {createRun,transition} from '../domain/engine';
 import {cosmeticProfile} from '../domain/eligibility';
 import {RULES_VERSION} from '../domain/positions';
@@ -8,6 +8,7 @@ import {cardView} from '../domain/presentation';
 import {emptySave,GameRepository,previewSave,SaveConflictError} from '../persistence/save';
 import {downloadBlob,renderCard} from './card-export';
 import {assertValidContent} from '../data/content-validation';
+import {applyTheme,cachedThemePreference,readThemePreference} from './theme';
 type View='home'|'play'|'binder'|'entry'|'career'|'card';
 @Injectable({providedIn:'root'})
 export class GameStore{
@@ -15,11 +16,15 @@ export class GameStore{
  readonly ready=signal(false);readonly run=signal<SaveEnvelope['run']>(null);readonly entries=signal<BinderEntry[]>([]);readonly profile=signal(emptySave().profile);
  readonly view=signal<View>('home');readonly selectedEntryId=signal<string|null>(null);readonly selectedEdition=signal<CardEdition>('draft');
  readonly busy=signal(false);readonly revealing=signal(false);readonly fastForward=signal(false);readonly unsaved=signal(false);readonly error=signal('');readonly notice=signal('');
+ readonly themePreference=signal<ThemePreference>(cachedThemePreference());
+ private readonly deviceTheme=matchMedia('(prefers-color-scheme: dark)');
  readonly currentEntry=computed(()=>this.entries().find(e=>e.id===this.selectedEntryId())??null);
  private revealTimer:ReturnType<typeof setTimeout>|undefined;
  private readonly owner=typeof crypto!=='undefined'?crypto.randomUUID():'tab';private revision=0;
  private readonly channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('draft-bound-saves'):null;
  constructor(){
+  applyTheme(this.themePreference(),this.deviceTheme.matches);
+  this.deviceTheme.addEventListener('change',()=>applyTheme(this.themePreference(),this.deviceTheme.matches));
   this.channel?.addEventListener('message',event=>{if(event.data?.owner!==this.owner){this.notice.set('Your save changed in another tab. Reload this tab before making more choices.');this.foreignChange=true;}});
   void this.load();window.addEventListener('hashchange',()=>this.readLocation());
  }
@@ -27,8 +32,8 @@ export class GameStore{
  private loadBlocked=false;
  private unreadableSave:unknown=null;
  private persistenceQueue:Promise<void>=Promise.resolve();
- private envelope():SaveEnvelope{return {schemaVersion:1,rulesVersion:RULES_VERSION,run:this.run(),entries:this.entries(),profile:this.profile(),settings:{fastForward:this.fastForward()}};}
- private apply(data:SaveEnvelope):void{this.run.set(data.run);this.entries.set(data.entries);this.profile.set(cosmeticProfile(data.entries,data.profile));this.fastForward.set(data.settings.fastForward);}
+ private envelope():SaveEnvelope{return {schemaVersion:1,rulesVersion:RULES_VERSION,run:this.run(),entries:this.entries(),profile:this.profile(),settings:{fastForward:this.fastForward(),theme:this.themePreference()}};}
+ private apply(data:SaveEnvelope):void{this.run.set(data.run);this.entries.set(data.entries);this.profile.set(cosmeticProfile(data.entries,data.profile));this.fastForward.set(data.settings.fastForward);this.themePreference.set(readThemePreference(data.settings.theme));applyTheme(this.themePreference(),this.deviceTheme.matches);}
  private async load():Promise<void>{try{assertValidContent();const stored=await this.repository.read();if(stored){this.unreadableSave=stored;const result=previewSave(JSON.stringify(stored));if(!result.ok){this.loadBlocked=true;throw Error(result.errors.join(' ')+' The original save is protected. Export it or import a valid backup.');}this.apply(result.data!);this.unreadableSave=null;}}catch(e){this.loadBlocked=true;this.unsaved.set(true);this.error.set(e instanceof Error?e.message:'Saved progress could not be loaded.');}finally{this.ready.set(true);this.readLocation();}}
  private readLocation():void{const [raw,id,edition]=location.hash.slice(1).split('/');const views:View[]=['home','play','binder','entry','career','card'];if(!views.includes(raw as View))return;
   if(raw==='play'&&!this.run()){this.view.set('home');return;}if(['entry','career','card'].includes(raw)&&!this.entries().some(e=>e.id===id)){this.view.set('binder');return;}
@@ -52,6 +57,7 @@ export class GameStore{
   this.view.set(view);this.selectedEntryId.set(entryId??null);this.selectedEdition.set(edition);history.replaceState(null,'',`#${view}${entryId?'/'+entryId:''}${entryId?'/'+edition:''}`);
  }
  toggleFastForward():void{this.fastForward.update(v=>!v);this.skipReveal();void this.persist();}
+ async setTheme(preference:ThemePreference):Promise<void>{await this.action(async()=>{if(!['system','light','dark'].includes(preference))throw Error('Unknown theme.');this.themePreference.set(preference);applyTheme(preference,this.deviceTheme.matches);await this.persist();});}
  async simulateCareer(entryId:string):Promise<void>{await this.action(async()=>{const entry=this.entries().find(e=>e.id===entryId);if(!entry)throw Error('That prospect was not found.');if(entry.positionId!=='wr'||entry.draft.rulesVersion!==RULES_VERSION)throw Error('This historical prospect is read-only.');if(!entry.career){const career=simulateProfessional(entry);this.entries.update(es=>es.map(e=>e.id===entryId?{...e,career,careerCard:{sceneId:career.induction.inducted?'canton_bust':'prospect_journey',frame:e.draftCard.frame,foil:e.draftCard.foil,showStamp:true}}:e));}if(this.run()?.id===entryId&&this.run()?.phase==='draft-night')this.run.update(r=>r?{...r,phase:'complete'}:r);await this.persist();this.navigate('career',entryId,'career');});}
  async saveCard(entryId:string,edition:CardEdition,patch:Partial<CardCustomization>):Promise<void>{await this.action(async()=>{const entry=this.entries().find(e=>e.id===entryId);if(!entry)throw Error('That prospect was not found.');if(entry.positionId!=='wr')throw Error('This historical card is read-only.');if(edition==='career'&&!entry.career)throw Error('Simulate the career first.');const current=edition==='career'?entry.careerCard!:entry.draftCard,next={...current,...patch};const scenes=[...entry.draft.unlocks,...(edition==='career'?entry.career?.unlocks??[]:[])];if(next.sceneId!=='prospect_journey'&&!scenes.some(u=>u.sceneId===next.sceneId))throw Error('That artwork has not been earned for this edition.');if(!this.profile().frames.includes(next.frame)||next.foil&&!this.profile().frames.includes('legend'))throw Error('That card finish has not been earned.');this.entries.update(es=>es.map(e=>e.id===entryId?{...e,[edition==='career'?'careerCard':'draftCard']:next}:e));await this.persist();this.notice.set('Card saved.');});}
  async toggleFavorite(id:string):Promise<void>{await this.action(async()=>{this.entries.update(es=>es.map(e=>e.id===id?{...e,favorite:!e.favorite}:e));await this.persist();});}
