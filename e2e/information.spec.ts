@@ -41,3 +41,22 @@ test('information stays readable when storage cannot load; legal copy remains a 
  }
  await expect(page.locator('main a[href^="mailto:"]')).toHaveCount(0);
 });
+
+test('Terms and Privacy provide readable, reloadable section links on mobile',async({page})=>{
+ await page.setViewportSize({width:390,height:844});
+ for(const id of ['terms','privacy']){
+  await page.goto('/#'+id);
+  const toc=page.getByRole('navigation',{name:'On this page'});
+  const links=toc.getByRole('link');
+  await expect(links).not.toHaveCount(0);
+  await expect(page.locator('.information-page section p').first()).toHaveCSS('font-size','16px');
+  await links.nth(1).click();
+  const sectionId=await links.nth(1).getAttribute('href');
+  await expect(page).toHaveURL(new RegExp(`#${id}/section-2$`));
+  const target=page.locator(`[id="${sectionId!.slice(1)}"]`);
+  await expect(target).toBeInViewport();
+  await page.reload();
+  await expect(target).toBeInViewport();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
+});

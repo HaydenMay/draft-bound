@@ -15,7 +15,7 @@
 @if (!game.ready()) {
   <div class="loading-state"><span class="brand-symbol">DB</span><p>Opening the playbook…</p></div>
 } @else if (informationPage(); as page) {
-  <app-information-page [page]="page"/>
+  <app-information-page [page]="page" [sectionAnchor]="game.informationSection()"/>
 } @else if (game.view() === 'home') {
   <section class="hero page-width">
     <div class="hero-copy"><h1>BUILD YOUR<br>NEXT<br><span>PROSPECT.</span></h1><div class="hero-actions"><button class="button primary large" (click)="game.run() && game.run()?.phase !== 'complete' ? navigate('play') : openNew()">{{ game.run() && game.run()?.phase !== 'complete' ? 'Resume your prospect' : 'Create your prospect' }}<span><app-icon name="advance" /></span></button><button class="text-button" (click)="modal.set('help')">How it works <span class="circle-arrow"><app-icon name="next" /></span></button></div></div>

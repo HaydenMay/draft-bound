@@ -1,1 +1,21 @@
-:host{display:block}.information-page{max-width:780px;padding-block:50px 65px}.information-page h1{font:700 clamp(54px,8vw,84px)/1 'Barlow Condensed',sans-serif;margin:0 0 25px}.information-page h1:focus{outline:none}.information-page h1:focus-visible{outline:2px solid var(--focus);outline-offset:8px}.information-page h2{font:600 30px/1.2 'Barlow Condensed',sans-serif;margin:0 0 14px}.information-page section{margin-top:32px}.information-page p,.information-page li{font-size:15px;line-height:1.8;overflow-wrap:anywhere}.information-page p{margin:0 0 14px;color:var(--ink)}.information-page a{color:var(--link);text-decoration:underline;text-underline-offset:3px}.information-page .information-draft{padding:14px 18px;background:var(--surface);border-left:3px solid var(--control-border);font-size:13px}.information-page ul{padding-left:20px}@media(max-width:640px){.information-page{padding-block:30px 40px}.information-page p,.information-page li{font-size:14px}}
+:host{display:block}
+.information-page{max-width:780px;padding-block:50px 65px}
+.information-page h1{font:700 clamp(54px,8vw,84px)/1 'Barlow Condensed',sans-serif;margin:0 0 25px}
+.information-page h1:focus{outline:none}
+.information-page h1:focus-visible{outline:2px solid var(--focus);outline-offset:8px}
+.information-page h2{font:600 30px/1.2 'Barlow Condensed',sans-serif;margin:0 0 14px;scroll-margin-top:24px}
+.information-page section{margin-top:32px;scroll-margin-top:24px}
+.information-page p,.information-page li{font-size:16px;line-height:1.75;overflow-wrap:anywhere}
+.information-page p{margin:0 0 14px;color:var(--ink)}
+.information-page a{color:var(--link);text-decoration:underline;text-underline-offset:3px}
+.information-page .information-draft{padding:14px 18px;background:var(--surface);border-left:3px solid var(--control-border);font-size:13px}
+.information-page ul{padding-left:20px}
+.information-toc{margin:24px 0 36px;padding:16px;border:1px solid var(--control-border);background:var(--surface)}
+.information-toc ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px;list-style:none;margin:0;padding:0}
+.information-toc li{min-width:0}
+.information-toc a{display:flex;min-height:44px;align-items:center;padding:4px 2px;font-size:14px;line-height:1.4}
+@media(max-width:640px){
+ .information-page{padding-block:30px 40px}
+ .information-page p,.information-page li{font-size:16px;line-height:1.75}
+ .information-toc ol{grid-template-columns:1fr}
+}

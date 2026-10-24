@@ -1,4 +1,4 @@
-import {GameView as View,parseLocation} from './navigation';
+import {GameView as View,isInformationPage,parseLocation} from './navigation';
 import {Injectable,computed,signal} from '@angular/core';
 import {BinderEntry,CardCustomization,CardEdition,GameCommandPayload,SaveEnvelope,PaletteId,CreationMode,ThemePreference} from '../domain/models';
 import {createRun,transition} from '../domain/engine';
@@ -16,6 +16,7 @@ export class GameStore{
  private readonly repository=new GameRepository();
  readonly ready=signal(false);readonly run=signal<SaveEnvelope['run']>(null);readonly entries=signal<BinderEntry[]>([]);readonly profile=signal(emptySave().profile);
  readonly view=signal<View>('home');readonly selectedEntryId=signal<string|null>(null);readonly selectedEdition=signal<CardEdition>('draft');
+ readonly informationSection=signal<string|null>(null);
  readonly busy=signal(false);readonly revealing=signal(false);readonly fastForward=signal(false);readonly unsaved=signal(false);readonly error=signal('');readonly notice=signal('');
  readonly palette=signal<PaletteId>(cachedPalette());
  readonly themePreference=signal<ThemePreference>(cachedThemePreference());
@@ -40,7 +41,8 @@ export class GameStore{
  private async load():Promise<void>{try{assertValidContent();const stored=await this.repository.read();if(stored){this.unreadableSave=stored;const result=previewSave(JSON.stringify(stored));if(!result.ok){this.loadBlocked=true;throw Error(result.errors.join(' ')+' The original save is protected. Export it or import a valid backup.');}this.apply(result.data!);this.unreadableSave=null;}}catch(e){this.loadBlocked=true;this.unsaved.set(true);this.error.set(e instanceof Error?e.message:'Saved progress could not be loaded.');}finally{this.ready.set(true);this.readLocation();}}
  private readLocation():void{const route=parseLocation(location.hash);if(!route)return;const {view:raw,id,edition}=route;
   if(raw==='play'&&!this.run()){this.view.set('home');return;}if(['entry','career','card'].includes(raw)&&!this.entries().some(e=>e.id===id)){this.view.set('binder');return;}
-  const entry=this.entries().find(e=>e.id===id);this.selectedEntryId.set(id??null);this.selectedEdition.set(edition);this.view.set(entry&&entry.positionId!=='wr'&&['entry','career'].includes(raw)?'card':raw);
+  const informational=isInformationPage(raw);this.informationSection.set(informational&&id&&/^section-\d+$/.test(id)?`${raw}/${id}`:null);
+  const entry=this.entries().find(e=>e.id===id);this.selectedEntryId.set(informational?null:id??null);this.selectedEdition.set(edition);this.view.set(entry&&entry.positionId!=='wr'&&['entry','career'].includes(raw)?'card':raw);
  }
 
  private async persist(envelope:SaveEnvelope=this.envelope()):Promise<boolean>{let saved=false;const snapshot=structuredClone(envelope);this.persistenceQueue=this.persistenceQueue.then(async()=>{
