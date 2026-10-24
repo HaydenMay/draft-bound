@@ -32,4 +32,4 @@ This handoff stops at v1.4. It does not implement v1.4.1 recruiting, college dev
 
 ## Publication
 
-This document describes local verification. GitHub publication and the Pages deployment result are recorded only after the commit is pushed and the hosted workflow/status is verified.
+The release is published on GitHub `main` at `3b55c3f468afae6cf885fa4d0c5f6c03fc525c93`. The [hosted workflow](https://github.com/HaydenMay/draft-bound/actions/runs/40131593178) passed its build and deploy jobs on 2026-10-24; [the public Pages endpoint](https://haydenmay.github.io/draft-bound/) returned HTTP 200 and served the app document with its fingerprinted bundle.
