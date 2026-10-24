@@ -8,7 +8,7 @@ test('ornamental marks are removed and the settings gear is centered',async({pag
  for(const width of [1280,390]){
   await page.setViewportSize({width,height:844});
   const alignment=await page.locator('.settings-button').evaluate(button=>{const rect=button.getBoundingClientRect(),path=button.querySelector('svg path') as SVGGraphicsElement,bounds=path.getBBox(),point=new DOMPoint(bounds.x+bounds.width/2,bounds.y+bounds.height/2).matrixTransform(path.getScreenCTM()!);return{x:point.x-(rect.left+rect.width/2),y:point.y-(rect.top+rect.height/2)};});
-  expect(Math.abs(alignment.x)).toBeLessThan(1);expect(Math.abs(alignment.y)).toBeLessThan(1);
+  expect(Math.abs(alignment.x)).toBeLessThan(.25);expect(Math.abs(alignment.y)).toBeLessThan(.25);
  }
  const logo=await page.locator('.hero-card .card-brand app-brand').evaluate(el=>({primary:getComputedStyle(el).color,accent:getComputedStyle(el.querySelector('[data-role="accent"]')!).stroke}));
  const tokens=await page.evaluate(()=>{const el=document.createElement('i');document.body.append(el);el.style.color='var(--print-brand-primary)';const primary=getComputedStyle(el).color;el.style.color='var(--print-brand-accent)';const accent=getComputedStyle(el).color;el.remove();return{primary,accent};});

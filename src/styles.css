@@ -44,6 +44,7 @@ app-root{display:block;min-height:100vh}.page-width{width:min(1280px,calc(100% -
 .selected .selection-dot app-icon{visibility:visible}
 .training-glyph{letter-spacing:0}
 .speed-toggle app-icon{font-size:15px;margin-right:3px}
+.settings-button{padding:0}
 .settings-button app-icon{font-size:.75em}
 .text-button>app-icon,.back-link>app-icon,.favorite-entry>app-icon{margin-inline:3px}
 select{appearance:none;background-image:url('../public/assets/icons/chevron.svg');background-repeat:no-repeat;background-position:right 9px center;background-size:14px 14px;padding-right:30px}
