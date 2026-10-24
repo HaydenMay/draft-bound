@@ -35,7 +35,7 @@ The release review compared About, Terms, Privacy and Contact with the shipped c
 - The v1.4 handoff remains a planning reference with open questions and links to frozen v1.3.1 compatibility fixtures.
 - Legal draft notices and the Contact activation gate remain in force.
 
-**Integration/deployment:** pending final code review and push. Record the merged commit and GitHub Pages workflow result here after publishing; the local build is not evidence of deployment.
+**Integration/deployment:** pushed to `main` as `1d97ff1d2d3c1efb85f6b88e97f0fa1bc1c5f68b`. The [GitHub Actions verification and Pages publish](https://github.com/HaydenMay/draft-bound/actions/runs/40121824092) completed successfully, including the deploy job.
 
 ## Deferred
 
