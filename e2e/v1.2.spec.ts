@@ -2,11 +2,11 @@ import {test,expect} from '@playwright/test';
 import {finishBroadcast} from './broadcast-helper';
 
 test('palette selection retains keyboard focus for successive arrow-key choices',async({page})=>{
- await page.goto('/');await page.getByRole('button',{name:'Save and game settings'}).click();
- await page.getByRole('radio',{name:'Original forest',exact:true}).focus();await page.keyboard.press('ArrowRight');
+ await page.goto('/');await page.getByRole('button',{name:'Settings'}).click();
+ await page.getByRole('radio',{name:'Forest & Coral',exact:true}).focus();await page.keyboard.press('ArrowRight');
  const copper=page.getByRole('radio',{name:'Midnight copper',exact:true});
- await expect(copper).toBeChecked();await expect(page.getByRole('radio',{name:'Navy & gold',exact:true})).toBeEnabled();await expect(copper).toBeFocused();
- await page.keyboard.press('ArrowRight');await expect(page.getByRole('radio',{name:'Navy & gold',exact:true})).toBeChecked();
+ await expect(copper).toBeChecked();await expect(page.getByRole('radio',{name:'Navy Gold',exact:true})).toBeEnabled();await expect(copper).toBeFocused();
+ await page.keyboard.press('ArrowRight');await expect(page.getByRole('radio',{name:'Navy Gold',exact:true})).toBeChecked();
 });
 
 test('new prospect offers generated editable names, future positions, and complete Full creation after reload',async({page})=>{
@@ -15,8 +15,8 @@ test('new prospect offers generated editable names, future positions, and comple
  const name=page.getByLabel('Prospect name',{exact:true});await expect(name).not.toHaveValue('');
  const original=await name.inputValue();await page.getByRole('button',{name:'Randomize prospect name',exact:true}).click();await expect(name).not.toHaveValue(original);
  await name.fill('Full Journey');
- await expect(page.getByRole('radio',{name:'Wide receiver',exact:true})).toBeChecked();
- await expect(page.getByRole('radio',{name:/Quarterback.*Coming soon/})).toBeDisabled();
+ await expect(page.getByRole('button',{name:'WR Wide receiver',exact:true})).toHaveAttribute('aria-pressed','true');
+ await expect(page.getByRole('button',{name:/QB Quarterback.*Coming soon/})).toBeDisabled();
  await page.getByRole('radio',{name:'Full',exact:true}).check();
  await page.getByRole('button',{name:'Create prospect',exact:true}).click();
  await page.locator('.gift-card').first().click();await page.getByRole('button',{name:/This is my build/}).click();
@@ -49,9 +49,10 @@ test('new prospect offers generated editable names, future positions, and comple
 });
 
 test('all five palettes keep readable controls in both appearances, including accent icons',async({page})=>{
- await page.goto('/');await page.getByRole('button',{name:'Save and game settings'}).click();
- for(const palette of ['Original forest','Midnight copper','Navy & gold','Charcoal & orange','Deep teal & cream']){
+ await page.goto('/');await page.getByRole('button',{name:'Settings'}).click();
+ for(const palette of ['Forest & Coral','Midnight copper','Navy Gold','Charcoal & orange','Deep teal & cream']){
   await page.getByRole('radio',{name:palette,exact:true}).check();
+  const apply=page.getByRole('button',{name:'Apply theme',exact:true});if(await apply.isEnabled())await apply.click();
   for(const appearance of ['light','dark']){
    await page.getByLabel('Appearance',{exact:true}).selectOption(appearance);
    const ratios=await page.evaluate(()=>{
@@ -70,16 +71,16 @@ test('all five palettes keep readable controls in both appearances, including ac
 
 test('palette and appearance persist independently without recoloring the printed card',async({page})=>{
  await page.goto('/');const printed=await page.locator('.hero-card .collectible').evaluate(e=>getComputedStyle(e).backgroundColor);
- await page.getByRole('button',{name:'Save and game settings'}).click();
+ await page.getByRole('button',{name:'Settings'}).click();
  await page.getByLabel('Appearance',{exact:true}).selectOption('dark');
- await page.getByRole('radio',{name:'Navy & gold',exact:true}).check();
+ await page.getByRole('radio',{name:'Navy Gold',exact:true}).check();await page.getByRole('button',{name:'Apply theme',exact:true}).click();
  await expect(page.locator('html')).toHaveAttribute('data-palette','navy');
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
  await page.getByRole('button',{name:'Close dialog'}).click();await page.reload();
  await expect(page.locator('html')).toHaveAttribute('data-palette','navy');
  expect(await page.locator('.hero-card .collectible').evaluate(e=>getComputedStyle(e).backgroundColor)).toBe(printed);
- await page.getByRole('button',{name:'Save and game settings'}).click();
- await expect(page.getByRole('radio',{name:'Navy & gold',exact:true})).toBeChecked();
+ await page.getByRole('button',{name:'Settings'}).click();
+ await expect(page.getByRole('radio',{name:'Navy Gold',exact:true})).toBeChecked();
  await page.getByLabel('Appearance',{exact:true}).selectOption('light');
  await expect(page.locator('html')).toHaveAttribute('data-palette','navy');
  await page.getByRole('button',{name:'Close dialog'}).click();

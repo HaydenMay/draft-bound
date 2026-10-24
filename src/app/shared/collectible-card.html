@@ -4,10 +4,10 @@
     @if (failedImage() !== card().art) { <img [src]="card().art" [alt]="card().sceneName + ', illustrated football card artwork'" (error)="imageFailed()" draggable="false"> }
     @else { <div class="art-fallback"><span>DB</span><small>{{ card().sceneName }}</small></div> }
     <div class="art-vignette"></div><span class="position-tab">{{ card().position }}</span>
-    @if (card().stamp) { <div class="earned-stamp"><span><app-icon name="mark" /></span>{{ card().stamp }}<span><app-icon name="mark" /></span></div> }
+    @if (card().stamp) { <div class="earned-stamp"><app-honor-badge [label]="card().stamp!"/></div> }
     <div class="card-name"><span>{{ card().title }}</span><h3>{{ card().name }}</h3></div>
   </div>
   <div class="card-info"><p>{{ card().school }}</p><strong>{{ card().draftLabel }}</strong><span>{{ card().team || card().subtitle }}</span></div>
   <div class="card-stats">@for (stat of card().statLines; track stat.label) { <div><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></div> }</div>
-  <div class="card-foot"><span>DRAFT BOUND</span><span>{{ card().sceneName }}</span><span><app-icon name="mark" /></span></div>
+  <div class="card-foot"><span>DRAFT BOUND</span><span>{{ card().sceneName }}</span></div>
 </article>

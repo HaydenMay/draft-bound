@@ -1,7 +1,10 @@
+import {GameView,isInformationPage} from './application/navigation';
+import {InformationPage} from './shared/information-page';
 import {prospectName as generatedName} from './domain/prospect-name';
 import {manualPotentialLimit} from './domain/engine';
 import {CreationMode} from './domain/models';
 import {Brand} from './shared/brand';
+import {PositionPicker} from './shared/position-picker';
 import {ThemePicker} from './shared/theme-picker';
 import {TraitReveal} from './shared/trait-reveal';
 import {RecruitBadge} from './shared/recruit-rating';
@@ -18,10 +21,12 @@ import { BinderEntry, CardCustomization, CardEdition, CardViewModel, GameCommand
 import { CollectibleCard } from './shared/collectible-card';
 import { DraftIcon } from './shared/icon';
 
-@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon, TraitReveal, RecruitBadge, GameBroadcast, ThemePicker, Brand], templateUrl: './app.html', styleUrl: './app.css' })
+@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon, TraitReveal, RecruitBadge, GameBroadcast, ThemePicker, Brand, PositionPicker, InformationPage], templateUrl: './app.html', styleUrl: './app.css' })
 export class App {
   private previousFocus: HTMLElement | null = null;
   readonly game = inject(GameStore);
+  readonly informationPage=computed(()=>{const view=this.game.view();return isInformationPage(view)?view:null;});
+  private readonly informationFocus=effect(()=>{if(this.informationPage())setTimeout(()=>{document.querySelector<HTMLElement>('[data-information-heading]')?.focus({preventScroll:true});window.scrollTo(0,0);});});
   readonly attributes = WR_DEFINITION.attributes;
   readonly colleges = COLLEGES;
   readonly sources = SOURCE_PLAYERS;
@@ -187,7 +192,7 @@ export class App {
   currentOvr(): number { const p = this.game.run()?.prospect; if (!p) return 0; return Math.round(this.attributes.reduce((sum, a) => sum + (p.current[a.id] ?? 0) * a.weight, 0) / this.attributes.reduce((sum, a) => sum + a.weight, 0)); }
   chapter(phase: RunPhase): number { return ['gift', 'size', 'potential', 'reveal'].includes(phase) ? 1 : ['college-choice', 'training', 'block-review', 'season-review', 'transfer'].includes(phase) ? 2 : phase === 'complete' ? 4 : 3; }
   activeCard(entry: BinderEntry): CardViewModel { return this.game.cardView(entry, entry.career && entry.careerCard ? 'career' : 'draft'); }
-  navigate(view: 'home'|'play'|'binder'|'entry'|'career'|'card', id?: string, edition?: CardEdition): void { this.game.navigate(view, id, edition); this.scrollTop(); }
+  navigate(view: GameView, id?: string, edition?: CardEdition): void { this.game.navigate(view, id, edition); this.scrollTop(); }
   scrollTop(): void { window.scrollTo({ top: 0, behavior: 'instant' }); }
   randomizeName():void {this.prospectName.set(generatedName(crypto.getRandomValues(new Uint32Array(1))[0],this.prospectName()));}
   openNew(): void { if(this.game.run()?.phase==='complete')this.randomizeName();this.formError.set(''); this.modal.set(this.game.run() && this.game.run()?.phase !== 'complete' ? 'discard' : 'new'); }

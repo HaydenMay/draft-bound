@@ -1,3 +1,4 @@
+import {SHIELD_PATH} from './badge-geometry';
 /** Approved Draft Bound vector pack, normalized to paths for UI and Canvas.
  * This is the authoritative catalog; no font glyphs or external icon library. */
 export interface IconPart {readonly d:string;readonly solid?:boolean;readonly accent?:boolean;readonly scale?:number}
@@ -27,16 +28,9 @@ export const ICON_PATHS={
     }
   ],
   "settings": [
-    {
-      "d": "M10 2h4l.6 2.5 2.1.9 2.2-1.3 2.8 2.8-1.3 2.2.9 2.1L23 12l-1.7 2.8-.9 2.1 1.3 2.2-2.8 2.8-2.2-1.3-2.1.9L14 23h-4l-.6-2.5-2.1-.9-2.2 1.3-2.8-2.8 1.3-2.2-.9-2.1L1 12l1.7-2.8.9-2.1-1.3-2.2 2.8-2.8 2.2 1.3 2.1-.9Z",
-      "scale": 0.86
-    },
-    {
-      "d": "M15 12a3 3 0 1 0 -6 0a3 3 0 1 0 6 0Z",
-      "accent": true,
-      "scale": 0.86
-    }
-  ],
+ {"d":"M9 2h6l.5 3 2 1.2 2.8-1.1 3 5.2L21 12l2.3 1.7-3 5.2-2.8-1.1-2 1.2-.5 3H9l-.5-3-2-1.2-2.8 1.1-3-5.2L3 12 .7 10.3l3-5.2 2.8 1.1 2-1.2Z","scale":0.86},
+ {"d":"M15 12a3 3 0 1 0-6 0a3 3 0 1 0 6 0Z","accent":true,"scale":0.86}
+ ],
   "close": [
     {
       "d": "M5 5 19 19M19 5 5 19"
@@ -64,12 +58,7 @@ export const ICON_PATHS={
       "d": "M12 2l3.2 6.3 7 1-5.1 5 .9 7L12 18l-6 3.3.9-7-5.1-5 7-1Z"
     }
   ],
-  "mark": [
-    {
-      "d": "M12 1.5l2.8 6.8L22 6.8 17.3 12l4.7 5.2-7.2-1.5-2.8 6.8-2.8-6.8L2 17.2 6.7 12 2 6.8l7.2 1.5ZM11 8v8h2V8Z",
-      "solid": true
-    }
-  ],
+  "shield": [{"d":SHIELD_PATH}],
   "play": [
     {
       "d": "M7 4 20 12 7 20Z",

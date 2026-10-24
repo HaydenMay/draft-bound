@@ -5,7 +5,7 @@
 `src/colors.css` is the source of truth for application colors. It is imported once at the top of `src/styles.css`. The project uses native CSS custom properties, so no Sass dependency or extra compilation step is needed.
 
 - `:root` defines the light interface palette; `:root[data-theme='dark']` overrides its semantic variables.
-- Optional `data-palette` selects forest, copper, navy, charcoal or teal. Each has light/dark tokens in the same file; `data-theme` remains independent. IDs and display names live in `src/app/data/palettes.ts`, without color literals.
+- `data-palette` selects one of 16 catalog identities. Each has light/dark tokens in the same file; `data-theme` remains independent. IDs and display names live in `src/app/data/palettes.ts`, without color literals.
 - Shared tokens cover shadows, overlays, field markings, and finish previews (`--swatch-*`).
 - Printed collectible palettes (`--print-*`) and PNG export palettes (`--export-*`) stay independent of the interface theme.
 - `--icon-asset-ink` supplies the generated standalone SVG assets; regenerate them with `npm run icons` after editing that token. Production builds do this automatically.
@@ -16,14 +16,16 @@ For example, edit `--orange` / `--orange-hover` in each theme to change primary 
 
 Appearance is **System / Light / Dark**, under Saves & settings. System is the default and responds to device preference changes. The setting is included in saved backups. A small local-storage cache applies it before Angular starts to avoid a bright initial page. Older schema-1 saves without the optional theme field remain compatible and use System.
 
-Color theme is a separate saved radio choice: Original forest (default), Midnight copper, Navy & gold, Charcoal & orange and Deep teal & cream. Missing legacy palette fields use forest; unknown imported IDs are rejected. The pre-paint cache uses the same ID allowlist. Inline two-tone icons use `currentColor` plus `--icon-accent`, with a single contextual color on primary buttons. Brand arrows use `--brand-accent`; printed brands use the saved college primary color. Standalone favicon colors are self-contained and follow device light/dark, independently of the selected app palette.
+Color theme is a separate preference: 16 compact swatch choices feed one scoped preview. Apply theme commits the candidate; dismissing Settings drops an unapplied choice. A failed write keeps the old committed identity and retains the candidate for retry. Missing or unknown imported string IDs normalize to forest; invalid value types are rejected. The generated pre-paint cache allowlist comes from the same catalog. Inline icons use currentColor and --icon-accent. Printed brand lettering and arrows use fixed --print-brand-primary / --print-brand-accent, shared with PNG. Standalone favicons follow device appearance independently of the selected palette.
+
+All 16 identities have explicit Light and Dark mappings in colors.css. Use --control-border for essential boundaries, --line for decorative rules, --focus for focus rings and --link for text links. Keep honor, error and success text/surface roles separate. Readable defaults are measured in docs/validation/v1.3.1-contrast.json; rerun the browser contrast suite after token changes. The gallery uses CSS-derived swatch aliases, never a second TypeScript hex registry.
 
 ## Team colors and collectible artwork
 
 - College palettes are `colors: [primary, secondary]` in `src/app/data/colleges.ts`.
 - Professional palettes are `primaryColor` and `secondaryColor` in `src/app/data/teams.ts`.
 - Completed entries retain school display colors and drafted team identity by value.
-- Current card accents use the saved college palette in both editions. Professional team colors are stored, but do not yet replace the college card palette.
+- Current card accents use the saved college palette in both editions, while the DB logo stays canonical. Professional team colors are stored, but do not yet replace the college card palette.
 - Card paper, earned finishes, scene illustrations and PNG colors stay independent of the interface theme. A dark screen does not invert artwork or alter an exported card.
 - Jersey fabric colors remain fixed in the illustrations. The long-term primary/secondary uniform-layer approach is tracked in ROADMAP.md.
 

@@ -7,7 +7,7 @@ test('original vector icons keep controls named, favorites saved, and mobile lay
  await page.goto('/');
  const create=page.getByRole('button',{name:'Create your prospect',exact:true});
  await expect(create.locator('app-icon svg')).toBeVisible();
- await expect(page.getByRole('button',{name:'Save and game settings'}).locator('app-icon')).toHaveAttribute('aria-hidden','true');
+ await expect(page.getByRole('button',{name:'Settings'}).locator('app-icon')).toHaveAttribute('aria-hidden','true');
  const save=emptySave();save.run=createCollege(314);save.entries=[completeRun(82).entry!];
  await page.evaluate(data=>new Promise<void>((resolve,reject)=>{const request=indexedDB.open('draft-bound',1);request.onsuccess=()=>{const db=request.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(data,'current');tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};}),save);
  await page.goto('/#play');await page.reload();
@@ -25,7 +25,7 @@ test('original vector icons keep controls named, favorites saved, and mobile lay
  await page.getByRole('button',{name:/View Jordan Hayes/}).click();
  await page.getByRole('button',{name:/Customize card/}).click();
  await expect(page.locator('.preview-card .card-brand app-brand svg')).toBeVisible();
- await page.getByRole('button',{name:'Save and game settings'}).click();
+ await page.getByRole('button',{name:'Settings'}).click();
  await page.getByLabel('Appearance',{exact:true}).selectOption('dark');
  await page.getByRole('button',{name:'Close dialog'}).click();
  await page.setViewportSize({width:390,height:844});

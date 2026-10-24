@@ -1,12 +1,12 @@
 import { Component, input, signal } from '@angular/core';
 import { Brand } from './brand';
-import { DraftIcon } from './icon';
+import { HonorBadge } from './honor-badge';
 import { CardViewModel } from '../domain/models';
 
 @Component({
   selector: 'app-collectible-card',
   standalone: true,
-  imports: [DraftIcon, Brand],
+  imports: [HonorBadge, Brand],
   templateUrl: './collectible-card.html',
   styleUrl: './collectible-card.css',
 })

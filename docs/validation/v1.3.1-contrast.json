@@ -1,0 +1,5154 @@
+[
+  {
+    "palette": "forest",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 13.569204119359775,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.541361151360948,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 13.569204119359775,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.5871176094507287,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 12.789689432148501,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.223024691342271,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 12.789689432148501,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.3810472432947978,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 14.28059651180497,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.8318779813970725,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 14.28059651180497,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.7751793524772492,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 11.952171717359965,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.881001084984674,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 11.952171717359965,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.159643355747807,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 5.692215072466435,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 5.402709852716017,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 6.230440236146024,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 3.825046987486326,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.7751793524772492,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 14.28059651180497,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.28059651180497,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 5.402709852716017,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 5.402709852716017,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 5.402709852716017,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.541361151360948,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.5871176094507287,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "forest",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 15.357828753673807,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 9.186815063632437,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 15.357828753673807,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 5.484310189761899,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 13.268977177667733,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 7.937296434929505,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 13.268977177667733,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.738377273922484,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 11.279829798031418,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.747419310752266,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 11.279829798031418,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.028048918394492,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.801707639876291,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 5.863229551494789,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.801707639876291,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.5002086524490976,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 7.701745136124413,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 7.587162378151136,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 8.188033248421062,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 4.915424917931345,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.028048918394492,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 11.279829798031418,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 11.279829798031418,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 7.587162378151136,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 7.587162378151136,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 7.587162378151136,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 9.186815063632437,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 5.484310189761899,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "copper",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 12.49563783496409,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.720996604524492,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 12.49563783496409,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.8575123090003434,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 11.247915743274776,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.149740143331988,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 11.247915743274776,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.4723296244129576,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 13.137803806504222,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.015005553186762,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 13.137803806504222,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.055754541398106,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.881402117860702,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.52409622548769,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.881402117860702,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.0504749580027557,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 5.7883470868385585,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 5.230631001808183,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 5.911909826030829,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 3.830295952122785,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.055754541398106,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 13.137803806504222,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 13.982780635301543,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 5.230631001808183,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 5.230631001808183,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 5.230631001808183,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.720996604524492,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.8575123090003434,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "copper",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 15.270351402021923,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 9.712241627277352,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 15.270351402021923,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 5.562355059761317,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 12.117807791325939,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 7.7071623411808545,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 12.117807791325939,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.414014301751573,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 10.194892144084118,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.484150446876172,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 10.194892144084118,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.713575962230878,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 8.754068004184694,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 5.567758163509046,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 8.754068004184694,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.1887435445738332,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 7.902675125278203,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 7.380400497463721,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 8.090423703726803,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 4.2826741429625885,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.713575962230878,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 10.194892144084118,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 10.15532149279337,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 7.380400497463721,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 7.380400497463721,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 7.380400497463721,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 9.712241627277352,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 5.562355059761317,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "navy",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 14.506426374228443,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.695734612911729,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 14.506426374228443,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.583325282441302,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 13.117666820409811,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.150458632760667,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 13.117666820409811,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.2402788909970908,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 15.04162795569516,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.905873629496868,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 15.04162795569516,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.715528852679617,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 12.372195340535205,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.857760238178552,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 12.372195340535205,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.0561352065181016,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 5.334253121298447,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 5.041282270798549,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 5.8441069725513,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 3.9046824761075714,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.715528852679617,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 15.04162795569516,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.062056316855234,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 5.041282270798549,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 5.041282270798549,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 5.041282270798549,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.695734612911729,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.583325282441302,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "navy",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 18.891034956881114,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 10.867490077605057,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 18.891034956881114,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 5.528379395736478,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 15.973572602316318,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 9.189154652235977,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 15.973572602316318,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.674596699043205,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 13.69329789340988,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 7.877375661311609,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 13.69329789340988,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.007284201548434,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 11.784801000197872,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 6.779470168178912,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 11.784801000197872,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.4487708683539946,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 9.343020738862164,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 10.386060687725198,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 11.232961493781643,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 5.828459922896177,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.007284201548434,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 13.69329789340988,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 11.780341457563507,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 10.386060687725198,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 10.386060687725198,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 10.386060687725198,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 10.867490077605057,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 5.528379395736478,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "charcoal",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 13.840091595821484,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.670916787095343,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 13.840091595821484,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.824216272657133,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 12.21747520953352,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.006056844492468,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 12.21747520953352,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.3758640384424408,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 14.316823983948451,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.866255790747421,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 14.316823983948451,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.9559442849867823,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 11.028868185430548,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.519030333173712,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 11.028868185430548,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.047434830304722,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 5.821014597831263,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 5.393663001686324,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 6.1163828225222785,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 4.035175010163391,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.9559442849867823,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 14.316823983948451,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 13.947790133339929,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 5.393663001686324,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 5.393663001686324,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 5.393663001686324,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.670916787095343,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.824216272657133,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "charcoal",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 15.358738162018243,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 9.146612295557992,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 15.358738162018243,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 5.571451619518578,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 12.392701462643041,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 7.3802440264073885,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 12.392701462643041,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.495508413900833,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 10.416347804088465,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.203263177914893,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 10.416347804088465,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.778577200181358,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.063439735477061,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 5.397563813515117,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.063439735477061,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.287803689336229,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 7.6448834041740605,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 6.269738390525284,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 6.983021125866673,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 3.762524701178477,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.778577200181358,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 10.416347804088465,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 10.205133472490502,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 6.269738390525284,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 6.269738390525284,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 6.269738390525284,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 9.146612295557992,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 5.571451619518578,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "teal",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 11.834304064356264,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.731528652465868,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 11.834304064356264,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.8871075564011286,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 10.545860255445607,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.107516241790549,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 10.545860255445607,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.463903991715021,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 12.31671617010339,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.965167976869728,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 12.31671617010339,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.04556112759142,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.376615422086727,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.541233659587128,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.376615422086727,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.079852643843936,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 5.792783890763791,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 5.367578213836318,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 6.021019001729055,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 4.00120065343274,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.04556112759142,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 12.31671617010339,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.062802467970096,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 5.367578213836318,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 5.367578213836318,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 5.367578213836318,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.731528652465868,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.8871075564011286,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "teal",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 13.618566830805413,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 8.984733148188441,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 13.618566830805413,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 5.813956220384519,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 10.4030045907366,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 6.863293424952842,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 10.4030045907366,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.4411878285304685,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 8.798085432537942,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.804461718211687,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 8.798085432537942,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.756025444048376,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 7.3032371294579965,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.818248318001695,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 7.3032371294579965,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.117853843600394,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 8.466582209349678,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 8.523013702537577,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 9.055007728254683,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 4.540379198423642,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.756025444048376,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 8.798085432537942,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 8.716864907809578,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 8.523013702537577,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 8.523013702537577,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 8.523013702537577,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 8.984733148188441,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 5.813956220384519,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "midnight-blues",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 13.955130463492678,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.545300123012672,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 13.955130463492678,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.5528730719837327,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 15.13637707738359,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 6.014687851809166,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 15.13637707738359,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.85360972914678,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 15.13637707738359,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.014687851809166,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 15.13637707738359,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.85360972914678,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 12.077138903092866,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.799049354655798,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 12.077138903092866,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.074750301163913,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 6.437107342720068,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 6.98198302637866,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 7.664154964593243,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 5.570842903656533,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.85360972914678,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 15.13637707738359,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.933308959426848,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 6.98198302637866,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 6.98198302637866,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 6.98198302637866,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.545300123012672,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.5528730719837327,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "midnight-blues",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 17.106824852758177,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 10.631128628349225,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 17.106824852758177,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 6.745320038093808,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 13.11939751048278,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 8.153120386796928,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 13.11939751048278,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 5.173054361453249,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 11.08593217950713,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.8894123824792635,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 11.08593217950713,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.371247213612627,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.877374668559813,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 6.138347794852593,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.877374668559813,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.8947059930209322,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 8.014565500505459,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 5.064722846412507,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 5.064722846412507,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 3.059704067078048,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.371247213612627,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 11.08593217950713,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 10.484830950229695,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 5.064722846412507,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 5.064722846412507,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 5.064722846412507,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 10.631128628349225,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 6.745320038093808,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "burgundy-bronze",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 14.37937323875609,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 6.193558536902796,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 14.37937323875609,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 4.414151730075392,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 12.902451548243128,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.557411133762939,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 12.902451548243128,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.960769212832407,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 15.080822140583958,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.495690261421056,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 15.080822140583958,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.629481135060698,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 11.43094989871924,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.92359827890838,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 11.43094989871924,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.50905052911761,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 9.422940722304388,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 8.034578035010584,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 8.768630095666436,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 5.720164932955085,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.629481135060698,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 15.080822140583958,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.026335583319947,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 8.034578035010584,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 8.034578035010584,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 8.034578035010584,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 6.193558536902796,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 4.414151730075392,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "burgundy-bronze",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 18.010579557816964,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 10.129470927348407,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 18.010579557816964,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 6.584594418558719,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 12.314634354320006,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 6.925969831929722,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 12.314634354320006,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.502180086750934,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 10.379016266723339,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.837343722935333,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 10.379016266723339,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.794526009593899,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.250037463405997,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 5.202385923321818,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.250037463405997,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.381775964370173,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 8.916673749422895,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 6.721721440745573,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 7.727763780988706,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 3.4522029091779083,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.794526009593899,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 10.379016266723339,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 9.86380929383143,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 6.721721440745573,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 6.721721440745573,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 6.721721440745573,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 10.129470927348407,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 6.584594418558719,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "champion-royale",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 14.607119954563942,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 6.05797446824719,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 14.607119954563942,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 4.150126173267525,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 13.078127839513757,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.423859377528625,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 13.078127839513757,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.715714036232475,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 15.069446499409946,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.249714004403662,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 15.069446499409946,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.281480848270536,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 10.95161698816931,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.541936829896624,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 10.95161698816931,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.1115368699359407,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 11.09770080044766,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 12.158326544402621,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 12.584185829403022,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 8.320447082919223,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.281480848270536,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 15.069446499409946,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.062028188133002,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 12.158326544402621,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 12.158326544402621,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 12.158326544402621,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 6.05797446824719,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 4.150126173267525,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "champion-royale",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 17.63359481305054,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 10.197685457238794,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 17.63359481305054,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 6.173697207158426,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 15.21469689692364,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 8.798812433141833,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 15.21469689692364,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 5.326816950040251,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 13.064360424981539,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 7.5552511967304685,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 13.064360424981539,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.573962729898212,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 12.226757029572314,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 7.070856718187904,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 12.226757029572314,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 4.280709437091618,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 12.66028891461857,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 11.772068618361336,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 12.212535904742822,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 8.778373220227706,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.573962729898212,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 13.064360424981539,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 11.9141828813428,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 11.772068618361336,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 11.772068618361336,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 11.772068618361336,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 10.197685457238794,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 6.173697207158426,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "deep-sea",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 15.905202188933306,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.675265937108131,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 15.905202188933306,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.7265588880335248,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 14.237297848023955,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.08012727870718,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 14.237297848023955,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.3357720453280506,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 16.36866926061791,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.840639432751778,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 16.36866926061791,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.8351483491910106,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 12.864130451665543,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.590156132290525,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 12.864130451665543,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.014041513086355,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 6.501419404822419,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 7.109940745240533,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 8.021278579148508,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 5.258349208714737,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.8351483491910106,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 16.36866926061791,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.05310954399658,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 7.109940745240533,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 7.109940745240533,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 7.109940745240533,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.675265937108131,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.7265588880335248,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "deep-sea",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 13.23894177764853,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 10.204868488052684,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 13.23894177764853,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 6.56170133561523,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 11.5238819968525,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 8.88286255992626,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 11.5238819968525,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 5.711655293921093,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 9.776501692356735,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 7.535943258861097,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 9.776501692356735,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.845590024475205,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 7.668678808188333,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 5.911186862895812,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 7.668678808188333,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.8008762953432402,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 7.778339951786446,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 5.108218299887412,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 5.820147712201022,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 3.0403642040187435,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.845590024475205,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 9.776501692356735,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 11.050375161170182,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 5.108218299887412,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 5.108218299887412,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 5.108218299887412,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 10.204868488052684,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 6.56170133561523,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "rustic-charm",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 10.520707496594618,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 6.120196484368792,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 10.520707496594618,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 4.167827771324877,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 8.914580615996538,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.185866536381138,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 8.914580615996538,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.5315530512649547,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 10.18744802016948,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.926329914400955,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 10.18744802016948,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.035805461860284,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 7.760439947147465,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.514469896350654,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 7.760439947147465,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.074334795439323,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 6.187047642135833,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 5.6470491136063865,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 6.188346759443003,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 4.05801534682638,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.035805461860284,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 10.18744802016948,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.087282828167153,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 5.6470491136063865,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 5.6470491136063865,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 5.6470491136063865,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 6.120196484368792,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 4.167827771324877,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "rustic-charm",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 15.10829303342166,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 9.33766596681158,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 15.10829303342166,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 5.79160829384035,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 10.520707496594618,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 6.502313141558276,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 10.520707496594618,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.033004698780731,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 8.857996134243184,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.474675984500588,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 8.857996134243184,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.395621448723643,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 8.719129550801114,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 5.388849626270313,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 8.719129550801114,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.3423883763559554,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 7.929713355967168,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 6.993314769941647,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 7.808623574291405,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 3.653500243070746,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.395621448723643,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 8.857996134243184,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 7.822302110281012,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 6.993314769941647,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 6.993314769941647,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 6.993314769941647,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 9.33766596681158,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 5.79160829384035,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "dark-sunset",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 12.402917666232723,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 6.165550872648108,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 12.402917666232723,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 4.032163168310956,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 10.892798303093643,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.414863170950818,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 10.892798303093643,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.541226451672081,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 12.398331134363117,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.163270885282871,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 12.398331134363117,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.0306720961799805,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.336002225787395,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.640972246954533,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.336002225787395,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.035115230715158,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 7.084997873415902,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 7.447100305513218,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 8.042159922691964,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 5.333064178599916,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.0306720961799805,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 12.398331134363117,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.20194877246725,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 7.447100305513218,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 7.447100305513218,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 7.447100305513218,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 6.165550872648108,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 4.032163168310956,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "dark-sunset",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 16.180292116921787,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 10.199653753896847,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 16.180292116921787,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 6.4739162308145355,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 12.967542821744317,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 8.17441649785153,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 12.967542821744317,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 5.188459228104729,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 11.009004333016781,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.939802542531812,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 11.009004333016781,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.404826026724657,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 10.06178461554893,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 6.3426987895697735,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 10.06178461554893,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 4.025832800968897,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 7.959223661515319,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 7.647395176640827,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 8.379080478125685,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 4.949477649133037,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.404826026724657,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 11.009004333016781,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 10.636412845729739,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 7.647395176640827,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 7.647395176640827,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 7.647395176640827,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 10.199653753896847,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 6.4739162308145355,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "coastal-vibes",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 12.28135040625554,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.725131090244743,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 12.28135040625554,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.8329220075976633,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 11.034793230390687,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.144030233479313,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 11.034793230390687,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.4438803896117847,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 12.369321956626615,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.766140314916807,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 12.369321956626615,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.860377302032389,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.83629481665398,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.585332671475214,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.83629481665398,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.069837569064749,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 6.72140721929187,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 7.064550542399586,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 7.618151057346639,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 5.383263306131715,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.860377302032389,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 12.369321956626615,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.309731767163532,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 7.064550542399586,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 7.064550542399586,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 7.064550542399586,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.725131090244743,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.8329220075976633,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "coastal-vibes",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 14.04431719401415,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 9.379007038439626,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 14.04431719401415,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 6.708198732453641,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 10.292424242980271,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 6.873436286291082,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 10.292424242980271,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.916125597765805,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 8.694021304195797,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.805998673908496,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 8.694021304195797,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.152656329749401,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 6.815948361327071,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.551793210835055,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 6.815948361327071,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.255604065779096,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 9.300366922936632,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 7.948605499434663,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 8.569269321643722,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 3.8575947751876485,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.152656329749401,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 8.694021304195797,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 8.107199134824686,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 7.948605499434663,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 7.948605499434663,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 7.948605499434663,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 9.379007038439626,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 6.708198732453641,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "vintage-sunset",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 13.410266504249794,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 6.302587620952233,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 13.410266504249794,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 4.184914093498639,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 11.33740495113044,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.328379423039262,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 11.33740495113044,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.538040481794384,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 14.161240365625524,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.65553202819913,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 14.161240365625524,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.4192689510493395,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.66614909150065,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.542918784430137,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.66614909150065,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.0164951270775004,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 8.969759702450496,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 10.35929713563026,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 11.577291958645779,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 6.465422187645882,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.4192689510493395,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 14.161240365625524,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 13.654331878329806,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 10.35929713563026,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 10.35929713563026,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 10.35929713563026,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 6.302587620952233,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 4.184914093498639,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "vintage-sunset",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 16.998470944911666,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 10.263210217628151,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 16.998470944911666,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 6.415180554882357,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 13.247308019013742,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 7.998360997140599,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 13.247308019013742,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.999501018858005,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 11.352589059819024,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.854381691910093,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 11.352589059819024,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.284438807475318,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 10.18667515599647,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 6.1504348763779415,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 10.18667515599647,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.844425806970213,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 8.404944390056766,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 7.80376798279099,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 8.474941704455995,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 5.036831752879058,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.284438807475318,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 11.352589059819024,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 11.750300758559913,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 7.80376798279099,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 7.80376798279099,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 7.80376798279099,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 10.263210217628151,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 6.415180554882357,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "summit-ice",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 12.705619303898699,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.600143873638952,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 12.705619303898699,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.740563537222089,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 11.559784894002552,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.095104536531188,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 11.559784894002552,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.403227252320436,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 12.943348252741654,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.70492556783319,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 12.943348252741654,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.810551486373944,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 10.266275494839215,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.5249757955420575,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 10.266275494839215,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.0224151110279798,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 8.901328854380722,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 9.498738452040119,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 9.97318695875044,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 7.192368361075729,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.810551486373944,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 12.943348252741654,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.255936916130938,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 9.498738452040119,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 9.498738452040119,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 9.498738452040119,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.600143873638952,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.740563537222089,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "summit-ice",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 18.0686676955107,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 11.44265369467846,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 18.0686676955107,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 6.546860469999336,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 13.70721236800869,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 8.680600412254343,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 13.70721236800869,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.966564680820295,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 11.721355241346352,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 7.422982763270063,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 11.721355241346352,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.247024660454413,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 9.600144569954383,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 6.079647463998091,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 9.600144569954383,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.478441689805878,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 11.98126860428356,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 8.990494832968047,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 9.480070429802103,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 6.365821358326038,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.247024660454413,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 11.721355241346352,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 10.083879585714389,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 8.990494832968047,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 8.990494832968047,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 8.990494832968047,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 11.44265369467846,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 6.546860469999336,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "cobalt-crown",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 12.694677350276653,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.6497076089407345,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 12.694677350276653,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.808021099570913,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 11.619542163831492,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.171223652563003,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 11.619542163831492,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.4855129048443207,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 13.036977086007157,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.802046527696546,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 13.036977086007157,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.9107007171833215,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 10.17732284129931,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.529370594352442,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 10.17732284129931,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.0528905184004675,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 9.871358891400183,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 10.599938045930898,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 10.981989913460074,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 7.9138684306868745,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.9107007171833215,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 13.036977086007157,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.281864232099467,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 10.599938045930898,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 10.599938045930898,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 10.599938045930898,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.6497076089407345,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.808021099570913,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "cobalt-crown",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 16.93072507938449,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 10.843290067133548,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 16.93072507938449,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 7.324946701466157,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 12.778788149791591,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 8.184180297355374,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 12.778788149791591,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 5.52864343775368,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 10.798272370770475,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.91575812560739,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 10.798272370770475,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.671788668999158,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 8.897266848058287,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 5.698258331278412,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 8.897266848058287,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.849333395065561,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 8.863359310597518,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 7.68806093947721,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 8.36171708694024,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 4.6577847426410965,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.671788668999158,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 10.798272370770475,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 9.974045672359441,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 7.68806093947721,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 7.68806093947721,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 7.68806093947721,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 10.843290067133548,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 7.324946701466157,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "garnet-legacy",
+    "appearance": "light",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 13.09888900002838,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 5.9000050088221725,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 13.09888900002838,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 3.927114456496665,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 11.729286961362893,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 5.28310850040822,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 11.729286961362893,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 3.5165007040113294,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 13.746705828119351,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 6.191794833938465,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 13.746705828119351,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 4.121333281524676,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 10.014897146374283,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 4.510912591618963,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 10.014897146374283,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.002517798552872,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 8.230694150217477,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 9.213544597085384,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 9.790753354233683,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 6.292866162734405,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 5.64590179865684,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 6.184286753600508,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 7.916170667913531,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 4.121333281524676,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 13.746705828119351,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 14.000061678681305,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 9.213544597085384,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 9.213544597085384,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 9.213544597085384,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 5.9000050088221725,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 3.927114456496665,
+        "minimum": 3
+      }
+    ]
+  },
+  {
+    "palette": "garnet-legacy",
+    "appearance": "dark",
+    "checks": [
+      {
+        "name": "--ink/--paper",
+        "ratio": 15.795345221886201,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--paper",
+        "ratio": 10.161147903412198,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--paper",
+        "ratio": 15.795345221886201,
+        "minimum": 3
+      },
+      {
+        "name": "control/--paper",
+        "ratio": 6.499124993549239,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface",
+        "ratio": 10.481600456135304,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface",
+        "ratio": 6.742815114397687,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface",
+        "ratio": 10.481600456135304,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface",
+        "ratio": 4.3127409081554315,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-raised",
+        "ratio": 8.937628200806403,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-raised",
+        "ratio": 5.749577535555557,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-raised",
+        "ratio": 8.937628200806403,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-raised",
+        "ratio": 3.6774607966418964,
+        "minimum": 3
+      },
+      {
+        "name": "--ink/--surface-selected",
+        "ratio": 8.019490310451673,
+        "minimum": 4.5
+      },
+      {
+        "name": "--muted/--surface-selected",
+        "ratio": 5.158939295709147,
+        "minimum": 4.5
+      },
+      {
+        "name": "focus/--surface-selected",
+        "ratio": 8.019490310451673,
+        "minimum": 3
+      },
+      {
+        "name": "control/--surface-selected",
+        "ratio": 3.299685393388226,
+        "minimum": 3
+      },
+      {
+        "name": "link",
+        "ratio": 9.233644978816287,
+        "minimum": 4.5
+      },
+      {
+        "name": "action",
+        "ratio": 9.233644978816287,
+        "minimum": 4.5
+      },
+      {
+        "name": "action hover",
+        "ratio": 9.921597473631822,
+        "minimum": 4.5
+      },
+      {
+        "name": "selected border",
+        "ratio": 4.688034696143562,
+        "minimum": 3
+      },
+      {
+        "name": "honor",
+        "ratio": 8.617798307420651,
+        "minimum": 4.5
+      },
+      {
+        "name": "error",
+        "ratio": 7.911954182825034,
+        "minimum": 4.5
+      },
+      {
+        "name": "success",
+        "ratio": 8.279453332410826,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual appearance border",
+        "ratio": 3.6774607966418964,
+        "minimum": 3
+      },
+      {
+        "name": "actual appearance text",
+        "ratio": 8.937628200806403,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual select chevron",
+        "ratio": 8.710910128964938,
+        "minimum": 3
+      },
+      {
+        "name": "actual skip link",
+        "ratio": 9.233644978816287,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual apply text",
+        "ratio": 9.233644978816287,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview action",
+        "ratio": 9.233644978816287,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input",
+        "ratio": 10.161147903412198,
+        "minimum": 4.5
+      },
+      {
+        "name": "actual preview input border",
+        "ratio": 6.499124993549239,
+        "minimum": 3
+      }
+    ]
+  }
+]

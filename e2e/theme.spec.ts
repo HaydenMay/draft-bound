@@ -10,7 +10,7 @@ test('shared stylesheet colors drive the interface, browser chrome, and exported
  await page.evaluate(data=>new Promise<void>((resolve,reject)=>{const request=indexedDB.open('draft-bound',1);request.onsuccess=()=>{const db=request.result,tx=db.transaction('state','readwrite');tx.objectStore('state').put(data,'current');tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};}),save);
  await page.reload();
  await page.addStyleTag({content:':root{--paper:rgb(38, 44, 50) !important;--export-frame-classic:#012345 !important}'});
- await page.getByRole('button',{name:'Save and game settings'}).click();
+ await page.getByRole('button',{name:'Settings'}).click();
  await page.getByLabel('Appearance',{exact:true}).selectOption('light');
  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content','rgb(38, 44, 50)');
  expect(await page.locator('html').evaluate(el=>getComputedStyle(el).backgroundColor)).toBe('rgb(38, 44, 50)');
@@ -25,10 +25,10 @@ test('shared stylesheet colors drive the interface, browser chrome, and exported
  expect(pixel).toEqual([1,35,69,255]);
  const logoPixels=await page.evaluate(async({base64,accent})=>{
   const image=new Image();image.src='data:image/png;base64,'+base64;await image.decode();const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;const ctx=canvas.getContext('2d')!;ctx.drawImage(image,0,0);
-  const data=ctx.getImageData(48,34,88,54).data,colors={ink:[24,38,32],accent:accent.match(/[a-f\d]{2}/gi)!.map(v=>parseInt(v,16)),paper:[1,35,69]},counts={ink:0,accent:0,paper:0};
+  const data=ctx.getImageData(48,34,88,54).data,colors={ink:[23,33,30],accent:accent.match(/[a-f\d]{2}/gi)!.map(v=>parseInt(v,16)),paper:[1,35,69]},counts={ink:0,accent:0,paper:0};
   for(let i=0;i<data.length;i+=4)for(const key of ['ink','accent','paper'] as const)if(colors[key].every((v,k)=>Math.abs(v-data[i+k])<3))counts[key]++;
   return counts;
- },{base64:readFileSync('test-results/custom-palette.png').toString('base64'),accent:save.entries[0].display.schoolColors[0]});
+ },{base64:readFileSync('test-results/custom-palette.png').toString('base64'),accent:await page.evaluate(()=>getComputedStyle(document.documentElement).getPropertyValue('--print-brand-accent').trim())});
  expect(logoPixels.ink).toBeGreaterThan(500);expect(logoPixels.accent).toBeGreaterThan(100);expect(logoPixels.paper).toBeGreaterThan(500);
 });
 
@@ -38,7 +38,7 @@ test('appearance follows the system, persists an override, and preserves collect
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
  await expect(page.locator('.hero-card img')).toHaveJSProperty('complete',true);
  const cardColor=await page.locator('.hero-card .collectible').evaluate(el=>getComputedStyle(el).backgroundColor);
- await page.getByRole('button',{name:'Save and game settings'}).click();
+ await page.getByRole('button',{name:'Settings'}).click();
  await expect(page.getByLabel('Appearance',{exact:true})).toHaveValue('system');
  await page.getByLabel('Appearance',{exact:true}).selectOption('light');
  await expect(page.locator('html')).toHaveAttribute('data-theme','light');
@@ -47,7 +47,7 @@ test('appearance follows the system, persists an override, and preserves collect
  await page.getByRole('button',{name:'Close dialog'}).click();
  await page.reload();
  await expect(page.locator('html')).toHaveAttribute('data-theme','light');
- await page.getByRole('button',{name:'Save and game settings'}).click();
+ await page.getByRole('button',{name:'Settings'}).click();
  await expect(page.getByLabel('Appearance',{exact:true})).toHaveValue('light');
  await page.getByLabel('Appearance',{exact:true}).selectOption('system');
  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');

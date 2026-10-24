@@ -1,0 +1,206 @@
+{
+  "base": "http://127.0.0.1:4301/draft-bound/",
+  "externalOrigins": [],
+  "failed": [],
+  "cookies": [],
+  "manifest": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "home",
+      "file": "desktop-home.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "creator",
+      "file": "desktop-creator.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "settings",
+      "file": "desktop-settings.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "gallery",
+      "file": "desktop-gallery.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "binder",
+      "file": "desktop-binder.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "draft-card",
+      "file": "desktop-draft-card.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "career-card",
+      "file": "desktop-career-card.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "about",
+      "file": "desktop-about.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "privacy",
+      "file": "desktop-privacy.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "terms",
+      "file": "desktop-terms.png"
+    },
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "palette": "forest",
+      "theme": "light",
+      "screen": "contact",
+      "file": "desktop-contact.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "home",
+      "file": "mobile-home.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "creator",
+      "file": "mobile-creator.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "settings",
+      "file": "mobile-settings.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "gallery",
+      "file": "mobile-gallery.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "binder",
+      "file": "mobile-binder.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "draft-card",
+      "file": "mobile-draft-card.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "career-card",
+      "file": "mobile-career-card.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "about",
+      "file": "mobile-about.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "privacy",
+      "file": "mobile-privacy.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "terms",
+      "file": "mobile-terms.png"
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "palette": "navy",
+      "theme": "dark",
+      "screen": "contact",
+      "file": "mobile-contact.png"
+    }
+  ]
+}

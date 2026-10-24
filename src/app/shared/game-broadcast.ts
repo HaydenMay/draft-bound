@@ -4,7 +4,7 @@ import {DraftIcon} from './icon';
 
 @Component({selector:'app-game-broadcast',standalone:true,imports:[DraftIcon],template:`
  @if(game();as match){<section class="broadcast" [class.paused]="paused()" aria-label="Quick block broadcast">
-  <div class="broadcast-header"><span class="broadcast-brand"><app-icon name="mark" /> DRAFT BOUND</span><span>GAME {{match.gameNumber}} · {{isFinal()?'FINAL':'HIGHLIGHTS'}}</span></div>
+  <div class="broadcast-header"><span class="broadcast-brand">DRAFT BOUND</span><span>GAME {{match.gameNumber}} · {{isFinal()?'FINAL':'HIGHLIGHTS'}}</span></div>
   <div class="broadcast-progress" aria-label="Four-game broadcast progress">@for(item of block().games;track item.id;let i=$index){<span [class.current]="i===gameIndex()" [class.complete]="i<gameIndex()">{{item.gameNumber}}</span>}</div>
   <div class="broadcast-matchup"><h2>{{school()}}</h2><span>vs.</span><h2>{{match.opponent}}</h2></div>
   <div class="broadcast-moment" [attr.data-moment]="moment()">
