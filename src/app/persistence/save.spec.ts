@@ -2,7 +2,7 @@ import {beforeEach,it,expect} from 'vitest';
 import 'fake-indexeddb/auto';
 import {GameRepository,emptySave,previewSave} from './save';
 import {createRun} from '../domain/engine';
-import {createCollege,completeRun} from '../domain/test-fixtures';
+import {createCollege,completeRun,step} from '../domain/test-fixtures';
 it('round trips the RNG and settings atomically',async()=>{const repo=new GameRepository('draft-bound-test');const save=emptySave();save.run=createRun('Save Prospect',8,314);save.settings.fastForward=true;await repo.write(save);expect(await repo.read()).toEqual(save);});
 it('rejects broken versions, impossible run ratings and hostile JSON before changing state',()=>{
  const save=emptySave();expect(previewSave(JSON.stringify(save)).ok).toBe(true);
@@ -18,6 +18,20 @@ it('validates nested chronology and intervention state before accepting a save',
 it('round trips completed entries and rejects malformed professional records',()=>{
  const save=emptySave();save.entries=[completeRun().entry!];expect(previewSave(JSON.stringify(save)).ok).toBe(true);
  save.entries[0].career={seasons:[{stats:{targets:1,receptions:99,yards:100,touchdowns:1}}]} as any;expect(previewSave(JSON.stringify(save)).ok).toBe(false);
+});
+it('round trips a saved broadcast but rejects malformed nested game and event payloads',()=>{
+ const save=emptySave();save.run=step(createCollege(314),{type:'train',plan:{mode:'balanced'}});
+ expect(previewSave(JSON.stringify(save)).data?.run?.lastBlock).toEqual(save.run.lastBlock);
+ for(const events of [undefined,null,[null],[{kind:'catch',yards:'invalid'}]]){
+  const malformed=JSON.parse(JSON.stringify(save));(malformed.run!.lastBlock!.games[0] as any).events=events;
+  expect(previewSave(JSON.stringify(malformed)).ok,JSON.stringify(events)).toBe(false);
+ }
+ for(const field of ['opponent','highlights','teamScore']){
+  const malformed=JSON.parse(JSON.stringify(save));(malformed.run!.lastBlock!.games[0] as any)[field]=null;
+  expect(previewSave(JSON.stringify(malformed)).ok,field).toBe(false);
+ }
+ const badHistory=structuredClone(save);badHistory.run!.history[0].events=[null as any];
+ expect(previewSave(JSON.stringify(badHistory)).ok).toBe(false);
 });
 it('accepts a full exported binder larger than 5 MB',()=>{const save=emptySave(),entry=completeRun().entry!;save.entries=Array.from({length:60},(_,i)=>({...structuredClone(entry),id:`entry-${i}`}));const json=JSON.stringify(save);expect(json.length).toBeGreaterThan(5_000_000);expect(previewSave(json).ok).toBe(true);});
 it('rejects impossible active phases and partial creation records',()=>{const save=emptySave();save.run=createCollege();save.run.gameNumber=12;expect(previewSave(JSON.stringify(save)).ok).toBe(false);save.run=createRun('Broken',1,919);save.run.phase='size';expect(previewSave(JSON.stringify(save)).ok).toBe(false);});

@@ -16,7 +16,7 @@ Base: `edef1ccdc8b1061c5453c3420a4e5b1b66be904d`, existing task-owned `feat/pros
 
 - Unit suite: 73/73 passed; 10 files.
 - Type check passed.
-- GitHub Pages production build passed; initial bundle 494.43 kB raw, 117.83 kB estimated transfer.
+- GitHub Pages production build passed; initial bundle 494.77 kB raw, 118.00 kB estimated transfer.
 - Chromium journeys: 18/18 passed.
 - Paired report: 1,000 builds, 3,000 matched school/profile career pairs; zero ceiling/regression violations.
 - Coaching report: 1,000 careers; zero elite-hands JUGS, capped skills or within-year repeat violations.
@@ -26,8 +26,22 @@ Within-offer uniqueness, Full creation/save, versioned growth, palette validatio
 
 ## Review outcome
 
-Fresh whole-branch review pending. No final release claim or publication yet.
+Fresh whole-branch review completed against `edef1cc..a7d36b6`. No critical or minor findings. One important finding: import preview accepted malformed `lastBlock.games[].events`, allowing a checked backup to crash the broadcast. Fixed with a shared game-record validator used by both history and last-block records. The test observed acceptance before the fix and rejects missing/null/null-member/invalid events and incomplete score/highlight/opponent records afterward, while a valid saved broadcast round-trips.
+
+A separate keyboard check reproduced focus loss after changing a palette because the checked radio was briefly disabled while persisting. The regression test failed before the fix and passes afterward: the selected radio retains focus while other choices wait for persistence, allowing successive arrow-key choices.
+
+After the fix pass: 74/74 unit tests, typecheck, 19/19 browser cases and the Pages build passed. The reviewer independently ran typecheck and reproduced the malformed-backup bug; the executor ran the complete post-fix suites. No second reviewer was dispatched.
+
+The reviewer set aside five areas, all explicitly ruled on: (1) broad source-pool/selection balance and return-versus-declare incentives remain planned long-term; cost is continued generous optimized builds; (2) scene uniqueness/masking/appearances stay deferred to tentative v1.5; cost is existing shared art; (3) additional positions and school/HOF redesign stay outside scope; cost is the existing WR-only experience; (4) keyboard palette behavior is fixed as above; (5) stale planning-only status is corrected to point to current implementation decisions. None is silently treated as completed future functionality.
+
+The first fresh-review attempt and an extra browser check were interrupted by an account usage-limit failure. Work resumed when the user requested continuation; the successful review and checks above supersede that failed attempt.
 
 ## Explicit remaining scope
 
 Broader pool quality/selection balance and return-versus-declare incentives remain long-term planning. Existing scene-art duplication, jersey masks and modular faces remain deferred to tentative v1.5. Other playable positions remain out of scope. Hall of Fame rules are unchanged.
+
+## Release preparation
+
+A production smoke check served the built output under the real `/draft-bound/` prefix. App startup, images/fonts, approved brand fetching and PNG export passed without browser errors or failed resource requests.
+
+Publication follows the user’s standing request to implement the game in its public GitHub repository and host it on GitHub Pages, followed by their requests to implement v1.2 and continue. No additional publication-confirmation menu was introduced. Cost if that interpretation is wrong: an unwanted public release; the prior deployed commit is retained in Git and can be restored with a normal revert.

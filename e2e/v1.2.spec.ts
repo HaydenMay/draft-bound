@@ -1,6 +1,14 @@
 import {test,expect} from '@playwright/test';
 import {finishBroadcast} from './broadcast-helper';
 
+test('palette selection retains keyboard focus for successive arrow-key choices',async({page})=>{
+ await page.goto('/');await page.getByRole('button',{name:'Save and game settings'}).click();
+ await page.getByRole('radio',{name:'Original forest',exact:true}).focus();await page.keyboard.press('ArrowRight');
+ const copper=page.getByRole('radio',{name:'Midnight copper',exact:true});
+ await expect(copper).toBeChecked();await expect(page.getByRole('radio',{name:'Navy & gold',exact:true})).toBeEnabled();await expect(copper).toBeFocused();
+ await page.keyboard.press('ArrowRight');await expect(page.getByRole('radio',{name:'Navy & gold',exact:true})).toBeChecked();
+});
+
 test('new prospect offers generated editable names, future positions, and complete Full creation after reload',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');
  await page.getByRole('button',{name:'Create your prospect',exact:true}).click();

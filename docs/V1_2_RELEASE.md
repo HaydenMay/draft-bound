@@ -24,9 +24,10 @@ Hall of Fame criteria, schools, school coefficients and existing collectible sce
 
 ## Validation
 
-- 73 unit tests; TypeScript check and GitHub Pages production build passed.
-- 18 Chromium browser tests passed, including complete Quick/Full journeys, reloads, backup validation, optional professional career, PNG export, mobile layouts, palette persistence, unique logo masks and readable control colors across all ten palette/appearance combinations.
-- The exported PNG contains both explicit brand colors and background clearance; screenshots and the downloaded PNG were inspected visually.
+- 74 unit tests; TypeScript check and GitHub Pages production build passed.
+- 19 Chromium browser tests passed, including complete Quick/Full journeys, reloads, backup validation, optional professional career, PNG export, mobile layouts, palette persistence and keyboard focus, unique logo masks and readable control colors across all ten palette/appearance combinations.
+- The exported PNG contains both explicit brand colors and background clearance; screenshots and the downloaded PNG were inspected visually. A production smoke check under the real `/draft-bound/` URL prefix passed app startup, resources, brand fetching and PNG export.
+- Fresh whole-branch review found one important malformed-backup validation gap and no critical or minor findings. The gap and a separately reproduced keyboard-focus issue were fixed with failing-then-passing regression tests; the complete suites passed afterward.
 - [Matched progression audit](validation/V1_2_PAIRED_REPORT.md): 1,000 created builds, 3,000 school/profile pairs, 12,000 year-two/year-three draft snapshots; zero ceiling/regression violations. Quick rotated-choice year-three mean OVR 90.97 legacy → 89.94 v1.2; mean maxed traits 7.55 → 3.65. Optimized Quick still reaches 90+ frequently (96.5% in this scripted junior cohort); Full best-available remains stronger. The long-term issue is explicitly unresolved.
 - [Coaching audit](validation/COACHING_REPORT.md): 1,000 careers, eight of nine types observed, zero elite-hands JUGS, capped-skill or within-year repeat violations. Film room was eligible in targeted unit tests but not selected in this cohort; no artificial frequency guarantee was added.
 

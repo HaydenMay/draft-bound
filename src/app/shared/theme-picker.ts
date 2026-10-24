@@ -7,7 +7,7 @@ import {DraftIcon} from './icon';
  <fieldset class="palette-picker"><legend>Color theme</legend><div class="palette-options">
  @for(palette of palettes;track palette.id){
   <label class="palette-option" [attr.data-palette]="palette.id" [class.selected]="selected()===palette.id">
-   <input type="radio" name="color-theme" [value]="palette.id" [checked]="selected()===palette.id" [disabled]="disabled()" (change)="picked.emit(palette.id)">
+   <input type="radio" name="color-theme" [value]="palette.id" [checked]="selected()===palette.id" [disabled]="disabled()&&selected()!==palette.id" (change)="picked.emit(palette.id)">
    <span class="palette-name">{{palette.name}} @if(selected()===palette.id){<app-icon name="check"/>}</span>
    <span class="palette-preview" aria-hidden="true"><i></i><b></b><em></em></span>
   </label>
