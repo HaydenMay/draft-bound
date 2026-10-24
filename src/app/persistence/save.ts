@@ -64,7 +64,8 @@ export function previewSave(input:string):{ok:boolean;errors:string[];data?:Save
   if(!isObject(data)||data.schemaVersion!==1)throw Error('This is not a supported Draft Bound save version.');
   if(!text(data.rulesVersion)||!array(data.entries,1000)||!data.entries.every(validEntry)||new Set(data.entries.map((e:any)=>e.id)).size!==data.entries.length)throw Error('The binder contains incomplete or invalid records.');
   if(data.run!==null&&!validRun(data.run))throw Error('The active prospect is incomplete or uses incompatible rules.');
-  if(!isObject(data.profile)||!array(data.profile.achievements,100)||!data.profile.achievements.every(text)||!array(data.profile.frames,6)||!data.profile.frames.every((f:any)=>frames.includes(f))||!isObject(data.settings)||typeof data.settings.fastForward!=='boolean'||(data.settings.theme!==undefined&&!['system','light','dark'].includes(data.settings.theme))||(data.settings.palette!==undefined&&!PALETTES.some(p=>p.id===data.settings.palette)))throw Error('Save settings or collection unlocks are invalid.');
+  if(!isObject(data.profile)||!array(data.profile.achievements,100)||!data.profile.achievements.every(text)||!array(data.profile.frames,6)||!data.profile.frames.every((f:any)=>frames.includes(f))||!isObject(data.settings)||typeof data.settings.fastForward!=='boolean'||(data.settings.theme!==undefined&&!['system','light','dark'].includes(data.settings.theme))||(data.settings.palette!==undefined&&typeof data.settings.palette!=='string'))throw Error('Save settings or collection unlocks are invalid.');
+  if(typeof data.settings.palette==='string'&&!PALETTES.some(p=>p.id===data.settings.palette))data.settings.palette='forest';
   return {ok:true,errors:[],data};
  }catch(error){return {ok:false,errors:[error instanceof Error?error.message:'Could not read that save.']};}
 }

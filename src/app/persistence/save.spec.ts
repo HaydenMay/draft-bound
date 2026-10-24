@@ -41,10 +41,11 @@ it('atomically rejects simultaneous stale writers before they can overwrite a sa
 });
 it('rejects malformed display rows and missing starting OVR before rendering a binder',()=>{const save=emptySave();save.entries=[completeRun().entry!];save.entries[0].display.attributes=[null as any];expect(previewSave(JSON.stringify(save)).ok).toBe(false);save.entries=[completeRun().entry!];delete (save.entries[0].draft.prospect as any).initialOvr;expect(previewSave(JSON.stringify(save)).ok).toBe(false);});
 it('accepts legacy saves without a theme and rejects invalid new theme values',()=>{const save=emptySave();delete (save.settings as any).theme;expect(previewSave(JSON.stringify(save)).ok).toBe(true);(save.settings as any).theme='sepia';expect(previewSave(JSON.stringify(save)).ok).toBe(false);});
-it('round trips palette preferences without changing a run and rejects unrecognized palettes',()=>{
+it('round trips palette preferences and safely normalizes unknown identifiers without touching game records',()=>{
  const save=emptySave();save.run=createCollege();const before=JSON.stringify(save.run);
  (save.settings as any).palette='navy';const restored=previewSave(JSON.stringify(save));expect(restored.errors).toEqual([]);expect((restored.data!.settings as any).palette).toBe('navy');expect(JSON.stringify(restored.data!.run)).toBe(before);
- (save.settings as any).palette='untrusted';expect(previewSave(JSON.stringify(save)).ok).toBe(false);
+ (save.settings as any).palette='untrusted';const unknown=previewSave(JSON.stringify(save));expect(unknown.ok).toBe(true);expect(unknown.data!.settings.palette).toBe('forest');expect(JSON.stringify(unknown.data!.run)).toBe(before);
+ for(const value of [null,7,{},false]){(save.settings as any).palette=value;expect(previewSave(JSON.stringify(save)).ok).toBe(false);}
  delete (save.settings as any).palette;expect(previewSave(JSON.stringify(save)).ok).toBe(true);
 });
 

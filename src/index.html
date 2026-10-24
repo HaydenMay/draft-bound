@@ -7,10 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Roll real-player potential, develop your wide receiver through college, get drafted, and collect the story. Play Draft Bound free in your browser.">
   <meta name="theme-color" content="#17211e">
-  <script>
+  <script data-theme-bootstrap>
     (() => {
       let preference = 'system';
-      try { const palette=localStorage.getItem('draft-bound-palette'); document.documentElement.dataset.palette=['forest','copper','navy','charcoal','teal'].includes(palette)?palette:'forest'; } catch {}
+      document.documentElement.dataset.palette = 'forest';
+      try { const palette=localStorage.getItem('draft-bound-palette'); document.documentElement.dataset.palette=["forest","copper","navy","charcoal","teal","midnight-blues","burgundy-bronze","champion-royale","deep-sea","rustic-charm","dark-sunset","coastal-vibes","vintage-sunset","summit-ice","cobalt-crown","garnet-legacy"].includes(palette)?palette:'forest'; } catch {}
       try { preference = localStorage.getItem('draft-bound-theme') || 'system'; } catch {}
       document.documentElement.dataset.theme = preference === 'dark' || (preference !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
     })();

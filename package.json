@@ -13,12 +13,13 @@
     "balance": "tsx tools/balance-report.ts",
     "typecheck": "tsc --noEmit",
     "icons": "tsx tools/generate-icons.ts",
-    "prebuild": "npm run icons && npm run brands",
-    "prebuild:pages": "npm run icons && npm run brands",
+    "prebuild": "npm run icons && npm run brands && npm run themes",
+    "prebuild:pages": "npm run icons && npm run brands && npm run themes",
     "audit:coaching": "tsx tools/coaching-report.ts",
     "audit:art": "tsx tools/art-audit.ts",
     "brands": "tsx tools/generate-brand.ts",
-    "balance:paired": "tsx tools/v1.2-report.ts"
+    "balance:paired": "tsx tools/v1.2-report.ts",
+    "themes": "tsx tools/generate-theme-bootstrap.ts"
   },
   "dependencies": {
     "@angular/common": "21.2.25",

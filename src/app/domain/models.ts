@@ -43,7 +43,8 @@ export interface CardCustomization { sceneId:string;frame:'classic'|'silver'|'go
 export interface HistoricalDisplay { positionLabel:string;attributes:{id:string;label:string;value:number;ceiling:number}[];schoolName:string;schoolColors:[string,string]; }
 export interface BinderEntry { id:string;positionId:string;createdAt:string;completedAt:string;favorite:boolean;draft:DraftSnapshot;career:ProfessionalCareer|null;nflSeed:number;draftCard:CardCustomization;careerCard:CardCustomization|null;display:HistoricalDisplay; }
 export interface CosmeticProfile { achievements:string[];frames:CardCustomization['frame'][]; }
-export type PaletteId='forest'|'copper'|'navy'|'charcoal'|'teal';
+import type {PaletteId} from '../data/palettes';
+export type {PaletteId} from '../data/palettes';
 export type ThemePreference='system'|'light'|'dark';
 export interface SaveEnvelope { schemaVersion:1;rulesVersion:string;run:RunState|null;entries:BinderEntry[];profile:CosmeticProfile;settings:{fastForward:boolean;theme?:ThemePreference;palette?:PaletteId}; }
 export interface ArtScene { id:string;name:string;description:string;art:string;accent:string; }
