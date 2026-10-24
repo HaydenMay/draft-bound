@@ -1,4 +1,5 @@
 import type { Grade, SourcePlayerDefinition, WrAttributeId } from '../domain/models';
+import {LEGACY_SOURCE_CATALOG_VERSION,LEGACY_SOURCE_PLAYERS} from './source-players-legacy';
 
 export const WR_ATTRIBUTE_IDS: readonly WrAttributeId[] = ['speed', 'acceleration', 'hands', 'routeRunning', 'release', 'vertical', 'bodyControl', 'yardsAfterCatch', 'awareness'];
 export const VALID_GRADES: readonly Grade[] = ['S', 'A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'F'];
@@ -15,7 +16,10 @@ export const VALID_GRADES: readonly Grade[] = ['S', 'A+', 'A', 'A-', 'B+', 'B', 
  * Each receiver has one entry. Normal offers sample these entries uniformly;
  * natural gifts use a separate per-attribute pool of entries graded S.
  */
-export const SOURCE_CATALOG_VERSION = 'wr-original-illustrations-v1.2-90';
+export const SOURCE_CATALOG_VERSION = 'wr-original-illustrations-v1.4-90';
+export {LEGACY_SOURCE_CATALOG_VERSION};
+export function sourcePlayersForVersion(version?:string):readonly SourcePlayerDefinition[]{return version===SOURCE_CATALOG_VERSION?SOURCE_PLAYERS:LEGACY_SOURCE_PLAYERS;}
+export const HOF_SOURCE_IDS = ['jerry-rice','randy-moss','terrell-owens','calvin-johnson','larry-fitzgerald','marvin-harrison','cris-carter','steve-largent','tim-brown','isaac-bruce','andre-reed','art-monk','michael-irvin','sterling-sharpe','james-lofton','lance-alworth','fred-biletnikoff','paul-warfield','don-maynard','charlie-joiner','lynn-swann','john-stallworth','drew-pearson','harold-carmichael','andre-johnson'] as const;
 export const SOURCE_CATALOG_NOTE = 'Real receiver names inspire fictional prospects. Physical profiles and original letter grades are gameplay illustrations, not verified scouting data.';
 
 type GradeLine = readonly [Grade, Grade, Grade, Grade, Grade, Grade, Grade, Grade, Grade];
@@ -39,25 +43,25 @@ export const SOURCE_PLAYERS: SourcePlayerDefinition[] = [
   player('marvin-harrison', 'Marvin Harrison', '1990s–2000s', 183, 84, 'Precise lean technician', ['A-', 'A', 'A+', 'S', 'A+', 'B', 'A', 'B+', 'A+']),
   player('cris-carter', 'Cris Carter', '1980s–2000s', 191, 95, 'Boundary catch specialist', ['C+', 'B', 'S', 'A', 'A', 'A-', 'S', 'C+', 'A+']),
   player('steve-largent', 'Steve Largent', '1970s–1980s', 180, 86, 'Compact instinctive receiver', ['C', 'B-', 'A+', 'A+', 'A-', 'C+', 'A', 'B-', 'S']),
-  player('tim-brown', 'Tim Brown', '1980s–2000s', 183, 88, 'Fluid all-around playmaker', ['A-', 'A', 'A', 'A', 'A-', 'B+', 'A-', 'A', 'A']),
-  player('isaac-bruce', 'Isaac Bruce', '1990s–2000s', 183, 85, 'Smooth route separator', ['A-', 'A', 'A', 'A+', 'A', 'B', 'A-', 'A-', 'A+']),
+  player('tim-brown', 'Tim Brown', '1980s–2000s', 183, 88, 'Fluid all-around playmaker', ['A-', 'A', 'A', 'A', 'A-', 'B+', 'A-', 'S', 'A']),
+  player('isaac-bruce', 'Isaac Bruce', '1990s–2000s', 183, 85, 'Smooth route separator', ['A-', 'A', 'A', 'S', 'A', 'B', 'A-', 'A-', 'A+']),
   player('torry-holt', 'Torry Holt', '1990s–2000s', 183, 91, 'Fast precise route runner', ['A', 'A', 'A', 'A+', 'A-', 'B+', 'A', 'A-', 'A']),
-  player('andre-reed', 'Andre Reed', '1980s–2000s', 188, 91, 'Strong inside playmaker', ['B+', 'A-', 'A-', 'A', 'A-', 'B+', 'A-', 'A+', 'A']),
-  player('art-monk', 'Art Monk', '1980s–1990s', 191, 95, 'Dependable chain mover', ['C+', 'B', 'A+', 'A', 'A-', 'B', 'A-', 'B-', 'A+']),
-  player('michael-irvin', 'Michael Irvin', '1980s–1990s', 188, 94, 'Physical possession leader', ['B', 'B+', 'A', 'A', 'A+', 'B+', 'A+', 'A-', 'A+']),
-  player('sterling-sharpe', 'Sterling Sharpe', '1980s–1990s', 183, 94, 'Explosive powerful technician', ['A-', 'A', 'A+', 'A+', 'A', 'A-', 'A', 'A+', 'A']),
-  player('james-lofton', 'James Lofton', '1970s–1990s', 191, 87, 'Long-limbed deep threat', ['A+', 'A-', 'A-', 'B+', 'B+', 'A', 'A', 'B+', 'A-']),
-  player('lance-alworth', 'Lance Alworth', '1960s–1970s', 183, 83, 'Gliding vertical athlete', ['A', 'A-', 'A', 'A-', 'B+', 'A+', 'A+', 'B+', 'A']),
-  player('fred-biletnikoff', 'Fred Biletnikoff', '1960s–1970s', 185, 86, 'Crafty sure-handed separator', ['D+', 'C+', 'A+', 'A+', 'A-', 'C', 'A', 'C-', 'A+']),
-  player('paul-warfield', 'Paul Warfield', '1960s–1970s', 183, 85, 'Elegant downfield separator', ['A', 'A-', 'A', 'A+', 'A-', 'A', 'A', 'A-', 'A']),
-  player('don-maynard', 'Don Maynard', '1950s–1970s', 183, 82, 'Lean field stretcher', ['A-', 'B+', 'A-', 'A-', 'B+', 'B+', 'A', 'B', 'A']),
+  player('andre-reed', 'Andre Reed', '1980s–2000s', 188, 91, 'Strong inside playmaker', ['B+', 'A-', 'A-', 'A', 'A-', 'B+', 'A-', 'S', 'A']),
+  player('art-monk', 'Art Monk', '1980s–1990s', 191, 95, 'Dependable chain mover', ['C+', 'B', 'S', 'A', 'A-', 'B', 'A-', 'B-', 'A+']),
+  player('michael-irvin', 'Michael Irvin', '1980s–1990s', 188, 94, 'Physical possession leader', ['B', 'B+', 'S', 'A', 'A+', 'B+', 'A+', 'A-', 'A+']),
+  player('sterling-sharpe', 'Sterling Sharpe', '1980s–1990s', 183, 94, 'Explosive powerful technician', ['A-', 'A', 'S', 'A+', 'A', 'A-', 'A', 'A+', 'A']),
+  player('james-lofton', 'James Lofton', '1970s–1990s', 191, 87, 'Long-limbed deep threat', ['S', 'A-', 'A-', 'B+', 'B+', 'A', 'A', 'B+', 'A-']),
+  player('lance-alworth', 'Lance Alworth', '1960s–1970s', 183, 83, 'Gliding vertical athlete', ['S', 'A-', 'A', 'A-', 'B+', 'A+', 'A+', 'B+', 'A']),
+  player('fred-biletnikoff', 'Fred Biletnikoff', '1960s–1970s', 185, 86, 'Crafty sure-handed separator', ['D+', 'C+', 'A+', 'S', 'A-', 'C', 'A', 'C-', 'A+']),
+  player('paul-warfield', 'Paul Warfield', '1960s–1970s', 183, 85, 'Elegant downfield separator', ['A', 'A-', 'A', 'A+', 'A-', 'S', 'A', 'A-', 'A']),
+  player('don-maynard', 'Don Maynard', '1950s–1970s', 183, 82, 'Lean field stretcher', ['S', 'B+', 'A-', 'A-', 'B+', 'B+', 'A', 'B', 'A']),
   player('raymond-berry', 'Raymond Berry', '1950s–1960s', 188, 85, 'Meticulous timing specialist', ['D', 'C-', 'A+', 'S', 'A', 'C-', 'A-', 'D+', 'S']),
-  player('charlie-joiner', 'Charlie Joiner', '1960s–1980s', 180, 85, 'Patient intermediate technician', ['C', 'B-', 'A', 'A+', 'A-', 'C', 'B+', 'C+', 'A+']),
+  player('charlie-joiner', 'Charlie Joiner', '1960s–1980s', 180, 85, 'Patient intermediate technician', ['C', 'B-', 'A', 'S', 'A-', 'C', 'B+', 'C+', 'A+']),
   player('lynn-swann', 'Lynn Swann', '1970s–1980s', 180, 82, 'Acrobatic airborne receiver', ['B+', 'A-', 'A', 'B+', 'B+', 'A+', 'S', 'B', 'A-']),
-  player('john-stallworth', 'John Stallworth', '1970s–1980s', 188, 87, 'Balanced downfield target', ['B+', 'B+', 'A', 'A-', 'B+', 'A-', 'A', 'B+', 'A']),
-  player('drew-pearson', 'Drew Pearson', '1970s–1980s', 183, 85, 'Clutch boundary technician', ['B-', 'B', 'A', 'A', 'B+', 'B', 'A+', 'B-', 'A+']),
+  player('john-stallworth', 'John Stallworth', '1970s–1980s', 188, 87, 'Balanced downfield target', ['B+', 'B+', 'A', 'A-', 'B+', 'A-', 'S', 'B+', 'A']),
+  player('drew-pearson', 'Drew Pearson', '1970s–1980s', 183, 85, 'Clutch boundary technician', ['B-', 'B', 'A', 'A', 'B+', 'B', 'S', 'B-', 'A+']),
   player('cliff-branch', 'Cliff Branch', '1970s–1980s', 180, 80, 'Lightweight runway sprinter', ['S', 'A+', 'B', 'B+', 'B', 'B+', 'B+', 'A-', 'B+']),
-  player('harold-carmichael', 'Harold Carmichael', '1970s–1980s', 201, 102, 'Towering catch-radius target', ['C+', 'C', 'A', 'B', 'B+', 'A', 'A+', 'C', 'A-']),
+  player('harold-carmichael', 'Harold Carmichael', '1970s–1980s', 201, 102, 'Towering catch-radius target', ['C+', 'C', 'A', 'B', 'B+', 'S', 'A+', 'C', 'A-']),
   player('andre-rison', 'Andre Rison', '1980s–2000s', 183, 85, 'Quick-twitch perimeter playmaker', ['A-', 'A', 'B+', 'A-', 'A', 'A-', 'A-', 'A-', 'B+']),
   player('herman-moore', 'Herman Moore', '1990s–2000s', 193, 95, 'Long physical catch-point target', ['B', 'B-', 'A', 'B+', 'B+', 'A', 'A+', 'B-', 'A-']),
   player('rod-smith', 'Rod Smith', '1990s–2000s', 183, 91, 'Complete hardworking technician', ['B+', 'A-', 'A', 'A', 'A-', 'B+', 'A-', 'A-', 'A+']),
@@ -68,7 +72,7 @@ export const SOURCE_PLAYERS: SourcePlayerDefinition[] = [
   player('chad-johnson', 'Chad Johnson', '2000s–2010s', 185, 87, 'Expressive release technician', ['A-', 'A', 'A-', 'A+', 'S', 'A-', 'A', 'B+', 'A-']),
   player('steve-smith-sr', 'Steve Smith Sr.', '2000s–2010s', 175, 88, 'Compact explosive competitor', ['A', 'A+', 'A-', 'A', 'A', 'A', 'A', 'S', 'A']),
   player('reggie-wayne', 'Reggie Wayne', '2000s–2010s', 183, 92, 'Dependable timing receiver', ['B', 'B+', 'A+', 'A+', 'A', 'B', 'A', 'B+', 'S']),
-  player('andre-johnson', 'Andre Johnson', '2000s–2010s', 191, 104, 'Powerful complete outside target', ['A', 'A-', 'A+', 'A', 'A+', 'A', 'A+', 'A+', 'A']),
+  player('andre-johnson', 'Andre Johnson', '2000s–2010s', 191, 104, 'Powerful complete outside target', ['A', 'A-', 'A+', 'S', 'A+', 'A', 'A+', 'A+', 'A']),
   player('wes-welker', 'Wes Welker', '2000s–2010s', 175, 84, 'Agile underneath separator', ['C+', 'A', 'A-', 'A+', 'A', 'D+', 'B+', 'A', 'A+']),
   player('brandon-marshall', 'Brandon Marshall', '2000s–2010s', 193, 105, 'Large physical possession target', ['B', 'B+', 'A', 'A-', 'A', 'A-', 'A+', 'A', 'A-']),
   player('marques-colston', 'Marques Colston', '2000s–2010s', 193, 102, 'Tall seam possession target', ['C', 'C+', 'A', 'A-', 'B+', 'B+', 'A', 'C+', 'A']),

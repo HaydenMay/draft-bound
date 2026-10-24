@@ -1,0 +1,4524 @@
+{
+  "baselineCommit": "7fbee924894217052d14d6a83eeb04b469bccfe8",
+  "catalogVersion": "wr-original-illustrations-v1.4-90",
+  "sourceAudit": {
+    "catalogCount": 90,
+    "legacyCatalogCount": 90,
+    "legacyGradeCounts": {
+      "speed": {
+        "S": 4,
+        "A+": 9,
+        "A": 14,
+        "A-": 17,
+        "B+": 13,
+        "B": 7,
+        "B-": 7,
+        "C+": 9,
+        "C": 5,
+        "C-": 0,
+        "D+": 4,
+        "D": 1,
+        "D-": 0,
+        "F": 0
+      },
+      "acceleration": {
+        "S": 2,
+        "A+": 9,
+        "A": 25,
+        "A-": 18,
+        "B+": 13,
+        "B": 11,
+        "B-": 7,
+        "C+": 3,
+        "C": 1,
+        "C-": 1,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "hands": {
+        "S": 3,
+        "A+": 17,
+        "A": 33,
+        "A-": 17,
+        "B+": 15,
+        "B": 3,
+        "B-": 0,
+        "C+": 1,
+        "C": 1,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "routeRunning": {
+        "S": 8,
+        "A+": 20,
+        "A": 29,
+        "A-": 16,
+        "B+": 12,
+        "B": 3,
+        "B-": 0,
+        "C+": 2,
+        "C": 0,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "release": {
+        "S": 2,
+        "A+": 11,
+        "A": 26,
+        "A-": 20,
+        "B+": 22,
+        "B": 7,
+        "B-": 1,
+        "C+": 0,
+        "C": 1,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "vertical": {
+        "S": 2,
+        "A+": 9,
+        "A": 13,
+        "A-": 13,
+        "B+": 20,
+        "B": 15,
+        "B-": 2,
+        "C+": 7,
+        "C": 6,
+        "C-": 2,
+        "D+": 1,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "bodyControl": {
+        "S": 5,
+        "A+": 23,
+        "A": 30,
+        "A-": 17,
+        "B+": 9,
+        "B": 4,
+        "B-": 1,
+        "C+": 1,
+        "C": 0,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "yardsAfterCatch": {
+        "S": 4,
+        "A+": 13,
+        "A": 14,
+        "A-": 17,
+        "B+": 17,
+        "B": 9,
+        "B-": 8,
+        "C+": 5,
+        "C": 1,
+        "C-": 1,
+        "D+": 1,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "awareness": {
+        "S": 6,
+        "A+": 26,
+        "A": 25,
+        "A-": 17,
+        "B+": 13,
+        "B": 1,
+        "B-": 0,
+        "C+": 0,
+        "C": 2,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      }
+    },
+    "v14GradeCounts": {
+      "speed": {
+        "S": 7,
+        "A+": 8,
+        "A": 13,
+        "A-": 16,
+        "B+": 13,
+        "B": 7,
+        "B-": 7,
+        "C+": 9,
+        "C": 5,
+        "C-": 0,
+        "D+": 4,
+        "D": 1,
+        "D-": 0,
+        "F": 0
+      },
+      "acceleration": {
+        "S": 2,
+        "A+": 9,
+        "A": 25,
+        "A-": 18,
+        "B+": 13,
+        "B": 11,
+        "B-": 7,
+        "C+": 3,
+        "C": 1,
+        "C-": 1,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "hands": {
+        "S": 6,
+        "A+": 15,
+        "A": 32,
+        "A-": 17,
+        "B+": 15,
+        "B": 3,
+        "B-": 0,
+        "C+": 1,
+        "C": 1,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "routeRunning": {
+        "S": 12,
+        "A+": 17,
+        "A": 28,
+        "A-": 16,
+        "B+": 12,
+        "B": 3,
+        "B-": 0,
+        "C+": 2,
+        "C": 0,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "release": {
+        "S": 2,
+        "A+": 11,
+        "A": 26,
+        "A-": 20,
+        "B+": 22,
+        "B": 7,
+        "B-": 1,
+        "C+": 0,
+        "C": 1,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "vertical": {
+        "S": 4,
+        "A+": 9,
+        "A": 11,
+        "A-": 13,
+        "B+": 20,
+        "B": 15,
+        "B-": 2,
+        "C+": 7,
+        "C": 6,
+        "C-": 2,
+        "D+": 1,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "bodyControl": {
+        "S": 7,
+        "A+": 22,
+        "A": 29,
+        "A-": 17,
+        "B+": 9,
+        "B": 4,
+        "B-": 1,
+        "C+": 1,
+        "C": 0,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "yardsAfterCatch": {
+        "S": 6,
+        "A+": 12,
+        "A": 13,
+        "A-": 17,
+        "B+": 17,
+        "B": 9,
+        "B-": 8,
+        "C+": 5,
+        "C": 1,
+        "C-": 1,
+        "D+": 1,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      },
+      "awareness": {
+        "S": 6,
+        "A+": 26,
+        "A": 25,
+        "A-": 17,
+        "B+": 13,
+        "B": 1,
+        "B-": 0,
+        "C+": 0,
+        "C": 2,
+        "C-": 0,
+        "D+": 0,
+        "D": 0,
+        "D-": 0,
+        "F": 0
+      }
+    },
+    "sDonorsByAttribute": {
+      "speed": [
+        "Randy Moss",
+        "James Lofton",
+        "Lance Alworth",
+        "Don Maynard",
+        "Cliff Branch",
+        "DeSean Jackson",
+        "Tyreek Hill"
+      ],
+      "acceleration": [
+        "Antonio Brown",
+        "Tyreek Hill"
+      ],
+      "hands": [
+        "Larry Fitzgerald",
+        "Cris Carter",
+        "Art Monk",
+        "Michael Irvin",
+        "Sterling Sharpe",
+        "DeAndre Hopkins"
+      ],
+      "routeRunning": [
+        "Jerry Rice",
+        "Marvin Harrison",
+        "Isaac Bruce",
+        "Fred Biletnikoff",
+        "Raymond Berry",
+        "Charlie Joiner",
+        "Andre Johnson",
+        "Antonio Brown",
+        "Davante Adams",
+        "Keenan Allen",
+        "Cooper Kupp",
+        "Justin Jefferson"
+      ],
+      "release": [
+        "Chad Johnson",
+        "Davante Adams"
+      ],
+      "vertical": [
+        "Randy Moss",
+        "Calvin Johnson",
+        "Paul Warfield",
+        "Harold Carmichael"
+      ],
+      "bodyControl": [
+        "Larry Fitzgerald",
+        "Cris Carter",
+        "Lynn Swann",
+        "John Stallworth",
+        "Drew Pearson",
+        "Odell Beckham Jr.",
+        "DeAndre Hopkins"
+      ],
+      "yardsAfterCatch": [
+        "Terrell Owens",
+        "Tim Brown",
+        "Andre Reed",
+        "Steve Smith Sr.",
+        "Tyreek Hill",
+        "Ja'Marr Chase"
+      ],
+      "awareness": [
+        "Jerry Rice",
+        "Larry Fitzgerald",
+        "Steve Largent",
+        "Raymond Berry",
+        "Reggie Wayne",
+        "Cooper Kupp"
+      ]
+    },
+    "hofWithoutSignature": []
+  },
+  "seedPolicy": "disjoint deterministic integer seeds 10000..10499 per cohort; deterministic offer-index rotation for rotated policy and best grade per open attribute for best policy; same v1.4 prospect input and nflSeed for legacy/new pro rules",
+  "rules": {
+    "legacy": "12,000 receiving yards · 80 receiving TDs · 3 All-Pro seasons",
+    "v14": "14,500 receiving yards · 85 receiving TDs · 2 All-Pro seasons · 8 professional seasons; All-Pro season >=1,750 yards and 11 TDs"
+  },
+  "cohorts": [
+    {
+      "mode": "quick",
+      "years": 2,
+      "policy": "rotated",
+      "seedStart": 10000,
+      "seedCount": 500,
+      "before": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 166,
+          "opportunity": 167
+        },
+        "ovr": {
+          "mean": 86.38,
+          "median": 86,
+          "p10": 85,
+          "p90": 88
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 9.45,
+          "median": 9,
+          "p10": 6,
+          "p90": 13
+        },
+        "production": {
+          "meanYards": 11027.8,
+          "medianYards": 11053,
+          "meanTouchdowns": 77.4
+        },
+        "allProSeasonCount": 639,
+        "meanAllProSeasonsPerCareer": 1.28,
+        "allProCareerCount": 347,
+        "allProCareerPct": 69.4,
+        "hallOfFameCount": 49,
+        "hallOfFamePct": 9.8,
+        "outcomeBuckets": {
+          "struggling": 6,
+          "contributor": 188,
+          "star": 234,
+          "elite": 23,
+          "legendary": 49
+        },
+        "potential": {
+          "meanCeiling": 91.12,
+          "meanSCeilingsPerProspect": 1.5,
+          "meanCeilingByAttribute": {
+            "speed": 88.49,
+            "acceleration": 90.32,
+            "hands": 92.57,
+            "routeRunning": 93.11,
+            "release": 91.08,
+            "vertical": 88.72,
+            "bodyControl": 92.86,
+            "yardsAfterCatch": 90.05,
+            "awareness": 92.92
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 81,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 77,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "steve-smith-sr",
+                "count": 67,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 66,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 64,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 62,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 62,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 62,
+                "pct": 1.4
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 1500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "rob-moore",
+                "count": 31,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "torry-holt",
+                "count": 27,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "reggie-wayne",
+                "count": 25,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "wes-welker",
+                "count": 25,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "cole-beasley",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "demaryius-thomas",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "jordy-nelson",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "ricky-proehl",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "charlie-joiner",
+                "count": 22,
+                "pct": 1.5
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 2500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "willie-gault",
+                "count": 40,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "aj-green",
+                "count": 38,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "adam-thielen",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "dk-metcalf",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "emmanuel-sanders",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "rod-smith",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 35,
+                "pct": 1.4
+              }
+            ]
+          }
+        }
+      },
+      "after": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 166,
+          "opportunity": 167
+        },
+        "ovr": {
+          "mean": 86.38,
+          "median": 86,
+          "p10": 85,
+          "p90": 88
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 10.5,
+          "median": 10,
+          "p10": 8,
+          "p90": 13
+        },
+        "production": {
+          "meanYards": 9821.4,
+          "medianYards": 9608,
+          "meanTouchdowns": 62.2
+        },
+        "allProSeasonCount": 14,
+        "meanAllProSeasonsPerCareer": 0.03,
+        "allProCareerCount": 14,
+        "allProCareerPct": 2.8,
+        "hallOfFameCount": 0,
+        "hallOfFamePct": 0,
+        "outcomeBuckets": {
+          "struggling": 5,
+          "contributor": 273,
+          "star": 209,
+          "elite": 13,
+          "legendary": 0
+        },
+        "potential": {
+          "meanCeiling": 91.12,
+          "meanSCeilingsPerProspect": 1.5,
+          "meanCeilingByAttribute": {
+            "speed": 88.49,
+            "acceleration": 90.32,
+            "hands": 92.57,
+            "routeRunning": 93.11,
+            "release": 91.08,
+            "vertical": 88.72,
+            "bodyControl": 92.86,
+            "yardsAfterCatch": 90.05,
+            "awareness": 92.92
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 81,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 77,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "steve-smith-sr",
+                "count": 67,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 66,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 64,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 62,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 62,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 62,
+                "pct": 1.4
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 1500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "rob-moore",
+                "count": 31,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "torry-holt",
+                "count": 27,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "reggie-wayne",
+                "count": 25,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "wes-welker",
+                "count": 25,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "cole-beasley",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "demaryius-thomas",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "jordy-nelson",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "ricky-proehl",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "charlie-joiner",
+                "count": 22,
+                "pct": 1.5
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 2500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "willie-gault",
+                "count": 40,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "aj-green",
+                "count": 38,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "adam-thielen",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "dk-metcalf",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "emmanuel-sanders",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "rod-smith",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 35,
+                "pct": 1.4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mode": "quick",
+      "years": 2,
+      "policy": "best",
+      "seedStart": 10000,
+      "seedCount": 500,
+      "before": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 166,
+          "opportunity": 167
+        },
+        "ovr": {
+          "mean": 87.56,
+          "median": 88,
+          "p10": 86,
+          "p90": 89
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 9.67,
+          "median": 10,
+          "p10": 7,
+          "p90": 13
+        },
+        "production": {
+          "meanYards": 11772.4,
+          "medianYards": 11732,
+          "meanTouchdowns": 82.6
+        },
+        "allProSeasonCount": 845,
+        "meanAllProSeasonsPerCareer": 1.69,
+        "allProCareerCount": 395,
+        "allProCareerPct": 79,
+        "hallOfFameCount": 95,
+        "hallOfFamePct": 19,
+        "outcomeBuckets": {
+          "struggling": 2,
+          "contributor": 158,
+          "star": 218,
+          "elite": 27,
+          "legendary": 95
+        },
+        "potential": {
+          "meanCeiling": 92.6,
+          "meanSCeilingsPerProspect": 1.83,
+          "meanCeilingByAttribute": {
+            "speed": 94.13,
+            "acceleration": 93.89,
+            "hands": 95.51,
+            "routeRunning": 94.25,
+            "release": 91.08,
+            "vertical": 88.72,
+            "bodyControl": 92.86,
+            "yardsAfterCatch": 90.05,
+            "awareness": 92.92
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 112,
+                "pct": 2.5
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 95,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 89,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 88,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 76,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 73,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "tim-brown",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 70,
+                "pct": 1.6
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 1500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 45,
+                "pct": 3
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 37,
+                "pct": 2.5
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 36,
+                "pct": 2.4
+              },
+              {
+                "sourcePlayerId": "tyler-lockett",
+                "count": 33,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "jaylen-waddle",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "santana-moss",
+                "count": 29,
+                "pct": 1.9
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 2500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "willie-gault",
+                "count": 40,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "aj-green",
+                "count": 38,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "adam-thielen",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "dk-metcalf",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "emmanuel-sanders",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "rod-smith",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 35,
+                "pct": 1.4
+              }
+            ]
+          }
+        }
+      },
+      "after": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 166,
+          "opportunity": 167
+        },
+        "ovr": {
+          "mean": 87.56,
+          "median": 88,
+          "p10": 86,
+          "p90": 89
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 10.83,
+          "median": 11,
+          "p10": 8,
+          "p90": 14
+        },
+        "production": {
+          "meanYards": 10403.2,
+          "medianYards": 10170,
+          "meanTouchdowns": 65.8
+        },
+        "allProSeasonCount": 20,
+        "meanAllProSeasonsPerCareer": 0.04,
+        "allProCareerCount": 20,
+        "allProCareerPct": 4,
+        "hallOfFameCount": 0,
+        "hallOfFamePct": 0,
+        "outcomeBuckets": {
+          "struggling": 1,
+          "contributor": 241,
+          "star": 231,
+          "elite": 27,
+          "legendary": 0
+        },
+        "potential": {
+          "meanCeiling": 92.6,
+          "meanSCeilingsPerProspect": 1.83,
+          "meanCeilingByAttribute": {
+            "speed": 94.13,
+            "acceleration": 93.89,
+            "hands": 95.51,
+            "routeRunning": 94.25,
+            "release": 91.08,
+            "vertical": 88.72,
+            "bodyControl": 92.86,
+            "yardsAfterCatch": 90.05,
+            "awareness": 92.92
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 112,
+                "pct": 2.5
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 95,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 89,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 88,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 76,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 73,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "tim-brown",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 70,
+                "pct": 1.6
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 1500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 45,
+                "pct": 3
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 37,
+                "pct": 2.5
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 36,
+                "pct": 2.4
+              },
+              {
+                "sourcePlayerId": "tyler-lockett",
+                "count": 33,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "jaylen-waddle",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "santana-moss",
+                "count": 29,
+                "pct": 1.9
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 2500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "willie-gault",
+                "count": 40,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "aj-green",
+                "count": 38,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "adam-thielen",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "dk-metcalf",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "emmanuel-sanders",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "rod-smith",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 35,
+                "pct": 1.4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mode": "quick",
+      "years": 3,
+      "policy": "rotated",
+      "seedStart": 10000,
+      "seedCount": 500,
+      "before": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 167,
+          "opportunity": 166
+        },
+        "ovr": {
+          "mean": 89.62,
+          "median": 90,
+          "p10": 87,
+          "p90": 92
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 10.25,
+          "median": 10,
+          "p10": 7,
+          "p90": 13
+        },
+        "production": {
+          "meanYards": 13429.7,
+          "medianYards": 13680,
+          "meanTouchdowns": 94.3
+        },
+        "allProSeasonCount": 1350,
+        "meanAllProSeasonsPerCareer": 2.7,
+        "allProCareerCount": 465,
+        "allProCareerPct": 93,
+        "hallOfFameCount": 213,
+        "hallOfFamePct": 42.6,
+        "outcomeBuckets": {
+          "struggling": 0,
+          "contributor": 85,
+          "star": 158,
+          "elite": 44,
+          "legendary": 213
+        },
+        "potential": {
+          "meanCeiling": 91.12,
+          "meanSCeilingsPerProspect": 1.5,
+          "meanCeilingByAttribute": {
+            "speed": 88.49,
+            "acceleration": 90.32,
+            "hands": 92.57,
+            "routeRunning": 93.11,
+            "release": 91.08,
+            "vertical": 88.72,
+            "bodyControl": 92.86,
+            "yardsAfterCatch": 90.05,
+            "awareness": 92.92
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 81,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 77,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "steve-smith-sr",
+                "count": 67,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 66,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 64,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 62,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 62,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 62,
+                "pct": 1.4
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 1500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "rob-moore",
+                "count": 31,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "torry-holt",
+                "count": 27,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "reggie-wayne",
+                "count": 25,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "wes-welker",
+                "count": 25,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "cole-beasley",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "demaryius-thomas",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "jordy-nelson",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "ricky-proehl",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "charlie-joiner",
+                "count": 22,
+                "pct": 1.5
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 2500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "willie-gault",
+                "count": 40,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "aj-green",
+                "count": 38,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "adam-thielen",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "dk-metcalf",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "emmanuel-sanders",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "rod-smith",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 35,
+                "pct": 1.4
+              }
+            ]
+          }
+        }
+      },
+      "after": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 167,
+          "opportunity": 166
+        },
+        "ovr": {
+          "mean": 89.62,
+          "median": 90,
+          "p10": 87,
+          "p90": 92
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 11.08,
+          "median": 11,
+          "p10": 8,
+          "p90": 14
+        },
+        "production": {
+          "meanYards": 11210.8,
+          "medianYards": 10910,
+          "meanTouchdowns": 70.9
+        },
+        "allProSeasonCount": 60,
+        "meanAllProSeasonsPerCareer": 0.12,
+        "allProCareerCount": 49,
+        "allProCareerPct": 9.8,
+        "hallOfFameCount": 6,
+        "hallOfFamePct": 1.2,
+        "outcomeBuckets": {
+          "struggling": 0,
+          "contributor": 200,
+          "star": 245,
+          "elite": 49,
+          "legendary": 6
+        },
+        "potential": {
+          "meanCeiling": 91.12,
+          "meanSCeilingsPerProspect": 1.5,
+          "meanCeilingByAttribute": {
+            "speed": 88.49,
+            "acceleration": 90.32,
+            "hands": 92.57,
+            "routeRunning": 93.11,
+            "release": 91.08,
+            "vertical": 88.72,
+            "bodyControl": 92.86,
+            "yardsAfterCatch": 90.05,
+            "awareness": 92.92
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 81,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 77,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "steve-smith-sr",
+                "count": 67,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 66,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 64,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 62,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 62,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 62,
+                "pct": 1.4
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 1500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "rob-moore",
+                "count": 31,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "torry-holt",
+                "count": 27,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "reggie-wayne",
+                "count": 25,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "wes-welker",
+                "count": 25,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "cole-beasley",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "demaryius-thomas",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "jordy-nelson",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "ricky-proehl",
+                "count": 23,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "charlie-joiner",
+                "count": 22,
+                "pct": 1.5
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 2500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "willie-gault",
+                "count": 40,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "aj-green",
+                "count": 38,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "adam-thielen",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "dk-metcalf",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "emmanuel-sanders",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "rod-smith",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 35,
+                "pct": 1.4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mode": "quick",
+      "years": 3,
+      "policy": "best",
+      "seedStart": 10000,
+      "seedCount": 500,
+      "before": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 167,
+          "opportunity": 166
+        },
+        "ovr": {
+          "mean": 91.17,
+          "median": 91,
+          "p10": 90,
+          "p90": 93
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 10.47,
+          "median": 10,
+          "p10": 7,
+          "p90": 14
+        },
+        "production": {
+          "meanYards": 14444.8,
+          "medianYards": 14478,
+          "meanTouchdowns": 101.4
+        },
+        "allProSeasonCount": 1731,
+        "meanAllProSeasonsPerCareer": 3.46,
+        "allProCareerCount": 489,
+        "allProCareerPct": 97.8,
+        "hallOfFameCount": 288,
+        "hallOfFamePct": 57.6,
+        "outcomeBuckets": {
+          "struggling": 0,
+          "contributor": 47,
+          "star": 130,
+          "elite": 35,
+          "legendary": 288
+        },
+        "potential": {
+          "meanCeiling": 92.6,
+          "meanSCeilingsPerProspect": 1.83,
+          "meanCeilingByAttribute": {
+            "speed": 94.13,
+            "acceleration": 93.89,
+            "hands": 95.51,
+            "routeRunning": 94.25,
+            "release": 91.08,
+            "vertical": 88.72,
+            "bodyControl": 92.86,
+            "yardsAfterCatch": 90.05,
+            "awareness": 92.92
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 112,
+                "pct": 2.5
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 95,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 89,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 88,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 76,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 73,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "tim-brown",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 70,
+                "pct": 1.6
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 1500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 45,
+                "pct": 3
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 37,
+                "pct": 2.5
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 36,
+                "pct": 2.4
+              },
+              {
+                "sourcePlayerId": "tyler-lockett",
+                "count": 33,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "jaylen-waddle",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "santana-moss",
+                "count": 29,
+                "pct": 1.9
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 2500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "willie-gault",
+                "count": 40,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "aj-green",
+                "count": 38,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "adam-thielen",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "dk-metcalf",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "emmanuel-sanders",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "rod-smith",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 35,
+                "pct": 1.4
+              }
+            ]
+          }
+        }
+      },
+      "after": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 167,
+          "opportunity": 166
+        },
+        "ovr": {
+          "mean": 91.17,
+          "median": 91,
+          "p10": 90,
+          "p90": 93
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 11.41,
+          "median": 11,
+          "p10": 9,
+          "p90": 14
+        },
+        "production": {
+          "meanYards": 11940.3,
+          "medianYards": 11709,
+          "meanTouchdowns": 75.6
+        },
+        "allProSeasonCount": 106,
+        "meanAllProSeasonsPerCareer": 0.21,
+        "allProCareerCount": 82,
+        "allProCareerPct": 16.4,
+        "hallOfFameCount": 14,
+        "hallOfFamePct": 2.8,
+        "outcomeBuckets": {
+          "struggling": 0,
+          "contributor": 146,
+          "star": 266,
+          "elite": 74,
+          "legendary": 14
+        },
+        "potential": {
+          "meanCeiling": 92.6,
+          "meanSCeilingsPerProspect": 1.83,
+          "meanCeilingByAttribute": {
+            "speed": 94.13,
+            "acceleration": 93.89,
+            "hands": 95.51,
+            "routeRunning": 94.25,
+            "release": 91.08,
+            "vertical": 88.72,
+            "bodyControl": 92.86,
+            "yardsAfterCatch": 90.05,
+            "awareness": 92.92
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 112,
+                "pct": 2.5
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 95,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 89,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 88,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 76,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 73,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "tim-brown",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 70,
+                "pct": 1.6
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 1500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 45,
+                "pct": 3
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 37,
+                "pct": 2.5
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 36,
+                "pct": 2.4
+              },
+              {
+                "sourcePlayerId": "tyler-lockett",
+                "count": 33,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "jaylen-waddle",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 32,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 30,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "santana-moss",
+                "count": 29,
+                "pct": 1.9
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 2500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "willie-gault",
+                "count": 40,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "aj-green",
+                "count": 38,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "adam-thielen",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "michael-irvin",
+                "count": 37,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "dk-metcalf",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "emmanuel-sanders",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "rod-smith",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 36,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 35,
+                "pct": 1.4
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mode": "full",
+      "years": 2,
+      "policy": "rotated",
+      "seedStart": 10000,
+      "seedCount": 500,
+      "before": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 166,
+          "opportunity": 167
+        },
+        "ovr": {
+          "mean": 86.33,
+          "median": 86,
+          "p10": 84,
+          "p90": 88
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 9.41,
+          "median": 9,
+          "p10": 6,
+          "p90": 13
+        },
+        "production": {
+          "meanYards": 10957.6,
+          "medianYards": 10977,
+          "meanTouchdowns": 76.9
+        },
+        "allProSeasonCount": 608,
+        "meanAllProSeasonsPerCareer": 1.22,
+        "allProCareerCount": 331,
+        "allProCareerPct": 66.2,
+        "hallOfFameCount": 49,
+        "hallOfFamePct": 9.8,
+        "outcomeBuckets": {
+          "struggling": 5,
+          "contributor": 195,
+          "star": 230,
+          "elite": 21,
+          "legendary": 49
+        },
+        "potential": {
+          "meanCeiling": 91.06,
+          "meanSCeilingsPerProspect": 1.55,
+          "meanCeilingByAttribute": {
+            "speed": 88.49,
+            "acceleration": 90.32,
+            "hands": 92.57,
+            "routeRunning": 93.23,
+            "release": 90.89,
+            "vertical": 87.86,
+            "bodyControl": 93.27,
+            "yardsAfterCatch": 89.59,
+            "awareness": 93.33
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 75,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "jerry-rice",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "steve-smith-sr",
+                "count": 66,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 64,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 63,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "raymond-berry",
+                "count": 63,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 62,
+                "pct": 1.4
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 4000,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "wayne-chrebet",
+                "count": 60,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "torry-holt",
+                "count": 58,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "jerry-rice",
+                "count": 57,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "cole-beasley",
+                "count": 56,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "puka-nacua",
+                "count": 55,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "aj-brown",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "jordy-nelson",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "herman-moore",
+                "count": 53,
+                "pct": 1.3
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 0,
+            "uniqueSources": 0,
+            "topSources": []
+          }
+        }
+      },
+      "after": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 166,
+          "opportunity": 167
+        },
+        "ovr": {
+          "mean": 86.33,
+          "median": 86,
+          "p10": 84,
+          "p90": 88
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 10.49,
+          "median": 10,
+          "p10": 8,
+          "p90": 13
+        },
+        "production": {
+          "meanYards": 9805.8,
+          "medianYards": 9516,
+          "meanTouchdowns": 62.1
+        },
+        "allProSeasonCount": 14,
+        "meanAllProSeasonsPerCareer": 0.03,
+        "allProCareerCount": 13,
+        "allProCareerPct": 2.6,
+        "hallOfFameCount": 1,
+        "hallOfFamePct": 0.2,
+        "outcomeBuckets": {
+          "struggling": 5,
+          "contributor": 266,
+          "star": 214,
+          "elite": 14,
+          "legendary": 1
+        },
+        "potential": {
+          "meanCeiling": 91.06,
+          "meanSCeilingsPerProspect": 1.55,
+          "meanCeilingByAttribute": {
+            "speed": 88.49,
+            "acceleration": 90.32,
+            "hands": 92.57,
+            "routeRunning": 93.23,
+            "release": 90.89,
+            "vertical": 87.86,
+            "bodyControl": 93.27,
+            "yardsAfterCatch": 89.59,
+            "awareness": 93.33
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 75,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "jerry-rice",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "steve-smith-sr",
+                "count": 66,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 64,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 63,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "raymond-berry",
+                "count": 63,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 62,
+                "pct": 1.4
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 4000,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "wayne-chrebet",
+                "count": 60,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "torry-holt",
+                "count": 58,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "jerry-rice",
+                "count": 57,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "cole-beasley",
+                "count": 56,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "puka-nacua",
+                "count": 55,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "aj-brown",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "jordy-nelson",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "herman-moore",
+                "count": 53,
+                "pct": 1.3
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 0,
+            "uniqueSources": 0,
+            "topSources": []
+          }
+        }
+      }
+    },
+    {
+      "mode": "full",
+      "years": 2,
+      "policy": "best",
+      "seedStart": 10000,
+      "seedCount": 500,
+      "before": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 166,
+          "opportunity": 167
+        },
+        "ovr": {
+          "mean": 88.59,
+          "median": 89,
+          "p10": 87,
+          "p90": 90
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 10.01,
+          "median": 10,
+          "p10": 7,
+          "p90": 13
+        },
+        "production": {
+          "meanYards": 12624.1,
+          "medianYards": 12637,
+          "meanTouchdowns": 88.7
+        },
+        "allProSeasonCount": 1092,
+        "meanAllProSeasonsPerCareer": 2.18,
+        "allProCareerCount": 432,
+        "allProCareerPct": 86.4,
+        "hallOfFameCount": 161,
+        "hallOfFamePct": 32.2,
+        "outcomeBuckets": {
+          "struggling": 0,
+          "contributor": 117,
+          "star": 185,
+          "elite": 37,
+          "legendary": 161
+        },
+        "potential": {
+          "meanCeiling": 94.83,
+          "meanSCeilingsPerProspect": 2.46,
+          "meanCeilingByAttribute": {
+            "speed": 94.13,
+            "acceleration": 93.89,
+            "hands": 95.51,
+            "routeRunning": 96.13,
+            "release": 94.17,
+            "vertical": 92.87,
+            "bodyControl": 96.1,
+            "yardsAfterCatch": 94.55,
+            "awareness": 96.11
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 121,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 121,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 120,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 99,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "andre-johnson",
+                "count": 96,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 89,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 82,
+                "pct": 1.8
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 4000,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 93,
+                "pct": 2.3
+              },
+              {
+                "sourcePlayerId": "andre-johnson",
+                "count": 89,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 88,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 79,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 79,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 77,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 74,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "ceedee-lamb",
+                "count": 71,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "jaylen-waddle",
+                "count": 71,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "marvin-harrison",
+                "count": 71,
+                "pct": 1.8
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 0,
+            "uniqueSources": 0,
+            "topSources": []
+          }
+        }
+      },
+      "after": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 166,
+          "opportunity": 167
+        },
+        "ovr": {
+          "mean": 88.59,
+          "median": 89,
+          "p10": 87,
+          "p90": 90
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 10.98,
+          "median": 11,
+          "p10": 8,
+          "p90": 14
+        },
+        "production": {
+          "meanYards": 10823.6,
+          "medianYards": 10635,
+          "meanTouchdowns": 68.5
+        },
+        "allProSeasonCount": 37,
+        "meanAllProSeasonsPerCareer": 0.07,
+        "allProCareerCount": 33,
+        "allProCareerPct": 6.6,
+        "hallOfFameCount": 2,
+        "hallOfFamePct": 0.4,
+        "outcomeBuckets": {
+          "struggling": 0,
+          "contributor": 220,
+          "star": 241,
+          "elite": 37,
+          "legendary": 2
+        },
+        "potential": {
+          "meanCeiling": 94.83,
+          "meanSCeilingsPerProspect": 2.46,
+          "meanCeilingByAttribute": {
+            "speed": 94.13,
+            "acceleration": 93.89,
+            "hands": 95.51,
+            "routeRunning": 96.13,
+            "release": 94.17,
+            "vertical": 92.87,
+            "bodyControl": 96.1,
+            "yardsAfterCatch": 94.55,
+            "awareness": 96.11
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 121,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 121,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 120,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 99,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "andre-johnson",
+                "count": 96,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 89,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 82,
+                "pct": 1.8
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 4000,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 93,
+                "pct": 2.3
+              },
+              {
+                "sourcePlayerId": "andre-johnson",
+                "count": 89,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 88,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 79,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 79,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 77,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 74,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "ceedee-lamb",
+                "count": 71,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "jaylen-waddle",
+                "count": 71,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "marvin-harrison",
+                "count": 71,
+                "pct": 1.8
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 0,
+            "uniqueSources": 0,
+            "topSources": []
+          }
+        }
+      }
+    },
+    {
+      "mode": "full",
+      "years": 3,
+      "policy": "rotated",
+      "seedStart": 10000,
+      "seedCount": 500,
+      "before": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 167,
+          "opportunity": 166
+        },
+        "ovr": {
+          "mean": 89.58,
+          "median": 90,
+          "p10": 87,
+          "p90": 92
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 10.23,
+          "median": 10,
+          "p10": 7,
+          "p90": 13
+        },
+        "production": {
+          "meanYards": 13385.9,
+          "medianYards": 13550,
+          "meanTouchdowns": 94.1
+        },
+        "allProSeasonCount": 1327,
+        "meanAllProSeasonsPerCareer": 2.65,
+        "allProCareerCount": 458,
+        "allProCareerPct": 91.6,
+        "hallOfFameCount": 205,
+        "hallOfFamePct": 41,
+        "outcomeBuckets": {
+          "struggling": 2,
+          "contributor": 79,
+          "star": 168,
+          "elite": 46,
+          "legendary": 205
+        },
+        "potential": {
+          "meanCeiling": 91.06,
+          "meanSCeilingsPerProspect": 1.55,
+          "meanCeilingByAttribute": {
+            "speed": 88.49,
+            "acceleration": 90.32,
+            "hands": 92.57,
+            "routeRunning": 93.23,
+            "release": 90.89,
+            "vertical": 87.86,
+            "bodyControl": 93.27,
+            "yardsAfterCatch": 89.59,
+            "awareness": 93.33
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 75,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "jerry-rice",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "steve-smith-sr",
+                "count": 66,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 64,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 63,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "raymond-berry",
+                "count": 63,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 62,
+                "pct": 1.4
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 4000,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "wayne-chrebet",
+                "count": 60,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "torry-holt",
+                "count": 58,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "jerry-rice",
+                "count": 57,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "cole-beasley",
+                "count": 56,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "puka-nacua",
+                "count": 55,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "aj-brown",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "jordy-nelson",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "herman-moore",
+                "count": 53,
+                "pct": 1.3
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 0,
+            "uniqueSources": 0,
+            "topSources": []
+          }
+        }
+      },
+      "after": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 167,
+          "opportunity": 166
+        },
+        "ovr": {
+          "mean": 89.58,
+          "median": 90,
+          "p10": 87,
+          "p90": 92
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 11.06,
+          "median": 11,
+          "p10": 8,
+          "p90": 14
+        },
+        "production": {
+          "meanYards": 11185.2,
+          "medianYards": 10916,
+          "meanTouchdowns": 70.8
+        },
+        "allProSeasonCount": 59,
+        "meanAllProSeasonsPerCareer": 0.12,
+        "allProCareerCount": 51,
+        "allProCareerPct": 10.2,
+        "hallOfFameCount": 4,
+        "hallOfFamePct": 0.8,
+        "outcomeBuckets": {
+          "struggling": 0,
+          "contributor": 193,
+          "star": 252,
+          "elite": 51,
+          "legendary": 4
+        },
+        "potential": {
+          "meanCeiling": 91.06,
+          "meanSCeilingsPerProspect": 1.55,
+          "meanCeilingByAttribute": {
+            "speed": 88.49,
+            "acceleration": 90.32,
+            "hands": 92.57,
+            "routeRunning": 93.23,
+            "release": 90.89,
+            "vertical": 87.86,
+            "bodyControl": 93.27,
+            "yardsAfterCatch": 89.59,
+            "awareness": 93.33
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 75,
+                "pct": 1.7
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 72,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "jerry-rice",
+                "count": 71,
+                "pct": 1.6
+              },
+              {
+                "sourcePlayerId": "steve-smith-sr",
+                "count": 66,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 64,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 63,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "raymond-berry",
+                "count": 63,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 62,
+                "pct": 1.4
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 4000,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "wayne-chrebet",
+                "count": 60,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "torry-holt",
+                "count": 58,
+                "pct": 1.5
+              },
+              {
+                "sourcePlayerId": "jerry-rice",
+                "count": 57,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "cole-beasley",
+                "count": 56,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "puka-nacua",
+                "count": 55,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "aj-brown",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "art-monk",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "devonta-smith",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "jordy-nelson",
+                "count": 54,
+                "pct": 1.4
+              },
+              {
+                "sourcePlayerId": "herman-moore",
+                "count": 53,
+                "pct": 1.3
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 0,
+            "uniqueSources": 0,
+            "topSources": []
+          }
+        }
+      }
+    },
+    {
+      "mode": "full",
+      "years": 3,
+      "policy": "best",
+      "seedStart": 10000,
+      "seedCount": 500,
+      "before": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 167,
+          "opportunity": 166
+        },
+        "ovr": {
+          "mean": 92.6,
+          "median": 93,
+          "p10": 91,
+          "p90": 94
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 10.66,
+          "median": 11,
+          "p10": 7,
+          "p90": 14
+        },
+        "production": {
+          "meanYards": 15428,
+          "medianYards": 15601,
+          "meanTouchdowns": 108.3
+        },
+        "allProSeasonCount": 2118,
+        "meanAllProSeasonsPerCareer": 4.24,
+        "allProCareerCount": 497,
+        "allProCareerPct": 99.4,
+        "hallOfFameCount": 360,
+        "hallOfFamePct": 72,
+        "outcomeBuckets": {
+          "struggling": 0,
+          "contributor": 26,
+          "star": 95,
+          "elite": 19,
+          "legendary": 360
+        },
+        "potential": {
+          "meanCeiling": 94.83,
+          "meanSCeilingsPerProspect": 2.46,
+          "meanCeilingByAttribute": {
+            "speed": 94.13,
+            "acceleration": 93.89,
+            "hands": 95.51,
+            "routeRunning": 96.13,
+            "release": 94.17,
+            "vertical": 92.87,
+            "bodyControl": 96.1,
+            "yardsAfterCatch": 94.55,
+            "awareness": 96.11
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 121,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 121,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 120,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 99,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "andre-johnson",
+                "count": 96,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 89,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 82,
+                "pct": 1.8
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 4000,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 93,
+                "pct": 2.3
+              },
+              {
+                "sourcePlayerId": "andre-johnson",
+                "count": 89,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 88,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 79,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 79,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 77,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 74,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "ceedee-lamb",
+                "count": 71,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "jaylen-waddle",
+                "count": 71,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "marvin-harrison",
+                "count": 71,
+                "pct": 1.8
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 0,
+            "uniqueSources": 0,
+            "topSources": []
+          }
+        }
+      },
+      "after": {
+        "sampleSize": 500,
+        "byCollege": {
+          "technical": 167,
+          "explosive": 167,
+          "opportunity": 166
+        },
+        "ovr": {
+          "mean": 92.6,
+          "median": 93,
+          "p10": 91,
+          "p90": 94
+        },
+        "drafted": 500,
+        "draftedPct": 100,
+        "careerLength": {
+          "mean": 11.86,
+          "median": 12,
+          "p10": 9,
+          "p90": 15
+        },
+        "production": {
+          "meanYards": 12755.8,
+          "medianYards": 12437,
+          "meanTouchdowns": 80.8
+        },
+        "allProSeasonCount": 167,
+        "meanAllProSeasonsPerCareer": 0.33,
+        "allProCareerCount": 118,
+        "allProCareerPct": 23.6,
+        "hallOfFameCount": 28,
+        "hallOfFamePct": 5.6,
+        "outcomeBuckets": {
+          "struggling": 0,
+          "contributor": 104,
+          "star": 272,
+          "elite": 96,
+          "legendary": 28
+        },
+        "potential": {
+          "meanCeiling": 94.83,
+          "meanSCeilingsPerProspect": 2.46,
+          "meanCeilingByAttribute": {
+            "speed": 94.13,
+            "acceleration": 93.89,
+            "hands": 95.51,
+            "routeRunning": 96.13,
+            "release": 94.17,
+            "vertical": 92.87,
+            "bodyControl": 96.1,
+            "yardsAfterCatch": 94.55,
+            "awareness": 96.11
+          }
+        },
+        "sourceBuild": {
+          "allTraitSelections": {
+            "count": 4500,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 121,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 121,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 120,
+                "pct": 2.7
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 99,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "andre-johnson",
+                "count": 96,
+                "pct": 2.1
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 89,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 87,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 82,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 82,
+                "pct": 1.8
+              }
+            ]
+          },
+          "manualSelections": {
+            "count": 4000,
+            "uniqueSources": 90,
+            "topSources": [
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 93,
+                "pct": 2.3
+              },
+              {
+                "sourcePlayerId": "andre-johnson",
+                "count": 89,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 88,
+                "pct": 2.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 79,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 79,
+                "pct": 2
+              },
+              {
+                "sourcePlayerId": "justin-jefferson",
+                "count": 77,
+                "pct": 1.9
+              },
+              {
+                "sourcePlayerId": "sterling-sharpe",
+                "count": 74,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "ceedee-lamb",
+                "count": 71,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "jaylen-waddle",
+                "count": 71,
+                "pct": 1.8
+              },
+              {
+                "sourcePlayerId": "marvin-harrison",
+                "count": 71,
+                "pct": 1.8
+              }
+            ]
+          },
+          "naturalGifts": {
+            "count": 500,
+            "uniqueSources": 40,
+            "topSources": [
+              {
+                "sourcePlayerId": "tyreek-hill",
+                "count": 42,
+                "pct": 8.4
+              },
+              {
+                "sourcePlayerId": "antonio-brown",
+                "count": 32,
+                "pct": 6.4
+              },
+              {
+                "sourcePlayerId": "davante-adams",
+                "count": 28,
+                "pct": 5.6
+              },
+              {
+                "sourcePlayerId": "larry-fitzgerald",
+                "count": 25,
+                "pct": 5
+              },
+              {
+                "sourcePlayerId": "randy-moss",
+                "count": 23,
+                "pct": 4.6
+              },
+              {
+                "sourcePlayerId": "chad-johnson",
+                "count": 21,
+                "pct": 4.2
+              },
+              {
+                "sourcePlayerId": "deandre-hopkins",
+                "count": 20,
+                "pct": 4
+              },
+              {
+                "sourcePlayerId": "cooper-kupp",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "harold-carmichael",
+                "count": 17,
+                "pct": 3.4
+              },
+              {
+                "sourcePlayerId": "paul-warfield",
+                "count": 16,
+                "pct": 3.2
+              }
+            ]
+          },
+          "automaticSelections": {
+            "count": 0,
+            "uniqueSources": 0,
+            "topSources": []
+          }
+        }
+      }
+    }
+  ]
+}

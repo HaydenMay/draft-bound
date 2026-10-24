@@ -2,6 +2,7 @@ import {GameView,isInformationPage} from './application/navigation';
 import {InformationPage} from './shared/information-page';
 import {prospectName as generatedName} from './domain/prospect-name';
 import {manualPotentialLimit} from './domain/engine';
+import {ACHIEVEMENT_REGISTRY,achievementProgress} from './domain/eligibility';
 import {CreationMode,ThemePreference} from './domain/models';
 import {Brand} from './shared/brand';
 import {PositionPicker} from './shared/position-picker';
@@ -15,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 import { GameStore } from './application/game-store';
 import { ART_SCENES } from './data/art-scenes';
 import { COLLEGES } from './data/colleges';
-import { SOURCE_PLAYERS } from './data/source-players';
+import { SOURCE_PLAYERS,sourcePlayersForVersion } from './data/source-players';
 import { WR_DEFINITION } from './domain/positions';
 import { BinderEntry, CardCustomization, CardEdition, CardViewModel, GameCommandPayload, RunPhase, SaveEnvelope, SourcePlayerDefinition, TrainingPlan } from './domain/models';
 import { CollectibleCard } from './shared/collectible-card';
@@ -31,6 +32,7 @@ export class App {
   readonly colleges = COLLEGES;
   readonly sources = SOURCE_PLAYERS;
   readonly scenes = ART_SCENES;
+  readonly achievements = ACHIEVEMENT_REGISTRY;
   readonly modal = signal<'new' | 'discard' | 'import' | 'settings' | 'help' | null>(null);
   readonly autoRevealComplete=signal(false);
   readonly broadcastOpen=signal(true);
@@ -231,6 +233,10 @@ export class App {
   patchCard(patch: Partial<CardCustomization>): void { const entry = this.game.currentEntry(); this.editingFor.set(`${entry?.id}:${this.game.selectedEdition()}`); this.cardPatch.update(p => ({ ...p, ...patch })); }
   async saveCard(done = false): Promise<void> { const entry = this.game.currentEntry(); if (!entry) return; await this.game.saveCard(entry.id, this.game.selectedEdition(), this.currentCustomization()); if (!this.game.error()) { this.cardPatch.set({}); if (done) this.navigate('binder'); } }
   async exportCard(): Promise<void> { await this.saveCard(); const entry = this.game.currentEntry(); if (entry && !this.game.error()) await this.game.exportCard(entry.id, this.game.selectedEdition()); }
+  achievementOwned(id:string):boolean{return this.game.profile().achievements.includes(id);}
+  achievementProgress(id:typeof ACHIEVEMENT_REGISTRY[number]['id']):number|null{return achievementProgress(id,this.game.entries());}
+  achievementProgressLabel(id:typeof ACHIEVEMENT_REGISTRY[number]['id']):string{const value=this.achievementProgress(id);if(value===null)return '';if(id==='First round')return `Best pick #${value}`;const target=id==='Gym rat'?30:id==='Generational'?99:95;return `${value} / ${target}`;}
+  achievementProgressPercent(id:typeof ACHIEVEMENT_REGISTRY[number]['id']):number{const value=this.achievementProgress(id);if(value===null)return 0;if(id==='First round')return Math.max(0,Math.min(100,(33-value)/32*100));const target=id==='Gym rat'?30:id==='Generational'?99:95;return Math.max(0,Math.min(100,value/target*100));}
   frameOwned(frame: CardCustomization['frame']): boolean { return frame === 'classic' || this.game.profile().frames.includes(frame); }
   async readImport(event: Event): Promise<void> {
     const input = event.target as HTMLInputElement;

@@ -5,6 +5,7 @@ export interface RevealedTrait {attributeId:string;attribute:string;source:strin
 @Component({
  selector:'app-trait-reveal',standalone:true,imports:[DraftIcon],
  template:`<section class="automatic-reveal" aria-label="Automatic potential reveals">
+  <p class="mechanic-note">These grades show ceilings, not instant skill gains. Quick mode auto-fills these remaining traits.</p>
   <div class="section-bar"><span>THE REMAINING POTENTIALS</span><span>{{shown()}} / {{traits().length}}</span></div>
   <div class="automatic-traits" role="list">@for(trait of traits();track trait.attributeId;let i=$index){
    <article class="automatic-trait" role="listitem" [class.is-revealed]="i<shown()">

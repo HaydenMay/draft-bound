@@ -20,13 +20,33 @@ export function seasonUnlocks(summary:YearSummary,award?:AwardRecord):SceneUnloc
  if(award)out.push(unlock('award_ceremony',{id:award.id,kind:'award',stage:'college',sourceId:award.id,year:summary.year,facts:award.evidence,description:`Year ${summary.year}: earned ${award.label}.`}));
  return out;
 }
+export type CollectionAchievementId='Gym rat'|'First round'|'Elite prospect'|'New beginnings'|'Generational'|'Legendary career';
+export interface AchievementDefinition {id:CollectionAchievementId;name:string;requirement:string;reward:string;frame:CosmeticProfile['frames'][number];}
+/** Persisted names are IDs for the five existing achievements; new IDs are additive. */
+export const ACHIEVEMENT_REGISTRY:readonly AchievementDefinition[]=Object.freeze([
+ {id:'Gym rat',name:'Gym rat',requirement:'Improve any attribute by 30 or more points from its starting value.',reward:'Practice field card frame',frame:'training'},
+ {id:'First round',name:'First round',requirement:'Be selected within the first 32 picks of draft night.',reward:'Silver card frame',frame:'silver'},
+ {id:'Elite prospect',name:'Elite prospect',requirement:'Finish college with a 95 or higher overall rating.',reward:'Gold card frame',frame:'gold'},
+ {id:'New beginnings',name:'New beginnings',requirement:'Transfer schools, then improve your overall rating the next season.',reward:'New chapter card frame',frame:'transfer'},
+ {id:'Generational',name:'Generational',requirement:'Finish college with a 99 overall rating.',reward:'Legend card frame',frame:'legend'},
+ {id:'Legendary career',name:'Legendary career',requirement:'Earn Hall of Fame induction in a completed simulated professional career.',reward:'Legend card frame',frame:'legend'},
+]);
 export function cosmeticProfile(entries:BinderEntry[],prior:CosmeticProfile={achievements:[],frames:['classic']}):CosmeticProfile{
  const achievements=new Set(prior.achievements),frames=new Set(prior.frames);frames.add('classic');
  for(const e of entries){if(e.positionId!=='wr')continue;const d=e.draft;
-  if(Object.keys(d.prospect.current).some(id=>d.prospect.current[id]-d.prospect.initial[id]>=30)){achievements.add('Gym rat');frames.add('training');}
-  if(d.outcome.status==='drafted'&&d.outcome.overallPick<=32){achievements.add('First round');frames.add('silver');}
-  if(d.finalOvr>=95){achievements.add('Elite prospect');frames.add('gold');}
-  if(d.transfers.length&&d.years.some((y,i)=>i>0&&y.endOvr>d.years[i-1].endOvr)){achievements.add('New beginnings');frames.add('transfer');}
-  if(d.finalOvr===99){achievements.add('Generational');frames.add('legend');}
- }return {achievements:[...achievements],frames:[...frames]};
+  if(Object.keys(d.prospect.current).some(id=>d.prospect.current[id]-d.prospect.initial[id]>=30))achievements.add('Gym rat');
+  if(d.outcome.status==='drafted'&&d.outcome.overallPick<=32)achievements.add('First round');
+  if(d.finalOvr>=95)achievements.add('Elite prospect');
+  if(d.transfers.length&&d.years.some((y,i)=>i>0&&y.endOvr>d.years[i-1].endOvr))achievements.add('New beginnings');
+  if(d.finalOvr===99)achievements.add('Generational');
+  if(e.career?.induction.inducted)achievements.add('Legendary career');
+ }
+ for(const definition of ACHIEVEMENT_REGISTRY)if(achievements.has(definition.id))frames.add(definition.frame);
+ return {achievements:[...achievements],frames:[...frames]};
+}
+export function achievementProgress(id:CollectionAchievementId,entries:BinderEntry[]):number|null{
+ if(id==='Gym rat')return Math.min(30,Math.max(0,...entries.filter(e=>e.positionId==='wr').flatMap(e=>Object.keys(e.draft.prospect.current).map(a=>e.draft.prospect.current[a]-e.draft.prospect.initial[a]))));
+ if(id==='First round'){const picks=entries.filter(e=>e.positionId==='wr'&&e.draft.outcome.status==='drafted').map(e=>(e.draft.outcome as Extract<BinderEntry['draft']['outcome'],{status:'drafted'}>).overallPick);return picks.length?Math.min(...picks):null;}
+ if(id==='Elite prospect'||id==='Generational')return Math.max(0,...entries.filter(e=>e.positionId==='wr').map(e=>e.draft.finalOvr));
+ return null;
 }

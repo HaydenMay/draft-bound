@@ -1,4 +1,8 @@
 import {it,expect} from 'vitest';
-import {cosmeticProfile} from './eligibility';
+import {cosmeticProfile,ACHIEVEMENT_REGISTRY,achievementProgress} from './eligibility';
 import {completeRun} from './test-fixtures';
+import {DRAFT_TEAMS} from '../data/teams';
 it('preserves an unsupported historical card without executing WR achievements',()=>{const entry=completeRun().entry!;entry.positionId='qb-future';delete (entry.draft as any).transfers;expect(()=>cosmeticProfile([entry])).not.toThrow();});
+it('publishes one achievement definition per persisted objective',()=>{expect(ACHIEVEMENT_REGISTRY.map(a=>a.id)).toEqual(['Gym rat','First round','Elite prospect','New beginnings','Generational','Legendary career']);expect(new Set(ACHIEVEMENT_REGISTRY.map(a=>a.id)).size).toBe(ACHIEVEMENT_REGISTRY.length);});
+it('earns Legend from a completed HOF career without changing its history',()=>{const entry=completeRun().entry!;entry.career={...({} as any),induction:{inducted:true,criteria:'frozen legacy criteria'},seasons:[],status:'simulated_inducted'};const career=entry.career;const profile=cosmeticProfile([entry]);expect(profile.achievements).toContain('Legendary career');expect(profile.frames).toContain('legend');expect(entry.career).toBe(career);});
+it('reports nearest first-round pick as truthful progress without inventing a value for empty or undrafted collections',()=>{const entry=completeRun().entry!;expect(achievementProgress('First round',[])).toBeNull();entry.draft.outcome={status:'undrafted'};expect(achievementProgress('First round',[entry])).toBeNull();entry.draft.outcome={status:'drafted',overallPick:44,round:2,pickInRound:12,team:DRAFT_TEAMS[0]};expect(achievementProgress('First round',[entry])).toBe(44);});
