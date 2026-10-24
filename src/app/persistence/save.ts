@@ -5,6 +5,7 @@ import {RULES_VERSION,WR_DEFINITION} from '../domain/positions';
 import {SOURCE_PLAYERS} from '../data/source-players';
 import {COLLEGES} from '../data/colleges';
 export function emptySave():SaveEnvelope{return {schemaVersion:1,rulesVersion:RULES_VERSION,run:null,entries:[],profile:{achievements:[],frames:['classic']},settings:{fastForward:false,theme:'system',palette:'forest'}};}
+export const MAX_BINDER_ENTRIES=1000;
 export const MAX_SAVE_BYTES=256*1024*1024;
 const isObject=(x:any)=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const finite=(n:any,min=0,max=1e9)=>typeof n==='number'&&Number.isFinite(n)&&n>=min&&n<=max;
@@ -62,7 +63,9 @@ export function previewSave(input:string):{ok:boolean;errors:string[];data?:Save
   if(input.length>MAX_SAVE_BYTES)throw Error('Choose a save file smaller than 256 MB.');
   const data=JSON.parse(input,(key,value)=>{if(['__proto__','constructor','prototype'].includes(key))throw Error('Unsafe property in save.');return value;});
   if(!isObject(data)||data.schemaVersion!==1)throw Error('This is not a supported Draft Bound save version.');
-  if(!text(data.rulesVersion)||!array(data.entries,1000)||!data.entries.every(validEntry)||new Set(data.entries.map((e:any)=>e.id)).size!==data.entries.length)throw Error('The binder contains incomplete or invalid records.');
+  if(!text(data.rulesVersion)||!array(data.entries))throw Error('The binder contains incomplete or invalid records.');
+  if(data.entries.length>MAX_BINDER_ENTRIES)throw Error(`The binder cannot contain more than ${MAX_BINDER_ENTRIES.toLocaleString('en-US')} cards.`);
+  if(!data.entries.every(validEntry)||new Set(data.entries.map((e:any)=>e.id)).size!==data.entries.length)throw Error('The binder contains incomplete or invalid records.');
   if(data.run!==null&&!validRun(data.run))throw Error('The active prospect is incomplete or uses incompatible rules.');
   if(!isObject(data.profile)||!array(data.profile.achievements,100)||!data.profile.achievements.every(text)||!array(data.profile.frames,6)||!data.profile.frames.every((f:any)=>frames.includes(f))||!isObject(data.settings)||typeof data.settings.fastForward!=='boolean'||(data.settings.theme!==undefined&&!['system','light','dark'].includes(data.settings.theme))||(data.settings.palette!==undefined&&typeof data.settings.palette!=='string'))throw Error('Save settings or collection unlocks are invalid.');
   if(typeof data.settings.palette==='string'&&!PALETTES.some(p=>p.id===data.settings.palette))data.settings.palette='forest';

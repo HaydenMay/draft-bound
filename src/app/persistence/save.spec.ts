@@ -3,6 +3,12 @@ import 'fake-indexeddb/auto';
 import {GameRepository,emptySave,previewSave} from './save';
 import {createRun} from '../domain/engine';
 import {createCollege,completeRun,step} from '../domain/test-fixtures';
+function compactEntry(id:string){
+ const entry=structuredClone(completeRun(82).entry!);entry.id=id;
+ entry.draft.history=[];entry.draft.years=[];entry.draft.transfers=[];entry.draft.interventions=[];entry.draft.awards=[];entry.draft.unlocks=[];
+ entry.draft.gauntlet=entry.draft.gauntlet.map(check=>({...check,label:'',description:'',attributes:[]}));
+ return entry;
+}
 it('round trips the RNG and settings atomically',async()=>{const repo=new GameRepository('draft-bound-test');const save=emptySave();save.run=createRun('Save Prospect',8,314);save.settings.fastForward=true;await repo.write(save);expect(await repo.read()).toEqual(save);});
 it('rejects broken versions, impossible run ratings and hostile JSON before changing state',()=>{
  const save=emptySave();expect(previewSave(JSON.stringify(save)).ok).toBe(true);
@@ -18,6 +24,17 @@ it('validates nested chronology and intervention state before accepting a save',
 it('round trips completed entries and rejects malformed professional records',()=>{
  const save=emptySave();save.entries=[completeRun().entry!];expect(previewSave(JSON.stringify(save)).ok).toBe(true);
  save.entries[0].career={seasons:[{stats:{targets:1,receptions:99,yards:100,touchdowns:1}}]} as any;expect(previewSave(JSON.stringify(save)).ok).toBe(false);
+});
+it('allows a 1,000-entry binder to reload and rejects entry 1,001 with a specific limit error',async()=>{
+ const entry=compactEntry('cap-entry-0');
+ const save=emptySave();save.entries=Array.from({length:999},(_,i)=>({...structuredClone(entry),id:`cap-entry-${i}`}));
+ expect(previewSave(JSON.stringify(save)).ok).toBe(true);
+ save.entries.push({...structuredClone(entry),id:'cap-entry-999'});
+ const accepted=previewSave(JSON.stringify(save));expect(accepted.ok).toBe(true);
+ const name=`binder-cap-${Date.now()}`,repo=new GameRepository(name);await repo.read();await repo.write(accepted.data!);
+ const restored=await new GameRepository(name).read();expect(restored?.entries).toHaveLength(1000);expect(previewSave(JSON.stringify(restored)).ok).toBe(true);
+ const tooMany=structuredClone(save);tooMany.entries.push({...structuredClone(entry),id:'cap-entry-1000'});
+ const rejected=previewSave(JSON.stringify(tooMany));expect(rejected.ok).toBe(false);expect(rejected.errors.join(' ')).toMatch(/1,000/);
 });
 it('round trips a saved broadcast but rejects malformed nested game and event payloads',()=>{
  const save=emptySave();save.run=step(createCollege(314),{type:'train',plan:{mode:'balanced'}});

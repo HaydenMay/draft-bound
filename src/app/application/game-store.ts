@@ -6,7 +6,7 @@ import {cosmeticProfile} from '../domain/eligibility';
 import {RULES_VERSION} from '../domain/positions';
 import {simulateProfessional} from '../domain/professional';
 import {cardView} from '../domain/presentation';
-import {emptySave,GameRepository,previewSave,SaveConflictError} from '../persistence/save';
+import {emptySave,GameRepository,previewSave,SaveConflictError,MAX_BINDER_ENTRIES} from '../persistence/save';
 import {downloadBlob,renderCard} from './card-export';
 import {assertValidContent} from '../data/content-validation';
 import {applyPalette,cachedPalette,readPalette,applyTheme,cachedThemePreference,readThemePreference} from './theme';
@@ -22,6 +22,7 @@ export class GameStore{
  readonly themePreference=signal<ThemePreference>(cachedThemePreference());
  private readonly deviceTheme=matchMedia('(prefers-color-scheme: dark)');
  readonly currentEntry=computed(()=>this.entries().find(e=>e.id===this.selectedEntryId())??null);
+ readonly binderAtLimit=computed(()=>this.entries().length>=MAX_BINDER_ENTRIES);
  private revealTimer:ReturnType<typeof setTimeout>|undefined;
  private readonly owner=typeof crypto!=='undefined'?crypto.randomUUID():'tab';private revision=0;
  private readonly channel=typeof BroadcastChannel!=='undefined'?new BroadcastChannel('draft-bound-saves'):null;
@@ -54,8 +55,8 @@ export class GameStore{
  private reveal():void{this.skipReveal();if(this.fastForward()||matchMedia('(prefers-reduced-motion: reduce)').matches)return;this.revealing.set(true);this.revealTimer=setTimeout(()=>this.revealing.set(false),850);}
  skipReveal():void{if(this.revealTimer)clearTimeout(this.revealTimer);this.revealing.set(false);}
  clearError():void{this.error.set('');}
- async newRun(name:string,jerseyNumber:number,mode:CreationMode='quick'):Promise<void>{await this.action(async()=>{if(this.run()&&this.run()!.phase!=='complete')throw Error('Finish or discard your active prospect first.');const seed=crypto.getRandomValues(new Uint32Array(1))[0];this.run.set(createRun(name,jerseyNumber,seed,new Date().toISOString(),mode));await this.persist();this.navigate('play');this.reveal();});}
- async dispatch(payload:GameCommandPayload):Promise<void>{await this.action(async()=>{const current=this.run();if(!current)throw Error('Start a prospect first.');const result=transition(current,{...payload,id:crypto.randomUUID()});this.run.set(result.run);if(result.entry){this.entries.update(entries=>[result.entry!,...entries.filter(e=>e.id!==result.entry!.id)]);this.profile.set(cosmeticProfile(this.entries(),this.profile()));}await this.persist();if(['choose-gift','accept-size','choose-trait','reroll','scout'].includes(payload.type))this.reveal();});}
+ async newRun(name:string,jerseyNumber:number,mode:CreationMode='quick'):Promise<void>{await this.action(async()=>{if(this.entries().length>=MAX_BINDER_ENTRIES)throw Error(`Your binder has reached its ${MAX_BINDER_ENTRIES.toLocaleString('en-US')}-card limit. Export a backup before making room.`);if(this.run()&&this.run()!.phase!=='complete')throw Error('Finish or discard your active prospect first.');const seed=crypto.getRandomValues(new Uint32Array(1))[0];this.run.set(createRun(name,jerseyNumber,seed,new Date().toISOString(),mode));await this.persist();this.navigate('play');this.reveal();});}
+ async dispatch(payload:GameCommandPayload):Promise<void>{await this.action(async()=>{const current=this.run();if(!current)throw Error('Start a prospect first.');const result=transition(current,{...payload,id:crypto.randomUUID()});if(result.entry&&this.entries().length>=MAX_BINDER_ENTRIES)throw Error(`Your binder has reached its ${MAX_BINDER_ENTRIES.toLocaleString('en-US')}-card limit. Your prospect is still saved; no card was added. Export a backup before making room.`);this.run.set(result.run);if(result.entry){this.entries.update(entries=>[result.entry!,...entries.filter(e=>e.id!==result.entry!.id)]);this.profile.set(cosmeticProfile(this.entries(),this.profile()));}await this.persist();if(['choose-gift','accept-size','choose-trait','reroll','scout'].includes(payload.type))this.reveal();});}
  navigate(view:View,entryId?:string,edition:CardEdition='draft'):void{
   this.skipReveal();this.notice.set(this.unsaved()?'Progress is kept in this tab. Export a backup.':'');
   if(view==='binder'&&this.run()?.phase==='draft-night'){this.run.update(r=>r?{...r,phase:'complete'}:null);void this.persist();}
