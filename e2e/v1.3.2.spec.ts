@@ -43,6 +43,18 @@ test('an active run at binder capacity stays valid and exportable when draft app
  expect(persisted.entries.some(entry=>entry.id===persisted.run?.id)).toBe(false);
 });
 
+test('starting a new prospect at capacity never offers to discard the active run',async({page})=>{
+ const save=emptySave();fillBinder(save,1000);save.run=runAtGauntlet();
+ const before=JSON.stringify(save.run);await page.goto('/');await writeSave(page,save);await page.goto('/#play');await page.reload();
+ await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:/My binder/}).click();
+ await page.getByRole('button',{name:'New prospect',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Binder is full'})).toBeVisible();
+ await expect(page.getByText(/active prospect is safe/i)).toBeVisible();
+ await expect(page.getByRole('dialog').getByRole('button',{name:'Export save'})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Discard run & start fresh'})).toHaveCount(0);
+ const persisted=await readSave(page);expect(persisted.entries).toHaveLength(1000);expect(JSON.stringify(persisted.run)).toBe(before);
+});
+
 test('a 999-entry binder accepts the final drafted card and reloads at capacity',async({page})=>{
  const save=emptySave();fillBinder(save,999);save.run=runAtGauntlet();expect(previewSave(JSON.stringify(save)).errors).toEqual([]);
  await page.goto('/');await writeSave(page,save);await page.goto('/#play');await page.reload();

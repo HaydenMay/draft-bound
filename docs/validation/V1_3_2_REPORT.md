@@ -21,8 +21,8 @@ Synthetic fixture files are in `src/app/persistence/fixtures/`. See the director
 
 - `npm run typecheck` — passed.
 - `npm test -- --reporter=dot` — 79/79 tests passed across 10 files.
-- `npm run test:e2e -- --reporter=line` — 40/40 Chromium browser tests passed. These include both 999→1,000 final-card append/reload and active-run-at-capacity rejection; failed-write warning/export recovery at the boundary; v1.3.1 backup import/export; Full default, Quick selection and saved-run resume; mobile font sizes/overflow for creator, binder, settings, import and training controls; and the seeded coach-note case.
-- `npm run build:pages` — passed after retrying outside the sandbox when Windows denied creating the initial `dist` directory. Output: `main-ED36WGQD.js` (405.17 kB raw / 107.97 kB estimated transfer) and `styles-AM4HY5BZ.css` (156.71 kB raw / 22.74 kB estimated transfer); base path `/draft-bound/`.
+- `npm run test:e2e -- --reporter=line` — 41/41 Chromium browser tests passed. These include both 999→1,000 final-card append/reload and active-run-at-capacity rejection; the active-at-capacity new-prospect guard (only Keep/Export actions, unchanged persisted run); failed-write warning/export recovery at the boundary; v1.3.1 backup import/export; Full default, Quick selection and saved-run resume; mobile font sizes/overflow for creator, binder, settings, import and training controls; and the seeded coach-note case.
+- `npm run build:pages` — passed. Output: `main-I23R3HMH.js` (405.85 kB raw / 107.98 kB estimated transfer) and `styles-AM4HY5BZ.css` (156.71 kB raw / 22.74 kB estimated transfer); base path `/draft-bound/`.
 - Mobile browser checks are emulation, not physical iPhone Safari verification.
 
 The release review compared About, Terms, Privacy and Contact with the shipped changes. No copy change was required: the update does not add services, accounts, data collection, or alter the disclosed game loop. Terms and Privacy continue to show their existing draft notices pending owner-approved public contact details; Contact remains disabled as a submission path until delivery is configured. The legal checkpoint was retained unchanged.
