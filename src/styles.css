@@ -55,3 +55,8 @@ select{appearance:none;background-image:url('../public/assets/icons/chevron.svg'
 .capacity-note .text-button{flex:none}
 @media(max-width:640px){.error-actions{flex-wrap:wrap;justify-content:flex-end}.capacity-note{align-items:flex-start;flex-direction:column}}
 
+/* Keep editable controls legible and prevent iOS Safari's automatic focus zoom. */
+@media(max-width:640px){
+ .modal form>input,.search-box>input,.binder-controls select,.target-picker select,.appearance-setting select,.paste-save textarea{font-size:16px}
+}
+

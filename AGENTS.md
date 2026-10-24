@@ -1,19 +1,23 @@
-# Draft Bound project instructions
+# Draftbound project guidance
 
-"Cut taglines, helper text and secondary labels. If a screen needs them to make sense, fix the layout."
+## Durable product and engineering principles
 
-"Make the best decision that will elevate all three: the user experience (UX), developer experience (DX), and agent experience (AX) always, without breaking anything."
+- Preserve the full college-to-draft experience, four-game blocks, optional professional simulation, collectible cards, binder, local saves, backups, settings, themes, accessibility, and deep links unless an approved scope explicitly changes them.
+- Protect saved outcomes. Keep domain rules deterministic and separate from Angular presentation. Validate save/import compatibility and avoid schema/rules-version changes without a documented migration need.
+- Keep accessible names on controls, keyboard operation, visible focus, reduced-motion support, and narrow mobile layouts. Keep editable mobile controls usable without disabling browser zoom.
+- Cut taglines, helper text and secondary labels. If a screen needs them to make sense, fix the layout.
+- Make the best decision that will elevate all three: the user experience (UX), developer experience (DX), and agent experience (AX) always, without breaking anything.
+- Use the original SVG catalog in `src/app/shared/icon-paths.ts` for interface and collectible symbols. Extend it instead of adding stock emoji, symbol fonts, or icon libraries. Icons are decorative inside controls with accessible names. See `docs/ICONS.md`.
+- Keep application colors in `src/colors.css`, use semantic CSS variables in styles and `readColor` for canvas/browser APIs, and keep team/college identity palettes with their data. Preserve independent printed-card colors when interface themes change. See `docs/COLORS_AND_EXTENSIBILITY.md`.
+- The user owns collectible image generation. Do not generate or integrate new scene illustrations unless explicitly requested. Artwork improvements, modular player appearance, masking and uniform recoloring are shelved for tentative v1.5. Preserve current scene assets and IDs. See `docs/ART_PROMPT_BASELINE.md`, `docs/PROSPECT_PRESENTATION.md`, and `docs/ROADMAP.md`.
+- Keep WR as the only playable position until a later approved position implementation. Locked QB/RB/TE previews are not authorization to add their rules or content.
+- Keep real college/NFL identities, new player-pool balance, recruiting/development redesign, and other v1.4 decisions in planning documents until a separate implementation scope is approved. The document `docs/superpowers/specs/2026-10-23-v1.4-preserved.md` is a planning reference, not an executable spec.
+- Do not introduce Firebase, sign-in, accounts, cloud saves, analytics, advertising, payments, screenshot uploads, or contact delivery without a separate approved scope and service/privacy review.
 
-Keep the complete college-to-draft game playable. Favor clear choices and visible state over decorative explanation. Preserve deterministic saved outcomes, position-specific rules, evidence-backed collectibles, keyboard access, and mobile layouts. Verify meaningful behavior before publication.
+## Data, privacy and release requirements
 
-Use the original SVG catalog in `src/app/shared/icon-paths.ts` for interface and collectible symbols. Extend that catalog instead of adding stock emoji, symbol fonts, or icon libraries. Keep accessible names on controls; icons are decorative. See `docs/ICONS.md` for asset generation and card export reuse.
-
-Keep application color values in `src/colors.css`. Use its semantic CSS variables in styles and `readColor` for canvas/browser APIs. Keep college/team identity palettes with their data. Preserve independent printed-card colors when changing interface themes. See `docs/COLORS_AND_EXTENSIBILITY.md`.
-
-The user owns collectible image generation. Do not generate or integrate new scene illustrations unless explicitly asked. Use `docs/ART_PROMPT_BASELINE.md` for the handoff and `npm run audit:art -- --strict` once approved assets arrive. Each named scene must ultimately have a distinct illustration. See `docs/PROSPECT_PRESENTATION.md` for current recruiting, reveal, broadcast and coaching behavior; do not change school balance as part of this work.
-
-Collectible artwork improvements are shelved for tentative v1.5. Do not generate, edit, mask, recolor, build modular appearances or integrate new art as part of v1.2, and do not treat art replacement or strict art uniqueness as a v1.2 release gate. Preserve the supplied artwork and existing assets. The user explicitly authorized v1.2 implementation on October 23; follow `docs/superpowers/plans/2026-10-23-v1.2-release.md` and its product spec. Approved interface icons and logo SVGs may be integrated; this does not authorize new collectible scene art.
-
-The user approved v1.3.1 Legal & Visual Polish implementation with the position reference. Follow docs/superpowers/plans/2026-10-23-v1.3.1.md and the supplied master spec. Do not implement v1.4/v1.5 gameplay/artwork. Keep legal documents as reviewable drafts; do not invent public contact/operator details or publication dates. Clear a draft state only after the publication prerequisites in `docs/LEGAL_REVIEW_CHECKPOINT.md` are satisfied.
-
-Before every public release, review the Terms, Privacy Policy and Contact page against the actual product and services. Revisit them when recruiting or progression systems change, real-world team/player references are introduced, advertising or analytics is added, or accounts/cloud saves (including Firebase) are implemented. Follow `docs/LEGAL_REVIEW_CHECKPOINT.md`; do not clear draft notices until the publication requirements listed there are satisfied.
+- All saves remain local unless an approved future architecture changes this. Do not collect or expose private user backups, names or credentials in fixtures, logs, screenshots or commits. Test fixtures must be synthetic.
+- Preserve the legal publication gate. About, Terms, Privacy and Contact copy can remain reviewable drafts; do not invent operator identity, contact details, jurisdiction, retention terms, or publication approval. Do not activate Contact without working delivery and a corresponding Privacy update. See `docs/LEGAL_REVIEW_CHECKPOINT.md`.
+- Before every public release, review Terms, Privacy and Contact against the actual product and services. Revisit when recruiting/progression systems change, real-world team/player references are introduced, advertising/analytics is added, or accounts/cloud saves (including Firebase) are implemented. Do not clear draft notices until checkpoint requirements are satisfied.
+- Follow the release-specific scope provided for the current task. Historical v1.2/v1.3.1 plans and reports describe completed work; they are not standing authorization to repeat or extend those releases. Do not implement deferred v1.4/v1.5 work from a roadmap alone.
+- Keep GitHub Pages compatible with the `/draft-bound/` base path. Run appropriate tests and production build; report commands/results accurately and distinguish browser emulation from physical-device verification.

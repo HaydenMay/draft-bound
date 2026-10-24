@@ -8,7 +8,7 @@ async function saved(page:Page):Promise<SaveEnvelope>{return page.evaluate(()=>n
 async function phase(page:Page,value:string){await expect.poll(async()=>(await saved(page))?.run?.phase).toBe(value);}
 async function skip(page:Page){const button=page.getByRole('button',{name:/Skip reveal/});if(await button.isVisible())await button.click();}
 async function create(page:Page,name='Jordan Hayes'){
- await page.goto('/');await page.getByRole('button',{name:/Create your prospect/}).click();await page.getByLabel('Prospect name',{exact:true}).fill(name);await page.getByRole('button',{name:/Create prospect/}).click();await phase(page,'gift');await skip(page);
+ await page.goto('/');await page.getByRole('button',{name:/Create your prospect/}).click();await page.getByLabel('Prospect name',{exact:true}).fill(name);await page.getByRole('radio',{name:'Quick · 3 picks',exact:true}).check();await page.getByRole('button',{name:/Create prospect/}).click();await phase(page,'gift');await skip(page);
  await page.locator('.gift-card').first().click();await phase(page,'size');await skip(page);await page.getByRole('button',{name:/This is my build/}).click();await phase(page,'potential');await skip(page);
  for(let n=0;n<3;n++){await page.locator('.trait-option').first().click();await phase(page,n===2?'reveal':'potential');await skip(page);}
  await page.getByRole('button',{name:/Find my college/}).click();await phase(page,'college-choice');await page.getByRole('button',{name:/Choose MERIDIAN/}).click();await phase(page,'training');

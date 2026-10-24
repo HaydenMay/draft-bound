@@ -17,7 +17,7 @@ test('new prospect offers generated editable names, future positions, and comple
  await name.fill('Full Journey');
  await expect(page.getByRole('button',{name:'WR Wide receiver',exact:true})).toHaveAttribute('aria-pressed','true');
  await expect(page.getByRole('button',{name:/QB Quarterback.*Coming soon/})).toBeDisabled();
- await page.getByRole('radio',{name:'Full',exact:true}).check();
+ await page.getByRole('radio',{name:'Full · 8 picks',exact:true}).check();
  await page.getByRole('button',{name:'Create prospect',exact:true}).click();
  await page.locator('.gift-card').first().click();await page.getByRole('button',{name:/This is my build/}).click();
  for(let i=0;i<8;i++){

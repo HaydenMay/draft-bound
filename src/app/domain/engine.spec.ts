@@ -12,6 +12,14 @@ describe('complete playable run',()=>{
   expect(Object.values(run.prospect!.traits).filter(t=>t.origin==='manual')).toHaveLength(3);
   const gift=Object.values(run.prospect!.traits).find(t=>t.origin==='gift')!;expect(run.prospect!.initial[gift.attributeId]).toBe(94);expect(gift.ceiling).toBe(99);
  });
+ it.each([['quick',3],['full',8]] as const)('%s creation collects exactly %i manual potentials before autofilling the rest', (mode,count)=>{
+  let run=createRun(`${mode} mode`,11,707,'2026-01-01T00:00:00.000Z',mode);
+  run=step(run,{type:'choose-gift',index:0});run=step(run,{type:'accept-size'});
+  for(let i=0;i<count;i++){const attributeId=WR_DEFINITION.attributes.find(a=>!run.creation.traits[a.id])!.id;run=step(run,{type:'choose-trait',sourcePlayerId:run.creation.playerOffers[0],attributeId});}
+  expect(run.creation.manualCount).toBe(count);expect(run.phase).toBe('reveal');
+  expect(Object.values(run.creation.traits).filter(trait=>trait.origin==='manual')).toHaveLength(count);
+  expect(Object.values(run.creation.traits).filter(trait=>trait.origin==='autofill')).toHaveLength(8-count);
+ });
  it('rejects out-of-phase commands and makes a repeated command id harmless',()=>{
   const run=createCollege();expect(()=>transition(run,{type:'scout',id:'bad'})).toThrow();
   const cmd={type:'train' as const,plan:{mode:'balanced' as const},id:'one'};const next=transition(run,cmd).run;expect(transition(next,cmd).run).toEqual(next);expect(next.history).toHaveLength(4);

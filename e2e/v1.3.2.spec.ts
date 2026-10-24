@@ -2,7 +2,7 @@ import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 import {emptySave,previewSave} from '../src/app/persistence/save';
 import {createRun} from '../src/app/domain/engine';
-import {completeRun} from '../src/app/domain/test-fixtures';
+import {completeRun,createCollege} from '../src/app/domain/test-fixtures';
 import {BinderEntry,SaveEnvelope,RunState} from '../src/app/domain/models';
 import {readSave,writeSave} from './storage-helper';
 import collectionFixture from '../src/app/persistence/fixtures/v1.3.1-collection.json';
@@ -43,6 +43,26 @@ test('an active run at binder capacity stays valid and exportable when draft app
  expect(persisted.entries.some(entry=>entry.id===persisted.run?.id)).toBe(false);
 });
 
+test('a 999-entry binder accepts the final drafted card and reloads at capacity',async({page})=>{
+ const save=emptySave();fillBinder(save,999);save.run=runAtGauntlet();expect(previewSave(JSON.stringify(save)).errors).toEqual([]);
+ await page.goto('/');await writeSave(page,save);await page.goto('/#play');await page.reload();
+ await page.getByRole('button',{name:/Take the scouting gauntlet/}).click();
+ await expect.poll(async()=> (await readSave(page)).entries.length).toBe(1000);
+ expect((await readSave(page)).entries.some(entry=>entry.id===save.run?.id)).toBe(true);
+ await page.reload();const restored=await readSave(page);expect(restored.entries).toHaveLength(1000);expect(previewSave(JSON.stringify(restored)).ok).toBe(true);
+});
+
+test('a failed save on the last binder slot warns and keeps an exportable in-tab snapshot',async({page})=>{
+ const save=emptySave();fillBinder(save,999);save.run=runAtGauntlet();expect(previewSave(JSON.stringify(save)).errors).toEqual([]);
+ await page.goto('/');await writeSave(page,save);await page.goto('/#play');await page.reload();
+ await page.evaluate(()=>{IDBObjectStore.prototype.put=function(){throw Error('Quota failure for test');};});
+ await page.getByRole('button',{name:/Take the scouting gauntlet/}).click();
+ await expect(page.locator('.save-warning')).toContainText('Saving on this device did not finish');await expect(page.locator('.save-warning').getByRole('button',{name:'Export save'})).toBeVisible();
+ const persisted=await readSave(page);expect(persisted.entries).toHaveLength(999);expect(JSON.stringify(persisted.run)).toBe(JSON.stringify(save.run));
+ const download=page.waitForEvent('download');await page.locator('.save-warning').getByRole('button',{name:'Export save'}).click();const exported=await download,path=await exported.path();
+ const recovered=JSON.parse(readFileSync(path!,'utf8')) as SaveEnvelope;expect(recovered.entries).toHaveLength(1000);expect(recovered.entries.some(entry=>entry.id===save.run?.id)).toBe(true);expect(previewSave(JSON.stringify(recovered)).ok).toBe(true);
+});
+
 test('an oversized import is rejected before it can replace the current collection',async({page})=>{
  const current=emptySave();current.run=createRun('Keep this run',11,909,'2026-01-01T00:00:00.000Z');await page.goto('/');await writeSave(page,current);await page.reload();
  const tooMany=emptySave();fillBinder(tooMany,1001);
@@ -53,7 +73,7 @@ test('an oversized import is rejected before it can replace the current collecti
 });
 
 test('the public backup flow exports and re-imports a v1.3.1 collection without changing saved outcomes',async({page})=>{
- const save=collectionFixture as SaveEnvelope;await page.goto('/');await writeSave(page,save);await page.reload();
+ const save=collectionFixture as unknown as SaveEnvelope;await page.goto('/');await writeSave(page,save);await page.reload();
  await page.getByRole('button',{name:'Settings'}).click();
  const exportedDownload=page.waitForEvent('download');await page.getByRole('button',{name:/Export game save/}).click();
  const exportedFile=await exportedDownload,exportedPath=await exportedFile.path();expect(exportedPath).not.toBeNull();
@@ -64,4 +84,65 @@ test('the public backup flow exports and re-imports a v1.3.1 collection without 
  const backupDownload=page.waitForEvent('download');await page.getByRole('button',{name:'Replace with this save'}).click();
  expect((await backupDownload).suggestedFilename()).toContain('draft-bound-save-');
  expect(JSON.stringify(await readSave(page))).toBe(JSON.stringify(save));
+});
+
+test('fresh creation defaults to Full, preserves Quick, and resets Full for the next new flow',async({page})=>{
+ await page.goto('/');await page.getByRole('button',{name:'Create your prospect',exact:true}).click();
+ const full=page.getByRole('radio',{name:'Full · 8 picks',exact:true}),quick=page.getByRole('radio',{name:'Quick · 3 picks',exact:true});
+ await expect(full).toBeChecked();await expect(quick).toBeVisible();
+ await expect(page.locator('#creation-mode-description')).toContainText('manual potential selections');
+ await expect(page.locator('#creation-mode-description')).toContainText('natural gift is separate');
+ await quick.check();await page.getByRole('button',{name:'Create prospect',exact:true}).click();
+ expect((await readSave(page)).run?.creationMode).toBe('quick');await page.reload();expect((await readSave(page)).run?.creationMode).toBe('quick');await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:'The game',exact:true}).click();await page.getByRole('button',{name:'Resume your prospect',exact:true}).click();expect((await readSave(page)).run?.creationMode).toBe('quick');
+ await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:/My binder/}).click();
+ await page.getByRole('button',{name:'New prospect',exact:true}).click();
+ await page.getByRole('button',{name:'Discard run & start fresh',exact:true}).click();
+ await expect(full).toBeChecked();await page.getByRole('button',{name:'Create prospect',exact:true}).click();
+ expect((await readSave(page)).run?.creationMode).toBe('full');
+ await page.reload();expect((await readSave(page)).run?.creationMode).toBe('full');
+});
+
+test('editable controls stay at least 16px and fit narrow mobile viewports',async({page})=>{
+ await page.setViewportSize({width:320,height:800});await page.goto('/');
+ await page.getByRole('button',{name:'Create your prospect',exact:true}).click();
+ for(const width of [320,375,390]){
+  await page.setViewportSize({width,height:800});
+  for(const selector of ['#prospect-name','#jersey-number'])expect(await page.locator(selector).evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBeGreaterThanOrEqual(16);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
+ await page.getByRole('button',{name:'Close dialog'}).click();
+ await page.getByRole('navigation',{name:'Main navigation'}).getByRole('button',{name:/My binder/}).click();
+ for(const width of [320,375,390]){
+  await page.setViewportSize({width,height:800});
+  for(const selector of ['.search-box input','.binder-controls select'])expect(await page.locator(selector).first().evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBeGreaterThanOrEqual(16);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
+ await page.getByRole('button',{name:'Settings'}).click();
+ for(const width of [320,375,390]){
+  await page.setViewportSize({width,height:800});
+  expect(await page.locator('#appearance').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBeGreaterThanOrEqual(16);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
+ await page.getByRole('button',{name:'Close dialog'}).click();await page.getByRole('button',{name:'Settings'}).click();await page.getByRole('button',{name:'Import game save'}).click();
+ await page.locator('details.paste-save summary').click();
+ for(const width of [320,375,390]){
+  await page.setViewportSize({width,height:800});
+  expect(await page.locator('#import-text').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBeGreaterThanOrEqual(16);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
+});
+
+test('coach prompt describes the one-game focus before training',async({page})=>{
+ const save=emptySave(),run=createCollege(904);run.pendingIntervention={id:'coach-copy',type:'wr.jugs',label:'Jugs',attributeId:'hands',cause:'Drops exceeded the target.',year:1,sourceBlock:1};save.run=run;
+ expect(previewSave(JSON.stringify(save)).errors).toEqual([]);await page.goto('/');await writeSave(page,save);await page.reload();await page.getByRole('button',{name:'Resume your prospect',exact:true}).click();
+ await expect(page.locator('.coach-note .coach-footnote')).toHaveText('Coach’s focus applies to the next game. Your selected plan resumes afterward.');
+});
+
+test('the focused training target stays legible on mobile',async({page})=>{
+ const save=emptySave();save.run=createCollege(905);await page.goto('/');await writeSave(page,save);await page.reload();await page.getByRole('button',{name:'Resume your prospect',exact:true}).click();
+ await page.setViewportSize({width:320,height:800});await page.getByRole('button',{name:/Focused/}).click();
+ expect(await page.locator('#training-target').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBeGreaterThanOrEqual(16);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.getByRole('button',{name:'Settings'}).click();await page.getByLabel('Appearance',{exact:true}).selectOption('dark');
+ expect(await page.locator('#training-target').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBeGreaterThanOrEqual(16);
 });

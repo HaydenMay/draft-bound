@@ -39,7 +39,7 @@ export class App {
   readonly automaticTraits=computed(()=>Object.values(this.game.run()?.creation.traits??{}).filter(t=>t.origin==='autofill').map(t=>({attributeId:t.attributeId,attribute:this.attributeName(t.attributeId),source:this.sourceName(t.sourcePlayerId),grade:t.grade,ceiling:t.ceiling})));
   private revealRun='';
   readonly prospectName = signal(generatedName(crypto.getRandomValues(new Uint32Array(1))[0]));
-  readonly creationMode = signal<CreationMode>('quick');
+  readonly creationMode = signal<CreationMode>('full');
   readonly manualLimit = manualPotentialLimit;
   readonly jerseyNumber = signal(11);
   readonly formError = signal('');
@@ -206,8 +206,8 @@ export class App {
   navigate(view: GameView, id?: string, edition?: CardEdition): void { this.game.navigate(view, id, edition); this.scrollTop(); }
   scrollTop(): void { window.scrollTo({ top: 0, behavior: 'instant' }); }
   randomizeName():void {this.prospectName.set(generatedName(crypto.getRandomValues(new Uint32Array(1))[0],this.prospectName()));}
-  openNew(): void { if(this.game.run()?.phase==='complete')this.randomizeName();this.formError.set(''); this.modal.set(this.game.run() && this.game.run()?.phase !== 'complete' ? 'discard' : 'new'); }
-  async discardRun(): Promise<void> { await this.game.resetActive(); if (!this.game.error()) {this.randomizeName();this.modal.set('new');} }
+  openNew(): void { const active=this.game.run(),discard=!!active&&active.phase!=='complete';if(!discard)this.creationMode.set('full');if(active?.phase==='complete')this.randomizeName();this.formError.set('');this.modal.set(discard?'discard':'new'); }
+  async discardRun(): Promise<void> { await this.game.resetActive(); if (!this.game.error()) {this.randomizeName();this.creationMode.set('full');this.modal.set('new');} }
   async startRun(): Promise<void> {
     const name = this.prospectName().trim();
     if (name.length < 2 || name.length > 28) { this.formError.set('Give your prospect a name between 2 and 28 characters.'); return; }

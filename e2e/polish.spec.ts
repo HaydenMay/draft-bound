@@ -22,7 +22,7 @@ test('position tiles follow the reference, remain equal, and cannot start unavai
  for(const name of ['QB Quarterback Coming soon','RB Running back Coming soon','TE Tight end Coming soon'])await expect(page.getByRole('button',{name,exact:true})).toBeDisabled();
  expect(await page.locator('.position-tile:disabled').first().evaluate(el=>getComputedStyle(el).opacity)).toBe('1');
  for(const width of [1440,768,390]){await page.setViewportSize({width,height:1000});const sizes=await tiles.evaluateAll(es=>es.map(e=>{const b=e.getBoundingClientRect();return[b.width,b.height];}));expect(Math.max(...sizes.map(s=>s[0]))-Math.min(...sizes.map(s=>s[0]))).toBeLessThan(1);expect(Math.max(...sizes.map(s=>s[1]))-Math.min(...sizes.map(s=>s[1]))).toBeLessThan(1);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
- await expect(page.getByRole('radio',{name:'Quick',exact:true})).toBeChecked();await page.getByRole('radio',{name:'Full',exact:true}).check();
+ await expect(page.getByRole('radio',{name:'Full · 8 picks',exact:true})).toBeChecked();await page.getByRole('radio',{name:'Quick · 3 picks',exact:true}).check();await page.getByRole('radio',{name:'Full · 8 picks',exact:true}).check();
  await page.getByRole('button',{name:'Create prospect',exact:true}).click();await expect(page.locator('.gift-card')).toHaveCount(3);
 });
 
