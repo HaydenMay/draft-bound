@@ -2,7 +2,7 @@
 <header class="site-header">
   <button class="wordmark" (click)="navigate('home')" aria-label="Draft Bound home"><app-brand kind="header"/></button>
   <nav aria-label="Main navigation"><button [class.active]="game.view() === 'home' || game.view() === 'play'" (click)="navigate('home')">The game</button><button [class.active]="['binder','entry','card','career'].includes(game.view())" (click)="navigate('binder')">My binder <span class="nav-count">{{ game.entries().length }}</span></button></nav>
-  <div class="header-end"><span class="edition-label"><i></i> FOOTBALL · VOL. 01</span><button class="icon-button settings-button" (click)="modal.set('settings')" aria-label="Settings"><span aria-hidden="true"><app-icon name="settings" /></span></button></div>
+  <div class="header-end"><span class="edition-label"><i></i> FOOTBALL · VOL. 01</span><button class="icon-button settings-button" (click)="modal.set('settings')" aria-label="Settings"><app-icon name="settings" /></button></div>
 </header>
 
 <div class="status-region" aria-live="polite" aria-atomic="true">
