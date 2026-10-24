@@ -1,0 +1,49 @@
+{
+  "requests": [
+    "http://127.0.0.1:4200/",
+    "http://127.0.0.1:4200/styles.css",
+    "http://127.0.0.1:4200/main.js",
+    "http://127.0.0.1:4200/@fs/C:/Users/mayha/Documents/Codex/2026-10-22/referenced-chatgpt-conversation-this-is-an-2/outputs/draft-bound-v131/.angular/cache/21.2.25/draft-bound/vite/deps/@angular_platform-browser.js?v=8b546816",
+    "http://127.0.0.1:4200/@fs/C:/Users/mayha/Documents/Codex/2026-10-22/referenced-chatgpt-conversation-this-is-an-2/outputs/draft-bound-v131/.angular/cache/21.2.25/draft-bound/vite/deps/@angular_core.js?v=8b546816",
+    "http://127.0.0.1:4200/@fs/C:/Users/mayha/Documents/Codex/2026-10-22/referenced-chatgpt-conversation-this-is-an-2/outputs/draft-bound-v131/.angular/cache/21.2.25/draft-bound/vite/deps/@angular_common.js?v=8b546816",
+    "http://127.0.0.1:4200/@fs/C:/Users/mayha/Documents/Codex/2026-10-22/referenced-chatgpt-conversation-this-is-an-2/outputs/draft-bound-v131/.angular/cache/21.2.25/draft-bound/vite/deps/@angular_forms.js?v=8b546816",
+    "http://127.0.0.1:4200/@fs/C:/Users/mayha/Documents/Codex/2026-10-22/referenced-chatgpt-conversation-this-is-an-2/outputs/draft-bound/node_modules/vite/dist/client/env.mjs",
+    "http://127.0.0.1:4200/@fs/C:/Users/mayha/Documents/Codex/2026-10-22/referenced-chatgpt-conversation-this-is-an-2/outputs/draft-bound-v131/.angular/cache/21.2.25/draft-bound/vite/deps/chunk-Q7K6NTQO.js?v=8b546816",
+    "http://127.0.0.1:4200/@fs/C:/Users/mayha/Documents/Codex/2026-10-22/referenced-chatgpt-conversation-this-is-an-2/outputs/draft-bound-v131/.angular/cache/21.2.25/draft-bound/vite/deps/chunk-G45X7WJM.js?v=8b546816",
+    "http://127.0.0.1:4200/@ng/component?c=src%2Fapp%2Fshared%2Fbrand.ts%40Brand&t=1792819848938",
+    "http://127.0.0.1:4200/@ng/component?c=src%2Fapp%2Fshared%2Ficon.ts%40DraftIcon&t=1792819848943",
+    "http://127.0.0.1:4200/@ng/component?c=src%2Fapp%2Fshared%2Ftheme-picker.ts%40ThemePicker&t=1792819848944",
+    "http://127.0.0.1:4200/@ng/component?c=src%2Fapp%2Fshared%2Ftrait-reveal.ts%40TraitReveal&t=1792819848945",
+    "http://127.0.0.1:4200/@ng/component?c=src%2Fapp%2Fshared%2Frecruit-rating.ts%40RecruitBadge&t=1792819848945",
+    "http://127.0.0.1:4200/@ng/component?c=src%2Fapp%2Fshared%2Fgame-broadcast.ts%40GameBroadcast&t=1792819848945",
+    "http://127.0.0.1:4200/@ng/component?c=src%2Fapp%2Fshared%2Fcollectible-card.ts%40CollectibleCard&t=1792819848946",
+    "http://127.0.0.1:4200/@ng/component?c=src%2Fapp%2Fapp.ts%40App&t=1792819848947",
+    "http://127.0.0.1:4200/media/barlow-condensed-latin-700-normal.woff2",
+    "http://127.0.0.1:4200/media/dm-sans-latin-400-normal.woff2",
+    "http://127.0.0.1:4200/media/barlow-condensed-latin-800-normal.woff2",
+    "http://127.0.0.1:4200/media/dm-sans-latin-600-normal.woff2",
+    "http://127.0.0.1:4200/media/dm-sans-latin-800-normal.woff2",
+    "http://127.0.0.1:4200/art/journey.png",
+    "http://127.0.0.1:4200/media/barlow-condensed-latin-600-normal.woff2",
+    "http://127.0.0.1:4200/media/dm-sans-latin-700-normal.woff2"
+  ],
+  "thirdPartyOrigins": [],
+  "cookies": [],
+  "gear": [
+    {
+      "x": 1,
+      "y": 2,
+      "width": 22,
+      "height": 21,
+      "transform": "translate(1.6800000000000002 1.6800000000000002) scale(0.86)"
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "width": 6,
+      "height": 6,
+      "transform": "translate(1.6800000000000002 1.6800000000000002) scale(0.86)"
+    }
+  ],
+  "cardBrandAccent": "#254b35"
+}
