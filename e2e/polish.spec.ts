@@ -39,8 +39,20 @@ test('System preview follows appearance and a failed Apply retains the candidate
  await page.getByRole('radio',{name:'Navy Gold',exact:true}).check();await expect(page.locator('.theme-preview')).toHaveAttribute('data-theme','dark');
  await page.emulateMedia({colorScheme:'light'});await expect(page.locator('.theme-preview')).toHaveAttribute('data-theme','light');
  await page.evaluate(()=>{IDBObjectStore.prototype.put=function(){throw Error('Quota failure for test');};});
- await page.getByRole('button',{name:'Apply theme',exact:true}).click();
+ const apply=page.getByRole('button',{name:'Apply theme',exact:true});await apply.focus();await page.keyboard.press('Enter');
  await expect(page.locator('.palette-save-error')).toContainText('could not be saved');
  await expect(page.locator('html')).toHaveAttribute('data-palette','forest');await expect(page.getByRole('radio',{name:'Navy Gold',exact:true})).toBeChecked();
  await expect(page.getByRole('button',{name:'Apply theme',exact:true})).toBeEnabled();
+ await expect(apply).toBeFocused();
+});
+
+test('failed appearance changes display the committed preference and survive reload accurately',async({page})=>{
+ await page.emulateMedia({colorScheme:'light'});await page.goto('/');await page.getByRole('button',{name:'Settings',exact:true}).click();
+ await expect(page.getByLabel('Appearance',{exact:true})).toHaveValue('system');
+ await page.evaluate(()=>{IDBObjectStore.prototype.put=function(){throw Error('Quota failure for test');};});
+ await page.getByLabel('Appearance',{exact:true}).selectOption('dark');await expect(page.locator('.save-warning')).toBeVisible();
+ await expect(page.getByLabel('Appearance',{exact:true})).toHaveValue('system');await expect(page.locator('html')).toHaveAttribute('data-theme','light');
+ await expect(page.locator('.appearance-save-error')).toContainText('could not be saved');
+ await page.getByRole('button',{name:'Close dialog'}).click();await page.reload();await page.getByRole('button',{name:'Settings',exact:true}).click();
+ await expect(page.getByLabel('Appearance',{exact:true})).toHaveValue('system');await expect(page.locator('html')).toHaveAttribute('data-theme','light');
 });

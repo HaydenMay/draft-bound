@@ -2,7 +2,7 @@ import {GameView,isInformationPage} from './application/navigation';
 import {InformationPage} from './shared/information-page';
 import {prospectName as generatedName} from './domain/prospect-name';
 import {manualPotentialLimit} from './domain/engine';
-import {CreationMode} from './domain/models';
+import {CreationMode,ThemePreference} from './domain/models';
 import {Brand} from './shared/brand';
 import {PositionPicker} from './shared/position-picker';
 import {ThemePicker} from './shared/theme-picker';
@@ -43,6 +43,7 @@ export class App {
   readonly manualLimit = manualPotentialLimit;
   readonly jerseyNumber = signal(11);
   readonly formError = signal('');
+  readonly appearanceFailed=signal(false);
   readonly selectedSource = signal('');
   readonly trainingMode = signal<'balanced' | 'focused' | 'intensive'>('balanced');
   readonly trainingTarget = signal('speed');
@@ -148,6 +149,7 @@ export class App {
     effect(()=>{const run=this.game.run(),key=run?.phase==='reveal'?run.id:'';if(key!==this.revealRun){this.revealRun=key;this.autoRevealComplete.set(!!key&&this.automaticTraits().length===0);}});
     effect(() => {
       const open = this.modal();
+      if(open!=='settings')this.appearanceFailed.set(false);
       if (open) {
         if (!document.querySelector('.modal')?.contains(document.activeElement)) this.previousFocus = document.activeElement as HTMLElement;
         setTimeout(() => {
@@ -160,6 +162,15 @@ export class App {
         this.previousFocus = null;
       }
     });
+  }
+
+  async changeAppearance(event:Event):Promise<void>{
+    const select=event.target as HTMLSelectElement,requested=select.value as ThemePreference,focused=document.activeElement===select;
+    this.appearanceFailed.set(false);
+    await this.game.setTheme(requested);
+    select.value=this.game.themePreference();
+    this.appearanceFailed.set(this.game.themePreference()!==requested);
+    if(focused)setTimeout(()=>{if(this.modal()==='settings'&&document.activeElement===document.body)select.focus();});
   }
 
   @HostListener('document:keydown', ['$event'])

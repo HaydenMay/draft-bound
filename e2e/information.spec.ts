@@ -3,6 +3,12 @@ import {emptySave} from '../src/app/persistence/save';
 import {createCollege,completeRun} from '../src/app/domain/test-fixtures';
 import {writeSave,readSave} from './storage-helper';
 
+test('Back from information restores a homepage opened without a hash',async({page})=>{
+ await page.goto('/');await expect(page.locator('.hero')).toBeVisible();
+ await page.getByRole('contentinfo').getByRole('link',{name:'About',exact:true}).click();await expect(page.getByRole('heading',{name:'About',exact:true})).toBeVisible();
+ await page.goBack();await expect(page).toHaveURL(/\/$/);await expect(page.locator('.hero')).toBeVisible();
+});
+
 test('information deep links, refresh and Back preserve the active run and collection',async({page})=>{
  await page.goto('/');await expect(page.getByRole('button',{name:'Create your prospect',exact:true})).toBeVisible();
  const save=emptySave();save.run=createCollege(314);save.entries=[completeRun(82).entry!];await writeSave(page,save);

@@ -10,7 +10,7 @@ Combine real-player trait inspirations, develop a prospect through four-game col
 
 Progress saves in this browser on this device. Use **Saves & settings → Export game save** for backups or to move devices. Import previews a replacement and downloads your previous save first. No account, payments, or runtime AI services.
 
-Choose **Saves & settings → Color theme** for five palettes, independently of **Appearance → System / Light / Dark**. Printed cards and exports keep their own palettes. New prospects can use Quick creation (three manual potential choices) or Full creation (all eight remaining choices). See `docs/V1_2_RELEASE.md` for changes and validation, and `docs/COLORS_AND_EXTENSIBILITY.md` for team palettes and position-expansion boundaries.
+Choose **Saves & settings → Color theme** for 16 palettes with preview and Apply, independently of **Appearance → System / Light / Dark**. Printed cards and exports keep their own palettes. New prospects can use Quick creation (three manual potential choices) or Full creation (all eight remaining choices). See `docs/V1_2_RELEASE.md` for changes and validation, and `docs/COLORS_AND_EXTENSIBILITY.md` for team palettes and position-expansion boundaries.
 
 ## Development
 
@@ -51,3 +51,7 @@ Real receiver names serve as trait inspirations. All grades and physical profile
 The original scene illustrations were generated for this project and bundled locally. They use shared fictional athletes and fixed uniforms; they are not portraits of the named trait sources. Card frames use the selected college's palette. Two-color jersey layers are a planned refinement. See `docs/ROADMAP.md` and `public/art/ATTRIBUTION.md`.
 
 All saves remain local. Clearing browser data can remove progress. No analytics, advertising, account tracking or remote save uploads are included.
+
+## v1.3.1 review branch
+
+Visual polish and informational/legal drafts are implemented on feat/legal-visual-polish. See [implementation report](docs/validation/V1_3_1_REPORT.md). Public legal-page deployment awaits owner contact details and wording approval; the live site remains v1.2.

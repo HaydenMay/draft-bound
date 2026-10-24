@@ -44,7 +44,7 @@ About, Privacy, Terms and Contact have direct hash links, refresh and browser Ba
 | Gameplay preservation | Complete | Domain engine/content unchanged; full regression suite |
 | Production build and prefix smoke | Complete | Local `/draft-bound/`, assets, deep links and PNG exports |
 | Desktop/mobile visual inspection | Complete | Eleven screen types in both sizes, two extra palette views; actual exported PNG inspected |
-| Fresh whole-branch review | Pending final review | See review record after completion |
+| Fresh whole-branch review | Complete with findings addressed | Three Important findings reproduced RED→GREEN; full 29-case suite passed after corrections |
 | Public release | Blocked | Approved public contact/operator information and publication wording remain outstanding |
 
 ## Root-cause findings
@@ -67,8 +67,8 @@ Final evidence is recorded below and updated after the final review/fix pass:
 
 - `npm test -- --reporter=dot`: 75/75 units passed.
 - `npm run typecheck`: passed.
-- `npm run test:e2e -- --reporter=line`: 27/27 browser tests passed on the final implementation, including seal-paint parity.
-- `npm run build:pages`: passed; 536.80 kB raw / 124.91 kB estimated transfer, main-E5MJGGLR.js and styles-775M4SWL.css.
+- `npm run test:e2e -- --reporter=line`: 29/29 browser tests passed after the review corrections, including seal-paint parity.
+- `npm run build:pages`: passed; 537.55 kB raw / 125.18 kB estimated transfer, main-XOETOJAS.js and styles-FXXL5HTX.css.
 - `npx tsx tools/validate-v131.ts`: local production-prefix smoke, 24 screenshots and two PNG downloads. No failed requests/page errors, third-party origins or cookies observed. Repeated successfully after the final seal correction.
 - [Contrast measurements](v1.3.1-contrast.json): all 32 combinations meet the tested 4.5:1 text / 3:1 control-state thresholds. This is a scoped engineering check, not a claim of complete accessibility certification.
 
@@ -97,3 +97,9 @@ GitHub Pages is the actual hosting service. Official documentation says Pages vi
 The catalog retains 90 real receiver names and illustrative profiles/grades. Existing fictional college/team identities remain. All six scene files were visually inspected: no clearly readable NFL/NCAA team logo or real-player photo was identified, but existing small swoosh-like apparel marks on action-art gloves/pants remain an owner content-review concern. The attribution document is not proof of rights clearance. No disclaimer is asserted to supply a license. Further rights/legal decisions require appropriate owner/professional review.
 
 Future gameplay, larger player pools, balancing, actual teams/colleges and modular/recolored artwork remain outside this release. v1.4 decisions are [preserved separately](../superpowers/specs/2026-10-23-v1.4-preserved.md); artwork remains shelved for v1.5.
+
+## Final review corrections
+
+The fresh read-only reviewer examined baseline cb86e1b through implementation 67c81a9. No Critical findings; three Important issues were confirmed in a transient Chromium context: Back to the bare root URL retained About, a rejected appearance write retained the wrong native select value, and disabling focused Apply during persistence lost keyboard focus. Each was reproduced by a failing regression, then corrected in one fix pass. Empty hash now resolves home; appearance controls restore the committed preference and show a contextual error; Apply uses guarded aria-disabled semantics so focus survives pending/failed writes. README now describes 16 palettes. Final release checks: 75 unit tests, typecheck, 29 browser tests, Pages build and local production-prefix smoke passed.
+
+Reviewer exclusions were ruled appropriate: legal sufficiency/rights clearance remain with the owner and appropriate professional review; accessibility evidence is scoped rather than universal certification; future v1.4/v1.5 features remain outside this release. No further reviewer was dispatched.

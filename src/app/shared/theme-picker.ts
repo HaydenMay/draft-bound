@@ -19,7 +19,7 @@ import {Brand} from './brand';
    </label>
   }</div>
   @if(attempted()&&failed()&&candidate()!==selected()){<p class="palette-save-error" role="alert">Theme could not be saved. Retry Apply or export a backup.</p>}
-  <div class="palette-apply"><button type="button" class="button primary" (click)="apply()" [disabled]="disabled()||candidate()===selected()">Apply theme <app-icon name="check"/></button></div>
+  <div class="palette-apply"><button type="button" class="button primary" (click)="apply()" [attr.aria-disabled]="disabled()||candidate()===selected()">Apply theme <app-icon name="check"/></button></div>
  </fieldset>`})
 export class ThemePicker {
  readonly palettes=PALETTES;readonly selected=input<PaletteId>('forest');readonly disabled=input(false);readonly preference=input<ThemePreference>('system');readonly picked=output<PaletteId>();
