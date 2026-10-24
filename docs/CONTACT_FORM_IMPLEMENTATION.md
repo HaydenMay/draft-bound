@@ -23,3 +23,12 @@ These are implementation requirements, not copy to display on the Contact page.
 - Include the save troubleshooting and feedback expectations copy from the user-provided Contact page text.
 
 The page currently explains that the contact form is unavailable. Replace that notice with the active form only after service configuration, privacy copy, and delivery verification are complete.
+
+## Current code behavior
+
+- `src/app/data/contact-form-config.ts` contains an empty endpoint and a disabled submission flag. The form stays unavailable until both are configured.
+- The form sends JSON with `POST` and shows success only after the configured endpoint returns a successful HTTP response.
+- The provider must accept cross-origin browser requests from the GitHub Pages origin, support the JSON field names used by the form, and provide any additional spam filtering required.
+- The configured endpoint is public browser code. Never put a private API key or secret in this file; use a provider endpoint or public-client credential intended for static sites.
+- The built-in honeypot is a low-friction first layer, not a replacement for provider-side abuse controls.
+- Update the Privacy page and owner contact details before enabling submissions. Do not enable the form merely by setting an endpoint.
