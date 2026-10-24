@@ -9,6 +9,7 @@ import collectionFixture from './fixtures/v1.3.1-collection.json';
 function compactEntry(id:string){
  const entry=structuredClone(completeRun(82).entry!);entry.id=id;
  entry.draft.history=[];entry.draft.years=[];entry.draft.transfers=[];entry.draft.interventions=[];entry.draft.awards=[];entry.draft.unlocks=[];
+ entry.draftCard.sceneId='prospect_journey';
  entry.draft.gauntlet=entry.draft.gauntlet.map(check=>({...check,label:'',description:'',attributes:[]}));
  return entry;
 }
@@ -75,6 +76,27 @@ it('atomically rejects simultaneous stale writers before they can overwrite a sa
 });
 it('rejects malformed display rows and missing starting OVR before rendering a binder',()=>{const save=emptySave();save.entries=[completeRun().entry!];save.entries[0].display.attributes=[null as any];expect(previewSave(JSON.stringify(save)).ok).toBe(false);save.entries=[completeRun().entry!];delete (save.entries[0].draft.prospect as any).initialOvr;expect(previewSave(JSON.stringify(save)).ok).toBe(false);});
 it('accepts legacy saves without a theme and rejects invalid new theme values',()=>{const save=emptySave();delete (save.settings as any).theme;expect(previewSave(JSON.stringify(save)).ok).toBe(true);(save.settings as any).theme='sepia';expect(previewSave(JSON.stringify(save)).ok).toBe(false);});
+it('does not let an imported profile grant locked frames or foil finishes',()=>{
+ const save=emptySave(),entry=completeRun(82).entry!;
+ entry.draft.prospect.current={...entry.draft.prospect.initial};
+ entry.draft.finalOvr=60;entry.draft.outcome={status:'undrafted'};entry.draft.unlocks=[];
+ entry.draftCard={sceneId:'prospect_journey',frame:'classic',foil:false,showStamp:true};
+ save.entries=[entry];save.profile={achievements:['Generational','Legendary career'],frames:['classic','legend']};
+ const sanitized=previewSave(JSON.stringify(save));expect(sanitized.ok).toBe(true);expect(sanitized.data!.profile.frames).not.toContain('legend');expect(sanitized.data!.profile.achievements).not.toContain('Generational');
+ const forged=structuredClone(save);forged.entries[0].draftCard={sceneId:'prospect_journey',frame:'legend',foil:true,showStamp:true};
+ const rejected=previewSave(JSON.stringify(forged));expect(rejected.ok).toBe(false);expect(rejected.errors.join(' ')).toMatch(/finish.*earned/i);
+ expect(rejected.data).toBeUndefined();
+});
+it('does not accept claimed frames in a new empty collection',()=>{
+ const save=emptySave();save.profile={achievements:['Generational'],frames:['classic','legend']};
+ const restored=previewSave(JSON.stringify(save));expect(restored.ok).toBe(true);expect(restored.data!.profile).toEqual({achievements:[],frames:['classic']});
+});
+it('rejects a known but unearned scene on an imported card',()=>{
+ const save=emptySave(),entry=completeRun(82).entry!;
+ entry.draft.prospect.current={...entry.draft.prospect.initial};entry.draft.finalOvr=60;entry.draft.outcome={status:'undrafted'};entry.draft.unlocks=[];
+ entry.draftCard={sceneId:'breakaway_star',frame:'classic',foil:false,showStamp:true};save.entries=[entry];
+ const rejected=previewSave(JSON.stringify(save));expect(rejected.ok).toBe(false);expect(rejected.errors.join(' ')).toMatch(/artwork.*earned/i);
+});
 it('round trips palette preferences and safely normalizes unknown identifiers without touching game records',()=>{
  const save=emptySave();save.run=createCollege();const before=JSON.stringify(save.run);
  (save.settings as any).palette='navy';const restored=previewSave(JSON.stringify(save));expect(restored.errors).toEqual([]);expect((restored.data!.settings as any).palette).toBe('navy');expect(JSON.stringify(restored.data!.run)).toBe(before);

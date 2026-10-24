@@ -10,6 +10,7 @@ import collectionFixture from '../src/app/persistence/fixtures/v1.3.1-collection
 function compactEntry(id:string):BinderEntry{
  const entry=structuredClone(completeRun(81).entry!);entry.id=id;
  entry.draft.history=[];entry.draft.years=[];entry.draft.transfers=[];entry.draft.interventions=[];entry.draft.awards=[];entry.draft.unlocks=[];
+ entry.draftCard.sceneId='prospect_journey';
  entry.draft.gauntlet=entry.draft.gauntlet.map(check=>({...check,label:'',description:'',attributes:[]}));
  return entry;
 }

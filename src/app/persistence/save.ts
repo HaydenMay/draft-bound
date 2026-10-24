@@ -4,6 +4,8 @@ import {SaveEnvelope} from '../domain/models';
 import {RULES_VERSION,WR_DEFINITION} from '../domain/positions';
 import {sourcePlayersForVersion} from '../data/source-players';
 import {COLLEGES} from '../data/colleges';
+import {ART_SCENES} from '../data/art-scenes';
+import {ACHIEVEMENT_REGISTRY,cosmeticProfile} from '../domain/eligibility';
 export function emptySave():SaveEnvelope{return {schemaVersion:1,rulesVersion:RULES_VERSION,run:null,entries:[],profile:{achievements:[],frames:['classic']},settings:{fastForward:false,theme:'system',palette:'forest'}};}
 export const MAX_BINDER_ENTRIES=1000;
 export const MAX_SAVE_BYTES=256*1024*1024;
@@ -32,6 +34,9 @@ function validEntry(e:any):boolean{
  if(!validDraft(e.draft)||!finite(e.nflSeed,0,0xffffffff))return false;
  if(e.career===null)return e.careerCard===null;
  const c=e.career;return isObject(c)&&['simulated_not_inducted','simulated_inducted'].includes(c.status)&&array(c.seasons,15)&&c.seasons.length>=3&&c.seasons.every((s:any)=>isObject(s)&&finite(s.year,1,15)&&finite(s.age,18,50)&&isObject(s.team)&&text(s.team.displayName)&&isObject(s.stats)&&['targets','receptions','yards','touchdowns'].every(k=>finite(s.stats[k]))&&s.stats.receptions<=s.stats.targets)&&isObject(c.totals)&&['targets','receptions','yards','touchdowns'].every(k=>finite(c.totals[k]))&&array(c.awards,15)&&c.awards.every(validAward)&&isObject(c.induction)&&typeof c.induction.inducted==='boolean'&&text(c.induction.criteria)&&validUnlocks(c.unlocks)&&validCard(e.careerCard);
+}
+function validCardCustomization(card:any,unlocks:any[],profile:SaveEnvelope['profile'],legacyFinish:boolean):boolean{
+ return validCard(card)&&ART_SCENES.some(scene=>scene.id===card.sceneId)&&(card.sceneId==='prospect_journey'||unlocks.some(unlock=>unlock.sceneId===card.sceneId))&&(legacyFinish||profile.frames.includes(card.frame)&&(!card.foil||profile.frames.includes('legend')));
 }
 function validRun(r:any):boolean{
  if(!isObject(r)||r.positionId!=='wr'||r.rulesVersion!==RULES_VERSION||!text(r.id)||!text(r.name)||!phases.includes(r.phase)||!finite(r.seed,0,0xffffffff)||!finite(r.rng,0,0xffffffff)||!finite(r.nflSeed,0,0xffffffff)||!finite(r.rerolls,0,3)||!finite(r.year,1,3)||!finite(r.gameNumber,0,12)||!validHistory(r.history)||!array(r.years,3)||!array(r.transfers,2)||!array(r.interventions,9)||!array(r.usedInterventions,COACHING_TYPES.length)||!array(r.processedCommands,200)||!validUnlocks(r.unlocks)||!array(r.awards,3)||!isObject(r.creation))return false;
@@ -68,6 +73,19 @@ export function previewSave(input:string):{ok:boolean;errors:string[];data?:Save
   if(!data.entries.every(validEntry)||new Set(data.entries.map((e:any)=>e.id)).size!==data.entries.length)throw Error('The binder contains incomplete or invalid records.');
   if(data.run!==null&&!validRun(data.run))throw Error('The active prospect is incomplete or uses incompatible rules.');
   if(!isObject(data.profile)||!array(data.profile.achievements,100)||!data.profile.achievements.every(text)||!array(data.profile.frames,6)||!data.profile.frames.every((f:any)=>frames.includes(f))||!isObject(data.settings)||typeof data.settings.fastForward!=='boolean'||(data.settings.theme!==undefined&&!['system','light','dark'].includes(data.settings.theme))||(data.settings.palette!==undefined&&typeof data.settings.palette!=='string'))throw Error('Save settings or collection unlocks are invalid.');
+  // v1.3.2 and earlier stored card finishes as user preferences without
+  // achievement gating. Preserve those records; v1.4 records must earn them.
+  const hasV14Records=data.entries.length===0||data.entries.some((entry:any)=>entry.draft?.professionalRulesVersion==='v1.4')||data.run?.sourceCatalogVersion==='wr-original-illustrations-v1.4-90';
+  const claimedProfile=hasV14Records?{achievements:data.profile.achievements.filter((id:string)=>!ACHIEVEMENT_REGISTRY.some(definition=>definition.id===id)),frames:['classic'] as SaveEnvelope['profile']['frames']}:data.profile;
+  const earned=cosmeticProfile(data.entries,claimedProfile);
+  for(const entry of data.entries){
+   const draftUnlocks=isObject(entry.draft)&&Array.isArray(entry.draft.unlocks)?entry.draft.unlocks:[];
+   const careerUnlocks=isObject(entry.career)&&Array.isArray(entry.career.unlocks)?entry.career.unlocks:[];
+   const legacyFinish=entry.positionId!=='wr'||entry.draft?.professionalRulesVersion!=='v1.4';
+   const careerAndDraftUnlocks=[...draftUnlocks,...careerUnlocks];
+   if(!validCardCustomization(entry.draftCard,draftUnlocks,earned,legacyFinish)||entry.careerCard!==null&&!validCardCustomization(entry.careerCard,careerAndDraftUnlocks,earned,legacyFinish))throw Error('The binder contains card artwork or a finish that has not been earned.');
+  }
+  data.profile=earned;
   if(typeof data.settings.palette==='string'&&!PALETTES.some(p=>p.id===data.settings.palette))data.settings.palette='forest';
   return {ok:true,errors:[],data};
  }catch(error){return {ok:false,errors:[error instanceof Error?error.message:'Could not read that save.']};}

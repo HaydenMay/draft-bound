@@ -10,12 +10,14 @@ The new professional simulator uses deterministic `nflSeed` output, production v
 
 Gameplay explanations now separate current skill, trait ceiling, natural gift, school coaching focus, weighted overall, Quick autofill and post-draft career simulation. Existing gameplay mechanics, themes, legal gates, fictional teams, WR-only playable scope and art remain unchanged.
 
+Save import now reconciles v1.4 achievement IDs and frames from the binder records before accepting current-format card finishes. V1.4 card scenes must exist in the art catalog and be unlocked for the relevant edition. The v1.3.2 and older compatibility path preserves their historical frame preferences, because those versions did not use achievement-gated finishes; current v1.4 records cannot use claimed profile metadata to grant them.
+
 ## Verification
 
 - `npm run typecheck` — pass.
-- `npm test` — 91 tests passed across 13 files.
-- `PLAYWRIGHT_PORT=4327 npx playwright test --workers=4` — 44 Chromium tests passed. The alternate port avoids an unrelated local service bound to 4200. Mobile viewport behavior, responsive layouts, theme contrast, route refresh, storage preservation, and achievements are covered in Playwright. Physical iOS/Safari device testing was not performed.
-- `npm run build:pages` — pass; 428.49 kB raw JavaScript and 156.71 kB raw CSS (133.06 kB estimated total transfer), built with `/draft-bound/` base path.
+- `npm test` — 94 tests passed across 13 files, including v1.4 imported-frame, foil and scene validation plus legacy save compatibility.
+- `PLAYWRIGHT_PORT=4327 npx playwright test --reporter=line` — 44 Chromium tests passed. The alternate port avoids an unrelated local service bound to 4200. Mobile viewport behavior, responsive layouts, theme contrast, route refresh, storage preservation, and achievements are covered in Playwright. Physical iOS/Safari device testing was not performed.
+- `npm run build:pages` — pass; 429.38 kB raw JavaScript and 156.71 kB raw CSS (133.14 kB estimated total transfer), built with `/draft-bound/` base path.
 - `npm run balance` — pass; 10,000 prospects, mean starting OVR 61.58, mean final OVR 88.05, mean growth 26.48, median 88, p10 84, p90 92, first-round 50.47%, undrafted 0, ceiling violations 0.
 - `npm run balance:paired` — pass; 1,000 generated prospects, 3,000 matched school/profile career pairs, zero progression violations. Its generated legacy reports were restored afterward so the archived historical v1.2 / v1.3.2 evidence remains frozen.
 - `npx tsx tools/v1.4-pro-balance.ts` — pass; eight matched cohorts of 500 each, deterministic seeds 10000–10499, full source selection, ceiling and professional-outcome distributions in [V1_4_PROFESSIONAL_BALANCE.md](./V1_4_PROFESSIONAL_BALANCE.md) and [v1.4-professional-balance.json](./v1.4-professional-balance.json).

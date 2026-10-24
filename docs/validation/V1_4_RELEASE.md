@@ -6,7 +6,8 @@
 - [x] Professional simulator versioned; new drafts use v1.4, old drafts use legacy rules and saved careers are immutable.
 - [x] Professional and source distribution evidence documented with repeatable seeds.
 - [x] Current development semantics explained without changing the college/training model.
-- [x] Typecheck, unit tests, E2E, Pages build, baseline balance, paired progression report and v1.4 balance cohorts pass.
+- [x] Typecheck, 94 unit tests, 44 E2E tests, Pages build, baseline balance, paired progression report and v1.4 balance cohorts pass.
+- [x] Imported v1.4 card frames, foil and scene IDs are validated against saved achievements and edition unlocks; frozen pre-v1.4 card finishes remain compatible.
 - [x] Browser/mobile visual and navigation checks pass at the tested viewport sizes.
 - [ ] Physical iOS/Safari validation (not available in this environment).
 - [ ] Push commit to GitHub `main` and verify GitHub Pages deployment status.
