@@ -16,11 +16,11 @@ Review the public-facing About, Terms of Use, Privacy Policy and Contact pages b
 - Update the Privacy Policy for new data collected, purpose, processing providers, retention, and player choices.
 - Update the Terms and any independent-game disclaimer when game behavior, references, or availability claims change.
 - Verify that Contact accurately describes the working submission path. Never show a success state for a message that was not delivered.
-- Confirm the public operator/contact details and effective dates with the owner; do not invent them.
+- Confirm the public operator/contact details with the owner; do not invent them. Set each revised policy's effective/updated date to its approved publication date.
 - Obtain the owner's approval of revised public wording and note the approved effective date.
 - Keep each page's draft notice until its publication prerequisites are satisfied. Only then mark that page publishable and remove its notice.
 - Run the relevant content validation, typecheck, unit tests, browser tests, and production build before publishing.
 
 ## Current publication gate
 
-Terms and Privacy still need owner-approved public contact details and effective dates. Contact remains a draft until a delivery service and public contact method are configured and verified. The supplied copy is approved as wording, but those missing publication details do not authorize removing the visible draft notices.
+Terms and Privacy use October 24, 2026 as their Last Updated date. They still need owner-approved public contact details before their draft notices can be removed. Contact remains a draft until a delivery service and public contact method are configured and verified. The supplied copy is approved as wording, but those missing publication details do not authorize removing the visible draft notices.

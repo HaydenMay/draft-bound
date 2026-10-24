@@ -46,6 +46,7 @@ test('Terms and Privacy provide readable, reloadable section links on mobile',as
  await page.setViewportSize({width:390,height:844});
  for(const id of ['terms','privacy']){
   await page.goto('/#'+id);
+  await expect(page.getByText('Last Updated: October 24, 2026')).toBeVisible();
   const toc=page.getByRole('navigation',{name:'On this page'});
   const links=toc.getByRole('link');
   await expect(links).not.toHaveCount(0);

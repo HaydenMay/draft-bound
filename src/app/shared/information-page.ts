@@ -9,6 +9,7 @@ import {ContactForm} from './contact-form';
  template:`
   <article class="information-page page-width">
    <h1 tabindex="-1" data-information-heading>{{content().title}}</h1>
+   @if(content().updatedDate){<p class="information-updated">Last Updated: {{content().updatedDate}}</p>}
    @if(content().draft){<p class="information-draft">{{content().draftNotice??'Draft · Publication details pending'}}</p>}
    @for(paragraph of content().intro??[];track $index){<p>{{paragraph}}</p>}
    @if(tocSections().length){
