@@ -3,6 +3,9 @@ import 'fake-indexeddb/auto';
 import {GameRepository,emptySave,previewSave} from './save';
 import {createRun} from '../domain/engine';
 import {createCollege,completeRun,step} from '../domain/test-fixtures';
+import quickFixture from './fixtures/v1.3.1-quick.json';
+import fullFixture from './fixtures/v1.3.1-full.json';
+import collectionFixture from './fixtures/v1.3.1-collection.json';
 function compactEntry(id:string){
  const entry=structuredClone(completeRun(82).entry!);entry.id=id;
  entry.draft.history=[];entry.draft.years=[];entry.draft.transfers=[];entry.draft.interventions=[];entry.draft.awards=[];entry.draft.unlocks=[];
@@ -35,6 +38,20 @@ it('allows a 1,000-entry binder to reload and rejects entry 1,001 with a specifi
  const restored=await new GameRepository(name).read();expect(restored?.entries).toHaveLength(1000);expect(previewSave(JSON.stringify(restored)).ok).toBe(true);
  const tooMany=structuredClone(save);tooMany.entries.push({...structuredClone(entry),id:'cap-entry-1000'});
  const rejected=previewSave(JSON.stringify(tooMany));expect(rejected.ok).toBe(false);expect(rejected.errors.join(' ')).toMatch(/1,000/);
+});
+it('keeps frozen v1.3.1 Quick, Full, collection, career, archive and preference fixtures byte-for-byte intact',()=>{
+ for(const fixture of [quickFixture,fullFixture,collectionFixture]){
+  const json=JSON.stringify(fixture),restored=previewSave(json);
+  expect(restored.errors).toEqual([]);expect(JSON.stringify(restored.data)).toBe(json);
+ }
+ expect(quickFixture.run?.creationMode).toBe('quick');expect(quickFixture.run?.rng).toBeGreaterThan(0);
+ expect(fullFixture.run?.creationMode).toBe('full');expect(fullFixture.run?.rng).toBeGreaterThan(0);
+ expect(collectionFixture.entries).toHaveLength(3);
+ expect(collectionFixture.entries.some(entry=>entry.career!==null&&entry.careerCard!==null)).toBe(true);
+ expect(collectionFixture.entries.some(entry=>entry.positionId==='qb')).toBe(true);
+ expect(collectionFixture.entries.some(entry=>entry.favorite)).toBe(true);
+ expect(collectionFixture.profile.frames).toHaveLength(6);
+ expect(collectionFixture.settings).toMatchObject({fastForward:true,theme:'dark',palette:'navy'});
 });
 it('round trips a saved broadcast but rejects malformed nested game and event payloads',()=>{
  const save=emptySave();save.run=step(createCollege(314),{type:'train',plan:{mode:'balanced'}});

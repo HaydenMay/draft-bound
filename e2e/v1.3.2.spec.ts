@@ -1,9 +1,11 @@
 import {test,expect} from '@playwright/test';
+import {readFileSync} from 'node:fs';
 import {emptySave,previewSave} from '../src/app/persistence/save';
 import {createRun} from '../src/app/domain/engine';
 import {completeRun} from '../src/app/domain/test-fixtures';
 import {BinderEntry,SaveEnvelope,RunState} from '../src/app/domain/models';
 import {readSave,writeSave} from './storage-helper';
+import collectionFixture from '../src/app/persistence/fixtures/v1.3.1-collection.json';
 
 function compactEntry(id:string):BinderEntry{
  const entry=structuredClone(completeRun(81).entry!);entry.id=id;
@@ -48,4 +50,18 @@ test('an oversized import is rejected before it can replace the current collecti
  await page.locator('#save-file').setInputFiles({name:'oversized-binder.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(tooMany))});
  await expect(page.getByRole('alert')).toContainText('more than 1,000 cards');
  const persisted=await readSave(page);expect(JSON.stringify(persisted)).toBe(JSON.stringify(current));
+});
+
+test('the public backup flow exports and re-imports a v1.3.1 collection without changing saved outcomes',async({page})=>{
+ const save=collectionFixture as SaveEnvelope;await page.goto('/');await writeSave(page,save);await page.reload();
+ await page.getByRole('button',{name:'Settings'}).click();
+ const exportedDownload=page.waitForEvent('download');await page.getByRole('button',{name:/Export game save/}).click();
+ const exportedFile=await exportedDownload,exportedPath=await exportedFile.path();expect(exportedPath).not.toBeNull();
+ const exported=JSON.parse(readFileSync(exportedPath!,'utf8'));expect(JSON.stringify(exported)).toBe(JSON.stringify(save));
+ await page.getByRole('button',{name:'Import game save'}).click();
+ await page.locator('#save-file').setInputFiles({name:'draft-bound-save.json',mimeType:'application/json',buffer:readFileSync(exportedPath!)});
+ await expect(page.locator('.import-preview')).toContainText('SAVE CHECKED');
+ const backupDownload=page.waitForEvent('download');await page.getByRole('button',{name:'Replace with this save'}).click();
+ expect((await backupDownload).suggestedFilename()).toContain('draft-bound-save-');
+ expect(JSON.stringify(await readSave(page))).toBe(JSON.stringify(save));
 });

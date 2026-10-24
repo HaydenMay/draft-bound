@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "rulesVersion": "wr-1.2",
+  "run": {
+    "id": "db-796-mjuohs00",
+    "creationMode": "full",
+    "balanceVersion": "v1.2",
+    "positionId": "wr",
+    "rulesVersion": "wr-1.2",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "seed": 9402,
+    "rng": 503962678,
+    "nflSeed": 1513985964,
+    "name": "Full Fixture",
+    "jerseyNumber": 11,
+    "phase": "potential",
+    "rerolls": 3,
+    "creation": {
+      "traits": {
+        "yardsAfterCatch": {
+          "attributeId": "yardsAfterCatch",
+          "sourcePlayerId": "tyreek-hill",
+          "grade": "S",
+          "ceiling": 99,
+          "origin": "gift"
+        },
+        "speed": {
+          "attributeId": "speed",
+          "sourcePlayerId": "john-brown",
+          "grade": "A",
+          "ceiling": 93,
+          "origin": "manual"
+        }
+      },
+      "giftOffers": [
+        {
+          "attributeId": "yardsAfterCatch",
+          "sourcePlayerId": "tyreek-hill",
+          "grade": "S"
+        },
+        {
+          "attributeId": "vertical",
+          "sourcePlayerId": "randy-moss",
+          "grade": "S"
+        },
+        {
+          "attributeId": "routeRunning",
+          "sourcePlayerId": "raymond-berry",
+          "grade": "S"
+        }
+      ],
+      "sizeOfferId": "mike-wallace",
+      "playerOffers": [
+        "vincent-jackson",
+        "calvin-johnson",
+        "hines-ward"
+      ],
+      "manualCount": 1,
+      "physical": {
+        "heightCm": 183,
+        "weightKg": 90,
+        "build": "Straight-line deep specialist",
+        "grade": "A",
+        "sourcePlayerId": "mike-wallace"
+      }
+    },
+    "prospect": null,
+    "collegeId": "",
+    "year": 1,
+    "gameNumber": 0,
+    "history": [],
+    "years": [],
+    "transfers": [],
+    "interventions": [],
+    "usedInterventions": [],
+    "pendingIntervention": null,
+    "lastBlock": null,
+    "yearStartOvr": 0,
+    "awards": [],
+    "unlocks": [],
+    "draft": null,
+    "processedCommands": [
+      "fixture-0",
+      "fixture-1",
+      "fixture-2"
+    ]
+  },
+  "entries": [],
+  "profile": {
+    "achievements": [],
+    "frames": [
+      "classic"
+    ]
+  },
+  "settings": {
+    "fastForward": false,
+    "theme": "system",
+    "palette": "forest"
+  }
+}

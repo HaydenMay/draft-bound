@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "rulesVersion": "wr-1.2",
+  "run": {
+    "id": "db-795-mjuohs00",
+    "creationMode": "quick",
+    "balanceVersion": "v1.2",
+    "positionId": "wr",
+    "rulesVersion": "wr-1.2",
+    "createdAt": "2026-01-01T00:00:00.000Z",
+    "seed": 9401,
+    "rng": 503962677,
+    "nflSeed": 480638997,
+    "name": "Quick Fixture",
+    "jerseyNumber": 11,
+    "phase": "potential",
+    "rerolls": 3,
+    "creation": {
+      "traits": {
+        "speed": {
+          "attributeId": "speed",
+          "sourcePlayerId": "randy-moss",
+          "grade": "S",
+          "ceiling": 99,
+          "origin": "gift"
+        },
+        "acceleration": {
+          "attributeId": "acceleration",
+          "sourcePlayerId": "fred-biletnikoff",
+          "grade": "C+",
+          "ceiling": 78,
+          "origin": "manual"
+        }
+      },
+      "giftOffers": [
+        {
+          "attributeId": "speed",
+          "sourcePlayerId": "randy-moss",
+          "grade": "S"
+        },
+        {
+          "attributeId": "hands",
+          "sourcePlayerId": "cris-carter",
+          "grade": "S"
+        },
+        {
+          "attributeId": "vertical",
+          "sourcePlayerId": "calvin-johnson",
+          "grade": "S"
+        }
+      ],
+      "sizeOfferId": "dk-metcalf",
+      "playerOffers": [
+        "marques-colston",
+        "keenan-mccardell",
+        "andre-rison"
+      ],
+      "manualCount": 1,
+      "physical": {
+        "heightCm": 193,
+        "weightKg": 104,
+        "build": "Powerful long-striding sprinter",
+        "grade": "A",
+        "sourcePlayerId": "dk-metcalf"
+      }
+    },
+    "prospect": null,
+    "collegeId": "",
+    "year": 1,
+    "gameNumber": 0,
+    "history": [],
+    "years": [],
+    "transfers": [],
+    "interventions": [],
+    "usedInterventions": [],
+    "pendingIntervention": null,
+    "lastBlock": null,
+    "yearStartOvr": 0,
+    "awards": [],
+    "unlocks": [],
+    "draft": null,
+    "processedCommands": [
+      "fixture-0",
+      "fixture-1",
+      "fixture-2"
+    ]
+  },
+  "entries": [],
+  "profile": {
+    "achievements": [],
+    "frames": [
+      "classic"
+    ]
+  },
+  "settings": {
+    "fastForward": false,
+    "theme": "system",
+    "palette": "forest"
+  }
+}
