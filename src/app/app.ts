@@ -17,7 +17,7 @@ import { GameStore } from './application/game-store';
 import { ART_SCENES } from './data/art-scenes';
 import { COLLEGES } from './data/colleges';
 import { SOURCE_PLAYERS,sourcePlayersForVersion } from './data/source-players';
-import { RECEIVER_PROFILES, RECEIVER_TEAMS, receiverTeam } from './data/receiver-catalog';
+import { RECEIVER_PROFILES, RECEIVER_TEAMS, receiverTeam, eligibleReceiversForTeam, receiverCatalogVersionForRun } from './data/receiver-catalog';
 import { WR_DEFINITION } from './domain/positions';
 import { BinderEntry, CardCustomization, CardEdition, CardViewModel, GameCommandPayload, ReceiverProfileDefinition, RunPhase, SaveEnvelope, SourcePlayerDefinition, TrainingPlan } from './domain/models';
 import { CollectibleCard } from './shared/collectible-card';
@@ -47,7 +47,7 @@ export class App {
   readonly creationMode = signal<CreationMode>('full');
   readonly manualLimit = manualPotentialLimit;
   readonly spotlightRoll = computed(() => { const run = this.game.run(), roll = run?.creation.currentRoll; return run?.phase === 'potential' && run.creationFlowVersion === 'single-receiver-v1.4.2' ? roll ?? null : null; });
-  readonly spotlightBoards = computed<SpotlightBoards | null>(() => { const roll = this.spotlightRoll(); return roll ? createSpotlightBoards(RECEIVER_TEAMS, RECEIVER_PROFILES, roll.teamId, roll.receiverId) : null; });
+  readonly spotlightBoards = computed<SpotlightBoards | null>(() => { const roll = this.spotlightRoll(), run = this.game.run(); return roll && run ? createSpotlightBoards(RECEIVER_TEAMS, eligibleReceiversForTeam(roll.teamId, receiverCatalogVersionForRun(run)), roll.teamId, roll.receiverId) : null; });
   readonly jerseyNumber = signal(11);
   readonly formError = signal('');
   readonly appearanceFailed=signal(false);

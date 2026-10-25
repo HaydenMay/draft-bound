@@ -1,6 +1,9 @@
 import { expect, test, Page } from '@playwright/test';
 import { RECEIVER_TEAMS, eligibleReceiversForTeam, receiverProfile, receiverTeam } from '../src/app/data/receiver-catalog';
-import { readSave } from './storage-helper';
+import { readSave, writeSave } from './storage-helper';
+import { createRun } from '../src/app/domain/engine';
+import { step } from '../src/app/domain/test-fixtures';
+import { emptySave } from '../src/app/persistence/save';
 
 async function phase(page: Page, value: string): Promise<void> {
   await expect.poll(async () => (await readSave(page)).run?.phase).toBe(value);
@@ -189,3 +192,39 @@ test('Full mode shows eight manual spotlights and stops before college progressi
   expect(run.creation.manualCount).toBe(8);
   expect(run.creationMode).toBe('full');
 });
+
+for (const viewport of [{width:320,height:568}, {width:390,height:664}, {width:1280,height:800}]) {
+  test(`ten receiver names fit without scrolling at ${viewport.width}×${viewport.height}`, async ({page}) => {
+    await page.setViewportSize(viewport);
+    // Cincinnati includes T.J. Houshmandzadeh: exercise wrapping, not just short names.
+    let sizeRun;
+    for (let seed=1;seed<500;seed++) {
+      const candidate=step(createRun('Board Fit',11,seed,'2026-10-25T00:00:00Z'),{type:'choose-gift',index:0});
+      if(step(candidate,{type:'accept-size'}).creation.currentRoll!.teamId==='cin'){sizeRun=candidate;break;}
+    }
+    expect(sizeRun).toBeDefined();
+    await page.goto('/');
+    await expect(page.getByRole('button',{name:'Settings',exact:true})).toBeVisible();
+    const save=emptySave();save.run=sizeRun!;
+    await writeSave(page,save);await page.goto('/#play');await page.reload();
+    await page.getByRole('button',{name:/This is my build/}).click();
+    await waitForReceiverStage(page);
+    const board=page.getByTestId('spotlight-receiver-board');
+    await expect(board.locator('[data-spotlight-id]')).toHaveCount(10);
+    const initial=await board.evaluate(el=>{
+      const panel=el.closest('.spotlight-panel')!;
+      const tiles=[...el.children].map(tile=>{const r=tile.getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right};});
+      return {columns:getComputedStyle(el).gridTemplateColumns.split(' ').length,
+        boardFits:el.scrollHeight<=el.clientHeight+1,panelFits:panel.scrollHeight<=panel.clientHeight+1,
+        allVisible:tiles.every(r=>r.top>=0&&r.bottom<=innerHeight&&r.left>=0&&r.right<=innerWidth),
+        boardScroll:el.scrollTop,panelScroll:panel.scrollTop,windowScroll:scrollY};
+    });
+    expect(initial.columns).toBe(viewport.width<=560?2:5);
+    expect(initial.boardFits).toBe(true);expect(initial.panelFits).toBe(true);expect(initial.allVisible).toBe(true);
+    const selected=(await readSave(page)).run!.creation.currentRoll!;
+    await expect(page.getByRole('dialog').getByRole('heading',{name:receiverProfile(selected.receiverId)!.name,exact:true})).toBeVisible();
+    const after=await board.evaluate(el=>({boardScroll:el.scrollTop,panelScroll:el.closest('.spotlight-panel')!.scrollTop,windowScroll:scrollY}));
+    expect(after).toEqual({boardScroll:initial.boardScroll,panelScroll:initial.panelScroll,windowScroll:initial.windowScroll});
+    await page.screenshot({path:test.info().outputPath('ten-receiver-board.png')});
+  });
+}

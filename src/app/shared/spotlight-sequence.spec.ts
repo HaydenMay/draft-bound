@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createSpotlightBoards, createSpotlightDelays, createSpotlightSequence } from './spotlight-sequence';
-import { RECEIVER_PROFILES, RECEIVER_TEAMS, eligibleReceiversForTeam } from '../data/receiver-catalog';
+import { RECEIVER_TEAMS, eligibleReceiversForTeam } from '../data/receiver-catalog';
 
 describe('createSpotlightSequence', () => {
   it('always ends on the predetermined winner', () => {
@@ -32,7 +32,7 @@ describe('createSpotlightBoards', () => {
   it('shows all receiver teams and only the selected team’s eligible receivers', () => {
     const teamId = 'buf';
     const selectedReceiverId = eligibleReceiversForTeam(teamId)[0].id;
-    const boards = createSpotlightBoards(RECEIVER_TEAMS, RECEIVER_PROFILES, teamId, selectedReceiverId);
+    const boards = createSpotlightBoards(RECEIVER_TEAMS, eligibleReceiversForTeam(teamId), teamId, selectedReceiverId);
 
     expect(boards.teamTiles).toHaveLength(32);
     expect(boards.teamTiles.find(tile => tile.id === teamId)?.detail).toBe('BUF');

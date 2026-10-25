@@ -1,0 +1,770 @@
+[
+  {
+    "save": {
+      "schemaVersion": 1,
+      "rulesVersion": "wr-1.2",
+      "run": {
+        "id": "db-63-mvlmtxc0",
+        "creationMode": "quick",
+        "creationFlowVersion": "single-receiver-v1.4.2",
+        "sourceCatalogVersion": "wr-original-illustrations-v1.4-90",
+        "balanceVersion": "v1.2",
+        "positionId": "wr",
+        "rulesVersion": "wr-1.2",
+        "createdAt": "2026-10-24T00:00:00.000Z",
+        "seed": 219,
+        "rng": 1135789165,
+        "nflSeed": 3245568024,
+        "name": "Archived Prospect",
+        "jerseyNumber": 11,
+        "phase": "potential",
+        "rerolls": 3,
+        "creation": {
+          "traits": {
+            "acceleration": {
+              "attributeId": "acceleration",
+              "sourcePlayerId": "dante-hall",
+              "grade": "S",
+              "ceiling": 99,
+              "origin": "gift"
+            }
+          },
+          "giftOffers": [
+            {
+              "attributeId": "acceleration",
+              "sourcePlayerId": "dante-hall",
+              "grade": "S"
+            },
+            {
+              "attributeId": "bodyControl",
+              "sourcePlayerId": "john-stallworth",
+              "grade": "S"
+            },
+            {
+              "attributeId": "hands",
+              "sourcePlayerId": "michael-irvin",
+              "grade": "S"
+            }
+          ],
+          "sizeOfferId": "julian-edelman",
+          "playerOffers": [],
+          "currentRoll": {
+            "teamId": "min",
+            "receiverId": "jordan-addison",
+            "rngBefore": 1767624835
+          },
+          "manualCount": 0,
+          "physical": {
+            "heightCm": 178,
+            "weightKg": 90,
+            "build": "Agile instinctive slot runner",
+            "grade": "A",
+            "sourcePlayerId": "julian-edelman"
+          }
+        },
+        "prospect": null,
+        "collegeId": "",
+        "year": 1,
+        "gameNumber": 0,
+        "history": [],
+        "years": [],
+        "transfers": [],
+        "interventions": [],
+        "usedInterventions": [],
+        "pendingIntervention": null,
+        "lastBlock": null,
+        "yearStartOvr": 0,
+        "awards": [],
+        "unlocks": [],
+        "draft": null,
+        "processedCommands": [
+          "test-0",
+          "test-1"
+        ]
+      },
+      "entries": [],
+      "profile": {
+        "achievements": [],
+        "frames": [
+          "classic"
+        ]
+      },
+      "settings": {
+        "fastForward": false,
+        "theme": "system",
+        "palette": "forest"
+      }
+    },
+    "commands": [
+      {
+        "type": "reroll"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "brandon-zylstra",
+        "attributeId": "speed"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "michael-jenkins",
+        "attributeId": "hands"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "torrey-smith",
+        "attributeId": "routeRunning"
+      }
+    ],
+    "expected": {
+      "id": "db-63-mvlmtxc0",
+      "creationMode": "quick",
+      "creationFlowVersion": "single-receiver-v1.4.2",
+      "sourceCatalogVersion": "wr-original-illustrations-v1.4-90",
+      "balanceVersion": "v1.2",
+      "positionId": "wr",
+      "rulesVersion": "wr-1.2",
+      "createdAt": "2026-10-24T00:00:00.000Z",
+      "seed": 219,
+      "rng": 2711590190,
+      "nflSeed": 3245568024,
+      "name": "Archived Prospect",
+      "jerseyNumber": 11,
+      "phase": "reveal",
+      "rerolls": 2,
+      "creation": {
+        "traits": {
+          "acceleration": {
+            "attributeId": "acceleration",
+            "sourcePlayerId": "dante-hall",
+            "grade": "S",
+            "ceiling": 99,
+            "origin": "gift"
+          },
+          "speed": {
+            "attributeId": "speed",
+            "sourcePlayerId": "brandon-zylstra",
+            "sourceTeamId": "car",
+            "grade": "B-",
+            "ceiling": 81,
+            "origin": "manual"
+          },
+          "hands": {
+            "attributeId": "hands",
+            "sourcePlayerId": "michael-jenkins",
+            "sourceTeamId": "atl",
+            "grade": "B",
+            "ceiling": 84,
+            "origin": "manual"
+          },
+          "routeRunning": {
+            "attributeId": "routeRunning",
+            "sourcePlayerId": "torrey-smith",
+            "sourceTeamId": "bal",
+            "grade": "C+",
+            "ceiling": 78,
+            "origin": "manual"
+          },
+          "bodyControl": {
+            "attributeId": "bodyControl",
+            "sourcePlayerId": "puka-nacua",
+            "sourceTeamId": "lar",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "autofill"
+          },
+          "release": {
+            "attributeId": "release",
+            "sourcePlayerId": "brandon-lafell",
+            "sourceTeamId": "cin",
+            "grade": "B",
+            "ceiling": 84,
+            "origin": "autofill"
+          },
+          "yardsAfterCatch": {
+            "attributeId": "yardsAfterCatch",
+            "sourcePlayerId": "desean-jackson",
+            "sourceTeamId": "phi",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "autofill"
+          },
+          "awareness": {
+            "attributeId": "awareness",
+            "sourcePlayerId": "tee-higgins",
+            "sourceTeamId": "cin",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "autofill"
+          },
+          "vertical": {
+            "attributeId": "vertical",
+            "sourcePlayerId": "jayden-higgins",
+            "sourceTeamId": "hou",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "autofill"
+          }
+        },
+        "giftOffers": [
+          {
+            "attributeId": "acceleration",
+            "sourcePlayerId": "dante-hall",
+            "grade": "S"
+          },
+          {
+            "attributeId": "bodyControl",
+            "sourcePlayerId": "john-stallworth",
+            "grade": "S"
+          },
+          {
+            "attributeId": "hands",
+            "sourcePlayerId": "michael-irvin",
+            "grade": "S"
+          }
+        ],
+        "sizeOfferId": "julian-edelman",
+        "playerOffers": [],
+        "currentRoll": null,
+        "manualCount": 3,
+        "physical": {
+          "heightCm": 178,
+          "weightKg": 90,
+          "build": "Agile instinctive slot runner",
+          "grade": "A",
+          "sourcePlayerId": "julian-edelman"
+        }
+      },
+      "prospect": {
+        "id": "db-63-mvlmtxc0",
+        "name": "Archived Prospect",
+        "jerseyNumber": 11,
+        "positionId": "wr",
+        "createdAt": "2026-10-24T00:00:00.000Z",
+        "physical": {
+          "heightCm": 178,
+          "weightKg": 90,
+          "build": "Agile instinctive slot runner",
+          "grade": "A",
+          "sourcePlayerId": "julian-edelman"
+        },
+        "current": {
+          "speed": 62,
+          "acceleration": 94,
+          "hands": 62,
+          "routeRunning": 50,
+          "release": 63,
+          "vertical": 61,
+          "bodyControl": 63,
+          "yardsAfterCatch": 58,
+          "awareness": 60
+        },
+        "initial": {
+          "speed": 62,
+          "acceleration": 94,
+          "hands": 62,
+          "routeRunning": 50,
+          "release": 63,
+          "vertical": 61,
+          "bodyControl": 63,
+          "yardsAfterCatch": 58,
+          "awareness": 60
+        },
+        "traits": {
+          "acceleration": {
+            "attributeId": "acceleration",
+            "sourcePlayerId": "dante-hall",
+            "grade": "S",
+            "ceiling": 99,
+            "origin": "gift"
+          },
+          "speed": {
+            "attributeId": "speed",
+            "sourcePlayerId": "brandon-zylstra",
+            "sourceTeamId": "car",
+            "grade": "B-",
+            "ceiling": 81,
+            "origin": "manual"
+          },
+          "hands": {
+            "attributeId": "hands",
+            "sourcePlayerId": "michael-jenkins",
+            "sourceTeamId": "atl",
+            "grade": "B",
+            "ceiling": 84,
+            "origin": "manual"
+          },
+          "routeRunning": {
+            "attributeId": "routeRunning",
+            "sourcePlayerId": "torrey-smith",
+            "sourceTeamId": "bal",
+            "grade": "C+",
+            "ceiling": 78,
+            "origin": "manual"
+          },
+          "bodyControl": {
+            "attributeId": "bodyControl",
+            "sourcePlayerId": "puka-nacua",
+            "sourceTeamId": "lar",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "autofill"
+          },
+          "release": {
+            "attributeId": "release",
+            "sourcePlayerId": "brandon-lafell",
+            "sourceTeamId": "cin",
+            "grade": "B",
+            "ceiling": 84,
+            "origin": "autofill"
+          },
+          "yardsAfterCatch": {
+            "attributeId": "yardsAfterCatch",
+            "sourcePlayerId": "desean-jackson",
+            "sourceTeamId": "phi",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "autofill"
+          },
+          "awareness": {
+            "attributeId": "awareness",
+            "sourcePlayerId": "tee-higgins",
+            "sourceTeamId": "cin",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "autofill"
+          },
+          "vertical": {
+            "attributeId": "vertical",
+            "sourcePlayerId": "jayden-higgins",
+            "sourceTeamId": "hou",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "autofill"
+          }
+        },
+        "initialOvr": 62
+      },
+      "collegeId": "",
+      "year": 1,
+      "gameNumber": 0,
+      "history": [],
+      "years": [],
+      "transfers": [],
+      "interventions": [],
+      "usedInterventions": [],
+      "pendingIntervention": null,
+      "lastBlock": null,
+      "yearStartOvr": 0,
+      "awards": [],
+      "unlocks": [],
+      "draft": null,
+      "processedCommands": [
+        "test-0",
+        "test-1",
+        "test-2",
+        "test-3",
+        "test-4",
+        "test-5"
+      ]
+    }
+  },
+  {
+    "save": {
+      "schemaVersion": 1,
+      "rulesVersion": "wr-1.2",
+      "run": {
+        "id": "db-63-mvlmtxc0",
+        "creationMode": "full",
+        "creationFlowVersion": "single-receiver-v1.4.2",
+        "sourceCatalogVersion": "wr-original-illustrations-v1.4-90",
+        "balanceVersion": "v1.2",
+        "positionId": "wr",
+        "rulesVersion": "wr-1.2",
+        "createdAt": "2026-10-24T00:00:00.000Z",
+        "seed": 219,
+        "rng": 1135789165,
+        "nflSeed": 3245568024,
+        "name": "Archived Prospect",
+        "jerseyNumber": 11,
+        "phase": "potential",
+        "rerolls": 3,
+        "creation": {
+          "traits": {
+            "acceleration": {
+              "attributeId": "acceleration",
+              "sourcePlayerId": "dante-hall",
+              "grade": "S",
+              "ceiling": 99,
+              "origin": "gift"
+            }
+          },
+          "giftOffers": [
+            {
+              "attributeId": "acceleration",
+              "sourcePlayerId": "dante-hall",
+              "grade": "S"
+            },
+            {
+              "attributeId": "bodyControl",
+              "sourcePlayerId": "john-stallworth",
+              "grade": "S"
+            },
+            {
+              "attributeId": "hands",
+              "sourcePlayerId": "michael-irvin",
+              "grade": "S"
+            }
+          ],
+          "sizeOfferId": "julian-edelman",
+          "playerOffers": [],
+          "currentRoll": {
+            "teamId": "min",
+            "receiverId": "jordan-addison",
+            "rngBefore": 1767624835
+          },
+          "manualCount": 0,
+          "physical": {
+            "heightCm": 178,
+            "weightKg": 90,
+            "build": "Agile instinctive slot runner",
+            "grade": "A",
+            "sourcePlayerId": "julian-edelman"
+          }
+        },
+        "prospect": null,
+        "collegeId": "",
+        "year": 1,
+        "gameNumber": 0,
+        "history": [],
+        "years": [],
+        "transfers": [],
+        "interventions": [],
+        "usedInterventions": [],
+        "pendingIntervention": null,
+        "lastBlock": null,
+        "yearStartOvr": 0,
+        "awards": [],
+        "unlocks": [],
+        "draft": null,
+        "processedCommands": [
+          "test-0",
+          "test-1"
+        ]
+      },
+      "entries": [],
+      "profile": {
+        "achievements": [],
+        "frames": [
+          "classic"
+        ]
+      },
+      "settings": {
+        "fastForward": false,
+        "theme": "system",
+        "palette": "forest"
+      }
+    },
+    "commands": [
+      {
+        "type": "reroll"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "brandon-zylstra",
+        "attributeId": "speed"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "michael-jenkins",
+        "attributeId": "hands"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "torrey-smith",
+        "attributeId": "routeRunning"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "puka-nacua",
+        "attributeId": "release"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "brycen-tremayne",
+        "attributeId": "vertical"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "lynn-swann",
+        "attributeId": "bodyControl"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "desean-jackson",
+        "attributeId": "yardsAfterCatch"
+      },
+      {
+        "type": "choose-trait",
+        "sourcePlayerId": "luke-mccaffrey",
+        "attributeId": "awareness"
+      }
+    ],
+    "expected": {
+      "id": "db-63-mvlmtxc0",
+      "creationMode": "full",
+      "creationFlowVersion": "single-receiver-v1.4.2",
+      "sourceCatalogVersion": "wr-original-illustrations-v1.4-90",
+      "balanceVersion": "v1.2",
+      "positionId": "wr",
+      "rulesVersion": "wr-1.2",
+      "createdAt": "2026-10-24T00:00:00.000Z",
+      "seed": 219,
+      "rng": 2143695717,
+      "nflSeed": 3245568024,
+      "name": "Archived Prospect",
+      "jerseyNumber": 11,
+      "phase": "reveal",
+      "rerolls": 2,
+      "creation": {
+        "traits": {
+          "acceleration": {
+            "attributeId": "acceleration",
+            "sourcePlayerId": "dante-hall",
+            "grade": "S",
+            "ceiling": 99,
+            "origin": "gift"
+          },
+          "speed": {
+            "attributeId": "speed",
+            "sourcePlayerId": "brandon-zylstra",
+            "sourceTeamId": "car",
+            "grade": "B-",
+            "ceiling": 81,
+            "origin": "manual"
+          },
+          "hands": {
+            "attributeId": "hands",
+            "sourcePlayerId": "michael-jenkins",
+            "sourceTeamId": "atl",
+            "grade": "B",
+            "ceiling": 84,
+            "origin": "manual"
+          },
+          "routeRunning": {
+            "attributeId": "routeRunning",
+            "sourcePlayerId": "torrey-smith",
+            "sourceTeamId": "bal",
+            "grade": "C+",
+            "ceiling": 78,
+            "origin": "manual"
+          },
+          "release": {
+            "attributeId": "release",
+            "sourcePlayerId": "puka-nacua",
+            "sourceTeamId": "lar",
+            "grade": "A-",
+            "ceiling": 90,
+            "origin": "manual"
+          },
+          "vertical": {
+            "attributeId": "vertical",
+            "sourcePlayerId": "brycen-tremayne",
+            "sourceTeamId": "car",
+            "grade": "A-",
+            "ceiling": 90,
+            "origin": "manual"
+          },
+          "bodyControl": {
+            "attributeId": "bodyControl",
+            "sourcePlayerId": "lynn-swann",
+            "sourceTeamId": "pit",
+            "grade": "S",
+            "ceiling": 99,
+            "origin": "manual"
+          },
+          "yardsAfterCatch": {
+            "attributeId": "yardsAfterCatch",
+            "sourcePlayerId": "desean-jackson",
+            "sourceTeamId": "phi",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "manual"
+          },
+          "awareness": {
+            "attributeId": "awareness",
+            "sourcePlayerId": "luke-mccaffrey",
+            "sourceTeamId": "was",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "manual"
+          }
+        },
+        "giftOffers": [
+          {
+            "attributeId": "acceleration",
+            "sourcePlayerId": "dante-hall",
+            "grade": "S"
+          },
+          {
+            "attributeId": "bodyControl",
+            "sourcePlayerId": "john-stallworth",
+            "grade": "S"
+          },
+          {
+            "attributeId": "hands",
+            "sourcePlayerId": "michael-irvin",
+            "grade": "S"
+          }
+        ],
+        "sizeOfferId": "julian-edelman",
+        "playerOffers": [],
+        "currentRoll": null,
+        "manualCount": 8,
+        "physical": {
+          "heightCm": 178,
+          "weightKg": 90,
+          "build": "Agile instinctive slot runner",
+          "grade": "A",
+          "sourcePlayerId": "julian-edelman"
+        }
+      },
+      "prospect": {
+        "id": "db-63-mvlmtxc0",
+        "name": "Archived Prospect",
+        "jerseyNumber": 11,
+        "positionId": "wr",
+        "createdAt": "2026-10-24T00:00:00.000Z",
+        "physical": {
+          "heightCm": 178,
+          "weightKg": 90,
+          "build": "Agile instinctive slot runner",
+          "grade": "A",
+          "sourcePlayerId": "julian-edelman"
+        },
+        "current": {
+          "speed": 60,
+          "acceleration": 94,
+          "hands": 51,
+          "routeRunning": 58,
+          "release": 56,
+          "vertical": 54,
+          "bodyControl": 62,
+          "yardsAfterCatch": 62,
+          "awareness": 50
+        },
+        "initial": {
+          "speed": 60,
+          "acceleration": 94,
+          "hands": 51,
+          "routeRunning": 58,
+          "release": 56,
+          "vertical": 54,
+          "bodyControl": 62,
+          "yardsAfterCatch": 62,
+          "awareness": 50
+        },
+        "traits": {
+          "acceleration": {
+            "attributeId": "acceleration",
+            "sourcePlayerId": "dante-hall",
+            "grade": "S",
+            "ceiling": 99,
+            "origin": "gift"
+          },
+          "speed": {
+            "attributeId": "speed",
+            "sourcePlayerId": "brandon-zylstra",
+            "sourceTeamId": "car",
+            "grade": "B-",
+            "ceiling": 81,
+            "origin": "manual"
+          },
+          "hands": {
+            "attributeId": "hands",
+            "sourcePlayerId": "michael-jenkins",
+            "sourceTeamId": "atl",
+            "grade": "B",
+            "ceiling": 84,
+            "origin": "manual"
+          },
+          "routeRunning": {
+            "attributeId": "routeRunning",
+            "sourcePlayerId": "torrey-smith",
+            "sourceTeamId": "bal",
+            "grade": "C+",
+            "ceiling": 78,
+            "origin": "manual"
+          },
+          "release": {
+            "attributeId": "release",
+            "sourcePlayerId": "puka-nacua",
+            "sourceTeamId": "lar",
+            "grade": "A-",
+            "ceiling": 90,
+            "origin": "manual"
+          },
+          "vertical": {
+            "attributeId": "vertical",
+            "sourcePlayerId": "brycen-tremayne",
+            "sourceTeamId": "car",
+            "grade": "A-",
+            "ceiling": 90,
+            "origin": "manual"
+          },
+          "bodyControl": {
+            "attributeId": "bodyControl",
+            "sourcePlayerId": "lynn-swann",
+            "sourceTeamId": "pit",
+            "grade": "S",
+            "ceiling": 99,
+            "origin": "manual"
+          },
+          "yardsAfterCatch": {
+            "attributeId": "yardsAfterCatch",
+            "sourcePlayerId": "desean-jackson",
+            "sourceTeamId": "phi",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "manual"
+          },
+          "awareness": {
+            "attributeId": "awareness",
+            "sourcePlayerId": "luke-mccaffrey",
+            "sourceTeamId": "was",
+            "grade": "A",
+            "ceiling": 93,
+            "origin": "manual"
+          }
+        },
+        "initialOvr": 60
+      },
+      "collegeId": "",
+      "year": 1,
+      "gameNumber": 0,
+      "history": [],
+      "years": [],
+      "transfers": [],
+      "interventions": [],
+      "usedInterventions": [],
+      "pendingIntervention": null,
+      "lastBlock": null,
+      "yearStartOvr": 0,
+      "awards": [],
+      "unlocks": [],
+      "draft": null,
+      "processedCommands": [
+        "test-0",
+        "test-1",
+        "test-2",
+        "test-3",
+        "test-4",
+        "test-5",
+        "test-6",
+        "test-7",
+        "test-8",
+        "test-9",
+        "test-10"
+      ]
+    }
+  }
+]

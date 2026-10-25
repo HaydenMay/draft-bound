@@ -28,3 +28,7 @@ Terms and Privacy use October 24, 2026 as their Last Updated date. They still ne
 ## v1.4.2 release review
 
 The v1.4.2 receiver catalog and team-first prospect rolls introduce real professional team names and real-player references into gameplay selection. This is a required legal-review trigger. Before publishing, confirm that the existing independent-game disclaimer accurately covers this use and that no team marks or logos are displayed. Keep the current Terms and Privacy draft notices in place until the separate public-contact and contact-delivery gates above are resolved.
+
+## October 25 receiver-curation release review
+
+Reviewed `src/app/data/information-pages.ts` against the curated-pool and spotlight changes. The pass selects among existing professional team/player references without adding affiliations, player grades or team marks. About and Terms still describe fictional, independently interpreted player abilities and outcomes; their approved disclaimer remains applicable. Privacy and Contact still describe local saves and unavailable message delivery accurately. No services, uploads, tracking or accounts were added. No public copy or policy-date change is needed for this pass. Existing Terms, Privacy and Contact draft notices and publication prerequisites remain in place.

@@ -1,13 +1,19 @@
 import {test,expect} from '@playwright/test';
 import {readFileSync} from 'node:fs';
-import {emptySave} from '../src/app/persistence/save';
-import {completeRun} from '../src/app/domain/test-fixtures';
+import {previewSave} from '../src/app/persistence/save';
+import legacyCollection from '../src/app/persistence/fixtures/v1.3.1-collection.json';
 import {simulateProfessional} from '../src/app/domain/professional';
 import {SHIELD_PATH} from '../src/app/shared/badge-geometry';
 import {writeSave,readSave} from './storage-helper';
 
 test('legacy school palettes and both editions retain canonical browser and PNG branding',async({page})=>{
- const save=emptySave();save.entries=[82,314].map(seed=>{const entry=completeRun(seed).entry!;entry.career=simulateProfessional(entry);entry.careerCard={...entry.draftCard};return entry;});
+ // Frozen earned outcomes keep this branding test independent of current creation balance.
+ const restored=previewSave(JSON.stringify(legacyCollection));expect(restored.ok).toBe(true);
+ const save=restored.data!;save.run=null;save.entries=save.entries.filter(entry=>entry.positionId==='wr').map(entry=>{
+  entry.career??=simulateProfessional(entry);entry.careerCard??={...entry.draftCard};
+  // Compare the same print treatment; foil/frame overlays intentionally change these pixels.
+  entry.draftCard={...entry.draftCard,frame:'classic',foil:false};entry.careerCard={...entry.careerCard,frame:'classic',foil:false};return entry;
+ });
  save.entries[0].display.schoolColors=['#000080','#ffcc00'];save.entries[1].display.schoolColors=['#006f68','#f0ead5'];delete save.settings.palette;
  await page.goto('/');await expect(page.getByRole('button',{name:'Create your prospect',exact:true})).toBeVisible();await writeSave(page,save);await page.reload();
  const before=await readSave(page),logos:string[]=[];let seals=0;

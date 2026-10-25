@@ -5,7 +5,7 @@ import {WR_DEFINITION,RULES_VERSION} from './positions';
 import {CEILINGS,calculateOvr,develop,values} from './development';
 import {Random} from './rng';
 import {SOURCE_CATALOG_VERSION,LEGACY_SOURCE_CATALOG_VERSION,sourcePlayersForVersion} from '../data/source-players';
-import {RECEIVER_CATALOG_VERSION,RECEIVER_PROFILES,RECEIVER_TEAMS,eligibleReceiversForTeam,receiverProfile} from '../data/receiver-catalog';
+import {RECEIVER_CATALOG_VERSION,RECEIVER_TEAMS,eligibleReceiversForTeam,receiverProfile,receiverCatalogVersionForRun,receiverProfilesForVersion} from '../data/receiver-catalog';
 import {COLLEGES} from '../data/colleges';
 import {DRAFT_BOARD,DRAFT_TEAMS} from '../data/teams';
 import {sumStats,WR_RULES} from './simulation';
@@ -22,8 +22,8 @@ function legacyOffers(rng:Random,catalog:readonly SourcePlayerDefinition[]):stri
  if(pool.length<3)throw Error('The source catalog needs three unique players.');
  return Array.from({length:3},()=>pool.splice(rng.int(0,pool.length-1),1)[0].id);
 }
-function rollReceiver(rng:Random):{teamId:string;receiverId:string;rngBefore:number}{
- const rngBefore=rng.state,team=rng.pick(RECEIVER_TEAMS),pool=eligibleReceiversForTeam(team.id);
+function rollReceiver(rng:Random,run:RunState):{teamId:string;receiverId:string;rngBefore:number}{
+ const rngBefore=rng.state,team=rng.pick(RECEIVER_TEAMS),pool=eligibleReceiversForTeam(team.id,receiverCatalogVersionForRun(run));
  if(!pool.length)throw Error(`The ${team.displayName} pool is empty.`);
  return {teamId:team.id,receiverId:rng.pick(pool).id,rngBefore};
 }
@@ -51,9 +51,9 @@ function naturalGifts(rng:Random,profiles:readonly {id:string;grades:Record<stri
 }
 export function createRun(name:string,jerseyNumber:number,seed:number,createdAt=new Date().toISOString(),creationMode:NonNullable<RunState['creationMode']>='quick'):RunState {
  if(!['quick','full'].includes(creationMode))throw Error('Unknown creation mode.');
- const rng=new Random(seed),catalog=sourcePlayersForVersion(SOURCE_CATALOG_VERSION),giftOffers=naturalGifts(rng,RECEIVER_PROFILES);
+ const rng=new Random(seed),catalog=sourcePlayersForVersion(SOURCE_CATALOG_VERSION),giftOffers=naturalGifts(rng,receiverProfilesForVersion());
  const sizeOfferId=rng.pick(catalog).id,nflSeed=rng.int(0,0xffffffff),id=`db-${seed.toString(36)}-${Date.parse(createdAt).toString(36)}`;
- return {id,creationMode,creationFlowVersion:CREATION_FLOW_VERSION,sourceCatalogVersion:SOURCE_CATALOG_VERSION,balanceVersion:'v1.2',positionId:'wr',rulesVersion:RULES_VERSION,createdAt,seed,rng:rng.state,nflSeed,name:name.trim().slice(0,32)||'Jordan Hayes',jerseyNumber:Math.max(0,Math.min(99,Math.round(jerseyNumber)||0)),phase:'gift',rerolls:3,creation:{traits:{},giftOffers,sizeOfferId,playerOffers:[],currentRoll:null,manualCount:0,physical:null},prospect:null,collegeId:'',year:1,gameNumber:0,history:[],years:[],transfers:[],interventions:[],usedInterventions:[],pendingIntervention:null,lastBlock:null,yearStartOvr:0,awards:[],unlocks:[],draft:null,processedCommands:[]};
+ return {id,creationMode,receiverCatalogVersion:RECEIVER_CATALOG_VERSION,creationFlowVersion:CREATION_FLOW_VERSION,sourceCatalogVersion:SOURCE_CATALOG_VERSION,balanceVersion:'v1.2',positionId:'wr',rulesVersion:RULES_VERSION,createdAt,seed,rng:rng.state,nflSeed,name:name.trim().slice(0,32)||'Jordan Hayes',jerseyNumber:Math.max(0,Math.min(99,Math.round(jerseyNumber)||0)),phase:'gift',rerolls:3,creation:{traits:{},giftOffers,sizeOfferId,playerOffers:[],currentRoll:null,manualCount:0,physical:null},prospect:null,collegeId:'',year:1,gameNumber:0,history:[],years:[],transfers:[],interventions:[],usedInterventions:[],pendingIntervention:null,lastBlock:null,yearStartOvr:0,awards:[],unlocks:[],draft:null,processedCommands:[]};
 }
 function requirePhase(run:RunState,...phases:RunState['phase'][]):void{if(!phases.includes(run.phase))throw Error('That choice is unavailable at this stage.');}
 function assign(run:RunState,attributeId:string,sourceId:string,origin:TraitAssignment['origin'],catalog:readonly SourcePlayerDefinition[],sourceTeamId?:string):void{
@@ -81,7 +81,7 @@ export function buildDraft(run:RunState,rng:Random):BinderEntry{
  const ovr=calculateOvr(a),collegeGrade=sumStats(run.history).grade,evaluation=.7*ovr.raw+.2*collegeGrade+.1*(gauntlet.reduce((s,g)=>s+g.score,0)/5),outcome=draftOutcome(evaluation,rng);
  addUnlock(run.unlocks,unlock('prospect_journey',{id:run.id,kind:'draftOutcome',stage:'draft',sourceId:run.id,facts:{finalOvr:ovr.display},description:'Completed the college-to-draft journey.'}));
  if(outcome.status==='drafted')addUnlock(run.unlocks,unlock('draft_night',{id:`${run.id}-pick`,kind:'draftOutcome',stage:'draft',sourceId:run.id,facts:{pick:outcome.overallPick,round:outcome.round,team:outcome.team.displayName},description:`Round ${outcome.round}, pick ${outcome.overallPick}: ${outcome.team.displayName}.`}));
- const contentVersion=run.creationFlowVersion===CREATION_FLOW_VERSION?RECEIVER_CATALOG_VERSION:run.sourceCatalogVersion??(run.balanceVersion==='v1.2'?LEGACY_SOURCE_CATALOG_VERSION:'1.0.0');
+ const contentVersion=run.creationFlowVersion===CREATION_FLOW_VERSION?receiverCatalogVersionForRun(run):run.sourceCatalogVersion??(run.balanceVersion==='v1.2'?LEGACY_SOURCE_CATALOG_VERSION:'1.0.0');
  const draft:DraftSnapshot=structuredClone({sourceCatalogVersion:run.sourceCatalogVersion??LEGACY_SOURCE_CATALOG_VERSION,professionalRulesVersion:run.sourceCatalogVersion===SOURCE_CATALOG_VERSION?'v1.4':'legacy-v1.3.2',creationMode:run.creationMode??'quick',positionId:'wr',rulesVersion:RULES_VERSION,balanceVersion:run.balanceVersion==='v1.2'?'1.2.1':'1.2.0',contentVersion,prospect:p,schoolId:run.collegeId,history:run.history,years:run.years,transfers:run.transfers,interventions:run.interventions,awards:run.awards,unlocks:run.unlocks,gauntlet,collegeGrade,evaluation,finalOvr:ovr.display,outcome});
  run.draft=draft;const school=COLLEGES.find(s=>s.id===run.collegeId)!;
  return {id:run.id,positionId:'wr',createdAt:run.createdAt,completedAt:new Date().toISOString(),favorite:false,draft,career:null,nflSeed:run.nflSeed,draftCard:{sceneId:outcome.status==='drafted'?'draft_night':'prospect_journey',frame:'classic',foil:false,showStamp:true},careerCard:null,display:{positionLabel:WR_DEFINITION.displayName,attributes:WR_DEFINITION.attributes.map(attr=>({id:attr.id,label:attr.label,value:a[attr.id],ceiling:p.traits[attr.id].ceiling})),schoolName:school.name,schoolColors:school.colors}};
@@ -96,23 +96,23 @@ export function transition(original:RunState,command:GameCommand):Transition {
    requirePhase(run,'size','potential');
    if(run.rerolls<=0)throw Error('No rerolls remain.');run.rerolls--;
    if(run.phase==='size')run.creation.sizeOfferId=rng.pick(catalog).id;
-   else if(run.creationFlowVersion===CREATION_FLOW_VERSION)run.creation.currentRoll=rollReceiver(rng);
+   else if(run.creationFlowVersion===CREATION_FLOW_VERSION)run.creation.currentRoll=rollReceiver(rng,run);
    else run.creation.playerOffers=legacyOffers(rng,catalog);break;
   }
   case 'accept-size':{
    requirePhase(run,'size');const p=source(run.creation.sizeOfferId,catalog);run.creation.physical={heightCm:p.heightCm,weightKg:p.weightKg,build:p.build,grade:'A',sourcePlayerId:p.id};
-   if(run.creationFlowVersion===CREATION_FLOW_VERSION){run.creation.playerOffers=[];run.creation.currentRoll=rollReceiver(rng);}else run.creation.playerOffers=legacyOffers(rng,catalog);
+   if(run.creationFlowVersion===CREATION_FLOW_VERSION){run.creation.playerOffers=[];run.creation.currentRoll=rollReceiver(rng,run);}else run.creation.playerOffers=legacyOffers(rng,catalog);
    run.phase='potential';break;
   }
   case 'choose-trait':{
    requirePhase(run,'potential');if(!ids.includes(command.attributeId)||run.creation.traits[command.attributeId])throw Error('Choose an unfilled attribute.');
    if(run.creationFlowVersion===CREATION_FLOW_VERSION){
     const roll=run.creation.currentRoll;
-    if(!roll||roll.receiverId!==command.sourcePlayerId||!eligibleReceiversForTeam(roll.teamId).some(player=>player.id===roll.receiverId))throw Error('Choose an attribute from the revealed receiver.');
+    if(!roll||roll.receiverId!==command.sourcePlayerId||!eligibleReceiversForTeam(roll.teamId,receiverCatalogVersionForRun(run)).some(player=>player.id===roll.receiverId))throw Error('Choose an attribute from the revealed receiver.');
     assign(run,command.attributeId,roll.receiverId,'manual',catalog,roll.teamId);run.creation.manualCount++;run.creation.currentRoll=null;
-    if(run.creation.manualCount<manualPotentialLimit(run)){run.creation.currentRoll=rollReceiver(rng);break;}
+    if(run.creation.manualCount<manualPotentialLimit(run)){run.creation.currentRoll=rollReceiver(rng,run);break;}
     while(Object.keys(run.creation.traits).length<ids.length){
-     const nextRoll=rollReceiver(rng),attributeId=rng.pick(ids.filter(id=>!run.creation.traits[id]));
+     const nextRoll=rollReceiver(rng,run),attributeId=rng.pick(ids.filter(id=>!run.creation.traits[id]));
      assign(run,attributeId,nextRoll.receiverId,'autofill',catalog,nextRoll.teamId);
     }
    }else{

@@ -32,7 +32,7 @@ const RECEIVER_HOPS = 4;
             @for (tile of boards().teamTiles; track tile.id) { <article class="spotlight-tile team-tile" role="listitem" [class.is-lit]="highlightedId() === tile.id" [attr.aria-current]="highlightedId() === tile.id ? 'true' : null" [attr.data-spotlight-id]="tile.id"><strong>{{ tile.detail }}</strong><span>{{ tile.label }}</span></article> }
           </div>
         } @else {
-          <div class="spotlight-board receiver-board" role="list" [attr.aria-label]="teamTile()?.label + ' eligible receivers'" data-testid="spotlight-receiver-board">
+          <div class="spotlight-board receiver-board" [class.archived-pool]="boards().receiverTiles.length > 10" role="list" [attr.aria-label]="teamTile()?.label + ' eligible receivers'" data-testid="spotlight-receiver-board">
             @for (tile of boards().receiverTiles; track tile.id) { <article class="spotlight-tile receiver-tile" role="listitem" [class.is-lit]="highlightedId() === tile.id" [attr.aria-current]="highlightedId() === tile.id ? 'true' : null" [attr.data-spotlight-id]="tile.id"><strong>{{ tile.label }}</strong></article> }
           </div>
         }
@@ -56,7 +56,6 @@ export class SpotlightReveal implements AfterViewInit {
   readonly announcement = signal('');
   readonly settled = signal(false);
 
-  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private timer: ReturnType<typeof setTimeout> | undefined;
   private completed = false;
 
@@ -139,9 +138,6 @@ export class SpotlightReveal implements AfterViewInit {
   private holdReceiver(): void {
     this.settled.set(true);
     this.announcement.set(`${this.receiverTile()?.label ?? 'Receiver'} selected.`);
-    queueMicrotask(() => {
-      if (!this.completed) this.host.nativeElement.querySelector('.receiver-board .is-lit')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-    });
     this.timer = setTimeout(() => this.finish(), RECEIVER_HOLD_MS);
   }
 

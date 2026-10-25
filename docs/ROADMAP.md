@@ -1,6 +1,12 @@
 # Draft Bound roadmap
 
-## Near-term target: v1.4.3 college development and simulation
+## Current pass: receiver curation and spotlight fit
+
+The owner moved receiver curation and spotlight fit ahead of the college balance pass on October 25. New prospects use explicit ten-player team pools with recognizable names, specialists and memorable disappointments. The original 498-profile snapshot remains archived for existing runs. All player grades remain unchanged pending the separate grading/balance review.
+
+Fresh spotlight receiver boards show two columns/five rows on phones and five columns/two rows on wider screens, with no automatic winner scrolling. Existing runs keep their original candidate pools and may scroll those larger boards manually. Uniform team-first sampling remains unchanged. See the [design](superpowers/specs/2026-10-25-receiver-curation-design.md) and [team-by-team selection and frequency audit](validation/RECEIVER_CURATION.md).
+
+## Next planned pass: v1.4.3 college development and simulation
 
 The owner requested an early follow-up on October 25 after a junior season included 17 receptions for 490 yards and seven touchdowns in one game, plus another seven-touchdown game. Many attributes were at or close to their ceilings. This is an investigation/planning priority, not an approved set of replacement coefficients or a completed balance fix.
 
@@ -17,11 +23,18 @@ The same audit ran 500 real Full-mode builds with documented deterministic gift/
 
 Plan this pass around credible team opportunities and field position, distinct long gains versus touchdowns, opponent/game context, useful grade differentiation, and training choices with meaningful opportunity costs. Measure distributions and extreme tails as well as averages. Preserve four-game college blocks, exceptional achievable performances, deterministic outcomes, existing saved results/cards, and optional automatic pro careers. Exact targets, formulas and any rules/version migration require a separate implementation specification. Do not introduce artificial injuries, negative growth, or playable pro training as an assumed solution.
 
-## Upcoming receiver curation and spotlight fit
+### Owner-confirmed training direction — October 25, 2026
 
-The owner approved a curation target of **at most ten eligible receivers per team** on October 25. Use two columns/five rows on phones and five columns/two rows on wider screens, with every candidate visible and no automatic winner scrolling. Review each team's names and individual grades together, retaining a mix of legends, established starters, specialists, and memorable disappointments. Do not fill the pool with stars alone or preserve obscure depth players solely to meet a quota.
+These requirements are agreed direction for the balance pass, recorded without changing gameplay:
 
-This target has not yet replaced the provisional 498-profile catalog. Prepare a Keep/Review/Replace selection before altering eligibility. Preserve archived catalog data and the eligibility/RNG validity of existing active runs when the curated pool is introduced. Retain uniform team-first sampling within the approved pools unless the owner separately changes the weighting rule.
+1. Raise starting OVR so prospects begin college more capable. The exact starting range remains to be set.
+2. Slow freshman development; early training currently produces excessive growth. A stronger starting prospect must not simply reach the same ceiling sooner.
+3. Give training meaningful opportunity costs: concentrating on one attribute leaves less development available for others.
+4. Keep potential ceilings important. High potential is an upper limit, not an automatic grant of current ability or a guaranteed outcome.
+5. Make school specialties improve development opportunities, while requiring the player to train to realize those benefits.
+6. Account for training continuity and reduced effectiveness when changing training priorities. Preserve the discussed 100% / 95% / 90% progression for consistent specialization; exact application intervals and switching coefficients still need specification.
+
+Before implementation, reconcile training-priority continuity with the earlier school-history/transfer continuity proposal in `superpowers/specs/2026-10-23-v1.4-preserved.md`. They describe different decisions. Do not silently reuse the transfer penalties for training changes or stack either proposal with existing year/mastery factors without assessing the combined effect. No implementation is requested by this requirements update.
 
 ## Long-term prospect variety and balance
 

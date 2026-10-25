@@ -1,7 +1,10 @@
 import rawCatalog from './receiver-catalog.json';
+import curatedPools from './receiver-pools.json';
 import type { Grade, ReceiverProfileDefinition, ReceiverTeamDefinition, WrAttributeId } from '../domain/models';
 
-export const RECEIVER_CATALOG_VERSION = rawCatalog.catalogVersion;
+export const LEGACY_RECEIVER_CATALOG_VERSION = rawCatalog.catalogVersion;
+export const RECEIVER_CATALOG_VERSION = curatedPools.catalogVersion;
+export const RECEIVER_CATALOG_VERSIONS = [LEGACY_RECEIVER_CATALOG_VERSION, RECEIVER_CATALOG_VERSION] as const;
 export const RECEIVER_TEAMS = rawCatalog.teams as ReceiverTeamDefinition[];
 export const RECEIVER_PROFILES = rawCatalog.profiles as ReceiverProfileDefinition[];
 
@@ -26,8 +29,28 @@ export function receiverTeam(id: string): ReceiverTeamDefinition | undefined {
   return teamsById.get(id);
 }
 
-export function eligibleReceiversForTeam(teamId: string): readonly ReceiverProfileDefinition[] {
-  return eligibleByTeam.get(teamId) ?? [];
+export function receiverCatalogVersionForRun(run: {receiverCatalogVersion?:string}): string {
+  return run.receiverCatalogVersion ?? LEGACY_RECEIVER_CATALOG_VERSION;
+}
+
+const curatedByTeam = new Map(Object.entries(curatedPools.teams).map(([teamId, ids]) => [teamId, ids.map(id => {
+  const profile = profilesById.get(id);
+  if (!profile || !profile.eligibleTeamIds.includes(teamId)) throw new Error(`Invalid curated receiver ${teamId}/${id}.`);
+  return profile;
+})]));
+const curatedIds = new Set(Object.values(curatedPools.teams).flat());
+const curatedProfiles = RECEIVER_PROFILES.filter(profile => curatedIds.has(profile.id));
+
+export function receiverProfilesForVersion(version = RECEIVER_CATALOG_VERSION): readonly ReceiverProfileDefinition[] {
+  if (version === LEGACY_RECEIVER_CATALOG_VERSION) return RECEIVER_PROFILES;
+  if (version === RECEIVER_CATALOG_VERSION) return curatedProfiles;
+  throw new Error('Unknown receiver catalog version.');
+}
+
+export function eligibleReceiversForTeam(teamId: string, version = RECEIVER_CATALOG_VERSION): readonly ReceiverProfileDefinition[] {
+  if (version === LEGACY_RECEIVER_CATALOG_VERSION) return eligibleByTeam.get(teamId) ?? [];
+  if (version === RECEIVER_CATALOG_VERSION) return curatedByTeam.get(teamId) ?? [];
+  throw new Error('Unknown receiver catalog version.');
 }
 
 export function validateReceiverCatalog(): string[] {
@@ -40,7 +63,10 @@ export function validateReceiverCatalog(): string[] {
 
   for (const team of RECEIVER_TEAMS) {
     if (!team.displayName.trim() || eligibleReceiversForTeam(team.id).length === 0) errors.push(`receiverTeams.${team.id}: missing name or eligible pool`);
+    const pool = eligibleReceiversForTeam(team.id);
+    if (pool.length > 10 || new Set(pool.map(profile => profile.id)).size !== pool.length) errors.push(`receiverTeams.${team.id}: invalid curated pool`);
   }
+  for (const teamId of curatedByTeam.keys()) if (!teamIds.has(teamId)) errors.push(`receiverTeams.${teamId}: unknown curated team`);
   for (const profile of RECEIVER_PROFILES) {
     const prefix = `receiverProfiles.${profile.id}`;
     if (!profile.name.trim() || !profile.status.trim() || !profile.provenance.reviewStatus.trim()) errors.push(`${prefix}: missing identity or provenance`);
