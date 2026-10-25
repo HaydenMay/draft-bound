@@ -1,0 +1,72 @@
+{
+  "baselineCommit": "5a6de44bc5b9b120377a101d107c3030837a3a22",
+  "generatedAt": "2026-10-25T07:36:26.010Z",
+  "scope": "Investigation only; no gameplay changes. Controlled domain simulations, not production telemetry or an exact replay of the photographed save.",
+  "frozenGameProbe": {
+    "n": 20000,
+    "school": "Openwater State",
+    "attributes": {
+      "speed": 92,
+      "acceleration": 90,
+      "hands": 99,
+      "routeRunning": 92,
+      "release": 93,
+      "vertical": 90,
+      "bodyControl": 90,
+      "yardsAfterCatch": 87,
+      "awareness": 96
+    },
+    "ovr": 92.56,
+    "seedRange": [
+      1000001,
+      1020000
+    ],
+    "meanYards": 172.665,
+    "meanTouchdowns": 1.845,
+    "meanReceptions": 11.106,
+    "gamesWithAtLeast7TDs": 50,
+    "gamesWithAtLeast400Yards": 83,
+    "gamesWithAtLeast490Yards": 4,
+    "gamesGraded100": 6357,
+    "longCatches": 12752,
+    "longCatchesScoredAsTDs": 12752
+  },
+  "growthProbe": {
+    "n": 500,
+    "seedRange": [
+      300001,
+      300500
+    ],
+    "policy": "Full mode; highest-weight offered gift; maximum grade-ceiling times positional weight among open attributes at each pick; no rerolls; balanced training requested every block, including existing coaching substitutions; remain at Openwater for three years.",
+    "snapshots": [
+      {
+        "label": "initial",
+        "n": 500,
+        "meanOvr": 63.012,
+        "meanGapToCeiling": 26.705,
+        "attributeShareWithinOnePointOfCeiling": 0
+      },
+      {
+        "label": "freshmanEnd",
+        "n": 500,
+        "meanOvr": 78.831,
+        "meanGapToCeiling": 10.725,
+        "attributeShareWithinOnePointOfCeiling": 12.089
+      },
+      {
+        "label": "sophomoreEnd",
+        "n": 500,
+        "meanOvr": 85.462,
+        "meanGapToCeiling": 3.708,
+        "attributeShareWithinOnePointOfCeiling": 30.467
+      },
+      {
+        "label": "juniorEnd",
+        "n": 500,
+        "meanOvr": 87.811,
+        "meanGapToCeiling": 1.108,
+        "attributeShareWithinOnePointOfCeiling": 69.089
+      }
+    ]
+  }
+}
