@@ -35,7 +35,8 @@ export class App {
   readonly colleges = COLLEGES;
   readonly scenes = ART_SCENES;
   readonly achievements = ACHIEVEMENT_REGISTRY;
-  readonly modal = signal<'new' | 'discard' | 'import' | 'settings' | 'help' | null>(null);
+  readonly modal = signal<'new' | 'discard' | 'discard-current' | 'import' | 'settings' | 'help' | null>(null);
+  readonly discardFailed = signal(false);
   readonly autoRevealComplete=signal(false);
   readonly broadcastOpen=signal(true);
   readonly broadcastReplay=signal(false);
@@ -244,8 +245,9 @@ export class App {
   navigate(view: GameView, id?: string, edition?: CardEdition): void { this.game.navigate(view, id, edition); this.scrollTop(); }
   scrollTop(): void { window.scrollTo({ top: 0, behavior: 'instant' }); }
   randomizeName():void {this.prospectName.set(generatedName(crypto.getRandomValues(new Uint32Array(1))[0],this.prospectName()));}
-  openNew(): void { const active=this.game.run(),discard=!!active&&active.phase!=='complete';if(!discard)this.creationMode.set('full');if(active?.phase==='complete')this.randomizeName();this.formError.set('');this.modal.set(discard?'discard':'new'); }
-  async discardRun(): Promise<void> { await this.game.resetActive(); if (!this.game.error()) {this.randomizeName();this.creationMode.set('full');this.modal.set('new');} }
+  openNew(): void { const active=this.game.run(),discard=!!active&&active.phase!=='complete';if(!discard)this.creationMode.set('full');if(active?.phase==='complete')this.randomizeName();this.formError.set('');this.discardFailed.set(false);this.modal.set(discard?'discard':'new'); }
+  openDiscard():void {this.discardFailed.set(false);this.modal.set('discard-current');}
+  async discardRun(): Promise<void> { this.discardFailed.set(false);if (await this.game.resetActive()) {this.randomizeName();this.creationMode.set('full');this.formError.set('');this.navigate('home');this.modal.set('new');}else this.discardFailed.set(true); }
   async startRun(): Promise<void> {
     const name = this.prospectName().trim();
     if (name.length < 2 || name.length > 28) { this.formError.set('Give your prospect a name between 2 and 28 characters.'); return; }

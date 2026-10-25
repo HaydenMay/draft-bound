@@ -78,6 +78,6 @@ export class GameStore{
  exportSave():void{downloadBlob(new Blob([JSON.stringify(this.unreadableSave??this.envelope())],{type:'application/json'}),`draft-bound-save-${new Date().toISOString().slice(0,10)}.json`);}
  previewImport=previewSave;
  async importSave(data:SaveEnvelope):Promise<void>{await this.action(async()=>{const result=previewSave(JSON.stringify(data));if(!result.ok)throw Error(result.errors.join(' '));const next=result.data!;next.profile=cosmeticProfile(next.entries,next.profile);this.exportSave();await this.persistenceQueue;await this.repository.write(next);this.apply(next);this.loadBlocked=false;this.unreadableSave=null;this.unsaved.set(false);this.channel?.postMessage({owner:this.owner});this.notice.set('Save imported. Your previous collection was downloaded as a backup.');},true);}
- async resetActive():Promise<void>{await this.action(async()=>{this.run.set(null);await this.persist();});}
+ async resetActive():Promise<boolean>{let reset=false;await this.action(async()=>{const snapshot=this.envelope();snapshot.run=null;if(await this.persist(snapshot)){this.skipReveal();this.run.set(null);reset=true;}});return reset;}
 }
 
