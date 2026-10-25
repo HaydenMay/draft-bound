@@ -2,7 +2,7 @@
 
 ## Long-term prospect variety and balance
 
-The user clarified that this is broader than Andre Johnson: the source pool is dominated by good receivers, and selecting a source's strongest skill amplifies elite ceilings. Plan the pool and potential-selection rules together, including Quick versus Full, rather than fixing a few individual grades or adding arbitrary rarity weights. The 90-player v1.2 catalog improves coverage; it does not solve this design issue. See `superpowers/specs/2026-10-23-long-term-prospect-variety.md` and the matched progression audit in `validation/V1_2_PAIRED_REPORT.md`.
+The user clarified that this is broader than Andre Johnson: the source pool is dominated by good receivers, and selecting a source's strongest skill amplifies elite ceilings. Plan the pool and potential-selection rules together, including Quick versus Full, rather than fixing a few individual grades or adding arbitrary rarity weights. v1.4.2 introduces a provisional 498-profile, team-first receiver pool and changes the manual selection interaction; this does not constitute final long-term rarity/balance tuning. See `superpowers/specs/2026-10-23-long-term-prospect-variety.md`, the matched progression audit in `validation/V1_2_PAIRED_REPORT.md`, and the v1.4.2 sample in `validation/V1_4_2_RECEIVER_SELECTION_REPORT.md`.
 
 College return-versus-declare incentives also remain a design question: an extra college year still provides growth, and the optional professional career is automatic. Do not pretend playable pro-development time is an existing opportunity cost.
 

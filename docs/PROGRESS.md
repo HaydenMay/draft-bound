@@ -54,6 +54,14 @@ GitHub Pages: https://haydenmay.github.io/draft-bound/
 
 GitHub Actions independently passed clean installation, type checking,39 unit tests,6 browser scenarios, production build and Pages deployment. The final PNG inspection found an unbalanced canvas clipping region; a failing image-pixel assertion reproduced the blank statistics area. Restoring the context after artwork rendering fixes metadata export; all checks pass again. The live page and original assets were verified in a browser.
 
+## v1.4.2 receiver-selection implementation
+
+- Added the supplied provisional 498-profile receiver catalog, 32 real-team memberships and source-backed importer. Full membership, benchmark and grading evidence stays in the source CSVs; the browser bundle receives only gameplay fields and concise grading/review flags.
+- New prospects roll one team uniformly, then one eligible receiver uniformly within that team, and persist the exact roll. The picker shows that receiver's grades for all nine WR attributes; a chosen attribute locks. Repeat players are allowed across separate rolls. Quick retains three manual picks and five automatic team-first assignments; Full retains eight manual picks.
+- Versioned save validation checks receiver eligibility, grade/ceiling agreement and source-team provenance. Pre-v1.4.2 in-progress runs keep their original source-offer flow; completed binder records remain readable.
+- Catalog import: 6 Python tests pass, source snapshot check confirms 498 profiles / 521 eligible memberships / 32 teams / 20 benchmarks. The full 100,000-build report is documented in `validation/V1_4_2_RECEIVER_SELECTION_REPORT.md`.
+- On the rebased release tree, 99/99 unit tests, 6 Python importer tests, TypeScript typecheck, the source snapshot audit, the 100,000-build report, and all 45 Playwright browser tests pass. The Pages build succeeds at 771.22 kB raw / 146.06 kB estimated transfer; that exceeds the existing 750 kB warning budget by 21.22 kB and should be revisited before future feature growth. Playwright ran on an isolated local port. The legal review gate still prohibits publication until owner-approved public contact details and contact-delivery setup are resolved.
+
 
 ## Theme and requested 1,000-prospect follow-up
 

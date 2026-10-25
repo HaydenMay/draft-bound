@@ -24,3 +24,7 @@ Review the public-facing About, Terms of Use, Privacy Policy and Contact pages b
 ## Current publication gate
 
 Terms and Privacy use October 24, 2026 as their Last Updated date. They still need owner-approved public contact details before their draft notices can be removed. Contact remains a draft until a delivery service and public contact method are configured and verified. The supplied copy is approved as wording, but those missing publication details do not authorize removing the visible draft notices.
+
+## v1.4.2 release review
+
+The v1.4.2 receiver catalog and team-first prospect rolls introduce real professional team names and real-player references into gameplay selection. This is a required legal-review trigger. Before publishing, confirm that the existing independent-game disclaimer accurately covers this use and that no team marks or logos are displayed. Keep the current Terms and Privacy draft notices in place until the separate public-contact and contact-delivery gates above are resolved.

@@ -17,6 +17,7 @@
     "prebuild:pages": "npm run icons && npm run brands && npm run themes",
     "audit:coaching": "tsx tools/coaching-report.ts",
     "audit:art": "tsx tools/art-audit.ts",
+    "audit:v1.4.2": "tsx tools/v1.4.2-report.ts",
     "brands": "tsx tools/generate-brand.ts",
     "balance:paired": "tsx tools/v1.2-report.ts",
     "themes": "tsx tools/generate-theme-bootstrap.ts"

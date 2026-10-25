@@ -2,6 +2,7 @@ import type { ArtScene, CollegeProgram, DraftBoardSlot, DraftTeamIdentity, Sourc
 import { ART_SCENES } from './art-scenes';
 import { COLLEGES } from './colleges';
 import { SOURCE_PLAYERS, VALID_GRADES, WR_ATTRIBUTE_IDS } from './source-players';
+import { validateReceiverCatalog } from './receiver-catalog';
 import { DRAFT_BOARD, DRAFT_TEAMS } from './teams';
 
 export { VALID_GRADES, WR_ATTRIBUTE_IDS } from './source-players';
@@ -28,6 +29,7 @@ export function validateContent(overrides: Partial<ContentCatalog> = {}): string
     ...overrides,
   };
   const errors: string[] = [];
+  errors.push(...validateReceiverCatalog());
   const checkIds = (key: string, ids: string[]) => {
     const seen = new Set<string>();
     ids.forEach(id => {

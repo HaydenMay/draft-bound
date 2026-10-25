@@ -1,6 +1,6 @@
 import {GameRecord,PositionRules,WrGameStats} from './models';
 import {WR_DEFINITION,RULES_VERSION} from './positions';
-import {SOURCE_PLAYERS} from '../data/source-players';
+import {RECEIVER_PROFILES} from '../data/receiver-catalog';
 import {Random,clamp} from './rng';
 const OPPONENTS=['Pine Valley','Lake City','Canyon State','East Harbor','Prairie Tech','Ironwood','Mountain Union','South Coast','North Plains','Mesa Central','Oak Ridge','Riverbend'];
 export function emptyStats():WrGameStats{return {routes:0,targets:0,receptions:0,yards:0,touchdowns:0,drops:0,pressReps:0,pressLosses:0,contestedTargets:0,contestedCatches:0,redZoneTouchdowns:0,grade:0};}
@@ -8,7 +8,7 @@ export function sumStats(games:readonly {stats:WrGameStats}[]):WrGameStats {
  const result=emptyStats();for(const game of games)for(const key of Object.keys(result) as (keyof WrGameStats)[])result[key]+=game.stats[key];
  result.grade=games.length?result.grade/games.length:0;return result;
 }
-export const WR_RULES:PositionRules={definition:WR_DEFINITION,sourcePlayers:SOURCE_PLAYERS,simulateGame({prospect,college,year,gameNumber,seed}){
+export const WR_RULES:PositionRules={definition:WR_DEFINITION,sourcePlayers:RECEIVER_PROFILES,simulateGame({prospect,college,year,gameNumber,seed}){
  const rng=new Random(seed),a=prospect.current,id=`${prospect.id}-y${year}-g${gameNumber}`;
  const stats=emptyStats(),events:GameRecord['events']=[];
  stats.routes=Math.round(rng.int(24,38)*college.opportunity);

@@ -1,0 +1,68 @@
+{
+  "catalogVersion": "wr-v1.4.1-provisional-498",
+  "sourceStatus": "provisional",
+  "counts": {
+    "profiles": 498,
+    "current2026Profiles": 202,
+    "historicalCandidateProfiles": 296,
+    "teams": 32,
+    "eligibleMemberships": 521,
+    "ineligibleMembershipRows": 4,
+    "unassignedReviewProfiles": 10,
+    "benchmarks": 20
+  },
+  "gradingMethods": {
+    "player_specific_proposal": 53,
+    "curated_archetype_estimate": 357,
+    "existing_v1.4_catalog": 80,
+    "approved_benchmark": 8
+  },
+  "confidence": {
+    "medium": 287,
+    "high": 88,
+    "low": 123
+  },
+  "reviewStatus": {
+    "needs_manual_verification": 410,
+    "calibration_anchor": 88
+  },
+  "eligiblePoolSizes": {
+    "buf": 17,
+    "mia": 17,
+    "ne": 17,
+    "nyj": 19,
+    "bal": 15,
+    "cin": 15,
+    "cle": 17,
+    "pit": 18,
+    "hou": 16,
+    "ind": 19,
+    "jax": 17,
+    "ten": 15,
+    "den": 15,
+    "kc": 16,
+    "lv": 17,
+    "lac": 17,
+    "dal": 17,
+    "nyg": 15,
+    "phi": 16,
+    "was": 16,
+    "chi": 15,
+    "det": 16,
+    "gb": 16,
+    "min": 15,
+    "atl": 16,
+    "car": 16,
+    "no": 15,
+    "tb": 17,
+    "ari": 18,
+    "lar": 16,
+    "sf": 14,
+    "sea": 16
+  },
+  "teamPoolSizeRange": {
+    "minimum": 14,
+    "maximum": 19
+  },
+  "duplicateEligibleMemberships": 0
+}

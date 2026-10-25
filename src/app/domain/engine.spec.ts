@@ -15,7 +15,7 @@ describe('complete playable run',()=>{
  it.each([['quick',3],['full',8]] as const)('%s creation collects exactly %i manual potentials before autofilling the rest', (mode,count)=>{
   let run=createRun(`${mode} mode`,11,707,'2026-01-01T00:00:00.000Z',mode);
   run=step(run,{type:'choose-gift',index:0});run=step(run,{type:'accept-size'});
-  for(let i=0;i<count;i++){const attributeId=WR_DEFINITION.attributes.find(a=>!run.creation.traits[a.id])!.id;run=step(run,{type:'choose-trait',sourcePlayerId:run.creation.playerOffers[0],attributeId});}
+  for(let i=0;i<count;i++){const attributeId=WR_DEFINITION.attributes.find(a=>!run.creation.traits[a.id])!.id;run=step(run,{type:'choose-trait',sourcePlayerId:run.creation.currentRoll!.receiverId,attributeId});}
   expect(run.creation.manualCount).toBe(count);expect(run.phase).toBe('reveal');
   expect(Object.values(run.creation.traits).filter(trait=>trait.origin==='manual')).toHaveLength(count);
   expect(Object.values(run.creation.traits).filter(trait=>trait.origin==='autofill')).toHaveLength(8-count);

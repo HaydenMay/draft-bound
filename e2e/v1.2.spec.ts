@@ -9,7 +9,7 @@ test('palette selection retains keyboard focus for successive arrow-key choices'
  await page.keyboard.press('ArrowRight');await expect(page.getByRole('radio',{name:'Navy Gold',exact:true})).toBeChecked();
 });
 
-test('new prospect offers generated editable names, future positions, and complete Full creation after reload',async({page})=>{
+test('new prospect offers generated names, team-first receiver grades, and complete Full creation after reload',async({page})=>{
  await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/');
  await page.getByRole('button',{name:'Create your prospect',exact:true}).click();
  const name=page.getByLabel('Prospect name',{exact:true});await expect(name).not.toHaveValue('');
@@ -21,9 +21,12 @@ test('new prospect offers generated editable names, future positions, and comple
  await page.getByRole('button',{name:'Create prospect',exact:true}).click();
  await page.locator('.gift-card').first().click();await page.getByRole('button',{name:/This is my build/}).click();
  for(let i=0;i<8;i++){
-  await expect(page.locator('.section-bar').filter({hasText:'TRAIT SELECTION'})).toContainText(`${i+1} / 8`);
-  await page.locator('.trait-option').first().click();
-  if(i===2){await expect(page.locator('.section-bar').filter({hasText:'TRAIT SELECTION'})).toContainText('4 / 8');await expect(page.locator('.trait-option').first()).toBeEnabled();await page.reload();}
+  await expect(page.locator('.section-bar')).toContainText(`${i+1} / 8`);
+  await expect(page.locator('.receiver-grade')).toHaveCount(9);
+  const team=await page.locator('.section-bar span').first().textContent();expect(team?.trim()).not.toBe('');
+  const choice=page.locator('.receiver-grade:not(.assigned)').first();await expect(choice).toBeEnabled();await choice.click();
+  if(i===0)await expect(page.locator('.receiver-grade.assigned')).toHaveCount(2);
+  if(i===2){await expect(page.locator('.section-bar')).toContainText('4 / 8');await expect(page.locator('.receiver-grade:not(.assigned)').first()).toBeEnabled();await page.reload();}
  }
  await expect(page.locator('app-trait-reveal')).toHaveCount(0);
  await expect(page.locator('app-recruit-rating')).toBeVisible();

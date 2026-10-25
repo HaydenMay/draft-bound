@@ -17,8 +17,9 @@ import { GameStore } from './application/game-store';
 import { ART_SCENES } from './data/art-scenes';
 import { COLLEGES } from './data/colleges';
 import { SOURCE_PLAYERS,sourcePlayersForVersion } from './data/source-players';
+import { RECEIVER_PROFILES, receiverTeam } from './data/receiver-catalog';
 import { WR_DEFINITION } from './domain/positions';
-import { BinderEntry, CardCustomization, CardEdition, CardViewModel, GameCommandPayload, RunPhase, SaveEnvelope, SourcePlayerDefinition, TrainingPlan } from './domain/models';
+import { BinderEntry, CardCustomization, CardEdition, CardViewModel, GameCommandPayload, ReceiverProfileDefinition, RunPhase, SaveEnvelope, SourcePlayerDefinition, TrainingPlan } from './domain/models';
 import { CollectibleCard } from './shared/collectible-card';
 import { DraftIcon } from './shared/icon';
 
@@ -27,10 +28,9 @@ export class App {
   private previousFocus: HTMLElement | null = null;
   readonly game = inject(GameStore);
   readonly informationPage=computed(()=>{const view=this.game.view();return isInformationPage(view)?view:null;});
-  private readonly informationFocus=effect(()=>{if(this.informationPage())setTimeout(()=>{document.querySelector<HTMLElement>('[data-information-heading]')?.focus({preventScroll:true});window.scrollTo(0,0);});});
+  private readonly informationFocus=effect(()=>{const page=this.informationPage();this.game.informationSection();if(page)setTimeout(()=>{if(this.informationPage()!==page)return;document.querySelector<HTMLElement>('[data-information-heading]')?.focus({preventScroll:true});if(!this.game.informationSection())window.scrollTo({top:0,behavior:'instant'});});});
   readonly attributes = WR_DEFINITION.attributes;
   readonly colleges = COLLEGES;
-  readonly sources = SOURCE_PLAYERS;
   readonly scenes = ART_SCENES;
   readonly achievements = ACHIEVEMENT_REGISTRY;
   readonly modal = signal<'new' | 'discard' | 'import' | 'settings' | 'help' | null>(null);
@@ -102,15 +102,30 @@ export class App {
     });
   });
   readonly offeredSources = computed(() => {
-    const ids = this.game.run()?.creation.playerOffers ?? [];
+    const run=this.game.run();
+    if(run?.creationFlowVersion==='single-receiver-v1.4.2'){
+      const receiverId=run.creation.currentRoll?.receiverId;
+      const receiver=RECEIVER_PROFILES.find(profile=>profile.id===receiverId);
+      return receiver?[receiver]:[];
+    }
+    const ids = run?.creation.playerOffers ?? [];
     return ids.map(id => this.source(id)).filter(s => !!s);
   });
-  readonly activeSource = computed<SourcePlayerDefinition | null>(() => this.offeredSources().find(s => s.id === this.selectedSource()) ?? this.offeredSources()[0] ?? null);
+  readonly activeSource = computed<SourcePlayerDefinition | ReceiverProfileDefinition | null>(() => this.offeredSources().find(s => s.id === this.selectedSource()) ?? this.offeredSources()[0] ?? null);
   readonly availableTraits = computed(() => {
     const run = this.game.run();
     const source = this.activeSource();
     if (!run || !source) return [];
     return this.attributes.filter(a => !run.creation.traits[a.id]).map(a => ({ ...a, grade: source.grades[a.id as keyof typeof source.grades] }));
+  });
+  readonly currentReceiverTraits=computed(()=>{
+    const run=this.game.run(),source=this.activeSource();
+    if(!run||!source)return [];
+    return this.attributes.map(attribute=>({
+      ...attribute,
+      grade:source.grades[attribute.id as keyof typeof source.grades],
+      assigned:!!run.creation.traits[attribute.id],
+    }));
   });
   readonly currentCustomization = computed<CardCustomization>(() => {
     const e = this.game.currentEntry();
@@ -202,8 +217,10 @@ export class App {
     else if (!event.shiftKey && (document.activeElement === last || !items.includes(document.activeElement as HTMLElement))) { event.preventDefault(); first.focus(); }
   }
 
-  source(id: string) { return this.sources.find(s => s.id === id); }
-  sourceName(id: string): string { return this.source(id)?.name ?? 'Unknown source'; }
+  source(id: string) { return sourcePlayersForVersion(this.game.run()?.sourceCatalogVersion).find(s => s.id === id); }
+  sizeSource(id:string){return this.source(id);}
+  currentRollTeam(){const roll=this.game.run()?.creation.currentRoll;return roll?receiverTeam(roll.teamId):undefined;}
+  sourceName(id: string): string { return this.source(id)?.name ?? RECEIVER_PROFILES.find(profile=>profile.id===id)?.name ?? 'Unknown source'; }
   attributeName(id: string): string { return this.attributes.find(a => a.id === id)?.label ?? id; }
   collegeName(id: string): string { return this.colleges.find(c => c.id === id)?.name ?? id; }
   college(id: string) { return this.colleges.find(c => c.id === id); }

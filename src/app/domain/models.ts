@@ -6,11 +6,19 @@ export interface AttributeDefinition { id: string; label: string; short: string;
 export interface PositionDefinition { id: string; displayName: string; rulesVersion: string; attributes: readonly AttributeDefinition[]; sourceCatalogId: string; }
 export interface PhysicalProfile { heightCm: number; weightKg: number; build: string; grade: Grade; sourcePlayerId: string; }
 export interface SourcePlayerDefinition { id: string; name: string; era: string; heightCm: number; weightKg: number; build: string; grades: Record<WrAttributeId, Grade>; }
+export interface ReceiverProfileDefinition {
+ id:string;name:string;status:string;eligibleTeamIds:string[];
+ grades:Record<WrAttributeId,Grade>;
+ provenance:{gradingMethod:string;confidence:string;reviewStatus:string};
+ era?:string;
+}
+export interface ReceiverTeamDefinition {id:string;code:string;displayName:string;}
+export interface ReceiverRoll {teamId:string;receiverId:string;rngBefore:number;}
 export interface GiftOption { attributeId: string; sourcePlayerId: string; grade: 'S'; }
-export interface TraitAssignment { attributeId: string; sourcePlayerId: string; grade: Grade; ceiling: number; origin: 'gift'|'manual'|'autofill'; }
+export interface TraitAssignment { attributeId: string; sourcePlayerId: string; sourceTeamId?:string; grade: Grade; ceiling: number; origin: 'gift'|'manual'|'autofill'; }
 export interface ProspectCore { id: string; name: string; jerseyNumber: number; positionId: string; createdAt: string; }
 export interface Prospect extends ProspectCore { physical: PhysicalProfile; current: AttributeValues; initial: AttributeValues; traits: Record<string,TraitAssignment>; initialOvr: number; }
-export interface CreationState { traits: Record<string,TraitAssignment>; giftOffers: GiftOption[]; sizeOfferId: string; playerOffers: string[]; manualCount: number; physical: PhysicalProfile|null; }
+export interface CreationState { traits: Record<string,TraitAssignment>; giftOffers: GiftOption[]; sizeOfferId: string; playerOffers: string[]; currentRoll?:ReceiverRoll|null; manualCount: number; physical: PhysicalProfile|null; }
 export interface CollegeProgram { id: string; name: string; location: string; shortName: string; colors: [string,string]; description: string; specialty: string; specialties: string[]; coaching: number; opportunity: number; offense: number; }
 export type TrainingPlan = { mode: 'balanced' } | { mode: 'focused'|'intensive'; attributeId: string };
 export interface WrGameStats { routes: number; targets: number; receptions: number; yards: number; touchdowns: number; drops: number; pressReps: number; pressLosses: number; contestedTargets: number; contestedCatches: number; redZoneTouchdowns: number; grade: number; }
@@ -38,7 +46,7 @@ export type CreationMode='quick'|'full';
 export type BalanceVersion='legacy'|'v1.2';
 export type RunPhase='gift'|'size'|'potential'|'reveal'|'college-choice'|'training'|'block-review'|'season-review'|'transfer'|'gauntlet'|'draft-night'|'complete';
 export type ProfessionalRulesVersion='legacy-v1.3.2'|'v1.4';
-export interface RunState { sourceCatalogVersion?:string; creationMode?:CreationMode;balanceVersion?:BalanceVersion;id:string;positionId:'wr';rulesVersion:string;createdAt:string;seed:number;rng:number;nflSeed:number;name:string;jerseyNumber:number;phase:RunPhase;rerolls:number;creation:CreationState;prospect:Prospect|null;collegeId:string;year:number;gameNumber:number;history:GameRecord[];years:YearSummary[];transfers:TransferRecord[];interventions:Intervention[];usedInterventions:string[];pendingIntervention:Intervention|null;lastBlock:BlockReview|null;yearStartOvr:number;awards:AwardRecord[];unlocks:SceneUnlock[];draft:DraftSnapshot|null;processedCommands:string[]; }
+export interface RunState { sourceCatalogVersion?:string; creationMode?:CreationMode;creationFlowVersion?:'single-receiver-v1.4.2';balanceVersion?:BalanceVersion;id:string;positionId:'wr';rulesVersion:string;createdAt:string;seed:number;rng:number;nflSeed:number;name:string;jerseyNumber:number;phase:RunPhase;rerolls:number;creation:CreationState;prospect:Prospect|null;collegeId:string;year:number;gameNumber:number;history:GameRecord[];years:YearSummary[];transfers:TransferRecord[];interventions:Intervention[];usedInterventions:string[];pendingIntervention:Intervention|null;lastBlock:BlockReview|null;yearStartOvr:number;awards:AwardRecord[];unlocks:SceneUnlock[];draft:DraftSnapshot|null;processedCommands:string[]; }
 export type CardEdition='draft'|'career';
 export interface CardCustomization { sceneId:string;frame:'classic'|'silver'|'gold'|'training'|'transfer'|'legend';foil:boolean;showStamp:boolean;featuredEvidenceId?:string; }
 export interface HistoricalDisplay { positionLabel:string;attributes:{id:string;label:string;value:number;ceiling:number}[];schoolName:string;schoolColors:[string,string]; }
@@ -53,4 +61,4 @@ export interface CardViewModel { name:string;position:string;ovr:number;title:st
 export type GameCommandPayload = {type:'choose-gift';index:number}|{type:'reroll'}|{type:'accept-size'}|{type:'choose-trait';sourcePlayerId:string;attributeId:string}|{type:'continue'}|{type:'choose-college';collegeId:string}|{type:'train';plan:TrainingPlan}|{type:'declare'}|{type:'return'}|{type:'transfer';collegeId:string}|{type:'scout'};
 export type GameCommand = GameCommandPayload & {id:string};
 export interface Transition { run:RunState;entry?:BinderEntry;message?:string; }
-export interface PositionRules { definition:PositionDefinition;sourcePlayers:readonly SourcePlayerDefinition[];simulateGame:(input:{prospect:Prospect;college:CollegeProgram;year:number;gameNumber:number;seed:number})=>Omit<GameRecord,'gains'|'generalGains'|'practiceGains'>; }
+export interface PositionRules { definition:PositionDefinition;sourcePlayers:readonly ReceiverProfileDefinition[];simulateGame:(input:{prospect:Prospect;college:CollegeProgram;year:number;gameNumber:number;seed:number})=>Omit<GameRecord,'gains'|'generalGains'|'practiceGains'>; }
