@@ -4,9 +4,10 @@ import { DraftIcon } from './icon';
 
 type SpotlightStage = 'team' | 'receiver';
 
-const TEAM_DURATION_MS = 1200;
-const RECEIVER_DURATION_MS = 1000;
-const WINNER_HOLD_MS = 300;
+const TEAM_DURATION_MS = 1800;
+const TEAM_HOLD_MS = 600;
+const RECEIVER_DURATION_MS = 2000;
+const RECEIVER_HOLD_MS = 1200;
 const TEAM_HOPS = 6;
 const RECEIVER_HOPS = 4;
 
@@ -20,7 +21,7 @@ const RECEIVER_HOPS = 4;
         <header class="spotlight-heading">
           <div>
             <span class="spotlight-eyebrow">{{ stage() === 'team' ? 'TEAM SPOTLIGHT' : 'RECEIVER SPOTLIGHT' }}</span>
-            <h2 id="spotlight-title">{{ stage() === 'team' ? 'Find your team' : 'Find your receiver' }}</h2>
+            <h2 id="spotlight-title">{{ heading() }}</h2>
             @if (stage() === 'receiver') { <p>{{ teamTile()?.label }}</p> }
           </div>
           <span class="spotlight-count">{{ stage() === 'team' ? boards().teamTiles.length : boards().receiverTiles.length }}</span>
@@ -53,7 +54,9 @@ export class SpotlightReveal implements AfterViewInit {
   readonly stage = signal<SpotlightStage>('team');
   readonly highlightedId = signal('');
   readonly announcement = signal('');
+  readonly settled = signal(false);
 
+  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
   private timer: ReturnType<typeof setTimeout> | undefined;
   private completed = false;
 
@@ -84,6 +87,11 @@ export class SpotlightReveal implements AfterViewInit {
     return this.boards().teamTiles.find(tile => tile.id === this.teamId());
   }
 
+  heading(): string {
+    if (this.settled()) return (this.stage() === 'team' ? this.teamTile()?.label : this.receiverTile()?.label) ?? '';
+    return this.stage() === 'team' ? 'Find your team' : 'Find your receiver';
+  }
+
   skip(): void {
     this.announcement.set(`${this.teamTile()?.label ?? 'Team'} selected. ${this.receiverTile()?.label ?? 'Receiver'} selected.`);
     this.finish();
@@ -99,29 +107,42 @@ export class SpotlightReveal implements AfterViewInit {
     this.stage.set('team');
     this.highlightedId.set('');
     this.announcement.set('');
+    this.settled.set(false);
 
     if (instant || matchMedia('(prefers-reduced-motion: reduce)').matches) {
       this.stage.set('receiver');
       this.highlightedId.set(receiverId);
+      this.settled.set(true);
       this.announcement.set(`${boards.teamTiles.find(tile => tile.id === teamId)?.label ?? 'Team'} selected. ${boards.receiverTiles.find(tile => tile.id === receiverId)?.label ?? 'Receiver'} selected.`);
       queueMicrotask(() => this.finish());
       return;
     }
 
     this.playStage('team', boards.teamTiles, teamId, TEAM_HOPS, TEAM_DURATION_MS, () => {
+      this.settled.set(true);
       this.announcement.set(`${this.teamTile()?.label ?? 'Team'} selected.`);
-      this.stage.set('receiver');
-      if (boards.receiverSpotlight) {
-        this.playStage('receiver', boards.receiverTiles, receiverId, RECEIVER_HOPS, RECEIVER_DURATION_MS, () => {
-          this.announcement.set(`${this.receiverTile()?.label ?? 'Receiver'} selected.`);
-          this.timer = setTimeout(() => this.finish(), WINNER_HOLD_MS);
-        });
-      } else {
-        this.highlightedId.set(receiverId);
-        this.announcement.set(`${this.receiverTile()?.label ?? 'Receiver'} selected.`);
-        this.timer = setTimeout(() => this.finish(), WINNER_HOLD_MS);
-      }
+      this.timer = setTimeout(() => this.startReceiver(boards, receiverId), TEAM_HOLD_MS);
     });
+  }
+
+  private startReceiver(boards: SpotlightBoards, receiverId: string): void {
+    this.stage.set('receiver');
+    this.settled.set(false);
+    if (boards.receiverSpotlight) {
+      this.playStage('receiver', boards.receiverTiles, receiverId, RECEIVER_HOPS, RECEIVER_DURATION_MS, () => this.holdReceiver());
+    } else {
+      this.highlightedId.set(receiverId);
+      this.holdReceiver();
+    }
+  }
+
+  private holdReceiver(): void {
+    this.settled.set(true);
+    this.announcement.set(`${this.receiverTile()?.label ?? 'Receiver'} selected.`);
+    queueMicrotask(() => {
+      if (!this.completed) this.host.nativeElement.querySelector('.receiver-board .is-lit')?.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    });
+    this.timer = setTimeout(() => this.finish(), RECEIVER_HOLD_MS);
   }
 
   private playStage(stage: SpotlightStage, tiles: readonly SpotlightTile[], winnerId: string, hops: number, durationMs: number, done: () => void): void {

@@ -52,6 +52,7 @@
                     }
                   </div>
                 </section>
+                <div class="offer-actions"><button class="button secondary" [disabled]="run.rerolls <= 0 || game.busy() || game.revealing()" (click)="command({ type: 'reroll' })"><app-icon name="reroll" /> Reroll receiver <span class="count-pill">{{ run.rerolls }} left</span></button></div>
               }
             } @else {
               <div class="section-bar"><span>TRAIT SELECTION</span><span>{{ run.creation.manualCount + 1 }} / {{ manualLimit(run) }} PICKS</span></div>

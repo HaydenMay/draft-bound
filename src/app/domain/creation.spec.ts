@@ -1,11 +1,43 @@
 import {describe,it,expect} from 'vitest';
-import {createRun} from './engine';
+import {createRun,transition} from './engine';
+import {Random} from './rng';
 import {step,completeRun,createCollege} from './test-fixtures';
 import {RECEIVER_CATALOG_VERSION,RECEIVER_PROFILES,RECEIVER_TEAMS,eligibleReceiversForTeam} from '../data/receiver-catalog';
 import {WR_DEFINITION} from './positions';
 import {emptySave,previewSave} from '../persistence/save';
 
 describe('v1.2 creation modes and offers',()=>{
+ it.each(['quick','full'] as const)('allows three persisted receiver rerolls in %s without changing locked traits or manual progress',mode=>{
+  let run=createRun('Reroll Test',11,219,'2026-10-24T00:00:00Z',mode);
+  run=step(run,{type:'choose-gift',index:0});run=step(run,{type:'accept-size'});
+  const attributeId=WR_DEFINITION.attributes.find(attribute=>!run.creation.traits[attribute.id])!.id;
+  run=step(run,{type:'choose-trait',sourcePlayerId:run.creation.currentRoll!.receiverId,attributeId});
+  const locked=structuredClone(run.creation.traits);
+  for(let remaining=2;remaining>=0;remaining--){
+   const rng=new Random(run.rng),team=rng.pick(RECEIVER_TEAMS),receiver=rng.pick(eligibleReceiversForTeam(team.id));
+   const command={type:'reroll' as const,id:`receiver-reroll-${remaining}`};
+   const before=run;run=transition(run,command).run;
+   expect(run.rerolls).toBe(remaining);
+   expect(run.creation.currentRoll).toEqual({teamId:team.id,receiverId:receiver.id,rngBefore:before.rng});
+   expect(run.rng).toBe(rng.state);
+   expect(run.creation.traits).toEqual(locked);
+   expect(run.creation.manualCount).toBe(1);
+   expect(run.phase).toBe('potential');
+   expect(transition(run,command).run).toEqual(run);
+   const save=emptySave();save.run=run;
+   const restored=previewSave(JSON.stringify(save));
+   expect(restored.errors).toEqual([]);expect(restored.data!.run).toEqual(run);
+  }
+  expect(()=>step(run,{type:'reroll'})).toThrow('No rerolls remain.');
+ });
+ it('shares the three-reroll budget between physical build and receiver selection',()=>{
+  let run=createRun('Shared Budget',11,220);
+  run=step(run,{type:'choose-gift',index:0});run=step(run,{type:'reroll'});
+  expect(run.rerolls).toBe(2);
+  run=step(run,{type:'accept-size'});run=step(run,{type:'reroll'});run=step(run,{type:'reroll'});
+  expect(run.rerolls).toBe(0);
+  expect(()=>step(run,{type:'reroll'})).toThrow('No rerolls remain.');
+ });
  it('records the catalog version on new completed drafts',()=>{
   expect(completeRun(82).entry!.draft.contentVersion).toBe(RECEIVER_CATALOG_VERSION);
  });

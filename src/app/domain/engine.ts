@@ -93,9 +93,11 @@ export function transition(original:RunState,command:GameCommand):Transition {
  switch(command.type){
   case 'choose-gift':{requirePhase(run,'gift');const gift=run.creation.giftOffers[command.index];if(!gift)throw Error('Choose one natural gift.');assign(run,gift.attributeId,gift.sourcePlayerId,'gift',catalog);run.phase='size';break;}
   case 'reroll':{
-   requirePhase(run,'size','potential');if(run.creationFlowVersion===CREATION_FLOW_VERSION&&run.phase==='potential')throw Error('Receiver picks cannot be rerolled.');
+   requirePhase(run,'size','potential');
    if(run.rerolls<=0)throw Error('No rerolls remain.');run.rerolls--;
-   if(run.phase==='size')run.creation.sizeOfferId=rng.pick(catalog).id;else run.creation.playerOffers=legacyOffers(rng,catalog);break;
+   if(run.phase==='size')run.creation.sizeOfferId=rng.pick(catalog).id;
+   else if(run.creationFlowVersion===CREATION_FLOW_VERSION)run.creation.currentRoll=rollReceiver(rng);
+   else run.creation.playerOffers=legacyOffers(rng,catalog);break;
   }
   case 'accept-size':{
    requirePhase(run,'size');const p=source(run.creation.sizeOfferId,catalog);run.creation.physical={heightCm:p.heightCm,weightKg:p.weightKg,build:p.build,grade:'A',sourcePlayerId:p.id};

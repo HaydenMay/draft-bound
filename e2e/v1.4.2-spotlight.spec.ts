@@ -42,7 +42,9 @@ test('spotlight displays all teams, then only eligible receivers, and both skips
   const eligibleIds = eligibleReceiversForTeam(selected.teamId).map(profile => profile.id);
   const shownIds = await page.getByTestId('spotlight-receiver-board').locator('[data-spotlight-id]').evaluateAll(nodes => nodes.map(node => node.getAttribute('data-spotlight-id')));
   expect(shownIds).toEqual(eligibleIds);
+  await page.getByRole('button', { name: /Skip reveal/ }).click();
   expect(await readSave(page).then(save => save.run!.creation.currentRoll)).toEqual(selected);
+  expect((await readSave(page)).run!.rerolls).toBe(3);
   await expect(page.locator('.receiver-roll-heading h2')).toHaveText(receiver.name);
   await expect(page.getByText(team.displayName, { exact: true }).first()).toBeVisible();
 });
@@ -91,9 +93,55 @@ test('the spotlight completes naturally without changing the preselected receive
 
   await expect(page.getByTestId('spotlight-team-board')).toBeVisible();
   await expect(page.getByTestId('spotlight-receiver-board')).toBeVisible({ timeout: 5000 });
+  await expect(page.getByRole('dialog')).toHaveCount(0, { timeout: 7000 });
   await expect(page.locator('.receiver-roll-heading h2')).toHaveText(receiver.name, { timeout: 5000 });
   expect((await readSave(page)).run!.creation.currentRoll).toEqual(selected);
 });
+
+test('winning team and receiver names pause long enough to read before moving on', async ({ page }) => {
+  await startPotential(page);
+  const selected = (await readSave(page)).run!.creation.currentRoll!;
+  const teamBoard = page.getByTestId('spotlight-team-board');
+  const receiverBoard = page.getByTestId('spotlight-receiver-board');
+  await expect(page.getByRole('heading', { name: receiverTeam(selected.teamId)!.displayName, exact: true })).toBeVisible();
+  await page.waitForTimeout(350);
+  await expect(teamBoard).toBeVisible();
+  await expect(receiverBoard).toBeVisible();
+  await expect(page.getByRole('dialog').getByRole('heading', { name: receiverProfile(selected.receiverId)!.name, exact: true })).toBeVisible();
+  await page.screenshot({ path: test.info().outputPath('receiver-winner.png') });
+  await page.waitForTimeout(650);
+  await expect(receiverBoard).toBeVisible();
+  await expect(page.getByRole('dialog', { name: receiverProfile(selected.receiverId)!.name, exact: true })).toHaveCount(0);
+  expect((await readSave(page)).run!.creation.currentRoll).toEqual(selected);
+});
+
+for (const mode of ['quick', 'full'] as const) {
+  test(`${mode} restores three receiver rerolls with replay, exhaustion and reload safety`, async ({ page }) => {
+    if (mode === 'quick') await page.setViewportSize({ width: 390, height: 844 });
+    await startPotential(page, mode);
+    await page.getByRole('button', { name: /Skip reveal/ }).click();
+    const initial = (await readSave(page)).run!;
+    for (let left = 3; left > 0; left--) {
+      const reroll = page.getByRole('button', { name: `Reroll receiver ${left} left`, exact: true });
+      await expect(reroll).toBeEnabled();
+      await reroll.click();
+      await expect(page.getByTestId('spotlight-team-board')).toBeVisible();
+      const run = (await readSave(page)).run!;
+      expect(run.rerolls).toBe(left - 1);
+      expect(run.creation.manualCount).toBe(initial.creation.manualCount);
+      expect(run.creation.traits).toEqual(initial.creation.traits);
+      await page.getByRole('button', { name: /Skip reveal/ }).click();
+    }
+    await expect(page.getByRole('button', { name: 'Reroll receiver 0 left', exact: true })).toBeDisabled();
+    await page.getByRole('button', { name: 'Reroll receiver 0 left', exact: true }).scrollIntoViewIfNeeded();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    await page.screenshot({ path: test.info().outputPath(`${mode}-reroll-budget.png`) });
+    const exhausted = (await readSave(page)).run!;
+    await page.reload();
+    await expect(page.getByRole('button', { name: 'Reroll receiver 0 left', exact: true })).toBeDisabled();
+    expect((await readSave(page)).run).toEqual(exhausted);
+  });
+}
 
 test('reduced motion bypasses the spotlight and leaves the selected receiver readable', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
