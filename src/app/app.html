@@ -43,7 +43,7 @@
               @if (activeSource(); as player) {
                 <div class="section-bar"><span>{{ currentRollTeam()?.displayName }}</span><span>{{ run.creation.manualCount + 1 }} / {{ manualLimit(run) }} PICKS</span></div>
                 <section class="receiver-roll" aria-label="Receiver potential grades">
-                  <div class="receiver-roll-heading"><div><span class="eyebrow">THIS PICK</span><h2>{{ player.name }}</h2></div><span class="receiver-team-mark">{{ currentRollTeam()?.code }}</span></div>
+                  <div class="receiver-roll-heading"><div><span class="eyebrow">THIS PICK</span><h2 tabindex="-1">{{ player.name }}</h2></div><span class="receiver-team-mark">{{ currentRollTeam()?.code }}</span></div>
                   <div class="receiver-grade-grid">
                     @for (trait of currentReceiverTraits(); track trait.id) {
                       <button class="receiver-grade" [class.assigned]="trait.assigned" [disabled]="trait.assigned || game.busy() || game.revealing()" (click)="command({ type: 'choose-trait', sourcePlayerId: player.id, attributeId: trait.id })">
@@ -123,7 +123,13 @@
 
 <footer class="site-footer page-width"><div class="footer-identity"><app-brand kind="header"/><p>Independent football simulation. Not affiliated with the NFL, NCAA, teams or named players.</p></div><nav aria-label="Information"><button (click)="modal.set('help')">How to play</button><a href="#about" [attr.aria-current]="game.view() === 'about' ? 'page' : null">About</a><a href="#privacy" [attr.aria-current]="game.view() === 'privacy' ? 'page' : null">Privacy</a><a href="#terms" [attr.aria-current]="game.view() === 'terms' ? 'page' : null">Terms</a><a href="#contact" [attr.aria-current]="game.view() === 'contact' ? 'page' : null">Contact</a></nav></footer>
 
-@if (game.revealing()) { <div class="reveal-notice" role="status"><span class="reveal-spinner"></span><span>Greatness is taking shape…</span><button (click)="skipPresentation()">Skip reveal <app-icon name="next" /></button></div> }
+@if (game.revealing() && spotlightRoll(); as roll) {
+  @if (spotlightBoards(); as boards) {
+    @defer (when game.revealing()) {
+      <app-spotlight-reveal [boards]="boards" [teamId]="roll.teamId" [receiverId]="roll.receiverId" [instant]="game.fastForward()" (finished)="completeSpotlight()" />
+    } @loading { <div class="reveal-notice" role="status"><span class="reveal-spinner"></span><span>Greatness is taking shape…</span><button (click)="completeSpotlight()">Skip reveal <app-icon name="next" /></button></div> }
+  }
+} @else if (game.revealing()) { <div class="reveal-notice" role="status"><span class="reveal-spinner"></span><span>Greatness is taking shape…</span><button (click)="skipPresentation()">Skip reveal <app-icon name="next" /></button></div> }
 
 @if (modal(); as activeModal) {
   <div class="modal-backdrop" (click)="modal.set(null)"><section class="modal" [class.creator-modal]="activeModal === 'new'" [class.settings-modal]="activeModal === 'settings'" role="dialog" aria-modal="true" aria-labelledby="modal-title" (click)="$event.stopPropagation()" (keydown.escape)="modal.set(null)"><button class="modal-close icon-button" aria-label="Close dialog" (click)="modal.set(null)"><app-icon name="close" /></button>

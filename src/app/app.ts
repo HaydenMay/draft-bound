@@ -17,13 +17,15 @@ import { GameStore } from './application/game-store';
 import { ART_SCENES } from './data/art-scenes';
 import { COLLEGES } from './data/colleges';
 import { SOURCE_PLAYERS,sourcePlayersForVersion } from './data/source-players';
-import { RECEIVER_PROFILES, receiverTeam } from './data/receiver-catalog';
+import { RECEIVER_PROFILES, RECEIVER_TEAMS, receiverTeam } from './data/receiver-catalog';
 import { WR_DEFINITION } from './domain/positions';
 import { BinderEntry, CardCustomization, CardEdition, CardViewModel, GameCommandPayload, ReceiverProfileDefinition, RunPhase, SaveEnvelope, SourcePlayerDefinition, TrainingPlan } from './domain/models';
 import { CollectibleCard } from './shared/collectible-card';
 import { DraftIcon } from './shared/icon';
+import { SpotlightReveal } from './shared/spotlight-reveal';
+import { SpotlightBoards, createSpotlightBoards } from './shared/spotlight-sequence';
 
-@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon, TraitReveal, RecruitBadge, GameBroadcast, ThemePicker, Brand, PositionPicker, InformationPage], templateUrl: './app.html', styleUrl: './app.css' })
+@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon, TraitReveal, RecruitBadge, GameBroadcast, ThemePicker, Brand, PositionPicker, InformationPage, SpotlightReveal], templateUrl: './app.html', styleUrl: './app.css' })
 export class App {
   private previousFocus: HTMLElement | null = null;
   readonly game = inject(GameStore);
@@ -43,6 +45,8 @@ export class App {
   readonly prospectName = signal(generatedName(crypto.getRandomValues(new Uint32Array(1))[0]));
   readonly creationMode = signal<CreationMode>('full');
   readonly manualLimit = manualPotentialLimit;
+  readonly spotlightRoll = computed(() => { const run = this.game.run(), roll = run?.creation.currentRoll; return run?.phase === 'potential' && run.creationFlowVersion === 'single-receiver-v1.4.2' ? roll ?? null : null; });
+  readonly spotlightBoards = computed<SpotlightBoards | null>(() => { const roll = this.spotlightRoll(); return roll ? createSpotlightBoards(RECEIVER_TEAMS, RECEIVER_PROFILES, roll.teamId, roll.receiverId) : null; });
   readonly jerseyNumber = signal(11);
   readonly formError = signal('');
   readonly appearanceFailed=signal(false);
@@ -250,6 +254,7 @@ export class App {
     if (!this.game.error()) { this.modal.set(null); this.selectedSource.set(''); this.trainingMode.set('balanced'); this.scrollTop(); }
   }
   completeTraits():void {const moveFocus=!!document.activeElement?.closest('app-trait-reveal');this.autoRevealComplete.set(true);if(moveFocus)requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>('[data-continue-college]')?.focus({preventScroll:true}));}
+  completeSpotlight():void {this.game.skipReveal();queueMicrotask(()=>document.querySelector<HTMLElement>('.receiver-roll-heading h2')?.focus({preventScroll:true}));}
   completeBroadcast():void {const moveFocus=!!document.activeElement?.closest('app-game-broadcast');this.broadcastOpen.set(false);if(moveFocus)requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>('[data-block-continue]')?.focus({preventScroll:true}));}
   skipPresentation():void {this.game.skipReveal();this.traitReveal()?.showAll();}
   replayBroadcast():void {this.broadcastReplay.set(true);this.broadcastOpen.set(true);}

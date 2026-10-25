@@ -52,7 +52,11 @@ export class GameStore{
  });await this.persistenceQueue;return saved;}
  async retrySave():Promise<void>{await this.persist();}
  private async action(fn:()=>void|Promise<void>,allowRecovery=false):Promise<void>{if(this.busy())return;if(this.loadBlocked&&!allowRecovery){this.error.set('The unreadable original save is protected. Export it or import a valid backup.');return;}if(this.foreignChange){this.error.set('Another tab changed this save. Export a backup if needed, then reload.');return;}this.busy.set(true);this.error.set('');try{await fn();}catch(e){this.error.set(e instanceof Error?e.message:'That action could not finish.');}finally{this.busy.set(false);}}
- private reveal():void{this.skipReveal();if(this.fastForward()||matchMedia('(prefers-reduced-motion: reduce)').matches)return;this.revealing.set(true);this.revealTimer=setTimeout(()=>this.revealing.set(false),850);}
+ private reveal():void{
+  this.skipReveal();if(this.fastForward()||matchMedia('(prefers-reduced-motion: reduce)').matches)return;this.revealing.set(true);
+  const run=this.run();if(run?.phase==='potential'&&run.creationFlowVersion==='single-receiver-v1.4.2'&&run.creation.currentRoll)return;
+  this.revealTimer=setTimeout(()=>this.revealing.set(false),850);
+ }
  skipReveal():void{if(this.revealTimer)clearTimeout(this.revealTimer);this.revealing.set(false);}
  clearError():void{this.error.set('');}
  async newRun(name:string,jerseyNumber:number,mode:CreationMode='quick'):Promise<void>{await this.action(async()=>{if(this.entries().length>=MAX_BINDER_ENTRIES)throw Error(`Your binder has reached its ${MAX_BINDER_ENTRIES.toLocaleString('en-US')}-card limit. Export a backup before making room.`);if(this.run()&&this.run()!.phase!=='complete')throw Error('Finish or discard your active prospect first.');const seed=crypto.getRandomValues(new Uint32Array(1))[0];this.run.set(createRun(name,jerseyNumber,seed,new Date().toISOString(),mode));await this.persist();this.navigate('play');this.reveal();});}
