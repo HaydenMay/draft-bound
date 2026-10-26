@@ -228,3 +228,36 @@ for (const viewport of [{width:320,height:568}, {width:390,height:664}, {width:1
     await page.screenshot({path:test.info().outputPath('ten-receiver-board.png')});
   });
 }
+
+
+test('upcoming receiver details stay concealed until the spotlight finishes or is skipped',async({page})=>{
+ await startPotential(page,'full');
+ await expect(page.getByTestId('spotlight-team-board')).toBeVisible();
+ await expect(page.locator('.receiver-roll')).toBeHidden();
+ await page.getByRole('button',{name:/Skip reveal/}).click();
+ await expect(page.locator('.receiver-roll')).toBeVisible();
+ await page.getByRole('button',{name:'Reroll receiver 3 left',exact:true}).click();
+ await expect(page.getByTestId('spotlight-team-board')).toBeVisible();
+ await expect(page.locator('.receiver-roll')).toBeHidden();
+ const selected=(await readSave(page)).run!.creation.currentRoll!;
+ await page.getByRole('button',{name:/Skip reveal/}).click();
+ await expect(page.locator('.receiver-roll-heading h2')).toHaveText(receiverProfile(selected.receiverId)!.name);
+ await expect(page.locator('.receiver-roll-heading h2')).toBeFocused();
+});
+
+test('a manual pick conceals its next receiver even while the save is still pending',async({page})=>{
+ await startPotential(page,'full');await page.getByRole('button',{name:/Skip reveal/}).click();
+ await page.evaluate(()=>{
+  const descriptor=Object.getOwnPropertyDescriptor(IDBTransaction.prototype,'oncomplete')!;
+  Object.defineProperty(IDBTransaction.prototype,'oncomplete',{configurable:true,get:descriptor.get,set(handler){
+   descriptor.set!.call(this,typeof handler==='function'?function(this:IDBTransaction,event:Event){setTimeout(()=>handler.call(this,event),1200);}:handler);
+  }});
+ });
+ await page.locator('.receiver-grade:not(.assigned)').first().click();
+ await expect(page.locator('.receiver-roll')).toBeHidden();
+ await expect(page.getByTestId('spotlight-team-board')).toBeVisible();
+ await expect(page.locator('.receiver-roll')).toBeHidden();
+ const selected=(await readSave(page)).run!.creation.currentRoll!;
+ await page.getByRole('button',{name:/Skip reveal/}).click();
+ await expect(page.locator('.receiver-roll-heading h2')).toHaveText(receiverProfile(selected.receiverId)!.name);
+});

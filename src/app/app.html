@@ -41,6 +41,7 @@
           } @else if (run.phase === 'potential') {
             @if (run.creationFlowVersion === 'single-receiver-v1.4.2') {
               @if (activeSource(); as player) {
+                <div class="receiver-offer" [style.visibility]="game.busy() || game.revealing() ? 'hidden' : null" [attr.inert]="game.busy() || game.revealing() ? '' : null" [attr.aria-hidden]="game.busy() || game.revealing() ? 'true' : null">
                 <div class="section-bar"><span>{{ currentRollTeam()?.displayName }}</span><span>{{ run.creation.manualCount + 1 }} / {{ manualLimit(run) }} PICKS</span></div>
                 <section class="receiver-roll" aria-label="Receiver potential grades">
                   <div class="receiver-roll-heading"><div><span class="eyebrow">THIS PICK</span><h2 tabindex="-1">{{ player.name }}</h2></div><span class="receiver-team-mark">{{ currentRollTeam()?.code }}</span></div>
@@ -53,6 +54,7 @@
                   </div>
                 </section>
                 <div class="offer-actions"><button class="button secondary" [disabled]="run.rerolls <= 0 || game.busy() || game.revealing()" (click)="command({ type: 'reroll' })"><app-icon name="reroll" /> Reroll receiver <span class="count-pill">{{ run.rerolls }} left</span></button></div>
+                </div>
               }
             } @else {
               <div class="section-bar"><span>TRAIT SELECTION</span><span>{{ run.creation.manualCount + 1 }} / {{ manualLimit(run) }} PICKS</span></div>

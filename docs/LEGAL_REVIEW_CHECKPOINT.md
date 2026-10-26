@@ -44,3 +44,7 @@ Reviewed About, Terms, Privacy and Contact against the owner-authorized college 
 ## October 26 v1.4.5 recruiting and schools review
 
 Reviewed About, Terms, Privacy and Contact against expanded fictional colleges, limited recruiting and transfer offers, school-supported training ceilings and the consolidated draft report. Existing college development and fictional evaluation descriptions remain accurate. Natural player grades remain unchanged; no real college identities, services, tracking, accounts, contact delivery or new collection of personal information were added. Local saves gain a version marker and retain existing history. No policy copy/date change is needed. All existing legal publication gates and draft notices remain.
+
+## October 26 spotlight reveal visibility fix
+
+Reviewed About, Terms, Privacy and Contact against this presentation-only fix. Concealing the upcoming receiver while an action saves and the spotlight runs does not change selection odds, player grades, data collection or services. No copy/date changes are needed; existing publication gates remain.

@@ -262,7 +262,7 @@ export class App {
     if (!this.game.error()) { this.modal.set(null); this.selectedSource.set(''); this.trainingMode.set('balanced'); this.scrollTop(); }
   }
   completeTraits():void {const moveFocus=!!document.activeElement?.closest('app-trait-reveal');this.autoRevealComplete.set(true);if(moveFocus)requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>('[data-continue-college]')?.focus({preventScroll:true}));}
-  completeSpotlight():void {this.game.skipReveal();queueMicrotask(()=>document.querySelector<HTMLElement>('.receiver-roll-heading h2')?.focus({preventScroll:true}));}
+  completeSpotlight():void {this.game.skipReveal();requestAnimationFrame(()=>document.querySelector<HTMLElement>('.receiver-roll-heading h2')?.focus({preventScroll:true}));}
   completeBroadcast():void {const moveFocus=!!document.activeElement?.closest('app-game-broadcast');this.broadcastOpen.set(false);if(moveFocus)requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>('[data-block-continue]')?.focus({preventScroll:true}));}
   skipPresentation():void {this.game.skipReveal();this.traitReveal()?.showAll();}
   replayBroadcast():void {this.broadcastReplay.set(true);this.broadcastOpen.set(true);}
