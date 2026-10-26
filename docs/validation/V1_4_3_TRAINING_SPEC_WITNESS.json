@@ -1,0 +1,242 @@
+{
+  "status": "PROPOSED RULES — DEVELOPMENT-ONLY CONSTRUCTIVE WITNESS",
+  "limitations": "Conditional all-S99 potential and all maximum non-gift starting rolls. Fixed internally coherent42-route game reps. This verifies training mathematics, not a generated prospect seed, end-to-end random career, or the chance of receiving these traits/results. It must not be described as a sampled playable99 career.",
+  "initial": {
+    "speed": 73,
+    "acceleration": 73,
+    "hands": 73,
+    "routeRunning": 94,
+    "release": 73,
+    "vertical": 73,
+    "bodyControl": 73,
+    "yardsAfterCatch": 73,
+    "awareness": 73
+  },
+  "ceilings": {
+    "speed": 99,
+    "acceleration": 99,
+    "hands": 99,
+    "routeRunning": 99,
+    "release": 99,
+    "vertical": 99,
+    "bodyControl": 99,
+    "yardsAfterCatch": 99,
+    "awareness": 99
+  },
+  "college": "opportunity",
+  "routes": 42,
+  "reps": {
+    "speed": 42,
+    "acceleration": 42,
+    "hands": 18,
+    "routeRunning": 42,
+    "release": 18,
+    "vertical": 6,
+    "bodyControl": 6,
+    "yardsAfterCatch": 15,
+    "awareness": 42
+  },
+  "practiceBudget": 8,
+  "experienceBudget": 3.6,
+  "baseYearFactors": [
+    0.85,
+    1,
+    1
+  ],
+  "schoolEfficiency": [
+    1,
+    0.95,
+    0.9
+  ],
+  "netYearFactors": [
+    0.85,
+    0.95,
+    0.9
+  ],
+  "trajectory": [
+    {
+      "year": 1,
+      "block": 1,
+      "plan": {
+        "mode": "intensive",
+        "attributeId": "speed"
+      },
+      "rawOvr": 80.5775773818,
+      "current": {
+        "speed": 92.90941818181818,
+        "acceleration": 74.80706909090907,
+        "hands": 74.16613818181816,
+        "routeRunning": 95.0647090909091,
+        "release": 74.16613818181816,
+        "vertical": 73.8456727272727,
+        "bodyControl": 73.8456727272727,
+        "yardsAfterCatch": 74.08602181818179,
+        "awareness": 74.80706909090907
+      }
+    },
+    {
+      "year": 1,
+      "block": 2,
+      "plan": {
+        "mode": "intensive",
+        "attributeId": "release"
+      },
+      "rawOvr": 83.8046023273,
+      "current": {
+        "speed": 94.03883636363639,
+        "acceleration": 76.61413818181813,
+        "hands": 75.33227636363631,
+        "routeRunning": 95.62941818181821,
+        "release": 93.23767272727271,
+        "vertical": 74.6913454545454,
+        "bodyControl": 74.6913454545454,
+        "yardsAfterCatch": 75.17204363636358,
+        "awareness": 76.61413818181813
+      }
+    },
+    {
+      "year": 1,
+      "block": 3,
+      "plan": {
+        "mode": "focused",
+        "attributeId": "vertical"
+      },
+      "rawOvr": 86.5363271273,
+      "current": {
+        "speed": 95.44112727272729,
+        "acceleration": 79.56360727272721,
+        "hands": 77.64081454545448,
+        "routeRunning": 96.55112727272729,
+        "release": 94.6805090909091,
+        "vertical": 87.65363636363634,
+        "bodyControl": 76.67941818181811,
+        "yardsAfterCatch": 77.40046545454538,
+        "awareness": 79.56360727272721
+      }
+    },
+    {
+      "year": 2,
+      "block": 1,
+      "plan": {
+        "mode": "intensive",
+        "attributeId": "hands"
+      },
+      "rawOvr": 90.2794458182,
+      "current": {
+        "speed": 96.07227272727273,
+        "acceleration": 81.58327272727269,
+        "hands": 96.08754545454542,
+        "routeRunning": 97.18227272727273,
+        "release": 95.24754545454547,
+        "vertical": 88.24436363636363,
+        "bodyControl": 77.62458181818175,
+        "yardsAfterCatch": 78.61425454545446,
+        "awareness": 81.58327272727269
+      }
+    },
+    {
+      "year": 2,
+      "block": 2,
+      "plan": {
+        "mode": "intensive",
+        "attributeId": "bodyControl"
+      },
+      "rawOvr": 92.8571646545,
+      "current": {
+        "speed": 96.70341818181818,
+        "acceleration": 83.60293818181816,
+        "hands": 96.49483636363635,
+        "routeRunning": 97.81341818181818,
+        "release": 95.6548363636364,
+        "vertical": 88.83509090909092,
+        "bodyControl": 95.97054545454543,
+        "yardsAfterCatch": 79.82804363636353,
+        "awareness": 83.60293818181816
+      }
+    },
+    {
+      "year": 2,
+      "block": 3,
+      "plan": {
+        "mode": "intensive",
+        "attributeId": "yardsAfterCatch"
+      },
+      "rawOvr": 94.853236,
+      "current": {
+        "speed": 97.33456363636363,
+        "acceleration": 85.38912727272726,
+        "hands": 96.90212727272728,
+        "routeRunning": 98.44456363636363,
+        "release": 96.06212727272734,
+        "vertical": 89.42581818181822,
+        "bodyControl": 96.26590909090905,
+        "yardsAfterCatch": 96.74307272727269,
+        "awareness": 85.38912727272726
+      }
+    },
+    {
+      "year": 3,
+      "block": 1,
+      "plan": {
+        "mode": "focused",
+        "attributeId": "acceleration"
+      },
+      "rawOvr": 96.4460043636,
+      "current": {
+        "speed": 98.31049090909092,
+        "acceleration": 95.3284909090909,
+        "hands": 97.66598181818182,
+        "routeRunning": 99,
+        "release": 96.82598181818187,
+        "vertical": 90.74145454545459,
+        "bodyControl": 96.92372727272723,
+        "yardsAfterCatch": 97.48041818181814,
+        "awareness": 87.34098181818179
+      }
+    },
+    {
+      "year": 3,
+      "block": 2,
+      "plan": {
+        "mode": "focused",
+        "attributeId": "vertical"
+      },
+      "rawOvr": 97.6319770909,
+      "current": {
+        "speed": 99,
+        "acceleration": 96.30441818181819,
+        "hands": 98.42983636363635,
+        "routeRunning": 99,
+        "release": 97.58983636363641,
+        "vertical": 97.68654545454548,
+        "bodyControl": 97.58154545454542,
+        "yardsAfterCatch": 98.21776363636359,
+        "awareness": 89.29283636363631
+      }
+    },
+    {
+      "year": 3,
+      "block": 3,
+      "plan": {
+        "mode": "focused",
+        "attributeId": "awareness"
+      },
+      "rawOvr": 98.5495854545,
+      "current": {
+        "speed": 99,
+        "acceleration": 97.28034545454548,
+        "hands": 99,
+        "routeRunning": 99,
+        "release": 98.35369090909094,
+        "vertical": 98.34436363636367,
+        "bodyControl": 98.2393636363636,
+        "yardsAfterCatch": 98.95510909090903,
+        "awareness": 97.28034545454543
+      }
+    }
+  ],
+  "final": {
+    "raw": 98.5495854545,
+    "display": 99
+  }
+}

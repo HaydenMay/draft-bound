@@ -266,7 +266,6 @@ export class App {
     const plan: TrainingPlan = mode === 'balanced' ? { mode } : { mode, attributeId: this.trainingTarget() };
     this.command({ type: 'train', plan });
   }
-  followCoach(attributeId: string): void { this.trainingMode.set('intensive'); this.trainingTarget.set(attributeId); }
   openEntry(entry: BinderEntry): void { this.activeTab.set('journey'); this.navigate('entry', entry.id); }
   openCard(id: string, edition: CardEdition): void { this.editingFor.set(`${id}:${edition}`); this.cardPatch.set({}); this.navigate('card', id, edition); }
   patchCard(patch: Partial<CardCustomization>): void { const entry = this.game.currentEntry(); this.editingFor.set(`${entry?.id}:${this.game.selectedEdition()}`); this.cardPatch.update(p => ({ ...p, ...patch })); }

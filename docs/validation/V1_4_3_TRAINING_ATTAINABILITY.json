@@ -1,0 +1,52 @@
+{
+  "status": "Optimistic upper bound, not a playable witness.",
+  "assumptions": "All S99 ceilings, best possible nongift initial65 plus proposal uplift, Natural Gift94, maximum experience budget everygame, freely redistributable work across all attributes, each attribute always receives its best available college coaching without transfer cost. Real four-game allocations cannot outperform this relaxed allocation model.",
+  "witnesses": [
+    {
+      "variant": "baseline",
+      "rawOvr": 98.763418,
+      "displayedOvr": 99
+    },
+    {
+      "variant": "A_readiness_and_years",
+      "rawOvr": 97.957452,
+      "displayedOvr": 98
+    },
+    {
+      "variant": "B_lower_shared_work",
+      "rawOvr": 94.024255,
+      "displayedOvr": 94
+    },
+    {
+      "variant": "C_preserve_focus_reduce_experience",
+      "rawOvr": 95.38222,
+      "displayedOvr": 95
+    }
+  ],
+  "bounds": [
+    {
+      "variant": "baseline",
+      "optimisticRawWorkBudget": 483.84,
+      "maxRawOvr": 99,
+      "maxDisplayedOvr": 99
+    },
+    {
+      "variant": "A_readiness_and_years",
+      "optimisticRawWorkBudget": 373.248,
+      "maxRawOvr": 98.978256,
+      "maxDisplayedOvr": 99
+    },
+    {
+      "variant": "B_lower_shared_work",
+      "optimisticRawWorkBudget": 244.94400000000002,
+      "maxRawOvr": 95.308448,
+      "maxDisplayedOvr": 95
+    },
+    {
+      "variant": "C_preserve_focus_reduce_experience",
+      "optimisticRawWorkBudget": 279.936,
+      "maxRawOvr": 96.7290285714,
+      "maxDisplayedOvr": 97
+    }
+  ]
+}

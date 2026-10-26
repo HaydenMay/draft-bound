@@ -32,3 +32,7 @@ The v1.4.2 receiver catalog and team-first prospect rolls introduce real profess
 ## October 25 receiver-curation release review
 
 Reviewed `src/app/data/information-pages.ts` against the curated-pool and spotlight changes. The pass selects among existing professional team/player references without adding affiliations, player grades or team marks. About and Terms still describe fictional, independently interpreted player abilities and outcomes; their approved disclaimer remains applicable. Privacy and Contact still describe local saves and unavailable message delivery accurately. No services, uploads, tracking or accounts were added. No public copy or policy-date change is needed for this pass. Existing Terms, Privacy and Contact draft notices and publication prerequisites remain in place.
+
+## October 25 v1.4.3 training release review
+
+Reviewed `src/app/data/information-pages.ts` against the approved starting-ability, training-budget and annual school-continuity changes. About and Terms describe college development, fictional attributes/outcomes and evolving game balance without promising specific coefficients. Those descriptions still match this pass. Save data remains local; no services, collection fields, team marks, accounts or uploads are introduced. Privacy and Contact require no copy or date change. Existing publication prerequisites and draft notices remain in place.

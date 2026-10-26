@@ -1,0 +1,4185 @@
+{
+  "status": "Actual production commands match pre-implementation OVR distributions",
+  "referenceSha256": "91df22ac3c475bf17ad20cfb5ed155f973e2936f3fa15ceb7f19bfdc96cc2967",
+  "groups": 144,
+  "careers": 28800,
+  "games": 1036800,
+  "checked": [
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 87.866,
+        "min": 82.395,
+        "p10": 85.552,
+        "p50": 87.911,
+        "p90": 89.737,
+        "p95": 90.296,
+        "max": 92.028
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 85.103,
+        "min": 79.648,
+        "p10": 82.889,
+        "p50": 85.213,
+        "p90": 87.142,
+        "p95": 87.731,
+        "max": 88.548
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "intensive_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 81.242,
+        "min": 75.99,
+        "p10": 78.954,
+        "p50": 81.308,
+        "p90": 83.354,
+        "p95": 83.798,
+        "max": 85.012
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 87.949,
+        "min": 82.404,
+        "p10": 85.549,
+        "p50": 87.967,
+        "p90": 89.936,
+        "p95": 90.661,
+        "max": 92.099
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "intensive_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 87.756,
+        "min": 82.194,
+        "p10": 85.384,
+        "p50": 87.877,
+        "p90": 89.783,
+        "p95": 90.437,
+        "max": 91.928
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 88.576,
+        "min": 83.198,
+        "p10": 86.121,
+        "p50": 88.6,
+        "p90": 90.705,
+        "p95": 91.083,
+        "max": 92.453
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 88.023,
+        "min": 82.726,
+        "p10": 85.642,
+        "p50": 88.02,
+        "p90": 89.964,
+        "p95": 90.463,
+        "max": 92.443
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 85.607,
+        "min": 80.31,
+        "p10": 83.509,
+        "p50": 85.636,
+        "p90": 87.589,
+        "p95": 88.073,
+        "max": 88.977
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "intensive_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 81.811,
+        "min": 76.581,
+        "p10": 79.632,
+        "p50": 81.872,
+        "p90": 83.774,
+        "p95": 84.438,
+        "max": 85.138
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 88.222,
+        "min": 82.706,
+        "p10": 85.756,
+        "p50": 88.237,
+        "p90": 90.268,
+        "p95": 90.803,
+        "max": 92.636
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "intensive_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 88.058,
+        "min": 82.534,
+        "p10": 85.589,
+        "p50": 88.124,
+        "p90": 90.126,
+        "p95": 90.713,
+        "max": 92.576
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 88.752,
+        "min": 83.327,
+        "p10": 86.331,
+        "p50": 88.828,
+        "p90": 90.906,
+        "p95": 91.272,
+        "max": 92.972
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 88.35,
+        "min": 82.799,
+        "p10": 85.882,
+        "p50": 88.425,
+        "p90": 90.339,
+        "p95": 90.802,
+        "max": 92.842
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 85.972,
+        "min": 80.505,
+        "p10": 83.766,
+        "p50": 86.056,
+        "p90": 88.011,
+        "p95": 88.461,
+        "max": 89.576
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "intensive_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 82.453,
+        "min": 77.615,
+        "p10": 80.338,
+        "p50": 82.6,
+        "p90": 84.522,
+        "p95": 85.043,
+        "max": 86.25
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 88.441,
+        "min": 82.851,
+        "p10": 85.886,
+        "p50": 88.565,
+        "p90": 90.584,
+        "p95": 91.079,
+        "max": 92.871
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "intensive_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 88.313,
+        "min": 82.832,
+        "p10": 85.742,
+        "p50": 88.519,
+        "p90": 90.439,
+        "p95": 90.921,
+        "max": 92.82
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.866,
+        "min": 64.24,
+        "p10": 67.44,
+        "p50": 69.96,
+        "p90": 72.06,
+        "p95": 72.56,
+        "max": 75.02
+      },
+      "junior": {
+        "mean": 88.951,
+        "min": 83.456,
+        "p10": 86.323,
+        "p50": 89.048,
+        "p90": 91.193,
+        "p95": 91.564,
+        "max": 93.206
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.224,
+        "min": 82.027,
+        "p10": 85.871,
+        "p50": 88.269,
+        "p90": 90.365,
+        "p95": 90.866,
+        "max": 92.719
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 85.384,
+        "min": 79.541,
+        "p10": 83.279,
+        "p50": 85.469,
+        "p90": 87.31,
+        "p95": 87.741,
+        "max": 90.072
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "intensive_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 81.454,
+        "min": 76.081,
+        "p10": 79.191,
+        "p50": 81.613,
+        "p90": 83.407,
+        "p95": 83.815,
+        "max": 86.399
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.338,
+        "min": 82.175,
+        "p10": 85.932,
+        "p50": 88.353,
+        "p90": 90.485,
+        "p95": 91.054,
+        "max": 92.665
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "intensive_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.147,
+        "min": 82.228,
+        "p10": 85.688,
+        "p50": 88.149,
+        "p90": 90.259,
+        "p95": 90.74,
+        "max": 92.492
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.921,
+        "min": 83.208,
+        "p10": 86.822,
+        "p50": 88.943,
+        "p90": 91.05,
+        "p95": 91.579,
+        "max": 93.274
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.447,
+        "min": 82.188,
+        "p10": 86.104,
+        "p50": 88.57,
+        "p90": 90.533,
+        "p95": 91.258,
+        "max": 92.596
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 85.891,
+        "min": 80.116,
+        "p10": 83.556,
+        "p50": 86.066,
+        "p90": 87.924,
+        "p95": 88.41,
+        "max": 90.321
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "intensive_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 82.013,
+        "min": 76.792,
+        "p10": 79.936,
+        "p50": 82.101,
+        "p90": 83.983,
+        "p95": 84.163,
+        "max": 86.549
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.644,
+        "min": 82.303,
+        "p10": 86.231,
+        "p50": 88.683,
+        "p90": 90.787,
+        "p95": 91.656,
+        "max": 92.979
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "intensive_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.502,
+        "min": 82.364,
+        "p10": 85.962,
+        "p50": 88.535,
+        "p90": 90.711,
+        "p95": 91.317,
+        "max": 92.786
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 89.126,
+        "min": 83.217,
+        "p10": 86.985,
+        "p50": 89.181,
+        "p90": 91.296,
+        "p95": 91.935,
+        "max": 93.205
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.75,
+        "min": 82.561,
+        "p10": 86.304,
+        "p50": 88.823,
+        "p90": 90.85,
+        "p95": 91.491,
+        "max": 93.114
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 86.269,
+        "min": 80.444,
+        "p10": 84.153,
+        "p50": 86.26,
+        "p90": 88.325,
+        "p95": 88.588,
+        "max": 90.708
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "intensive_stay",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 82.636,
+        "min": 77.34,
+        "p10": 80.585,
+        "p50": 82.743,
+        "p90": 84.502,
+        "p95": 84.978,
+        "max": 87.127
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.85,
+        "min": 82.644,
+        "p10": 86.415,
+        "p50": 88.872,
+        "p90": 91.039,
+        "p95": 91.825,
+        "max": 93.373
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "intensive_rotate",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 88.732,
+        "min": 82.694,
+        "p10": 86.205,
+        "p50": 88.789,
+        "p90": 90.931,
+        "p95": 91.548,
+        "max": 93.143
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 70.007,
+        "min": 66.16,
+        "p10": 67.82,
+        "p50": 70,
+        "p90": 72.18,
+        "p95": 72.52,
+        "max": 73.36
+      },
+      "junior": {
+        "mean": 89.352,
+        "min": 83.28,
+        "p10": 87.089,
+        "p50": 89.413,
+        "p90": 91.49,
+        "p95": 92.151,
+        "max": 93.636
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.849,
+        "min": 82.329,
+        "p10": 85.293,
+        "p50": 88.018,
+        "p90": 89.937,
+        "p95": 90.309,
+        "max": 91.89
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.524,
+        "min": 83.28,
+        "p10": 85.98,
+        "p50": 88.685,
+        "p90": 90.622,
+        "p95": 90.944,
+        "max": 92.519
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.587,
+        "min": 82.22,
+        "p10": 85.196,
+        "p50": 87.78,
+        "p90": 89.638,
+        "p95": 89.938,
+        "max": 91.414
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.35,
+        "min": 83.28,
+        "p10": 85.826,
+        "p50": 88.472,
+        "p90": 90.334,
+        "p95": 90.664,
+        "max": 92.137
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.667,
+        "min": 82.258,
+        "p10": 85.239,
+        "p50": 87.88,
+        "p90": 89.735,
+        "p95": 90.09,
+        "max": 91.539
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.429,
+        "min": 83.28,
+        "p10": 85.95,
+        "p50": 88.544,
+        "p90": 90.46,
+        "p95": 90.782,
+        "max": 92.299
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "explosive",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.021,
+        "min": 81.92,
+        "p10": 84.794,
+        "p50": 87.177,
+        "p90": 88.94,
+        "p95": 89.283,
+        "max": 90.731
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "explosive",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.917,
+        "min": 83.272,
+        "p10": 85.61,
+        "p50": 88.091,
+        "p90": 89.876,
+        "p95": 90.255,
+        "max": 91.589
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.509,
+        "min": 82.203,
+        "p10": 85.211,
+        "p50": 87.722,
+        "p90": 89.47,
+        "p95": 89.786,
+        "max": 91.217
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.323,
+        "min": 83.277,
+        "p10": 85.833,
+        "p50": 88.447,
+        "p90": 90.298,
+        "p95": 90.642,
+        "max": 92.105
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.18,
+        "min": 81.98,
+        "p10": 84.828,
+        "p50": 87.343,
+        "p90": 89.079,
+        "p95": 89.458,
+        "max": 90.844
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.076,
+        "min": 83.28,
+        "p10": 85.627,
+        "p50": 88.236,
+        "p90": 90.015,
+        "p95": 90.456,
+        "max": 91.708
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.154,
+        "min": 82.036,
+        "p10": 84.865,
+        "p50": 87.351,
+        "p90": 89.123,
+        "p95": 89.532,
+        "max": 91.012
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.028,
+        "min": 83.28,
+        "p10": 85.656,
+        "p50": 88.169,
+        "p90": 89.941,
+        "p95": 90.372,
+        "max": 91.718
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.224,
+        "min": 82.026,
+        "p10": 84.983,
+        "p50": 87.375,
+        "p90": 89.114,
+        "p95": 89.541,
+        "max": 90.992
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.104,
+        "min": 83.28,
+        "p10": 85.637,
+        "p50": 88.254,
+        "p90": 90.03,
+        "p95": 90.446,
+        "max": 91.783
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.737,
+        "min": 82.342,
+        "p10": 85.338,
+        "p50": 87.918,
+        "p90": 89.804,
+        "p95": 90.166,
+        "max": 91.593
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "technical",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.498,
+        "min": 83.28,
+        "p10": 85.883,
+        "p50": 88.655,
+        "p90": 90.484,
+        "p95": 90.902,
+        "max": 92.368
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "technical",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.442,
+        "min": 82.17,
+        "p10": 85.047,
+        "p50": 87.629,
+        "p90": 89.513,
+        "p95": 89.759,
+        "max": 91.258
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.204,
+        "min": 83.17,
+        "p10": 85.74,
+        "p50": 88.365,
+        "p90": 90.105,
+        "p95": 90.534,
+        "max": 91.907
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "technical",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.059,
+        "min": 81.888,
+        "p10": 84.776,
+        "p50": 87.292,
+        "p90": 88.994,
+        "p95": 89.263,
+        "max": 90.784
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "technical",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.952,
+        "min": 83.159,
+        "p10": 85.656,
+        "p50": 88.126,
+        "p90": 89.819,
+        "p95": 90.132,
+        "max": 91.556
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.166,
+        "min": 81.978,
+        "p10": 84.764,
+        "p50": 87.358,
+        "p90": 89.083,
+        "p95": 89.437,
+        "max": 90.91
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.032,
+        "min": 83.185,
+        "p10": 85.666,
+        "p50": 88.201,
+        "p90": 89.934,
+        "p95": 90.287,
+        "max": 91.69
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.633,
+        "min": 82.294,
+        "p10": 85.298,
+        "p50": 87.86,
+        "p90": 89.605,
+        "p95": 89.932,
+        "max": 91.549
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.399,
+        "min": 83.28,
+        "p10": 85.944,
+        "p50": 88.547,
+        "p90": 90.32,
+        "p95": 90.762,
+        "max": 92.069
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.975,
+        "min": 82.481,
+        "p10": 85.534,
+        "p50": 88.122,
+        "p90": 90.034,
+        "p95": 90.322,
+        "max": 91.916
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.686,
+        "min": 83.28,
+        "p10": 86.133,
+        "p50": 88.857,
+        "p90": 90.753,
+        "p95": 91.187,
+        "max": 92.497
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.758,
+        "min": 82.354,
+        "p10": 85.368,
+        "p50": 87.894,
+        "p90": 89.727,
+        "p95": 90.069,
+        "max": 91.65
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.535,
+        "min": 83.28,
+        "p10": 85.961,
+        "p50": 88.686,
+        "p90": 90.52,
+        "p95": 90.947,
+        "max": 92.285
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.22,
+        "min": 82.013,
+        "p10": 84.963,
+        "p50": 87.387,
+        "p90": 89.163,
+        "p95": 89.543,
+        "max": 91.012
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.073,
+        "min": 83.213,
+        "p10": 85.7,
+        "p50": 88.229,
+        "p90": 89.945,
+        "p95": 90.279,
+        "max": 91.71
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.248,
+        "min": 81.982,
+        "p10": 84.897,
+        "p50": 87.392,
+        "p90": 89.222,
+        "p95": 89.501,
+        "max": 90.992
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.154,
+        "min": 83.222,
+        "p10": 85.811,
+        "p50": 88.329,
+        "p90": 90.034,
+        "p95": 90.389,
+        "max": 91.757
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.771,
+        "min": 82.407,
+        "p10": 85.387,
+        "p50": 87.954,
+        "p90": 89.794,
+        "p95": 90.176,
+        "max": 91.576
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "explosive",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.537,
+        "min": 83.28,
+        "p10": 85.967,
+        "p50": 88.667,
+        "p90": 90.57,
+        "p95": 90.951,
+        "max": 92.235
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "technical",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.552,
+        "min": 82.217,
+        "p10": 85.163,
+        "p50": 87.762,
+        "p90": 89.56,
+        "p95": 89.979,
+        "max": 91.374
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.3,
+        "min": 83.213,
+        "p10": 85.729,
+        "p50": 88.466,
+        "p90": 90.274,
+        "p95": 90.694,
+        "max": 91.933
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "technical",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.212,
+        "min": 82.009,
+        "p10": 84.952,
+        "p50": 87.428,
+        "p90": 89.151,
+        "p95": 89.556,
+        "max": 90.961
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "technical",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.061,
+        "min": 83.192,
+        "p10": 85.596,
+        "p50": 88.275,
+        "p90": 90.006,
+        "p95": 90.384,
+        "max": 91.688
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.298,
+        "min": 82.099,
+        "p10": 85.054,
+        "p50": 87.48,
+        "p90": 89.278,
+        "p95": 89.672,
+        "max": 91.075
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.139,
+        "min": 83.214,
+        "p10": 85.656,
+        "p50": 88.322,
+        "p90": 90.069,
+        "p95": 90.471,
+        "max": 91.713
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "explosive",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.218,
+        "min": 81.997,
+        "p10": 84.94,
+        "p50": 87.382,
+        "p90": 89.155,
+        "p95": 89.551,
+        "max": 91.068
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "explosive",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.074,
+        "min": 83.241,
+        "p10": 85.661,
+        "p50": 88.215,
+        "p90": 89.984,
+        "p95": 90.333,
+        "max": 91.801
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.663,
+        "min": 82.28,
+        "p10": 85.339,
+        "p50": 87.801,
+        "p90": 89.601,
+        "p95": 90.045,
+        "max": 91.516
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.453,
+        "min": 83.28,
+        "p10": 85.974,
+        "p50": 88.606,
+        "p90": 90.397,
+        "p95": 90.815,
+        "max": 92.294
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.354,
+        "min": 82.057,
+        "p10": 85.023,
+        "p50": 87.488,
+        "p90": 89.264,
+        "p95": 89.755,
+        "max": 91.156
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.224,
+        "min": 83.255,
+        "p10": 85.821,
+        "p50": 88.386,
+        "p90": 90.137,
+        "p95": 90.522,
+        "max": 91.929
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.867,
+        "min": 82.425,
+        "p10": 85.429,
+        "p50": 88.032,
+        "p90": 89.932,
+        "p95": 90.293,
+        "max": 91.769
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.577,
+        "min": 83.28,
+        "p10": 85.985,
+        "p50": 88.708,
+        "p90": 90.588,
+        "p95": 90.994,
+        "max": 92.377
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 87.912,
+        "min": 82.489,
+        "p10": 85.537,
+        "p50": 88.04,
+        "p90": 89.912,
+        "p95": 90.3,
+        "max": 91.727
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.641,
+        "min": 83.28,
+        "p10": 85.98,
+        "p50": 88.764,
+        "p90": 90.681,
+        "p95": 91.045,
+        "max": 92.58
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.3,
+        "min": 82.647,
+        "p10": 85.683,
+        "p50": 88.443,
+        "p90": 90.414,
+        "p95": 90.742,
+        "max": 92.217
+      }
+    },
+    {
+      "mode": "quick",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.978,
+        "min": 64.34,
+        "p10": 67.62,
+        "p50": 69.9,
+        "p90": 72.34,
+        "p95": 72.78,
+        "max": 75.1
+      },
+      "junior": {
+        "mean": 88.871,
+        "min": 83.28,
+        "p10": 86.04,
+        "p50": 89.003,
+        "p90": 90.994,
+        "p95": 91.434,
+        "max": 92.838
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.283,
+        "min": 82.899,
+        "p10": 86.053,
+        "p50": 88.515,
+        "p90": 90.194,
+        "p95": 90.613,
+        "max": 92.69
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 89.003,
+        "min": 83.498,
+        "p10": 86.718,
+        "p50": 89.173,
+        "p90": 90.82,
+        "p95": 91.3,
+        "max": 93.466
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.005,
+        "min": 82.781,
+        "p10": 85.795,
+        "p50": 88.246,
+        "p90": 89.78,
+        "p95": 90.242,
+        "max": 92.246
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.797,
+        "min": 83.443,
+        "p10": 86.583,
+        "p50": 88.987,
+        "p90": 90.547,
+        "p95": 91.076,
+        "max": 93.15
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.088,
+        "min": 82.856,
+        "p10": 85.834,
+        "p50": 88.343,
+        "p90": 89.951,
+        "p95": 90.291,
+        "max": 92.301
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.881,
+        "min": 83.476,
+        "p10": 86.644,
+        "p50": 89.069,
+        "p90": 90.617,
+        "p95": 91.198,
+        "max": 93.259
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "explosive",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.406,
+        "min": 82.511,
+        "p10": 85.204,
+        "p50": 87.601,
+        "p90": 89.143,
+        "p95": 89.554,
+        "max": 91.688
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "explosive",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.317,
+        "min": 83.332,
+        "p10": 86.193,
+        "p50": 88.472,
+        "p90": 89.921,
+        "p95": 90.48,
+        "max": 92.719
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.951,
+        "min": 82.816,
+        "p10": 85.741,
+        "p50": 88.139,
+        "p90": 89.744,
+        "p95": 90.222,
+        "max": 92.246
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.776,
+        "min": 83.524,
+        "p10": 86.575,
+        "p50": 88.955,
+        "p90": 90.491,
+        "p95": 91.026,
+        "max": 93.19
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.577,
+        "min": 82.653,
+        "p10": 85.348,
+        "p50": 87.768,
+        "p90": 89.224,
+        "p95": 89.78,
+        "max": 91.908
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.494,
+        "min": 83.428,
+        "p10": 86.327,
+        "p50": 88.659,
+        "p90": 90.181,
+        "p95": 90.669,
+        "max": 92.82
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.521,
+        "min": 82.574,
+        "p10": 85.302,
+        "p50": 87.742,
+        "p90": 89.285,
+        "p95": 89.637,
+        "max": 91.791
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.418,
+        "min": 83.331,
+        "p10": 86.31,
+        "p50": 88.549,
+        "p90": 90.085,
+        "p95": 90.607,
+        "max": 92.729
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.614,
+        "min": 82.67,
+        "p10": 85.349,
+        "p50": 87.817,
+        "p90": 89.306,
+        "p95": 89.794,
+        "max": 91.968
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.517,
+        "min": 83.371,
+        "p10": 86.392,
+        "p50": 88.704,
+        "p90": 90.215,
+        "p95": 90.68,
+        "max": 92.747
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.164,
+        "min": 82.952,
+        "p10": 85.888,
+        "p50": 88.4,
+        "p90": 89.921,
+        "p95": 90.32,
+        "max": 92.459
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "technical",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.967,
+        "min": 83.499,
+        "p10": 86.777,
+        "p50": 89.107,
+        "p90": 90.754,
+        "p95": 91.208,
+        "max": 93.383
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "technical",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.878,
+        "min": 82.71,
+        "p10": 85.688,
+        "p50": 88.111,
+        "p90": 89.659,
+        "p95": 89.997,
+        "max": 92.121
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.635,
+        "min": 83.337,
+        "p10": 86.514,
+        "p50": 88.827,
+        "p90": 90.365,
+        "p95": 90.874,
+        "max": 92.823
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "technical",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.475,
+        "min": 82.534,
+        "p10": 85.307,
+        "p50": 87.687,
+        "p90": 89.162,
+        "p95": 89.636,
+        "max": 91.669
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "technical",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.329,
+        "min": 83.148,
+        "p10": 86.228,
+        "p50": 88.479,
+        "p90": 90.003,
+        "p95": 90.479,
+        "max": 92.547
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.58,
+        "min": 82.642,
+        "p10": 85.416,
+        "p50": 87.786,
+        "p90": 89.299,
+        "p95": 89.771,
+        "max": 91.823
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.425,
+        "min": 83.248,
+        "p10": 86.34,
+        "p50": 88.618,
+        "p90": 90.102,
+        "p95": 90.587,
+        "max": 92.594
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.098,
+        "min": 82.895,
+        "p10": 85.899,
+        "p50": 88.287,
+        "p90": 89.864,
+        "p95": 90.375,
+        "max": 92.242
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.853,
+        "min": 83.531,
+        "p10": 86.628,
+        "p50": 88.933,
+        "p90": 90.56,
+        "p95": 91.187,
+        "max": 93.196
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.499,
+        "min": 83.134,
+        "p10": 86.287,
+        "p50": 88.616,
+        "p90": 90.387,
+        "p95": 90.783,
+        "max": 92.737
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 89.203,
+        "min": 83.622,
+        "p10": 86.859,
+        "p50": 89.279,
+        "p90": 91.049,
+        "p95": 91.484,
+        "max": 93.721
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.242,
+        "min": 83.041,
+        "p10": 86.083,
+        "p50": 88.423,
+        "p90": 89.958,
+        "p95": 90.495,
+        "max": 92.443
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 89.012,
+        "min": 83.609,
+        "p10": 86.779,
+        "p50": 89.099,
+        "p90": 90.828,
+        "p95": 91.276,
+        "max": 93.437
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.634,
+        "min": 82.683,
+        "p10": 85.412,
+        "p50": 87.861,
+        "p90": 89.28,
+        "p95": 89.787,
+        "max": 91.907
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.478,
+        "min": 83.276,
+        "p10": 86.399,
+        "p50": 88.642,
+        "p90": 90.148,
+        "p95": 90.605,
+        "max": 92.74
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.676,
+        "min": 82.668,
+        "p10": 85.494,
+        "p50": 87.895,
+        "p90": 89.335,
+        "p95": 89.783,
+        "max": 91.856
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.559,
+        "min": 83.27,
+        "p10": 86.461,
+        "p50": 88.646,
+        "p90": 90.248,
+        "p95": 90.687,
+        "max": 92.914
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.24,
+        "min": 83.035,
+        "p10": 86.036,
+        "p50": 88.431,
+        "p90": 89.983,
+        "p95": 90.447,
+        "max": 92.499
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "explosive",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 89.006,
+        "min": 83.523,
+        "p10": 86.758,
+        "p50": 89.107,
+        "p90": 90.755,
+        "p95": 91.225,
+        "max": 93.363
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "technical",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.984,
+        "min": 82.796,
+        "p10": 85.791,
+        "p50": 88.191,
+        "p90": 89.828,
+        "p95": 90.04,
+        "max": 92.321
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "technical",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.757,
+        "min": 83.427,
+        "p10": 86.601,
+        "p50": 88.881,
+        "p90": 90.47,
+        "p95": 90.905,
+        "max": 92.982
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "technical",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.618,
+        "min": 82.664,
+        "p10": 85.441,
+        "p50": 87.805,
+        "p90": 89.346,
+        "p95": 89.73,
+        "max": 91.789
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "technical",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.48,
+        "min": 83.344,
+        "p10": 86.358,
+        "p50": 88.615,
+        "p90": 90.095,
+        "p95": 90.682,
+        "max": 92.748
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.706,
+        "min": 82.728,
+        "p10": 85.472,
+        "p50": 87.892,
+        "p90": 89.448,
+        "p95": 89.816,
+        "max": 91.927
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "technical",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.562,
+        "min": 83.386,
+        "p10": 86.427,
+        "p50": 88.719,
+        "p90": 90.25,
+        "p95": 90.729,
+        "max": 92.873
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "explosive",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.642,
+        "min": 82.687,
+        "p10": 85.442,
+        "p50": 87.859,
+        "p90": 89.314,
+        "p95": 89.924,
+        "max": 91.884
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "explosive",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.497,
+        "min": 83.329,
+        "p10": 86.435,
+        "p50": 88.656,
+        "p90": 90.159,
+        "p95": 90.648,
+        "max": 92.954
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.133,
+        "min": 82.985,
+        "p10": 85.925,
+        "p50": 88.321,
+        "p90": 89.843,
+        "p95": 90.324,
+        "max": 92.303
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "explosive",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.912,
+        "min": 83.566,
+        "p10": 86.711,
+        "p50": 89.04,
+        "p90": 90.655,
+        "p95": 91.105,
+        "max": 93.309
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 87.789,
+        "min": 82.799,
+        "p10": 85.57,
+        "p50": 88.025,
+        "p90": 89.49,
+        "p95": 89.968,
+        "max": 91.98
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "explosive",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.659,
+        "min": 83.424,
+        "p10": 86.573,
+        "p50": 88.809,
+        "p90": 90.364,
+        "p95": 90.806,
+        "max": 93.042
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.325,
+        "min": 83.032,
+        "p10": 86.201,
+        "p50": 88.558,
+        "p90": 90.114,
+        "p95": 90.569,
+        "max": 92.67
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "technical"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 89.067,
+        "min": 83.588,
+        "p10": 86.792,
+        "p50": 89.199,
+        "p90": 90.805,
+        "p95": 91.242,
+        "max": 93.54
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.39,
+        "min": 83.112,
+        "p10": 86.303,
+        "p50": 88.549,
+        "p90": 90.149,
+        "p95": 90.706,
+        "max": 92.693
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "explosive"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 89.13,
+        "min": 83.614,
+        "p10": 86.862,
+        "p50": 89.256,
+        "p90": 90.888,
+        "p95": 91.295,
+        "max": 93.588
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "balanced",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 88.815,
+        "min": 83.28,
+        "p10": 86.526,
+        "p50": 89.032,
+        "p90": 90.674,
+        "p95": 91.159,
+        "max": 93.243
+      }
+    },
+    {
+      "mode": "full",
+      "path": [
+        "opportunity",
+        "opportunity",
+        "opportunity"
+      ],
+      "policy": "focused_adaptive",
+      "careers": 200,
+      "games": 7200,
+      "initial": {
+        "mean": 69.777,
+        "min": 65,
+        "p10": 67.94,
+        "p50": 69.66,
+        "p90": 71.9,
+        "p95": 72.62,
+        "max": 73.84
+      },
+      "junior": {
+        "mean": 89.429,
+        "min": 83.69,
+        "p10": 87.058,
+        "p50": 89.498,
+        "p90": 91.35,
+        "p95": 91.683,
+        "max": 93.886
+      }
+    }
+  ]
+}

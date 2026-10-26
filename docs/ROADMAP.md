@@ -10,6 +10,8 @@ Fresh spotlight receiver boards show two columns/five rows on phones and five co
 
 The owner requested an early follow-up on October 25 after a junior season included 17 receptions for 490 yards and seven touchdowns in one game, plus another seven-touchdown game. Many attributes were at or close to their ceilings. This is an investigation/planning priority, not an approved set of replacement coefficients or a completed balance fix.
 
+Training diagnostics and quantified proposals are now in the [v1.4.3 training review](validation/V1_4_3_TRAINING_REVIEW.md), following the owner's [planning-only brief](superpowers/specs/2026-10-25-v1.4.3-training-owner-brief.md). The refined [numerical specification](superpowers/specs/2026-10-25-v1.4.3-training-numerical-spec.md) proposes 58–73 non-gift starts, eight practice work units, and annual school-history continuity applied once alongside revised year factors. The owner approved these numbers and the transfer table on October25. Implementation is complete; see the [release verification](validation/V1_4_3_TRAINING_RELEASE.md). A conditional all-S development fixture now reaches displayed99, but no end-to-end generated99 career or rarity has been established. New prospects use the approved model; existing runs retain their original numerical rules. These audits use curated receiver pools; the older 498-profile baseline below remains historical evidence.
+
 Confirmed current-model issues in `domain/simulation.ts`:
 
 - The long-catch branch sets `startDistance = yards`, guaranteeing a touchdown for that branch. The model produces no non-scoring 50+ yard catches.
@@ -32,9 +34,9 @@ These requirements are agreed direction for the balance pass, recorded without c
 3. Give training meaningful opportunity costs: concentrating on one attribute leaves less development available for others.
 4. Keep potential ceilings important. High potential is an upper limit, not an automatic grant of current ability or a guaranteed outcome.
 5. Make school specialties improve development opportunities, while requiring the player to train to realize those benefits.
-6. Account for training continuity and reduced effectiveness when changing training priorities. Preserve the discussed 100% / 95% / 90% progression for consistent specialization; exact application intervals and switching coefficients still need specification.
+6. Account for training continuity and reduced effectiveness when changing training priorities. Preserve the discussed 100% / 95% / 90% sequence as a proposal; the owner's October25 planning brief explicitly requires its meaning, application intervals and switching coefficients to be confirmed before implementation.
 
-Before implementation, reconcile training-priority continuity with the earlier school-history/transfer continuity proposal in `superpowers/specs/2026-10-23-v1.4-preserved.md`. They describe different decisions. Do not silently reuse the transfer penalties for training changes or stack either proposal with existing year/mastery factors without assessing the combined effect. No implementation is requested by this requirements update.
+The refined numerical proposal interprets the earlier 100/95/90 table as annual school-history continuity, following `superpowers/specs/2026-10-23-v1.4-preserved.md`. Training-priority switching remains a separate design question; this pass proposes no switching penalty. Do not silently reuse transfer penalties for training changes or multiply new annual factors by the old year factors. This numerical scope is approved and implemented for new v1.4.3 runs.
 
 ## Long-term prospect variety and balance
 

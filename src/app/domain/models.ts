@@ -43,7 +43,7 @@ export interface ProfessionalCareer { positionId:'wr';rulesVersion:string;status
 export interface PositionPayloadMap { wr:{attributeId:WrAttributeId;gameStats:WrGameStats;gameEvent:WrGameEvent;professionalStats:WrProfessionalStats}; }
 export type PositionId = keyof PositionPayloadMap;
 export type CreationMode='quick'|'full';
-export type BalanceVersion='legacy'|'v1.2';
+export type BalanceVersion='legacy'|'v1.2'|'v1.4.3';
 export type RunPhase='gift'|'size'|'potential'|'reveal'|'college-choice'|'training'|'block-review'|'season-review'|'transfer'|'gauntlet'|'draft-night'|'complete';
 export type ProfessionalRulesVersion='legacy-v1.3.2'|'v1.4';
 export interface RunState { receiverCatalogVersion?:string;sourceCatalogVersion?:string; creationMode?:CreationMode;creationFlowVersion?:'single-receiver-v1.4.2';balanceVersion?:BalanceVersion;id:string;positionId:'wr';rulesVersion:string;createdAt:string;seed:number;rng:number;nflSeed:number;name:string;jerseyNumber:number;phase:RunPhase;rerolls:number;creation:CreationState;prospect:Prospect|null;collegeId:string;year:number;gameNumber:number;history:GameRecord[];years:YearSummary[];transfers:TransferRecord[];interventions:Intervention[];usedInterventions:string[];pendingIntervention:Intervention|null;lastBlock:BlockReview|null;yearStartOvr:number;awards:AwardRecord[];unlocks:SceneUnlock[];draft:DraftSnapshot|null;processedCommands:string[]; }
