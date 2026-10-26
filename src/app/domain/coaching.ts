@@ -1,3 +1,4 @@
+import {trainingCeilings} from './college-system';
 import {Intervention,RunState} from './models';
 import {sumStats} from './simulation';
 
@@ -23,7 +24,7 @@ export function detectIntervention(run:RunState):Intervention|null {
   {type:'wr.film',attributeId:'awareness',label:'Coverage film room',cause:`${s.targets} targets from ${s.routes} routes; study coverage windows.`,eligible:s.routes>=60&&targetRate<.2,severity:.2/Math.max(.08,targetRate),maxSkill:82},
   {type:'wr.speed',attributeId:'speed',label:'Deep-ball stride',cause:`No 30-yard catches across ${s.receptions} receptions; ${yardsPerCatch.toFixed(1)} yards per catch.`,eligible:s.receptions>=12&&yardsPerCatch<14&&!bigCatch,severity:14/Math.max(5,yardsPerCatch),maxSkill:85},
  ];
- const eligible=candidates.filter(c=>c.eligible&&!run.usedInterventions.includes(c.type)&&p.current[c.attributeId]<c.maxSkill&&p.traits[c.attributeId].ceiling-p.current[c.attributeId]>=2);
+ const eligible=candidates.filter(c=>c.eligible&&!run.usedInterventions.includes(c.type)&&p.current[c.attributeId]<c.maxSkill&&trainingCeilings(run)[c.attributeId]-p.current[c.attributeId]>=2);
  const priority=(c:Candidate)=>Math.min(3,c.severity)*.65+(99-p.current[c.attributeId])/30*.35;
  eligible.sort((a,b)=>priority(b)-priority(a)||a.type.localeCompare(b.type));
  const choice=eligible[0];

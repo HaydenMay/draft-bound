@@ -40,3 +40,7 @@ Reviewed `src/app/data/information-pages.ts` against the approved starting-abili
 ## October 26 v1.4.4 systems release review
 
 Reviewed About, Terms, Privacy and Contact against the owner-authorized college simulation/development, declaration and automatic-career/single-card changes. About's collection sentence now describes the approved new flow and clarifies that old Draft/Career editions are preserved. Terms already cover fictional college/draft/pro outcomes and balance updates; no Terms change is needed. Privacy and Contact remain accurate: saves stay local and message delivery is not activated. No new tracking, services, uploads, identities, licensed fonts or artwork are introduced. Existing Terms/Privacy/Contact publication prerequisites, dates and draft notices remain unchanged. The scope approval is for the system flow, not removing legal publication gates.
+
+## October 26 v1.4.5 recruiting and schools review
+
+Reviewed About, Terms, Privacy and Contact against expanded fictional colleges, limited recruiting and transfer offers, school-supported training ceilings and the consolidated draft report. Existing college development and fictional evaluation descriptions remain accurate. Natural player grades remain unchanged; no real college identities, services, tracking, accounts, contact delivery or new collection of personal information were added. Local saves gain a version marker and retain existing history. No policy copy/date change is needed. All existing legal publication gates and draft notices remain.

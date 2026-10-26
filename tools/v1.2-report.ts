@@ -4,7 +4,7 @@ import {calculateOvr,CEILINGS,values} from '../src/app/domain/development';
 import {simulateProfessional} from '../src/app/domain/professional';
 import {recruitRating} from '../src/app/domain/recruiting';
 import {WR_DEFINITION} from '../src/app/domain/positions';
-import {COLLEGES} from '../src/app/data/colleges';
+import {LEGACY_COLLEGES as COLLEGES} from '../src/app/data/colleges';
 import {SOURCE_PLAYERS,SOURCE_CATALOG_VERSION} from '../src/app/data/source-players';
 import {BalanceVersion,CreationMode,GameCommandPayload,RunState,TrainingPlan,WrAttributeId} from '../src/app/domain/models';
 
@@ -13,7 +13,7 @@ if(!Number.isInteger(seeds)||seeds<1)throw Error('PAIRED_SEEDS must be a positiv
 const command=(run:RunState,p:GameCommandPayload)=>transition(run,{...p,id:`audit-${run.processedCommands.length}`}).run;
 type Choice='rotated'|'best-available';
 function created(seed:number,mode:CreationMode,choice:Choice):RunState{
- let run=createRun('Paired Prospect',11,seed,'2026-01-01T00:00:00.000Z',mode);
+ let run=createRun('Paired Prospect',11,seed,'2026-01-01T00:00:00.000Z',mode);delete run.collegeSystemVersion;
  const gift=choice==='rotated'?seed%3:run.creation.giftOffers.reduce((best,g,index,all)=>attrs.find(a=>a.id===g.attributeId)!.weight>attrs.find(a=>a.id===all[best].attributeId)!.weight?index:best,0);
  run=command(run,{type:'choose-gift',index:gift});run=command(run,{type:'accept-size'});
  for(let n=0;n<manualPotentialLimit(run);n++){

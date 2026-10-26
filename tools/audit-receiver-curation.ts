@@ -11,7 +11,7 @@ const teamCounts=new Map(RECEIVER_TEAMS.map(t=>[t.id,0]));
 const membershipCounts=new Map<string,number>(RECEIVER_TEAMS.flatMap(t=>eligibleReceiversForTeam(t.id).map(p=>[`${t.id}/${p.id}`,0] as const)));
 let draws=0,manual=0,automatic=0;
 for(let seed=500001;seed<=520000;seed++){
-  let run=createRun('Synthetic Curation Audit',11,seed,'2026-10-25T00:00:00.000Z',seed%2?'quick':'full');
+  let run=createRun('Synthetic Curation Audit',11,seed,'2026-10-25T00:00:00.000Z',seed%2?'quick':'full');delete run.collegeSystemVersion;
   run=step(run,{type:'choose-gift',index:0});run=step(run,{type:'accept-size'});
   while(run.phase==='potential'){
     const roll=run.creation.currentRoll!;

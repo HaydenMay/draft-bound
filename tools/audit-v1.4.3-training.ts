@@ -9,7 +9,7 @@ import {detectIntervention} from '../src/app/domain/coaching';
 import {Random} from '../src/app/domain/rng';
 import {WR_RULES} from '../src/app/domain/simulation';
 import {WR_DEFINITION} from '../src/app/domain/positions';
-import {COLLEGES} from '../src/app/data/colleges';
+import {LEGACY_COLLEGES as COLLEGES} from '../src/app/data/colleges';
 import {receiverProfile,RECEIVER_CATALOG_VERSION} from '../src/app/data/receiver-catalog';
 import type {CollegeProgram,CreationMode,GameCommandPayload,Intervention,RunState,TrainingPlan} from '../src/app/domain/models';
 
@@ -39,7 +39,7 @@ function dist(xs:number[]){
 }
 const step=(run:RunState,command:GameCommandPayload)=>transition(run,{...command,id:`training-audit-${run.processedCommands.length}`}).run;
 function build(seed:number,mode:CreationMode):RunState{
-  let run=createRun('Synthetic training audit',11,seed,'2026-10-25T00:00:00.000Z',mode);
+  let run=createRun('Synthetic training audit',11,seed,'2026-10-25T00:00:00.000Z',mode);delete run.collegeSystemVersion;
   delete run.collegeRulesVersion;delete run.careerFlowVersion;run.balanceVersion='v1.2'; // Freeze pre-implementation initialization for historical experiments.
   const gift=run.creation.giftOffers.map((g,index)=>({index,weight:WR_DEFINITION.attributes.find(a=>a.id===g.attributeId)!.weight})).sort((a,b)=>b.weight-a.weight)[0];
   run=step(run,{type:'choose-gift',index:gift.index});run=step(run,{type:'accept-size'});

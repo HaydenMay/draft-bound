@@ -37,7 +37,7 @@ test('an active run at binder capacity stays valid and exportable when draft app
  const save=emptySave();fillBinder(save,1000);save.run=runAtGauntlet();
  const validation=previewSave(JSON.stringify(save));expect(validation.errors).toEqual([]);
  const before=JSON.stringify(save.run);await page.goto('/');await writeSave(page,save);await page.goto('/#play');await page.reload();
- await page.getByRole('button',{name:/Take the scouting gauntlet/}).click();
+ await page.getByRole('button',{name:/View my draft report/}).click();
  await expect(page.getByRole('alert')).toContainText('Your prospect is still saved; no card was added');
  await expect(page.getByRole('alert').getByRole('button',{name:'Export save'})).toBeVisible();
  const persisted=await readSave(page);expect(persisted.entries).toHaveLength(1000);expect(JSON.stringify(persisted.run)).toBe(before);
@@ -59,7 +59,7 @@ test('starting a new prospect at capacity never offers to discard the active run
 test('a 999-entry binder accepts the final drafted card and reloads at capacity',async({page})=>{
  const save=emptySave();fillBinder(save,999);save.run=runAtGauntlet();expect(previewSave(JSON.stringify(save)).errors).toEqual([]);
  await page.goto('/');await writeSave(page,save);await page.goto('/#play');await page.reload();
- await page.getByRole('button',{name:/Take the scouting gauntlet/}).click();
+ await page.getByRole('button',{name:/View my draft report/}).click();
  await expect.poll(async()=> (await readSave(page)).entries.length).toBe(1000);
  expect((await readSave(page)).entries.some(entry=>entry.id===save.run?.id)).toBe(true);
  await page.reload();const restored=await readSave(page);expect(restored.entries).toHaveLength(1000);expect(previewSave(JSON.stringify(restored)).ok).toBe(true);
@@ -69,7 +69,7 @@ test('a failed save on the last binder slot warns and keeps an exportable in-tab
  const save=emptySave();fillBinder(save,999);save.run=runAtGauntlet();expect(previewSave(JSON.stringify(save)).errors).toEqual([]);
  await page.goto('/');await writeSave(page,save);await page.goto('/#play');await page.reload();
  await page.evaluate(()=>{IDBObjectStore.prototype.put=function(){throw Error('Quota failure for test');};});
- await page.getByRole('button',{name:/Take the scouting gauntlet/}).click();
+ await page.getByRole('button',{name:/View my draft report/}).click();
  await expect(page.locator('.save-warning')).toContainText('Saving on this device did not finish');await expect(page.locator('.save-warning').getByRole('button',{name:'Export save'})).toBeVisible();
  const persisted=await readSave(page);expect(persisted.entries).toHaveLength(999);expect(JSON.stringify(persisted.run)).toBe(JSON.stringify(save.run));
  const download=page.waitForEvent('download');await page.locator('.save-warning').getByRole('button',{name:'Export save'}).click();const exported=await download,path=await exported.path();

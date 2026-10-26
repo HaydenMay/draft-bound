@@ -69,3 +69,7 @@ Current release: original shared illustrations use fixed orange/navy uniforms. C
 ## Additional positions
 
 Only WR is playable. A future position supplies its own attributes, sources, physical interpretation, simulation, evaluation, awards, professional rules, and card statistics through the position boundary. Shared chronology, saved entries, card editions and cosmetic ownership remain reusable.
+
+## v1.4.5 school opportunities and draft clarity
+
+New prospects use fifteen fictional programs, up to six recruiting offers, performance-based transfer interest and specialty trainable targets of 75/80/85/90/99 across prestige levels. Natural source potential remains fixed; training realizes school opportunities and transfers preserve earned ability. Previous runs retain the original three-school rules. The separate gauntlet screen is removed for new runs; the draft report explains the existing weighted evaluation and remains in the saved journey. See `superpowers/specs/2026-10-26-v1.4.5-colleges.md` and the release audit. Card cosmetics remain future work.

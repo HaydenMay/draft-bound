@@ -1,3 +1,4 @@
+import {attendedCeilings} from '../domain/college-system';
 import {PALETTES} from '../data/palettes';
 import {COACHING_TYPES} from '../domain/coaching';
 import {SaveEnvelope,WrAttributeId} from '../domain/models';
@@ -23,13 +24,29 @@ const validYear=(y:any):boolean=>isObject(y)&&finite(y.year,1,3)&&text(y.schoolI
 const validTransfer=(t:any):boolean=>isObject(t)&&finite(t.afterYear,1,2)&&text(t.from)&&text(t.to)&&finite(t.previousOvr,0,99)&&finite(t.previousGrade,0,100);
 const validAward=(a:any):boolean=>isObject(a)&&text(a.id)&&text(a.label)&&['all_american','all_pro'].includes(a.type)&&finite(a.season,1,15)&&isObject(a.evidence);
 function validStats(s:any):boolean{return isObject(s)&&['routes','targets','receptions','yards','touchdowns','drops','pressReps','pressLosses','contestedTargets','contestedCatches','redZoneTouchdowns','grade'].every(k=>finite(s[k]))&&s.receptions<=s.targets&&s.drops<=s.targets-s.receptions&&s.contestedCatches<=s.contestedTargets;}
-function validProspect(p:any):boolean{return isObject(p)&&text(p.id)&&text(p.name)&&finite(p.initialOvr,0,99)&&finite(p.jerseyNumber,0,99)&&isObject(p.current)&&isObject(p.initial)&&isObject(p.traits)&&isObject(p.physical)&&finite(p.physical.heightCm,130,240)&&finite(p.physical.weightKg,45,180)&&WR_DEFINITION.attributes.every(a=>{const t=p.traits[a.id];return isObject(t)&&t.attributeId===a.id&&text(t.sourcePlayerId)&&finite(t.ceiling,60,99)&&finite(p.initial[a.id],0,t.ceiling)&&finite(p.current[a.id],p.initial[a.id],t.ceiling);});}
+function validProspect(p:any,schoolIds:string[]=[]):boolean{return isObject(p)&&text(p.id)&&text(p.name)&&finite(p.initialOvr,0,99)&&finite(p.jerseyNumber,0,99)&&isObject(p.current)&&isObject(p.initial)&&isObject(p.traits)&&isObject(p.physical)&&finite(p.physical.heightCm,130,240)&&finite(p.physical.weightKg,45,180)&&WR_DEFINITION.attributes.every(a=>{const t=p.traits[a.id];return isObject(t)&&t.attributeId===a.id&&text(t.sourcePlayerId)&&finite(t.ceiling,60,99)&&finite(p.initial[a.id],0,t.ceiling)&&finite(p.current[a.id],p.initial[a.id],schoolIds.length?attendedCeilings(p,schoolIds)[a.id]:t.ceiling);});}
 function validUnlocks(list:any):boolean{return array(list,100)&&list.every((u:any)=>isObject(u)&&text(u.id)&&text(u.sceneId)&&isObject(u.evidence)&&text(u.evidence.description)&&text(u.evidence.sourceId)&&isObject(u.evidence.facts));}
 function validCard(c:any):boolean{return isObject(c)&&text(c.sceneId)&&frames.includes(c.frame)&&typeof c.foil==='boolean'&&typeof c.showStamp==='boolean';}
 function validOutcome(o:any):boolean{return isObject(o)&&(o.status==='undrafted'||(o.status==='drafted'&&finite(o.overallPick,1,256)&&finite(o.round,1,7)&&finite(o.pickInRound,1,40)&&isObject(o.team)&&text(o.team.displayName)&&text(o.team.teamId)&&/^#[a-f\d]{6}$/i.test(o.team.primaryColor)&&/^#[a-f\d]{6}$/i.test(o.team.secondaryColor)));}
 function validGame(g:any):boolean{return isObject(g)&&text(g.id)&&finite(g.year,1,3)&&finite(g.gameNumber,1,12)&&text(g.opponent)&&typeof g.won==='boolean'&&finite(g.teamScore)&&finite(g.opponentScore)&&validStats(g.stats)&&array(g.events,100)&&g.events.every((e:any)=>isObject(e)&&text(e.id)&&['catch','drop','coverage'].includes(e.kind)&&finite(e.yards,0,100)&&typeof e.touchdown==='boolean'&&typeof e.contested==='boolean'&&finite(e.catchDifficulty,0,1)&&finite(e.startDistance,0,100))&&array(g.highlights,100)&&g.highlights.every(text)&&isObject(g.gains);}
 function validHistory(h:any):boolean{return array(h,36)&&h.every(validGame);}
-function validDraft(d:any):boolean{return isObject(d)&&(d.sourceCatalogVersion===undefined||['wr-original-illustrations-v1.2-90','wr-original-illustrations-v1.4-90'].includes(d.sourceCatalogVersion))&&(d.professionalRulesVersion===undefined||['legacy-v1.3.2','v1.4','v1.4.4'].includes(d.professionalRulesVersion))&&validProspect(d.prospect)&&validHistory(d.history)&&array(d.years,3)&&d.years.every(validYear)&&array(d.transfers,2)&&d.transfers.every(validTransfer)&&array(d.interventions,9)&&d.interventions.every(validIntervention)&&array(d.awards,3)&&d.awards.every(validAward)&&validUnlocks(d.unlocks)&&array(d.gauntlet,5)&&d.gauntlet.length===5&&d.gauntlet.every((g:any)=>finite(g.score,0,99)&&text(g.name))&&finite(d.collegeGrade,0,100)&&finite(d.evaluation,0,100)&&finite(d.finalOvr,0,99)&&validOutcome(d.outcome);}
+/** Only the versioned, internally consistent school timeline can justify above-natural ability. */
+function schoolContext(x:any,draft=false):string[]|null {
+ if(x.collegeSystemVersion===undefined)return [];
+ if(x.collegeSystemVersion!=='v1.4.5'||!array(x.years,3)||!array(x.transfers,2))return null;
+ const schoolId=draft?x.schoolId:x.collegeId;
+ const preCollege=!draft&&['gift','size','potential','reveal','college-choice'].includes(x.phase);
+ if(preCollege)return x.years.length===0&&x.transfers.length===0&&schoolId===''?[]:null;
+ const completed=draft?x.years.length:x.year-(['season-review','transfer','draft-night','complete','gauntlet'].includes(x.phase)?0:1);
+ if(!Number.isInteger(completed)||x.years.length!==completed||!COLLEGES.some(c=>c.id===schoolId))return null;
+ if(!x.years.every((y:any,i:number)=>y.year===i+1&&COLLEGES.some(c=>c.id===y.schoolId)))return null;
+ const timeline=x.years.map((y:any)=>y.schoolId);
+ if(draft||completed===x.year){if(timeline.at(-1)!==schoolId)return null;}else timeline.push(schoolId);
+ const changes=timeline.flatMap((id:string,i:number)=>i&&id!==timeline[i-1]?[{afterYear:i,from:timeline[i-1],to:id}]:[]);
+ if(changes.length!==x.transfers.length||!changes.every((t:any,i:number)=>['afterYear','from','to'].every(k=>t[k]===x.transfers[i]?.[k])))return null;
+ return timeline;
+}
+function validDraft(d:any):boolean{return isObject(d)&&(d.sourceCatalogVersion===undefined||['wr-original-illustrations-v1.2-90','wr-original-illustrations-v1.4-90'].includes(d.sourceCatalogVersion))&&(d.professionalRulesVersion===undefined||['legacy-v1.3.2','v1.4','v1.4.4'].includes(d.professionalRulesVersion))&&schoolContext(d,true)!==null&&validProspect(d.prospect,schoolContext(d,true)??[])&&validHistory(d.history)&&array(d.years,3)&&d.years.every(validYear)&&array(d.transfers,2)&&d.transfers.every(validTransfer)&&array(d.interventions,9)&&d.interventions.every(validIntervention)&&array(d.awards,3)&&d.awards.every(validAward)&&validUnlocks(d.unlocks)&&array(d.gauntlet,5)&&d.gauntlet.length===5&&d.gauntlet.every((g:any)=>finite(g.score,0,99)&&text(g.name))&&finite(d.collegeGrade,0,100)&&finite(d.evaluation,0,100)&&finite(d.finalOvr,0,99)&&validOutcome(d.outcome);}
 const isNewReceiverRun=(r:any)=>r.creationFlowVersion==='single-receiver-v1.4.2';
 const validTraitSource=(r:any,t:any)=>isNewReceiverRun(r)?!!receiverProfile(t.sourcePlayerId):sourcePlayersForVersion(r.sourceCatalogVersion).some(p=>p.id===t.sourcePlayerId);
 function validTraitAssignment(r:any,attributeId:string,t:any):boolean{
@@ -64,12 +81,13 @@ function validRun(r:any):boolean{
  if(r.receiverCatalogVersion!==undefined&&(!isNewReceiverRun(r)||!RECEIVER_CATALOG_VERSIONS.includes(r.receiverCatalogVersion)))return false;
  if(r.creationMode!==undefined&&!['quick','full'].includes(r.creationMode)||r.balanceVersion!==undefined&&!['legacy','v1.2','v1.4.3','v1.4.4'].includes(r.balanceVersion)||r.creationFlowVersion!==undefined&&r.creationFlowVersion!=='single-receiver-v1.4.2'||r.sourceCatalogVersion!==undefined&&!['wr-original-illustrations-v1.2-90','wr-original-illustrations-v1.4-90'].includes(r.sourceCatalogVersion))return false;
  if(r.collegeRulesVersion!==undefined&&r.collegeRulesVersion!=='v1.4.4'||r.careerFlowVersion!==undefined&&r.careerFlowVersion!=='single-card-v1.4.4')return false;
+ if(schoolContext(r)===null)return false;
  const newFlow=isNewReceiverRun(r),manualLimit=r.creationMode==='full'?8:3;
  const c=r.creation,catalog=sourcePlayersForVersion(r.sourceCatalogVersion);if(!isObject(c.traits)||!array(c.giftOffers,3)||c.giftOffers.length!==3||!array(c.playerOffers,3)||!finite(c.manualCount,0,manualLimit)||!catalog.some(p=>p.id===c.sizeOfferId))return false;
  const ids=WR_DEFINITION.attributes.map(a=>a.id);if(!Object.entries(c.traits).every(([id,t]:[string,any])=>ids.includes(id)&&validTraitAssignment(r,id,t)))return false;
  if(!c.giftOffers.every((g:any)=>isObject(g)&&ids.includes(g.attributeId)&&(newFlow?receiverProfilesForVersion(receiverCatalogVersionForRun(r)).some(profile=>profile.id===g.sourcePlayerId&&profile.grades[g.attributeId as WrAttributeId]==='S'):catalog.some(p=>p.id===g.sourcePlayerId)))||!c.playerOffers.every((id:any)=>catalog.some(p=>p.id===id)))return false;
  if(newFlow&&(c.playerOffers.length!==0||(r.phase==='potential'?!validReceiverRoll(c.currentRoll,r.rng,receiverCatalogVersionForRun(r)):c.currentRoll!==null)))return false;
- if(!['gift','size','potential'].includes(r.phase)&&!validProspect(r.prospect))return false;
+ if(!['gift','size','potential'].includes(r.phase)&&!validProspect(r.prospect,schoolContext(r)??[]))return false;
  if(!r.years.every(validYear)||!r.transfers.every(validTransfer)||!r.interventions.every(validIntervention)||!r.awards.every(validAward)||!r.processedCommands.every(text)||!r.usedInterventions.every(text)||!(r.pendingIntervention===null||validIntervention(r.pendingIntervention)))return false;
  if(r.lastBlock!==null&&(!isObject(r.lastBlock)||!array(r.lastBlock.games,4)||r.lastBlock.games.length!==4||!r.lastBlock.games.every(validGame)||!isObject(r.lastBlock.gains)||!finite(r.lastBlock.startOvr,0,99)||!finite(r.lastBlock.endOvr,0,99)))return false;
  if(r.phase==='block-review'&&r.lastBlock===null)return false;

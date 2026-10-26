@@ -64,7 +64,7 @@ export function validateContent(overrides: Partial<ContentCatalog> = {}): string
     if (!catalog.sourcePlayers.some(player => player.grades?.[attribute] === 'S')) errors.push(`sourcePlayers: no S-tier natural-gift source for ${attribute}`);
   });
 
-  count('colleges', 3, catalog.colleges.length, 'programs');
+  count('colleges', 15, catalog.colleges.length, 'programs');
   checkIds('colleges', catalog.colleges.map(college => college.id));
   ['technical', 'explosive', 'opportunity'].forEach(id => {
     if (!catalog.colleges.some(college => college.id === id)) errors.push(`colleges: missing required profile ${id}`);
@@ -73,6 +73,7 @@ export function validateContent(overrides: Partial<ContentCatalog> = {}): string
     const prefix = `colleges.${college.id}`;
     if (![college.name, college.shortName, college.location, college.description, college.specialty].every(nonempty)) errors.push(`${prefix}: missing presentation text`);
     if (college.colors.length !== 2 || !college.colors.every(color => HEX_COLOR.test(color))) errors.push(`${prefix}: invalid colors`);
+    if(!Number.isInteger(college.prestige)||college.prestige!<1||college.prestige!>5)errors.push(`${prefix}: invalid program prestige`);
     if (![college.coaching, college.opportunity, college.offense].every(positive)) errors.push(`${prefix}: invalid development multiplier`);
     if (!college.specialties.length || college.specialties.some(id => !WR_ATTRIBUTE_IDS.includes(id as typeof WR_ATTRIBUTE_IDS[number]))) errors.push(`${prefix}: invalid specialty attribute`);
   });

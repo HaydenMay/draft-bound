@@ -31,21 +31,21 @@ test('new prospect offers generated names, team-first receiver grades, and compl
  await expect(page.locator('app-trait-reveal')).toHaveCount(0);
  await expect(page.locator('app-recruit-rating')).toBeVisible();
  await page.getByRole('button',{name:/Find my college/}).click();
- await expect(page.locator('.college-card')).toHaveCount(3);
+ await expect(page.locator('.college-card').first()).toBeVisible();expect(await page.locator('.college-card').count()).toBeGreaterThanOrEqual(3);expect(await page.locator('.college-card').count()).toBeLessThanOrEqual(6);
  await page.setViewportSize({width:900,height:900});
  const meters=await page.locator('.program-meters>div').evaluateAll(rows=>rows.map(row=>{
   const label=row.querySelector('span')!.getBoundingClientRect(),bar=row.querySelector('.meter')!.getBoundingClientRect(),value=row.querySelector('strong')!.getBoundingClientRect(),card=row.closest('.college-card')!.getBoundingClientRect();
   return label.right<=bar.left&&bar.right<=value.left&&value.right<=card.right-5;
  }));expect(meters.every(Boolean)).toBe(true);
- await page.getByRole('button',{name:/Choose MERIDIAN/}).click();
+ await page.locator('.college-card button').first().click();
  for(let year=1;year<=2;year++){
   for(let block=0;block<3;block++){
    await page.getByRole('button',{name:/Play next block/}).click();await finishBroadcast(page);
    await expect(page.locator('.game-list details')).toHaveCount(4);await page.locator('.stage-actions .button.primary').click();
   }
-  if(year===1){await page.getByRole('button',{name:/Plan my next season/}).click();await page.getByRole('button',{name:/Choose CINDER RIDGE/}).click();}
+  if(year===1){await page.getByRole('button',{name:/Plan my next season/}).click();await page.locator('.college-card button').first().click();}
  }
- await page.getByRole('button',{name:/Declare for the draft/}).click();await page.getByRole('button',{name:/Take the scouting gauntlet/}).click();
+ await page.getByRole('button',{name:/Declare for the draft/}).click();
  await page.getByRole('button',{name:/See your NFL career/}).click();await page.getByRole('button',{name:'Customize card',exact:true}).click();await page.reload();
  await expect(page.locator('.preview-card')).toBeVisible();
  const download=page.waitForEvent('download');await page.getByRole('button',{name:/Download card PNG/}).click();expect((await download).suggestedFilename()).toContain('career.png');

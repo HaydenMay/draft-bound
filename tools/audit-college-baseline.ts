@@ -5,7 +5,7 @@ import { WR_RULES } from '../src/app/domain/simulation';
 import { calculateOvr, CEILINGS } from '../src/app/domain/development';
 import { WR_DEFINITION } from '../src/app/domain/positions';
 import { receiverProfile } from '../src/app/data/receiver-catalog';
-import { COLLEGES } from '../src/app/data/colleges';
+import { LEGACY_COLLEGES as COLLEGES } from '../src/app/data/colleges';
 import type { GameCommandPayload, RunState } from '../src/app/domain/models';
 
 const school = COLLEGES.find(c => c.shortName === 'OPENWATER')!;
@@ -20,7 +20,7 @@ const progression: { year: number; ovr: number; gap: number; withinOne: number }
 let command = 0;
 const step = (run: RunState, payload: GameCommandPayload) => transition(run, { ...payload, id: `audit-${command++}` }).run;
 for (let seed = 300001; seed <= 300500; seed++) {
-  let run = createRun('Synthetic college audit', 11, seed, '2026-10-25T00:00:00Z', 'full');
+  let run = createRun('Synthetic college audit', 11, seed, '2026-10-25T00:00:00Z', 'full');delete run.collegeSystemVersion;
   const gift = run.creation.giftOffers.map((g,index) => ({ index, weight: WR_DEFINITION.attributes.find(a => a.id === g.attributeId)!.weight })).sort((a,b) => b.weight-a.weight)[0];
   run = step(run, { type:'choose-gift', index: gift.index });
   run = step(run, { type:'accept-size' });

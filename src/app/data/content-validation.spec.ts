@@ -13,7 +13,7 @@ function validCatalog(): ContentCatalog {
     id: `receiver-${i + 1}`, name: `Receiver ${i + 1}`, era: 'Fixture', heightCm: 185,
     weightKg: 90, build: 'Balanced', grades: Object.fromEntries(attributes.map(id => [id, 'S'])) as ContentCatalog['sourcePlayers'][number]['grades'],
   }));
-  const colleges = ['technical', 'explosive', 'opportunity'].map(id => ({
+  const colleges = Array.from({length:15},(_,i)=>['technical','explosive','opportunity'][i]??`fixture-school-${i}`).map(id => ({prestige:1 as const,
     id, name: `${id} College`, shortName: id, location: 'Fixture City', colors: ['#112233', '#eeeeee'] as [string, string],
     description: 'A fixture program.', specialty: 'All skills', specialties: [...attributes], coaching: 1, opportunity: 1, offense: 1,
   }));

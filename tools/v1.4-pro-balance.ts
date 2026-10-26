@@ -2,13 +2,13 @@ import {mkdirSync,writeFileSync} from 'node:fs';
 import {createRun,transition,manualPotentialLimit} from '../src/app/domain/engine';
 import {step} from '../src/app/domain/test-fixtures';
 import {WR_DEFINITION} from '../src/app/domain/positions';
-import {COLLEGES} from '../src/app/data/colleges';
+import {LEGACY_COLLEGES as COLLEGES} from '../src/app/data/colleges';
 import {SOURCE_PLAYERS,HOF_SOURCE_IDS} from '../src/app/data/source-players';
 import {LEGACY_SOURCE_PLAYERS} from '../src/app/data/source-players-legacy';
 import {simulateProfessional} from '../src/app/domain/professional';
 const gradeValue:Record<string,number>={'S':14,'A+':13,'A':12,'A-':11,'B+':10,'B':9,'B-':8,'C+':7,'C':6,'C-':5,'D+':4,'D':3,'D-':2,'F':1};
 function prospect(seed:number,mode:'quick'|'full',years:number,policy:'rotated'|'best'){
- let run=createRun(`Synthetic ${seed}`,seed%99,seed,`2026-01-${String(seed%28+1).padStart(2,'0')}T00:00:00.000Z`,mode);
+ let run=createRun(`Synthetic ${seed}`,seed%99,seed,`2026-01-${String(seed%28+1).padStart(2,'0')}T00:00:00.000Z`,mode);delete run.collegeSystemVersion;
  run=step(run,{type:'choose-gift',index:seed%3});run=step(run,{type:'accept-size'});
  const limit=manualPotentialLimit(run);
  while(run.creation.manualCount<limit){const attribute=WR_DEFINITION.attributes.find(a=>!run.creation.traits[a.id])!;const choices=run.creation.playerOffers;let source=choices[seed%choices.length];if(policy==='best')source=[...choices].sort((a,b)=>gradeValue[SOURCE_PLAYERS.find(p=>p.id===b)!.grades[attribute.id as keyof typeof SOURCE_PLAYERS[number]['grades']]]-gradeValue[SOURCE_PLAYERS.find(p=>p.id===a)!.grades[attribute.id as keyof typeof SOURCE_PLAYERS[number]['grades']]])[0];run=step(run,{type:'choose-trait',sourcePlayerId:source,attributeId:attribute.id});}

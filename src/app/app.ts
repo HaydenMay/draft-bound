@@ -1,3 +1,5 @@
+import {DraftReport} from './shared/draft-report';
+import {collegeOffers,trainingCeilings,recruitingAssessment,schoolTarget} from './domain/college-system';
 import {GameView,isInformationPage} from './application/navigation';
 import {InformationPage} from './shared/information-page';
 import {prospectName as generatedName} from './domain/prospect-name';
@@ -25,7 +27,7 @@ import { DraftIcon } from './shared/icon';
 import { SpotlightReveal } from './shared/spotlight-reveal';
 import { SpotlightBoards, createSpotlightBoards } from './shared/spotlight-sequence';
 
-@Component({ selector: 'app-root', standalone: true, imports: [CommonModule, FormsModule, CollectibleCard, DraftIcon, TraitReveal, RecruitBadge, GameBroadcast, ThemePicker, Brand, PositionPicker, InformationPage, SpotlightReveal], templateUrl: './app.html', styleUrl: './app.css' })
+@Component({ selector: 'app-root', standalone: true, imports: [DraftReport, CommonModule, FormsModule, CollectibleCard, DraftIcon, TraitReveal, RecruitBadge, GameBroadcast, ThemePicker, Brand, PositionPicker, InformationPage, SpotlightReveal], templateUrl: './app.html', styleUrl: './app.css' })
 export class App {
   private previousFocus: HTMLElement | null = null;
   readonly game = inject(GameStore);
@@ -33,6 +35,10 @@ export class App {
   private readonly informationFocus=effect(()=>{const page=this.informationPage();this.game.informationSection();if(page)setTimeout(()=>{if(this.informationPage()!==page)return;document.querySelector<HTMLElement>('[data-information-heading]')?.focus({preventScroll:true});if(!this.game.informationSection())window.scrollTo({top:0,behavior:'instant'});});});
   readonly attributes = WR_DEFINITION.attributes;
   readonly colleges = COLLEGES;
+  readonly offers=computed(()=>{const run=this.game.run();return run?.prospect?collegeOffers(run):[];});
+  readonly assessment=computed(()=>{const run=this.game.run();return run?.prospect?recruitingAssessment(run):null;});
+  readonly trainable=computed(()=>{const run=this.game.run();return run?.prospect?trainingCeilings(run):{};});
+  readonly schoolTarget=schoolTarget;
   readonly scenes = ART_SCENES;
   readonly achievements = ACHIEVEMENT_REGISTRY;
   readonly modal = signal<'new' | 'discard' | 'discard-current' | 'import' | 'settings' | 'help' | null>(null);
@@ -162,7 +168,7 @@ export class App {
     'block-review': { title: 'Block recap.' },
     'season-review': { title: 'Season recap.' },
     transfer: { title: 'Choose your next college.' },
-    gauntlet: { title: 'Scouting gauntlet.' },
+    gauntlet: { title: 'Your draft evaluation.' },
     'draft-night': { title: 'Draft night.' },
     complete: { title: 'Your collectible.' },
   };

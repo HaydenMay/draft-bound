@@ -2,7 +2,7 @@ import {writeFileSync,mkdirSync} from 'node:fs';
 import {createRun,transition} from '../src/app/domain/engine';
 import {calculateOvr} from '../src/app/domain/development';
 import {WR_DEFINITION} from '../src/app/domain/positions';
-import {COLLEGES} from '../src/app/data/colleges';
+import {LEGACY_COLLEGES as COLLEGES} from '../src/app/data/colleges';
 import {GameCommandPayload,RunState,TrainingPlan} from '../src/app/domain/models';
 import {SOURCE_PLAYERS} from '../src/app/data/source-players';
 const count=Number(process.env['BALANCE_COUNT']??10000),policies=['balanced','speed-focus','weakest-intensive','adaptive'] as const;
@@ -20,7 +20,7 @@ const sampling=Object.fromEntries(SOURCE_PLAYERS.map(p=>[p.id,0]));let best=0,ce
 const started=Date.now();
 for(let i=0;i<count;i++){
  const policy=policies[i%4],college=COLLEGES[Math.floor(i/4)%3],years=i%5===0?2:3;
- let run=createRun('Balance Prospect',11,(0x94f1+i*2654435761)>>>0,'2026-01-01T00:00:00.000Z');
+ let run=createRun('Balance Prospect',11,(0x94f1+i*2654435761)>>>0,'2026-01-01T00:00:00.000Z');delete run.collegeSystemVersion;
  sampling[run.creation.sizeOfferId]++;run=command(run,{type:'choose-gift',index:i%3});run=command(run,{type:'accept-size'});
  for(let n=0;n<3;n++){for(const offer of run.creation.playerOffers)sampling[offer]++;const attributeId=WR_DEFINITION.attributes.find(a=>!run.creation.traits[a.id])!.id;run=command(run,{type:'choose-trait',sourcePlayerId:run.creation.playerOffers[n%3],attributeId});}
  run=command(run,{type:'continue'});run=command(run,{type:'choose-college',collegeId:college.id});

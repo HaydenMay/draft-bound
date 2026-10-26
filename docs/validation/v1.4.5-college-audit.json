@@ -1,0 +1,111 @@
+{
+  "seeds": "2200001–2200100",
+  "distinctBuilds": 200,
+  "scenarioCareers": 400,
+  "games": 14400,
+  "notes": "Paired builds. Highest source grade weighted by OVR; no rerolls. School policies differ, so this measures these journeys rather than isolating a coefficient. Save validation checked every block and final report. No claim about all strategies or physical Safari.",
+  "groups": [
+    {
+      "mode": "quick",
+      "rules": "v1.4.4",
+      "n": 100,
+      "policy": "balanced; stay Openwater",
+      "ovr": {
+        "mean": 85.853,
+        "min": 80.4052834967,
+        "max": 89.9009073683,
+        "display90plusPct": 1,
+        "display99Pct": 0
+      },
+      "fiveStarOfferPctByYear": [
+        0,
+        0,
+        0
+      ],
+      "selected": {
+        "opportunity": 300
+      },
+      "beyondNaturalPct": 0,
+      "schoolExpandedPct": 0,
+      "invalidSaves": 0
+    },
+    {
+      "mode": "quick",
+      "rules": "v1.4.5",
+      "n": 100,
+      "policy": "balanced; highest prestige offered; alphabetic tie",
+      "ovr": {
+        "mean": 85.908,
+        "min": 81.3261156568,
+        "max": 92.2595213994,
+        "display90plusPct": 2,
+        "display99Pct": 0
+      },
+      "fiveStarOfferPctByYear": [
+        2,
+        2,
+        2
+      ],
+      "selected": {
+        "ironwood": 138,
+        "canyon-union": 152,
+        "lake-cedar": 4,
+        "crown-athletic": 6
+      },
+      "beyondNaturalPct": 8.88888888888889,
+      "schoolExpandedPct": 14.000000000000002,
+      "invalidSaves": 0
+    },
+    {
+      "mode": "full",
+      "rules": "v1.4.4",
+      "n": 100,
+      "policy": "balanced; stay Openwater",
+      "ovr": {
+        "mean": 86.104,
+        "min": 81.7862193926,
+        "max": 89.9961961661,
+        "display90plusPct": 1,
+        "display99Pct": 0
+      },
+      "fiveStarOfferPctByYear": [
+        0,
+        0,
+        0
+      ],
+      "selected": {
+        "opportunity": 300
+      },
+      "beyondNaturalPct": 0,
+      "schoolExpandedPct": 0,
+      "invalidSaves": 0
+    },
+    {
+      "mode": "full",
+      "rules": "v1.4.5",
+      "n": 100,
+      "policy": "balanced; highest prestige offered; alphabetic tie",
+      "ovr": {
+        "mean": 86.13,
+        "min": 81.7582130362,
+        "max": 91.8707930942,
+        "display90plusPct": 3,
+        "display99Pct": 0
+      },
+      "fiveStarOfferPctByYear": [
+        3,
+        3,
+        3
+      ],
+      "selected": {
+        "ironwood": 132,
+        "crown-athletic": 9,
+        "canyon-union": 155,
+        "lake-cedar": 4
+      },
+      "beyondNaturalPct": 8,
+      "schoolExpandedPct": 13.222222222222221,
+      "invalidSaves": 0
+    }
+  ]
+}

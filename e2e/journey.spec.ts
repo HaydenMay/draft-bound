@@ -11,15 +11,15 @@ async function create(page:Page,name='Jordan Hayes'){
  await page.goto('/');await page.getByRole('button',{name:/Create your prospect/}).click();await page.getByLabel('Prospect name',{exact:true}).fill(name);await page.getByRole('radio',{name:'Quick · 3 picks',exact:true}).check();await page.getByRole('button',{name:/Create prospect/}).click();await phase(page,'gift');await skip(page);
  await page.locator('.gift-card').first().click();await phase(page,'size');await skip(page);await page.getByRole('button',{name:/This is my build/}).click();await phase(page,'potential');await skip(page);
  for(let n=0;n<3;n++){await page.locator('.receiver-grade:not(.assigned)').first().click();await phase(page,n===2?'reveal':'potential');await skip(page);}
- await page.getByRole('button',{name:/Find my college/}).click();await phase(page,'college-choice');await page.getByRole('button',{name:/Choose MERIDIAN/}).click();await phase(page,'training');
+ await page.getByRole('button',{name:/Find my college/}).click();await phase(page,'college-choice');await page.locator('.college-card button').first().click();await phase(page,'training');
 }
 test('complete college, automatic NFL career, one card, saved refresh and PNG export',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await create(page);
  for(let year=1;year<=2;year++){
   for(let block=0;block<3;block++){await page.getByRole('button',{name:/Play next block/}).click();await phase(page,'block-review');await finishBroadcast(page);await expect(page.locator('.game-list details')).toHaveCount(4);await page.locator('.stage-actions .button.primary').click();await phase(page,block===2?'season-review':'training');}
-  if(year===1){await page.getByRole('button',{name:/Plan my next season/}).click();await phase(page,'transfer');await page.getByRole('button',{name:/Choose CINDER RIDGE/}).click();await phase(page,'training');}
+  if(year===1){await page.getByRole('button',{name:/Plan my next season/}).click();await phase(page,'transfer');await page.locator('.college-card button').first().click();await phase(page,'training');}
  }
- await page.getByRole('button',{name:/Declare for the draft/}).click();await phase(page,'gauntlet');await page.getByRole('button',{name:/Take the scouting gauntlet/}).click();await phase(page,'draft-night');await skip(page);
+ await page.getByRole('button',{name:/Declare for the draft/}).click();await phase(page,'draft-night');await skip(page);
  const before=await saved(page);expect(before.entries).toHaveLength(1);expect(before.entries[0].draft.history).toHaveLength(24);expect(before.entries[0].career).not.toBeNull();expect(before.entries[0].cardFlowVersion).toBe('single-card-v1.4.4');const draft=before.entries[0].draft;
  await page.getByRole('button',{name:/See your NFL career/}).click();await expect(page.locator('.career-metrics')).toBeVisible();await page.getByRole('button',{name:'Customize card',exact:true}).click();await expect(page.getByRole('group',{name:'Card edition'})).toHaveCount(0);await expect(page.locator('.card-builder')).toBeVisible();
  await expect(page.locator('.preview-card img')).toHaveJSProperty('complete',true);mkdirSync('docs/validation/screenshots',{recursive:true});await page.screenshot({path:'docs/validation/screenshots/card-desktop.png',fullPage:true});

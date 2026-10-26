@@ -3,7 +3,7 @@ import {createRun,transition} from '../src/app/domain/engine';
 import {calculateOvr,CEILINGS} from '../src/app/domain/development';
 import {WR_DEFINITION} from '../src/app/domain/positions';
 import {receiverProfile} from '../src/app/data/receiver-catalog';
-import {COLLEGES} from '../src/app/data/colleges';
+import {LEGACY_COLLEGES as COLLEGES} from '../src/app/data/colleges';
 import {simulateProfessional} from '../src/app/domain/professional';
 import type {RunState,GameCommandPayload,CreationMode,BinderEntry} from '../src/app/domain/models';
 const step=(r:RunState,c:GameCommandPayload)=>transition(r,{...c,id:`systems-audit-${r.processedCommands.length}`});
@@ -13,7 +13,7 @@ const round=(x:number)=>Math.round(x*1000)/1000;
 const mean=(xs:number[])=>round(xs.reduce((a,b)=>a+b,0)/xs.length);
 const dist=(xs:number[])=>{const a=[...xs].sort((a,b)=>a-b);return {mean:mean(a),p10:a[Math.floor(a.length*.1)],median:a[Math.floor(a.length*.5)],p90:a[Math.floor(a.length*.9)],max:a.at(-1)};};
 function build(seed:number,mode:CreationMode,version:'v1.4.3'|'v1.4.4'){
- let r=createRun('Synthetic systems audit',11,seed,'2026-10-26T00:00:00Z',mode);r.balanceVersion=version;
+ let r=createRun('Synthetic systems audit',11,seed,'2026-10-26T00:00:00Z',mode);delete r.collegeSystemVersion;r.balanceVersion=version;
  if(version==='v1.4.3'){delete r.collegeRulesVersion;delete r.careerFlowVersion;}
  const gift=r.creation.giftOffers.map((g,index)=>({index,weight:WR_DEFINITION.attributes.find(a=>a.id===g.attributeId)!.weight})).sort((a,b)=>b.weight-a.weight)[0];
  r=step(r,{type:'choose-gift',index:gift.index}).run;r=step(r,{type:'accept-size'}).run;

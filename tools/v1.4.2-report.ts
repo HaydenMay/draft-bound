@@ -15,7 +15,7 @@ let picks=0,weakPicks=0;
 const weakGrade=new Set(['C+','C','C-','D+','D','D-','F']);
 let runId=0;
 for(let seed=1;seed<=RUNS;seed++){
- let run=createRun('V1.4.2 balance sample',11,seed,'2026-01-01T00:00:00.000Z','full');
+ let run=createRun('V1.4.2 balance sample',11,seed,'2026-01-01T00:00:00.000Z','full');delete run.collegeSystemVersion;
  const bestGift=run.creation.giftOffers.map((gift,index)=>({index,weight:WR_DEFINITION.attributes.find(attribute=>attribute.id===gift.attributeId)!.weight})).sort((a,b)=>b.weight-a.weight)[0].index;
  run=transition(run,{type:'choose-gift',index:bestGift,id:`${runId++}`}).run;
  run=transition(run,{type:'accept-size',id:`${runId++}`}).run;
