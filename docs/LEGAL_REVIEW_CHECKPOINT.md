@@ -48,3 +48,7 @@ Reviewed About, Terms, Privacy and Contact against expanded fictional colleges, 
 ## October 26 spotlight reveal visibility fix
 
 Reviewed About, Terms, Privacy and Contact against this presentation-only fix. Concealing the upcoming receiver while an action saves and the spotlight runs does not change selection odds, player grades, data collection or services. No copy/date changes are needed; existing publication gates remain.
+
+## October 26 career recap and ceiling display clarity
+
+Reviewed the information pages against these display-only changes. The career recap now distinguishes earned All-Pro seasons from stored Hall of Fame requirements, and blueprint/training labels round ceilings consistently. Saved outcomes, award thresholds, full numeric precision and data handling are unchanged. Existing copy remains accurate; no policy date changes or publication-gate changes.

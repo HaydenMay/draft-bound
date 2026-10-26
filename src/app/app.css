@@ -7,3 +7,5 @@
 .mechanic-note{color:var(--text-muted);font-size:.9rem;line-height:1.55;max-width:68ch}.trait-picker-heading .mechanic-note{margin:.45rem 0 0}
 
 .school-target{font-size:.85rem;line-height:1.6}.recruiting-offers{line-height:1.65;margin-bottom:1.5rem}.natural-ceiling{display:block;color:var(--muted);margin:.3rem 0;font-size:.75rem}
+
+.hall-requirements{margin-top:.75rem}.hall-requirements summary{cursor:pointer;font-size:.85rem;color:var(--muted)}
