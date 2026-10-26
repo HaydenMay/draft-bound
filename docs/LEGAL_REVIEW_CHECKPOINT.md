@@ -36,3 +36,7 @@ Reviewed `src/app/data/information-pages.ts` against the curated-pool and spotli
 ## October 25 v1.4.3 training release review
 
 Reviewed `src/app/data/information-pages.ts` against the approved starting-ability, training-budget and annual school-continuity changes. About and Terms describe college development, fictional attributes/outcomes and evolving game balance without promising specific coefficients. Those descriptions still match this pass. Save data remains local; no services, collection fields, team marks, accounts or uploads are introduced. Privacy and Contact require no copy or date change. Existing publication prerequisites and draft notices remain in place.
+
+## October 26 v1.4.4 systems release review
+
+Reviewed About, Terms, Privacy and Contact against the owner-authorized college simulation/development, declaration and automatic-career/single-card changes. About's collection sentence now describes the approved new flow and clarifies that old Draft/Career editions are preserved. Terms already cover fictional college/draft/pro outcomes and balance updates; no Terms change is needed. Privacy and Contact remain accurate: saves stay local and message delivery is not activated. No new tracking, services, uploads, identities, licensed fonts or artwork are introduced. Existing Terms/Privacy/Contact publication prerequisites, dates and draft notices remain unchanged. The scope approval is for the system flow, not removing legal publication gates.

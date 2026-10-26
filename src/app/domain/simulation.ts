@@ -1,3 +1,4 @@
+import {simulateCollegeGame} from './college-simulation';
 import {GameRecord,PositionRules,WrGameStats} from './models';
 import {WR_DEFINITION,RULES_VERSION} from './positions';
 import {RECEIVER_PROFILES} from '../data/receiver-catalog';
@@ -8,7 +9,9 @@ export function sumStats(games:readonly {stats:WrGameStats}[]):WrGameStats {
  const result=emptyStats();for(const game of games)for(const key of Object.keys(result) as (keyof WrGameStats)[])result[key]+=game.stats[key];
  result.grade=games.length?result.grade/games.length:0;return result;
 }
-export const WR_RULES:PositionRules={definition:WR_DEFINITION,sourcePlayers:RECEIVER_PROFILES,simulateGame({prospect,college,year,gameNumber,seed}){
+export const WR_RULES:PositionRules={definition:WR_DEFINITION,sourcePlayers:RECEIVER_PROFILES,simulateGame(input){
+ if(input.collegeRulesVersion==='v1.4.4')return simulateCollegeGame(input);
+ const {prospect,college,year,gameNumber,seed}=input;
  const rng=new Random(seed),a=prospect.current,id=`${prospect.id}-y${year}-g${gameNumber}`;
  const stats=emptyStats(),events:GameRecord['events']=[];
  stats.routes=Math.round(rng.int(24,38)*college.opportunity);

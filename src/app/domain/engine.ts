@@ -1,3 +1,4 @@
+import {simulateProfessional} from './professional';
 import {detectIntervention} from './coaching';
 export {detectIntervention} from './coaching';
 import {BinderEntry,DraftOutcome,DraftSnapshot,GameCommand,Intervention,RunState,TrainingPlan,Transition,TraitAssignment,WrAttributeId,SourcePlayerDefinition} from './models';
@@ -53,7 +54,7 @@ export function createRun(name:string,jerseyNumber:number,seed:number,createdAt=
  if(!['quick','full'].includes(creationMode))throw Error('Unknown creation mode.');
  const rng=new Random(seed),catalog=sourcePlayersForVersion(SOURCE_CATALOG_VERSION),giftOffers=naturalGifts(rng,receiverProfilesForVersion());
  const sizeOfferId=rng.pick(catalog).id,nflSeed=rng.int(0,0xffffffff),id=`db-${seed.toString(36)}-${Date.parse(createdAt).toString(36)}`;
- return {id,creationMode,receiverCatalogVersion:RECEIVER_CATALOG_VERSION,creationFlowVersion:CREATION_FLOW_VERSION,sourceCatalogVersion:SOURCE_CATALOG_VERSION,balanceVersion:'v1.4.3',positionId:'wr',rulesVersion:RULES_VERSION,createdAt,seed,rng:rng.state,nflSeed,name:name.trim().slice(0,32)||'Jordan Hayes',jerseyNumber:Math.max(0,Math.min(99,Math.round(jerseyNumber)||0)),phase:'gift',rerolls:3,creation:{traits:{},giftOffers,sizeOfferId,playerOffers:[],currentRoll:null,manualCount:0,physical:null},prospect:null,collegeId:'',year:1,gameNumber:0,history:[],years:[],transfers:[],interventions:[],usedInterventions:[],pendingIntervention:null,lastBlock:null,yearStartOvr:0,awards:[],unlocks:[],draft:null,processedCommands:[]};
+ return {id,creationMode,collegeRulesVersion:'v1.4.4',careerFlowVersion:'single-card-v1.4.4',receiverCatalogVersion:RECEIVER_CATALOG_VERSION,creationFlowVersion:CREATION_FLOW_VERSION,sourceCatalogVersion:SOURCE_CATALOG_VERSION,balanceVersion:'v1.4.4',positionId:'wr',rulesVersion:RULES_VERSION,createdAt,seed,rng:rng.state,nflSeed,name:name.trim().slice(0,32)||'Jordan Hayes',jerseyNumber:Math.max(0,Math.min(99,Math.round(jerseyNumber)||0)),phase:'gift',rerolls:3,creation:{traits:{},giftOffers,sizeOfferId,playerOffers:[],currentRoll:null,manualCount:0,physical:null},prospect:null,collegeId:'',year:1,gameNumber:0,history:[],years:[],transfers:[],interventions:[],usedInterventions:[],pendingIntervention:null,lastBlock:null,yearStartOvr:0,awards:[],unlocks:[],draft:null,processedCommands:[]};
 }
 function requirePhase(run:RunState,...phases:RunState['phase'][]):void{if(!phases.includes(run.phase))throw Error('That choice is unavailable at this stage.');}
 function assign(run:RunState,attributeId:string,sourceId:string,origin:TraitAssignment['origin'],catalog:readonly SourcePlayerDefinition[],sourceTeamId?:string):void{
@@ -82,9 +83,15 @@ export function buildDraft(run:RunState,rng:Random):BinderEntry{
  addUnlock(run.unlocks,unlock('prospect_journey',{id:run.id,kind:'draftOutcome',stage:'draft',sourceId:run.id,facts:{finalOvr:ovr.display},description:'Completed the college-to-draft journey.'}));
  if(outcome.status==='drafted')addUnlock(run.unlocks,unlock('draft_night',{id:`${run.id}-pick`,kind:'draftOutcome',stage:'draft',sourceId:run.id,facts:{pick:outcome.overallPick,round:outcome.round,team:outcome.team.displayName},description:`Round ${outcome.round}, pick ${outcome.overallPick}: ${outcome.team.displayName}.`}));
  const contentVersion=run.creationFlowVersion===CREATION_FLOW_VERSION?receiverCatalogVersionForRun(run):run.sourceCatalogVersion??(run.balanceVersion==='v1.2'?LEGACY_SOURCE_CATALOG_VERSION:'1.0.0');
- const draft:DraftSnapshot=structuredClone({sourceCatalogVersion:run.sourceCatalogVersion??LEGACY_SOURCE_CATALOG_VERSION,professionalRulesVersion:run.sourceCatalogVersion===SOURCE_CATALOG_VERSION?'v1.4':'legacy-v1.3.2',creationMode:run.creationMode??'quick',positionId:'wr',rulesVersion:RULES_VERSION,balanceVersion:run.balanceVersion==='v1.4.3'?'1.4.3':run.balanceVersion==='v1.2'?'1.2.1':'1.2.0',contentVersion,prospect:p,schoolId:run.collegeId,history:run.history,years:run.years,transfers:run.transfers,interventions:run.interventions,awards:run.awards,unlocks:run.unlocks,gauntlet,collegeGrade,evaluation,finalOvr:ovr.display,outcome});
+ const draft:DraftSnapshot=structuredClone({sourceCatalogVersion:run.sourceCatalogVersion??LEGACY_SOURCE_CATALOG_VERSION,professionalRulesVersion:run.careerFlowVersion==='single-card-v1.4.4'?'v1.4.4':run.sourceCatalogVersion===SOURCE_CATALOG_VERSION?'v1.4':'legacy-v1.3.2',creationMode:run.creationMode??'quick',positionId:'wr',rulesVersion:RULES_VERSION,balanceVersion:run.balanceVersion==='v1.4.4'?'1.4.4':run.balanceVersion==='v1.4.3'?'1.4.3':run.balanceVersion==='v1.2'?'1.2.1':'1.2.0',contentVersion,prospect:p,schoolId:run.collegeId,history:run.history,years:run.years,transfers:run.transfers,interventions:run.interventions,awards:run.awards,unlocks:run.unlocks,gauntlet,collegeGrade,evaluation,finalOvr:ovr.display,outcome});
  run.draft=draft;const school=COLLEGES.find(s=>s.id===run.collegeId)!;
- return {id:run.id,positionId:'wr',createdAt:run.createdAt,completedAt:new Date().toISOString(),favorite:false,draft,career:null,nflSeed:run.nflSeed,draftCard:{sceneId:outcome.status==='drafted'?'draft_night':'prospect_journey',frame:'classic',foil:false,showStamp:true},careerCard:null,display:{positionLabel:WR_DEFINITION.displayName,attributes:WR_DEFINITION.attributes.map(attr=>({id:attr.id,label:attr.label,value:a[attr.id],ceiling:p.traits[attr.id].ceiling})),schoolName:school.name,schoolColors:school.colors}};
+ const entry:BinderEntry={id:run.id,positionId:'wr',createdAt:run.createdAt,completedAt:new Date().toISOString(),favorite:false,draft,career:null,nflSeed:run.nflSeed,draftCard:{sceneId:outcome.status==='drafted'?'draft_night':'prospect_journey',frame:'classic',foil:false,showStamp:true},careerCard:null,display:{positionLabel:WR_DEFINITION.displayName,attributes:WR_DEFINITION.attributes.map(attr=>({id:attr.id,label:attr.label,value:a[attr.id],ceiling:p.traits[attr.id].ceiling})),schoolName:school.name,schoolColors:school.colors}};
+ if(run.careerFlowVersion==='single-card-v1.4.4'){
+  entry.cardFlowVersion='single-card-v1.4.4';entry.career=simulateProfessional(entry);
+  entry.careerCard={...entry.draftCard,sceneId:entry.career.induction.inducted?'canton_bust':entry.draftCard.sceneId};
+  entry.draftCard={...entry.careerCard};
+ }
+ return entry;
 }
 export function transition(original:RunState,command:GameCommand):Transition {
  if(original.processedCommands.includes(command.id))return {run:original};
@@ -122,7 +129,7 @@ export function transition(original:RunState,command:GameCommand):Transition {
     if(run.creation.manualCount<manualPotentialLimit(run)){run.creation.playerOffers=legacyOffers(rng,catalog);break;}
     while(Object.keys(run.creation.traits).length<ids.length){const p=rng.pick(catalog),attributeId=rng.pick(ids.filter(id=>!run.creation.traits[id]));assign(run,attributeId,p.id,'autofill',catalog);}
    }
-   const current=values(id=>run.creation.traits[id].origin==='gift'?94:Math.min(run.creation.traits[id].ceiling,rng.int(run.balanceVersion==='v1.4.3'?58:50,run.balanceVersion==='v1.4.3'?73:65)));
+   const current=values(id=>run.creation.traits[id].origin==='gift'?94:Math.min(run.creation.traits[id].ceiling,rng.int((run.balanceVersion==='v1.4.3'||run.balanceVersion==='v1.4.4')?58:50,(run.balanceVersion==='v1.4.3'||run.balanceVersion==='v1.4.4')?73:65)));
    run.prospect={id:run.id,name:run.name,jerseyNumber:run.jerseyNumber,positionId:'wr',createdAt:run.createdAt,physical:run.creation.physical!,current,initial:{...current},traits:structuredClone(run.creation.traits),initialOvr:calculateOvr(current).display};run.phase='reveal';break;
   }
   case 'continue':{
@@ -141,7 +148,7 @@ export function transition(original:RunState,command:GameCommand):Transition {
    if(pending){const matches=command.plan.mode==='intensive'&&command.plan.attributeId===pending.attributeId;fulfilled={...pending,fulfillment:matches?'already_compliant':'substituted',selectedPlan:command.plan};run.interventions.push(fulfilled);run.pendingIntervention=null;}
    for(let n=0;n<4;n++){
     const plan:TrainingPlan=n===0&&fulfilled?{mode:'intensive',attributeId:fulfilled.attributeId}:command.plan;
-    const game=WR_RULES.simulateGame({prospect:p,college:school,year:run.year,gameNumber:++run.gameNumber,seed:rng.int(0,0xffffffff)});
+    const game=WR_RULES.simulateGame({prospect:p,college:school,year:run.year,gameNumber:++run.gameNumber,seed:rng.int(0,0xffffffff),collegeRulesVersion:run.collegeRulesVersion});
     const s=game.stats,reps={speed:s.routes,acceleration:s.routes,hands:s.targets,routeRunning:s.routes,release:s.pressReps,vertical:s.contestedTargets,bodyControl:s.contestedTargets,yardsAfterCatch:s.receptions,awareness:s.routes};
     const growth=develop(p.current,values(id=>p.traits[id].ceiling),plan,run.year,school,s.routes,reps,run.balanceVersion??'legacy',schoolHistory);
     p.current=growth.current;const record={...game,gains:growth.gains,generalGains:growth.general,practiceGains:growth.practice};games.push(record);run.history.push(record);for(const item of gameUnlocks(record))addUnlock(run.unlocks,item);

@@ -46,9 +46,9 @@ test('new prospect offers generated names, team-first receiver grades, and compl
   if(year===1){await page.getByRole('button',{name:/Plan my next season/}).click();await page.getByRole('button',{name:/Choose CINDER RIDGE/}).click();}
  }
  await page.getByRole('button',{name:/Declare for the draft/}).click();await page.getByRole('button',{name:/Take the scouting gauntlet/}).click();
- await page.getByRole('button',{name:/Create draft card/}).click();await page.reload();
+ await page.getByRole('button',{name:/See your NFL career/}).click();await page.getByRole('button',{name:'Customize card',exact:true}).click();await page.reload();
  await expect(page.locator('.preview-card')).toBeVisible();
- const download=page.waitForEvent('download');await page.getByRole('button',{name:/Download card PNG/}).click();expect((await download).suggestedFilename()).toContain('draft.png');
+ const download=page.waitForEvent('download');await page.getByRole('button',{name:/Download card PNG/}).click();expect((await download).suggestedFilename()).toContain('career.png');
 });
 
 test('all five palettes keep readable controls in both appearances, including accent icons',async({page})=>{

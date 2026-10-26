@@ -2,6 +2,7 @@ import {BinderEntry,CardEdition,CardViewModel} from './models';
 import {ART_SCENES} from '../data/art-scenes';
 import {sumStats} from './simulation';
 export function cardView(entry:BinderEntry,edition:CardEdition):CardViewModel {
+ if(entry.cardFlowVersion==='single-card-v1.4.4')edition='career';
  const d=entry.draft,career=edition==='career'?entry.career:null,custom=(career?entry.careerCard:entry.draftCard)??entry.draftCard;
  const art=ART_SCENES.find(a=>a.id===custom.sceneId)??ART_SCENES[0],outcome=d.outcome;
  const draftLabel=outcome.status==='drafted'?`ROUND ${outcome.round} · PICK ${outcome.overallPick}`:'UNDRAFTED · FREE AGENT';

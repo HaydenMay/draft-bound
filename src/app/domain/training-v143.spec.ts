@@ -20,7 +20,7 @@ describe('approved v1.4.3 training',()=>{
   for(let seed=1;seed<=25;seed++){
    const fresh=createRun('Synthetic',11,seed,'2026-01-01T00:00:00Z'),old=structuredClone(fresh);old.balanceVersion='v1.2';
    const modern=finishCreation(fresh),previous=finishCreation(old);
-   expect(modern.balanceVersion).toBe('v1.4.3');expect(modern.rng).toBe(previous.rng);expect(modern.creation).toEqual(previous.creation);
+   expect(modern.balanceVersion).toBe('v1.4.4');expect(modern.rng).toBe(previous.rng);expect(modern.creation).toEqual(previous.creation);
    for(const [id,trait] of Object.entries(modern.prospect!.traits)){
     const value=modern.prospect!.current[id];
     if(trait.origin==='gift')expect(value).toBe(94);

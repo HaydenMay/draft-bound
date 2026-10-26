@@ -25,8 +25,10 @@ for(let block=0;block<9;block++){
   for(let game=0;game<4;game++){
     const input=develop(current,values(()=>99),plan,year,COLLEGES[2],42,reps,'v1.2');
     const next=values(id=>integrateGrowth(current[id],baseYearFactors[year-1]*schoolEfficiency[year-1]*1.05*(input.practiceWork[id]*(8/7.2)+input.generalWork[id]),99,'v1.2'));
-    const implemented=develop(current,values(()=>99),plan,year,COLLEGES[2],42,reps,'v1.4.3',Array(year).fill(COLLEGES[2].id));
+    for(const version of ['v1.4.3','v1.4.4'] as const){
+    const implemented=develop(current,values(()=>99),plan,year,COLLEGES[2],42,reps,version,Array(year).fill(COLLEGES[2].id));
     for(const id of Object.keys(next))assert(Math.abs(next[id]-implemented.current[id])<1e-10,`Implemented witness differs for ${id}`);
+    }
     for(const id of Object.keys(next)){assert(next[id]>=current[id]);assert(next[id]<=99);}
     current=next;
   }

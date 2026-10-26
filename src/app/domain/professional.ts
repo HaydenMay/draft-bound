@@ -25,17 +25,19 @@ function simulateProfessionalLegacy(entry:BinderEntry):ProfessionalCareer{
 }
 
 export function simulateProfessional(entry:BinderEntry):ProfessionalCareer{
- return entry.draft.professionalRulesVersion==='v1.4'?simulateProfessionalV14(entry):simulateProfessionalLegacy(entry);
+ return entry.draft.professionalRulesVersion==='v1.4'||entry.draft.professionalRulesVersion==='v1.4.4'?simulateProfessionalV14(entry):simulateProfessionalLegacy(entry);
 }
 function simulateProfessionalV14(entry:BinderEntry):ProfessionalCareer{
  if(entry.positionId!=='wr')throw Error('This historical position is read-only.');
  const rng=new Random(entry.nflSeed),d=entry.draft,ovr=d.finalOvr;
  const team=structuredClone(d.outcome.status==='drafted'?d.outcome.team:rng.pick(DRAFT_TEAMS));
  const seasons:ProfessionalSeason[]=[],awards:ProfessionalCareer['awards']=[],unlocks:ProfessionalCareer['unlocks']=[];
- const talent=clamp((ovr-50)/49,.05,1),length=clamp(3+Math.round(talent*10)+rng.int(-3,3),3,15),startAge=20+d.years.length;
+ const talent=clamp((ovr-50)/49,.05,1),window=clamp(3+Math.round(talent*10)+rng.int(-3,3),3,15),startAge=20+d.years.length;
+ const ageBased=d.professionalRulesVersion==='v1.4.4',length=ageBased?Math.max(2,window-(startAge-22)):window;
  const role=.60+rng.next()*.62;
  for(let i=0;i<length;i++){
-  const aging=i<2?.72+i*.14:i<8?1:Math.max(.42,1-(i-7)*.09);
+  const ageIndex=ageBased?i+startAge-22:i;
+  const aging=ageIndex<2?.72+ageIndex*.14:ageIndex<8?1:Math.max(.42,1-(ageIndex-7)*.09);
   const targets=Math.round((48+talent*124)*role*aging*(.72+rng.next()*.56));
   const receptions=Math.round(targets*(.52+talent*.14));
   const yards=Math.round(receptions*(10.2+talent*3.7)*(.86+rng.next()*.28));

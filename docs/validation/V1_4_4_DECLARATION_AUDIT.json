@@ -1,0 +1,369 @@
+{
+  "method": "200 shared seeds1100001..1100200 per creation mode, reused across versions/schools/policies. Highest weighted offered gift; maximize offered ceiling times attribute weight at each manual pick; no rerolls. Four-game commands with actual coaching, sophomore-declare counterfactual and junior-return career. Not production telemetry or independent samples per condition. This file is the Full/Quick Openwater subset of the same run, not another independent sample.",
+  "groups": [
+    {
+      "version": "v1.4.4",
+      "mode": "quick",
+      "school": "opportunity",
+      "policy": "balanced",
+      "n": 200,
+      "declaration": {
+        "declareHigherNflYardsPct": 22.5,
+        "returnHigherNflYardsPct": 77
+      },
+      "years": [
+        {
+          "year": 1,
+          "initial": 69.731,
+          "ovr": {
+            "mean": 77.823,
+            "p10": 75.8569321718,
+            "median": 77.9539120208,
+            "p90": 79.6758870436,
+            "max": 81.1781357608
+          },
+          "displayed90Pct": 0,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 0.75,
+          "yardsPerGame": 73.839,
+          "tdPerGame": 0.533,
+          "routesPerGame": 30.001,
+          "gameGrade": 69.017,
+          "perfectGamePct": 0,
+          "largestGameYards": 267,
+          "largestGameTD": 4,
+          "longCatches": 64,
+          "nonScoringLongCatches": 46,
+          "nflYears": 0,
+          "nflYards": 0,
+          "hofPct": 0
+        },
+        {
+          "year": 2,
+          "initial": 69.731,
+          "ovr": {
+            "mean": 83.085,
+            "p10": 81.0869046333,
+            "median": 83.1535782382,
+            "p90": 85.0674496419,
+            "max": 86.9587361315
+          },
+          "displayed90Pct": 0,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 2.688,
+          "yardsPerGame": 81.283,
+          "tdPerGame": 0.612,
+          "routesPerGame": 30.072,
+          "gameGrade": 71.108,
+          "perfectGamePct": 0,
+          "largestGameYards": 297,
+          "largestGameTD": 4,
+          "longCatches": 148,
+          "nonScoringLongCatches": 111,
+          "nflYears": 9.83,
+          "nflYards": 8442.42,
+          "hofPct": 0
+        },
+        {
+          "year": 3,
+          "initial": 69.731,
+          "ovr": {
+            "mean": 86.127,
+            "p10": 83.9070968207,
+            "median": 86.2611510448,
+            "p90": 88.2879093199,
+            "max": 90.6790053198
+          },
+          "displayed90Pct": 2,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 10.625,
+          "yardsPerGame": 86.72,
+          "tdPerGame": 0.656,
+          "routesPerGame": 30.059,
+          "gameGrade": 72.575,
+          "perfectGamePct": 0,
+          "largestGameYards": 297,
+          "largestGameTD": 5,
+          "longCatches": 255,
+          "nonScoringLongCatches": 181,
+          "nflYears": 9.415,
+          "nflYards": 8944.455,
+          "hofPct": 0.5
+        }
+      ]
+    },
+    {
+      "version": "v1.4.4",
+      "mode": "quick",
+      "school": "opportunity",
+      "policy": "adaptive",
+      "n": 200,
+      "declaration": {
+        "declareHigherNflYardsPct": 20,
+        "returnHigherNflYardsPct": 80
+      },
+      "years": [
+        {
+          "year": 1,
+          "initial": 69.731,
+          "ovr": {
+            "mean": 78.615,
+            "p10": 76.6768124343,
+            "median": 78.7595167854,
+            "p90": 80.3690506207,
+            "max": 81.8960015878
+          },
+          "displayed90Pct": 0,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 0.688,
+          "yardsPerGame": 75.955,
+          "tdPerGame": 0.549,
+          "routesPerGame": 30.011,
+          "gameGrade": 69.719,
+          "perfectGamePct": 0,
+          "largestGameYards": 267,
+          "largestGameTD": 4,
+          "longCatches": 60,
+          "nonScoringLongCatches": 40,
+          "nflYears": 0,
+          "nflYards": 0,
+          "hofPct": 0
+        },
+        {
+          "year": 2,
+          "initial": 69.731,
+          "ovr": {
+            "mean": 83.971,
+            "p10": 81.9430356598,
+            "median": 84.1087936322,
+            "p90": 85.9885198509,
+            "max": 87.812288175
+          },
+          "displayed90Pct": 0,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 1.375,
+          "yardsPerGame": 83.757,
+          "tdPerGame": 0.627,
+          "routesPerGame": 30.091,
+          "gameGrade": 71.85,
+          "perfectGamePct": 0,
+          "largestGameYards": 302,
+          "largestGameTD": 5,
+          "longCatches": 144,
+          "nonScoringLongCatches": 108,
+          "nflYears": 9.945,
+          "nflYards": 8762.795,
+          "hofPct": 0
+        },
+        {
+          "year": 3,
+          "initial": 69.731,
+          "ovr": {
+            "mean": 86.771,
+            "p10": 84.4293242907,
+            "median": 86.8238237641,
+            "p90": 89.0151324783,
+            "max": 91.2993166853
+          },
+          "displayed90Pct": 5.5,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 9.625,
+          "yardsPerGame": 88.952,
+          "tdPerGame": 0.67,
+          "routesPerGame": 30.083,
+          "gameGrade": 73.228,
+          "perfectGamePct": 0.014,
+          "largestGameYards": 302,
+          "largestGameTD": 5,
+          "longCatches": 247,
+          "nonScoringLongCatches": 176,
+          "nflYears": 9.545,
+          "nflYards": 9215.88,
+          "hofPct": 1
+        }
+      ]
+    },
+    {
+      "version": "v1.4.4",
+      "mode": "full",
+      "school": "opportunity",
+      "policy": "balanced",
+      "n": 200,
+      "declaration": {
+        "declareHigherNflYardsPct": 19.5,
+        "returnHigherNflYardsPct": 80.5
+      },
+      "years": [
+        {
+          "year": 1,
+          "initial": 69.641,
+          "ovr": {
+            "mean": 77.925,
+            "p10": 76.1233297511,
+            "median": 77.9736530407,
+            "p90": 79.8982181152,
+            "max": 81.1772488123
+          },
+          "displayed90Pct": 0,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 1.125,
+          "yardsPerGame": 75.223,
+          "tdPerGame": 0.53,
+          "routesPerGame": 30.075,
+          "gameGrade": 69.129,
+          "perfectGamePct": 0,
+          "largestGameYards": 232,
+          "largestGameTD": 4,
+          "longCatches": 69,
+          "nonScoringLongCatches": 48,
+          "nflYears": 0,
+          "nflYards": 0,
+          "hofPct": 0
+        },
+        {
+          "year": 2,
+          "initial": 69.641,
+          "ovr": {
+            "mean": 83.29,
+            "p10": 81.1507369565,
+            "median": 83.4638820865,
+            "p90": 85.3708885207,
+            "max": 86.5417264245
+          },
+          "displayed90Pct": 0,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 2.625,
+          "yardsPerGame": 82.236,
+          "tdPerGame": 0.606,
+          "routesPerGame": 30.113,
+          "gameGrade": 71.206,
+          "perfectGamePct": 0,
+          "largestGameYards": 302,
+          "largestGameTD": 4,
+          "longCatches": 151,
+          "nonScoringLongCatches": 109,
+          "nflYears": 9.875,
+          "nflYards": 8543.545,
+          "hofPct": 0
+        },
+        {
+          "year": 3,
+          "initial": 69.641,
+          "ovr": {
+            "mean": 86.414,
+            "p10": 84.0189854228,
+            "median": 86.6093628616,
+            "p90": 88.760499945,
+            "max": 90.0836505698
+          },
+          "displayed90Pct": 3,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 10.125,
+          "yardsPerGame": 87.586,
+          "tdPerGame": 0.658,
+          "routesPerGame": 30.093,
+          "gameGrade": 72.713,
+          "perfectGamePct": 0,
+          "largestGameYards": 302,
+          "largestGameTD": 4,
+          "longCatches": 256,
+          "nonScoringLongCatches": 184,
+          "nflYears": 9.515,
+          "nflYards": 9114.24,
+          "hofPct": 0.5
+        }
+      ]
+    },
+    {
+      "version": "v1.4.4",
+      "mode": "full",
+      "school": "opportunity",
+      "policy": "adaptive",
+      "n": 200,
+      "declaration": {
+        "declareHigherNflYardsPct": 13,
+        "returnHigherNflYardsPct": 87
+      },
+      "years": [
+        {
+          "year": 1,
+          "initial": 69.641,
+          "ovr": {
+            "mean": 78.665,
+            "p10": 76.915195359,
+            "median": 78.7503448863,
+            "p90": 80.511446667,
+            "max": 81.7655825261
+          },
+          "displayed90Pct": 0,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 1.125,
+          "yardsPerGame": 77.374,
+          "tdPerGame": 0.542,
+          "routesPerGame": 30.097,
+          "gameGrade": 69.853,
+          "perfectGamePct": 0,
+          "largestGameYards": 228,
+          "largestGameTD": 4,
+          "longCatches": 72,
+          "nonScoringLongCatches": 53,
+          "nflYears": 0,
+          "nflYards": 0,
+          "hofPct": 0
+        },
+        {
+          "year": 2,
+          "initial": 69.641,
+          "ovr": {
+            "mean": 84.16,
+            "p10": 81.9618605533,
+            "median": 84.2971227096,
+            "p90": 86.1483694269,
+            "max": 87.5483171885
+          },
+          "displayed90Pct": 0,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 1.563,
+          "yardsPerGame": 84.538,
+          "tdPerGame": 0.619,
+          "routesPerGame": 30.136,
+          "gameGrade": 71.88,
+          "perfectGamePct": 0,
+          "largestGameYards": 302,
+          "largestGameTD": 5,
+          "longCatches": 156,
+          "nonScoringLongCatches": 117,
+          "nflYears": 9.97,
+          "nflYards": 8832.37,
+          "hofPct": 0
+        },
+        {
+          "year": 3,
+          "initial": 69.641,
+          "ovr": {
+            "mean": 87.06,
+            "p10": 84.3787886766,
+            "median": 87.1459642024,
+            "p90": 89.3124091174,
+            "max": 91.3338107155
+          },
+          "displayed90Pct": 8,
+          "displayed95Pct": 0,
+          "nonGiftWithinOnePct": 8.5,
+          "yardsPerGame": 89.767,
+          "tdPerGame": 0.67,
+          "routesPerGame": 30.108,
+          "gameGrade": 73.333,
+          "perfectGamePct": 0.014,
+          "largestGameYards": 302,
+          "largestGameTD": 5,
+          "longCatches": 260,
+          "nonScoringLongCatches": 193,
+          "nflYears": 9.665,
+          "nflYards": 9402.07,
+          "hofPct": 1
+        }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,7 @@ const step=(r:RunState,c:GameCommandPayload)=>transition(r,{...c,id:`production-
 const attrs=[...WR_DEFINITION.attributes].sort((a,b)=>b.weight-a.weight);
 function build(seed:number,mode:CreationMode){
  let r=createRun('Synthetic training audit',11,seed,'2026-10-25T00:00:00.000Z',mode);
+ r.balanceVersion='v1.4.3';delete r.collegeRulesVersion;delete r.careerFlowVersion;
  const gift=r.creation.giftOffers.map((g,index)=>({index,weight:attrs.find(a=>a.id===g.attributeId)!.weight})).sort((a,b)=>b.weight-a.weight)[0];
  r=step(r,{type:'choose-gift',index:gift.index});r=step(r,{type:'accept-size'});
  while(r.phase==='potential'){

@@ -43,14 +43,14 @@ export interface ProfessionalCareer { positionId:'wr';rulesVersion:string;status
 export interface PositionPayloadMap { wr:{attributeId:WrAttributeId;gameStats:WrGameStats;gameEvent:WrGameEvent;professionalStats:WrProfessionalStats}; }
 export type PositionId = keyof PositionPayloadMap;
 export type CreationMode='quick'|'full';
-export type BalanceVersion='legacy'|'v1.2'|'v1.4.3';
+export type BalanceVersion='legacy'|'v1.2'|'v1.4.3'|'v1.4.4';
 export type RunPhase='gift'|'size'|'potential'|'reveal'|'college-choice'|'training'|'block-review'|'season-review'|'transfer'|'gauntlet'|'draft-night'|'complete';
-export type ProfessionalRulesVersion='legacy-v1.3.2'|'v1.4';
-export interface RunState { receiverCatalogVersion?:string;sourceCatalogVersion?:string; creationMode?:CreationMode;creationFlowVersion?:'single-receiver-v1.4.2';balanceVersion?:BalanceVersion;id:string;positionId:'wr';rulesVersion:string;createdAt:string;seed:number;rng:number;nflSeed:number;name:string;jerseyNumber:number;phase:RunPhase;rerolls:number;creation:CreationState;prospect:Prospect|null;collegeId:string;year:number;gameNumber:number;history:GameRecord[];years:YearSummary[];transfers:TransferRecord[];interventions:Intervention[];usedInterventions:string[];pendingIntervention:Intervention|null;lastBlock:BlockReview|null;yearStartOvr:number;awards:AwardRecord[];unlocks:SceneUnlock[];draft:DraftSnapshot|null;processedCommands:string[]; }
+export type ProfessionalRulesVersion='legacy-v1.3.2'|'v1.4'|'v1.4.4';
+export interface RunState { collegeRulesVersion?:'v1.4.4';careerFlowVersion?:'single-card-v1.4.4'; receiverCatalogVersion?:string;sourceCatalogVersion?:string; creationMode?:CreationMode;creationFlowVersion?:'single-receiver-v1.4.2';balanceVersion?:BalanceVersion;id:string;positionId:'wr';rulesVersion:string;createdAt:string;seed:number;rng:number;nflSeed:number;name:string;jerseyNumber:number;phase:RunPhase;rerolls:number;creation:CreationState;prospect:Prospect|null;collegeId:string;year:number;gameNumber:number;history:GameRecord[];years:YearSummary[];transfers:TransferRecord[];interventions:Intervention[];usedInterventions:string[];pendingIntervention:Intervention|null;lastBlock:BlockReview|null;yearStartOvr:number;awards:AwardRecord[];unlocks:SceneUnlock[];draft:DraftSnapshot|null;processedCommands:string[]; }
 export type CardEdition='draft'|'career';
 export interface CardCustomization { sceneId:string;frame:'classic'|'silver'|'gold'|'training'|'transfer'|'legend';foil:boolean;showStamp:boolean;featuredEvidenceId?:string; }
 export interface HistoricalDisplay { positionLabel:string;attributes:{id:string;label:string;value:number;ceiling:number}[];schoolName:string;schoolColors:[string,string]; }
-export interface BinderEntry { id:string;positionId:string;createdAt:string;completedAt:string;favorite:boolean;draft:DraftSnapshot;career:ProfessionalCareer|null;nflSeed:number;draftCard:CardCustomization;careerCard:CardCustomization|null;display:HistoricalDisplay; }
+export interface BinderEntry { cardFlowVersion?:'single-card-v1.4.4'; id:string;positionId:string;createdAt:string;completedAt:string;favorite:boolean;draft:DraftSnapshot;career:ProfessionalCareer|null;nflSeed:number;draftCard:CardCustomization;careerCard:CardCustomization|null;display:HistoricalDisplay; }
 export interface CosmeticProfile { achievements:string[];frames:CardCustomization['frame'][]; }
 import type {PaletteId} from '../data/palettes';
 export type {PaletteId} from '../data/palettes';
@@ -61,4 +61,4 @@ export interface CardViewModel { name:string;position:string;ovr:number;title:st
 export type GameCommandPayload = {type:'choose-gift';index:number}|{type:'reroll'}|{type:'accept-size'}|{type:'choose-trait';sourcePlayerId:string;attributeId:string}|{type:'continue'}|{type:'choose-college';collegeId:string}|{type:'train';plan:TrainingPlan}|{type:'declare'}|{type:'return'}|{type:'transfer';collegeId:string}|{type:'scout'};
 export type GameCommand = GameCommandPayload & {id:string};
 export interface Transition { run:RunState;entry?:BinderEntry;message?:string; }
-export interface PositionRules { definition:PositionDefinition;sourcePlayers:readonly ReceiverProfileDefinition[];simulateGame:(input:{prospect:Prospect;college:CollegeProgram;year:number;gameNumber:number;seed:number})=>Omit<GameRecord,'gains'|'generalGains'|'practiceGains'>; }
+export interface PositionRules { definition:PositionDefinition;sourcePlayers:readonly ReceiverProfileDefinition[];simulateGame:(input:{prospect:Prospect;college:CollegeProgram;year:number;gameNumber:number;seed:number;collegeRulesVersion?:'v1.4.4'})=>Omit<GameRecord,'gains'|'generalGains'|'practiceGains'>; }

@@ -79,7 +79,7 @@ export class App {
     { id: 'legend', label: 'Legend', detail: 'The highest collection finish' },
   ];
   readonly heroCard: CardViewModel = {
-    name: 'Your prospect', position: 'WR', ovr: 72, title: 'Sample card', subtitle: '', school: 'College · Draft · Career', team: '', draftLabel: 'Your draft edition', edition: 'draft', art: 'art/journey.png', sceneName: 'Prospect Journey', frame: 'classic', foil: false, stamp: '', statLines: [{ label: 'Build', value: '01' }, { label: 'Develop', value: '02' }, { label: 'Collect', value: '03' }], colors: ['#254b35', '#e9b654'], year: 'VOL. 01',
+    name: 'Your prospect', position: 'WR', ovr: 72, title: 'Sample card', subtitle: '', school: 'College · Draft · Career', team: '', draftLabel: 'Your career card', edition: 'draft', art: 'art/journey.png', sceneName: 'Prospect Journey', frame: 'classic', foil: false, stamp: '', statLines: [{ label: 'Build', value: '01' }, { label: 'Develop', value: '02' }, { label: 'Collect', value: '03' }], colors: ['#254b35', '#e9b654'], year: 'VOL. 01',
   };
   readonly filteredEntries = computed(() => {
     const query = this.search().trim().toLocaleLowerCase();
