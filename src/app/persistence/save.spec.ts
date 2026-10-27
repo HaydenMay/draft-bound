@@ -2,6 +2,7 @@ import {beforeEach,it,expect} from 'vitest';
 import 'fake-indexeddb/auto';
 import {GameRepository,emptySave,previewSave} from './save';
 import {createRun} from '../domain/engine';
+import {simulateProfessional} from '../domain/professional';
 import {createCollege,completeRun,step} from '../domain/test-fixtures';
 import quickFixture from './fixtures/v1.3.1-quick.json';
 import fullFixture from './fixtures/v1.3.1-full.json';
@@ -113,4 +114,14 @@ it('round trips the expanded coaching catalog without rejecting legacy JUGS save
  }
  save.run.usedInterventions=['wr.jugs','wr.press','wr.contested','wr.routes'];
  expect(previewSave(JSON.stringify(save)).ok).toBe(true);
+});
+
+it('preserves new professional careers and their rule version through save import',()=>{
+ const save=emptySave(), entry=completeRun(82,3,'v1.4.4').entry!;
+ entry.draft.professionalRulesVersion='v1.4.6';entry.career=simulateProfessional(entry);
+ save.run=createRun('New Prospect',11,100);save.entries=[entry];
+ const restored=previewSave(JSON.stringify(save));
+ expect(restored.errors).toEqual([]);
+ expect(restored.data?.run?.professionalRulesVersion).toBe('v1.4.6');
+ expect(restored.data?.entries[0].career).toEqual(entry.career);
 });
